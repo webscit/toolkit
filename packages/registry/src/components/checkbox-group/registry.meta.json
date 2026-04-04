@@ -1,0 +1,7 @@
+{
+  "title": "CheckboxGroup",
+  "description": "Fieldset wrapper for grouping checkboxes.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": ["checkbox"]
+}

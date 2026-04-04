@@ -1,0 +1,37 @@
+@scope (.sct-textarea) {
+  :scope {
+    display: flex;
+    field-sizing: content;
+    min-height: 4rem;
+    width: 100%;
+    border-radius: var(--sct-radius-md);
+    border: 1px solid var(--sct-color-input);
+    background-color: transparent;
+    padding-inline: 0.75rem;
+    padding-block: 0.5rem;
+    font-size: var(--sct-font-size-base);
+    font-family: var(--sct-font-family-sans);
+    color: var(--sct-color-foreground);
+    box-shadow: var(--sct-shadow-xs);
+    transition: color 150ms, box-shadow 150ms, border-color 150ms;
+    outline: none;
+    resize: vertical;
+  }
+
+  :scope::placeholder { color: var(--sct-color-muted-foreground); }
+
+  :scope:focus-visible {
+    border-color: var(--sct-color-ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+  }
+
+  :scope:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  :scope[aria-invalid="true"] {
+    border-color: var(--sct-color-destructive);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
+  }
+}

@@ -1,0 +1,12 @@
+@scope (.sct-radio-group) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  :scope[data-orientation="horizontal"] {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

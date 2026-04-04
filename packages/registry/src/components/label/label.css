@@ -1,0 +1,18 @@
+@scope (.sct-label) {
+  :scope {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--sct-font-size-sm);
+    font-weight: var(--sct-font-weight-medium);
+    line-height: 1;
+    user-select: none;
+    color: var(--sct-color-foreground);
+  }
+
+  :scope:has(+ input:disabled),
+  :scope:has(+ [data-disabled]) {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}

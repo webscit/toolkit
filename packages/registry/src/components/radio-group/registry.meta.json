@@ -1,0 +1,7 @@
+{
+  "title": "RadioGroup",
+  "description": "Accessible radio group built on Base UI.",
+  "dependencies": ["@base-ui-components/react"],
+  "devDependencies": [],
+  "registryDependencies": ["radio"]
+}

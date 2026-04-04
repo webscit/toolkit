@@ -1,0 +1,53 @@
+@scope (.sct-checkbox) {
+  :scope {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    border-radius: var(--sct-radius-sm);
+    border: 1px solid var(--sct-color-input);
+    background-color: transparent;
+    box-shadow: var(--sct-shadow-xs);
+    transition: box-shadow 150ms, background-color 150ms, border-color 150ms;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    appearance: none;
+  }
+
+  :scope:focus-visible {
+    border-color: var(--sct-color-ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+  }
+
+  :scope[data-checked] {
+    background-color: var(--sct-color-primary);
+    border-color: var(--sct-color-primary);
+    color: var(--sct-color-primary-foreground);
+  }
+
+  :scope[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  :scope[aria-invalid="true"] {
+    border-color: var(--sct-color-destructive);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
+  }
+
+  .sct-checkbox-indicator {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 100%;
+    color: currentColor;
+  }
+
+  .sct-checkbox-indicator svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}

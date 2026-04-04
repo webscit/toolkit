@@ -1,0 +1,46 @@
+@scope (.sct-switch) {
+  :scope {
+    display: inline-flex;
+    align-items: center;
+    width: 2.5rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    border-radius: var(--sct-radius-full);
+    border: 2px solid transparent;
+    background-color: var(--sct-color-input);
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 150ms, box-shadow 150ms;
+    outline: none;
+    appearance: none;
+  }
+
+  :scope:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+  }
+
+  :scope[data-checked] {
+    background-color: var(--sct-color-primary);
+  }
+
+  :scope[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .sct-switch-thumb {
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: var(--sct-radius-full);
+    background-color: var(--sct-color-background);
+    box-shadow: var(--sct-shadow-sm);
+    pointer-events: none;
+    translate: 1px;
+    transition: translate 150ms;
+  }
+
+  :scope[data-checked] .sct-switch-thumb {
+    translate: 1.125rem;
+  }
+}

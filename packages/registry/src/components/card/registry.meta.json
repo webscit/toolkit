@@ -1,0 +1,7 @@
+{
+  "title": "Card",
+  "description": "Container card with header, content, and footer slots.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,40 @@
+.sct-card {
+  background-color: var(--sct-color-surface);
+  border: 1px solid var(--sct-color-border);
+  border-radius: var(--sct-radius-lg);
+  box-shadow: var(--sct-shadow-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sct-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.5rem;
+  padding-bottom: 0;
+}
+
+.sct-card-title {
+  font-size: var(--sct-font-size-xl);
+  font-weight: var(--sct-font-weight-semibold);
+  color: var(--sct-color-foreground);
+  line-height: var(--sct-line-height-tight);
+}
+
+.sct-card-description {
+  font-size: var(--sct-font-size-sm);
+  color: var(--sct-color-muted-foreground);
+}
+
+.sct-card-content {
+  padding: 1.5rem;
+}
+
+.sct-card-footer {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  padding-top: 0;
+}

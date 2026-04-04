@@ -1,0 +1,7 @@
+{
+  "title": "Tooltip",
+  "description": "Accessible tooltip built on Base UI.",
+  "dependencies": ["@base-ui-components/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

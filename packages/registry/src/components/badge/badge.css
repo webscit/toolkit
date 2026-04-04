@@ -1,0 +1,36 @@
+@scope (.sct-badge) {
+  :scope {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border-radius: var(--sct-radius-full);
+    border: 1px solid transparent;
+    padding-inline: 0.625rem;
+    padding-block: 0.125rem;
+    font-size: var(--sct-font-size-xs);
+    font-weight: var(--sct-font-weight-medium);
+    white-space: nowrap;
+    transition: background-color 150ms, color 150ms;
+
+    /* default variant */
+    background-color: var(--sct-color-primary);
+    color: var(--sct-color-primary-foreground);
+  }
+
+  :scope[data-variant="secondary"] {
+    background-color: var(--sct-color-secondary);
+    color: var(--sct-color-secondary-foreground);
+  }
+
+  :scope[data-variant="destructive"] {
+    background-color: var(--sct-color-destructive);
+    color: var(--sct-color-destructive-foreground);
+  }
+
+  :scope[data-variant="outline"] {
+    background-color: transparent;
+    border-color: var(--sct-color-border);
+    color: var(--sct-color-foreground);
+  }
+}
