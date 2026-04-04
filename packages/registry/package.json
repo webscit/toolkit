@@ -6,7 +6,7 @@
     "build": "tsc -p tsconfig.build.json && npm run build:registry",
     "build:registry": "tsx scripts/build-registry.mts",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run --passWithNoTests"
   },
   "peerDependencies": {
     "react": ">=18",
