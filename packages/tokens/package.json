@@ -5,5 +5,13 @@
   "scripts": {
     "build": "node build.mjs",
     "typecheck": "tsc --noEmit"
+  },
+  "exports": {
+    "./tokens.css":      "./dist/tokens.css",
+    "./tokens-dark.css": "./dist/tokens-dark.css"
+  },
+  "devDependencies": {
+    "@tokens-studio/sd-transforms": "^1.3.0",
+    "style-dictionary": "^4.4.0"
   }
 }
