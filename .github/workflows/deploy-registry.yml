@@ -1,0 +1,63 @@
+name: Deploy Registry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/registry/src/**'
+      - 'packages/registry/scripts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build tokens
+        run: npm run build --workspace=packages/tokens
+
+      - name: Build registry TypeScript
+        run: npm run build --workspace=packages/registry
+
+      - name: Build registry JSON
+        run: npm run build:registry --workspace=packages/registry
+
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p _site/r
+          cp -r packages/registry/registry/* _site/r/
+          # Also deploy built tokens CSS for consumers who want to link directly
+          mkdir -p _site/tokens
+          cp packages/tokens/dist/*.css _site/tokens/
+          cp packages/tokens/dist/*.json _site/tokens/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - uses: actions/deploy-pages@v4
+        id: deployment
