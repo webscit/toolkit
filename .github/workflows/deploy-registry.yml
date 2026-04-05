@@ -6,6 +6,8 @@ on:
     paths:
       - 'packages/registry/src/**'
       - 'packages/registry/scripts/**'
+      - 'apps/docs/src/**'
+      - 'apps/docs/.storybook/**'
   workflow_dispatch:
 
 permissions:
@@ -44,14 +46,19 @@ jobs:
       - name: Build registry JSON
         run: npm run build:registry --workspace=packages/registry
 
+      - name: Build Storybook
+        run: npm run build --workspace=apps/docs
+
       - name: Prepare Pages artifact
         run: |
           mkdir -p _site/r
+          mkdir -p _site/tokens
+          mkdir -p _site/storybook
           cp -r packages/registry/registry/* _site/r/
           # Also deploy built tokens CSS for consumers who want to link directly
-          mkdir -p _site/tokens
           cp packages/tokens/dist/*.css _site/tokens/
           cp packages/tokens/dist/*.json _site/tokens/
+          cp -r apps/docs/storybook-static/* _site/storybook/
 
       - uses: actions/configure-pages@v5
 
