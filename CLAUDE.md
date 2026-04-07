@@ -46,14 +46,15 @@ npm run build -w apps/docs  # static Storybook build → storybook-static/
 Tests run in **Vitest browser mode** (Playwright Chromium). There is no jsdom. Test files live alongside source as `*.test.tsx`. Use `vitest-browser-react`'s `render` and the `expect.element()` async API (not `@testing-library/react`'s `screen`).
 
 ```tsx
-import { render } from 'vitest-browser-react';
+import { render } from "vitest-browser-react";
 const screen = await render(<Button>Click</Button>);
-await expect.element(screen.getByRole('button')).toBeInTheDocument();
+await expect.element(screen.getByRole("button")).toBeInTheDocument();
 ```
 
 ## Component Conventions
 
 Every component in `packages/registry/src/components/<name>/` has:
+
 - `<name>.tsx` — React component
 - `<name>.css` — scoped styles
 - `registry.meta.json` — title, description, dependencies, registryDependencies
@@ -62,6 +63,7 @@ Every component in `packages/registry/src/components/<name>/` has:
 **CSS scoping:** Each component uses a single stable scope-anchor class `sct-<name>` on the root element and an `@scope (.sct-<name>) { ... }` block in CSS. Variants/sizes use `data-variant` / `data-size` attributes. States use Base UI's injected `data-*` attributes (`data-disabled`, `data-checked`, etc.). No Radix `data-[state=*]` syntax.
 
 **No `cn()` / `clsx`:** Class composition is manual:
+
 ```tsx
 className={`sct-button${className ? ` ${className}` : ''}`}
 ```
@@ -71,11 +73,13 @@ className={`sct-button${className ? ` ${className}` : ''}`}
 ## Design Token System
 
 Tokens are W3C DTCG JSON files in `packages/tokens/src/`:
+
 - `base.tokens.json` — primitive palette (colors, spacing, radii, typography)
 - `semantic.tokens.json` — semantic aliases for light theme
 - `semantic-dark.tokens.json` — dark theme overrides only
 
 Style Dictionary outputs:
+
 - `dist/tokens.css` — `:root { --sct-* }` (light theme)
 - `dist/tokens-dark.css` — `[data-theme="dark"] { --sct-* }` (dark overrides)
 
@@ -84,6 +88,7 @@ Token names are kebab-case prefixed `sct-`, e.g. `--sct-color-primary`. Dark mod
 ## Registry Build
 
 `packages/registry/scripts/build-registry.mjs` reads all component directories and produces:
+
 - `registry/<name>.json` — per-component file with inlined source content
 - `registry/registry.json` — index manifest (shadcn-compatible schema)
 

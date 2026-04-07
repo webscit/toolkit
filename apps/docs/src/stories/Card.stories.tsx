@@ -1,10 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button } from '@webscit/registry';
+import type { Meta, StoryObj } from "@storybook/react";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  Button,
+} from "@webscit/registry";
 
 const meta = {
-  title: 'Components/Card',
+  title: "Components/Card",
   component: Card,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Card>;
 
 export default meta;
@@ -12,10 +20,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Card style={{ maxWidth: '360px' }}>
+    <Card style={{ maxWidth: "360px" }}>
       <CardHeader>
         <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card description that provides additional context.</CardDescription>
+        <CardDescription>
+          Card description that provides additional context.
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <p>Card content goes here. This can include any React content.</p>
@@ -30,7 +40,7 @@ export const Default: Story = {
 
 export const Simple: Story = {
   render: () => (
-    <Card style={{ maxWidth: '360px' }}>
+    <Card style={{ maxWidth: "360px" }}>
       <CardContent>
         <p>A simple card with only content.</p>
       </CardContent>
@@ -39,5 +49,5 @@ export const Simple: Story = {
 };
 
 export const Playground: Story = {
-  args: { children: 'Card content' },
+  args: { children: "Card content" },
 };

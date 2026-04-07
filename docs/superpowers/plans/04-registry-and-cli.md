@@ -1,7 +1,9 @@
 # Phase 4 — Registry & CLI
 
 ## Goal
+
 Make components installable via `npx @webscit/toolkit add <component>` into a consumer project. This requires:
+
 1. A shadcn-compatible registry manifest built from component sources
 2. A GitHub Actions workflow that deploys the registry to GitHub Pages at `https://webscit.github.io/toolkit`
 3. A thin CLI wrapper published to npm
@@ -15,6 +17,7 @@ Make components installable via `npx @webscit/toolkit add <component>` into a co
 The shadcn CLI fetches components from a registry server. Two key endpoints:
 
 **Registry index** (`/r/registry.json`):
+
 ```json
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
@@ -28,7 +31,10 @@ The shadcn CLI fetches components from a registry server. Two key endpoints:
       "description": "Themable button built on Base UI.",
       "dependencies": ["@base-ui-components/react"],
       "files": [
-        { "path": "components/button/button.tsx", "type": "registry:component" },
+        {
+          "path": "components/button/button.tsx",
+          "type": "registry:component"
+        },
         { "path": "components/button/button.css", "type": "registry:component" }
       ]
     }
@@ -45,11 +51,11 @@ The shadcn CLI fetches components from a registry server. Two key endpoints:
 `packages/registry/scripts/build-registry.mts`
 
 ```ts
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
-import { join, resolve } from 'path';
+import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "fs";
+import { join, resolve } from "path";
 
-const COMPONENTS_DIR = resolve('src/components');
-const OUTPUT_DIR = resolve('registry');
+const COMPONENTS_DIR = resolve("src/components");
+const OUTPUT_DIR = resolve("registry");
 mkdirSync(OUTPUT_DIR, { recursive: true });
 
 const componentNames = readdirSync(COMPONENTS_DIR, { withFileTypes: true })
@@ -58,33 +64,41 @@ const componentNames = readdirSync(COMPONENTS_DIR, { withFileTypes: true })
 
 const items = componentNames.map((name) => {
   const dir = join(COMPONENTS_DIR, name);
-  const meta = JSON.parse(readFileSync(join(dir, 'registry.meta.json'), 'utf8'));
+  const meta = JSON.parse(
+    readFileSync(join(dir, "registry.meta.json"), "utf8"),
+  );
 
   const files = readdirSync(dir)
-    .filter((f) => f.endsWith('.tsx') || f.endsWith('.css'))
+    .filter((f) => f.endsWith(".tsx") || f.endsWith(".css"))
     .map((filename) => ({
       path: `components/${name}/${filename}`,
-      type: 'registry:component' as const,
-      content: readFileSync(join(dir, filename), 'utf8'),
+      type: "registry:component" as const,
+      content: readFileSync(join(dir, filename), "utf8"),
     }));
 
-  const item = { name, type: 'registry:component', ...meta, files };
+  const item = { name, type: "registry:component", ...meta, files };
 
   // Write per-component JSON
-  writeFileSync(join(OUTPUT_DIR, `${name}.json`), JSON.stringify(item, null, 2));
+  writeFileSync(
+    join(OUTPUT_DIR, `${name}.json`),
+    JSON.stringify(item, null, 2),
+  );
 
   // Return index entry (without content)
   return { ...item, files: files.map(({ content: _, ...f }) => f) };
 });
 
 const registry = {
-  $schema: 'https://ui.shadcn.com/schema/registry.json',
-  name: 'webscit-toolkit',
-  homepage: 'https://webscit.github.io/toolkit',
+  $schema: "https://ui.shadcn.com/schema/registry.json",
+  name: "webscit-toolkit",
+  homepage: "https://webscit.github.io/toolkit",
   items,
 };
 
-writeFileSync(join(OUTPUT_DIR, 'registry.json'), JSON.stringify(registry, null, 2));
+writeFileSync(
+  join(OUTPUT_DIR, "registry.json"),
+  JSON.stringify(registry, null, 2),
+);
 console.log(`✓ registry built: ${items.length} components`);
 ```
 
@@ -103,8 +117,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'packages/registry/src/**'
-      - 'packages/registry/scripts/**'
+      - "packages/registry/src/**"
+      - "packages/registry/scripts/**"
   workflow_dispatch:
 
 permissions:
@@ -163,6 +177,7 @@ jobs:
 ```
 
 After a successful deploy, the registry will be available at:
+
 - `https://webscit.github.io/toolkit/r/registry.json`
 - `https://webscit.github.io/toolkit/r/button.json`
 - `https://webscit.github.io/toolkit/tokens/tokens.css`
@@ -175,16 +190,15 @@ After a successful deploy, the registry will be available at:
 
 ```ts
 #!/usr/bin/env node
-const REGISTRY_URL = 'https://webscit.github.io/toolkit/r';
-const [,, command, ...args] = process.argv;
+const REGISTRY_URL = "https://webscit.github.io/toolkit/r";
+const [, , command, ...args] = process.argv;
 
-if (command === 'add') {
-  const { execSync } = await import('child_process');
-  const components = args.join(' ');
-  execSync(
-    `npx shadcn@latest add --registry ${REGISTRY_URL} ${components}`,
-    { stdio: 'inherit' }
-  );
+if (command === "add") {
+  const { execSync } = await import("child_process");
+  const components = args.join(" ");
+  execSync(`npx shadcn@latest add --registry ${REGISTRY_URL} ${components}`, {
+    stdio: "inherit",
+  });
 } else {
   console.log(`
 @webscit/toolkit
@@ -200,6 +214,7 @@ Components: button, input, label, checkbox, checkbox-group, radio, radio-group,
 ```
 
 `packages/cli/package.json`
+
 ```json
 {
   "name": "@webscit/toolkit",
@@ -230,6 +245,7 @@ npx @webscit/toolkit add button
 ```
 
 Expected:
+
 - `src/components/button/button.tsx` created
 - `src/components/button/button.css` created
 - `@base-ui-components/react` added to `package.json` dependencies

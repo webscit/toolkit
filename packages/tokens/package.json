@@ -7,7 +7,7 @@
     "typecheck": "tsc --noEmit"
   },
   "exports": {
-    "./tokens.css":      "./dist/tokens.css",
+    "./tokens.css": "./dist/tokens.css",
     "./tokens-dark.css": "./dist/tokens-dark.css"
   },
   "devDependencies": {

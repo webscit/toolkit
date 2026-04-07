@@ -1,6 +1,7 @@
 # Phase 1 — Monorepo Scaffold
 
 ## Goal
+
 A fully configured monorepo that all subsequent phases build on top of. Every developer tool is wired up, CI passes on an empty repo.
 
 ---
@@ -12,15 +13,13 @@ A fully configured monorepo that all subsequent phases build on top of. Every de
 **Files to create:**
 
 `package.json` (root)
+
 ```json
 {
   "name": "webscit-toolkit",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
+  "workspaces": ["packages/*", "apps/*"],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
@@ -37,11 +36,13 @@ A fully configured monorepo that all subsequent phases build on top of. Every de
 ```
 
 `.npmrc`
+
 ```
 legacy-peer-deps=false
 ```
 
 **Install:**
+
 ```sh
 npm install
 ```
@@ -51,6 +52,7 @@ npm install
 ### 1.2 — TypeScript root config
 
 `tsconfig.base.json` (root — shared config all packages extend)
+
 ```json
 {
   "compilerOptions": {
@@ -74,14 +76,15 @@ npm install
 ### 1.3 — ESLint config
 
 `eslint.config.mjs` (flat config, root)
+
 ```js
-import tseslint from '@typescript-eslint/eslint-plugin';
-import tsparser from '@typescript-eslint/parser';
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tsparser from "@typescript-eslint/parser";
 
 export default [
   {
-    files: ['**/*.ts', '**/*.tsx'],
-    plugins: { '@typescript-eslint': tseslint },
+    files: ["**/*.ts", "**/*.tsx"],
+    plugins: { "@typescript-eslint": tseslint },
     languageOptions: { parser: tsparser },
     rules: {
       ...tseslint.configs.recommended.rules,
@@ -95,6 +98,7 @@ export default [
 ### 1.4 — Create package skeletons
 
 **`packages/tokens/package.json`**
+
 ```json
 {
   "name": "@webscit/tokens",
@@ -108,6 +112,7 @@ export default [
 ```
 
 **`packages/registry/package.json`**
+
 ```json
 {
   "name": "@webscit/registry",
@@ -137,6 +142,7 @@ export default [
 ```
 
 **`apps/docs/package.json`**
+
 ```json
 {
   "name": "@webscit/docs",
@@ -165,6 +171,7 @@ export default [
 ### 1.5 — Git setup
 
 `.gitignore`
+
 ```
 node_modules/
 dist/
@@ -174,6 +181,7 @@ registry/
 ```
 
 Initialize git:
+
 ```sh
 git init
 git add .
@@ -185,6 +193,7 @@ git commit -m "chore: initialize monorepo scaffold"
 ### 1.6 — CI workflow (GitHub Actions)
 
 `.github/workflows/ci.yml`
+
 ```yaml
 name: CI
 on: [push, pull_request]

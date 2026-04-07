@@ -14,5 +14,7 @@
     "@types/node": "^22.0.0",
     "typescript": "^6.0.2"
   },
-  "files": ["dist"]
+  "files": [
+    "dist"
+  ]
 }

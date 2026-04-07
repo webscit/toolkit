@@ -8,7 +8,9 @@
     padding-block: 0.25rem;
     outline: none;
     overflow: hidden;
-    transition: opacity 150ms, transform 150ms;
+    transition:
+      opacity 150ms,
+      transform 150ms;
   }
 
   :scope[data-starting-style],

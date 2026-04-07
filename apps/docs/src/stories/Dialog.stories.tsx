@@ -1,13 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 import {
-  Dialog, DialogTrigger, DialogContent, DialogHeader, DialogFooter,
-  DialogTitle, DialogDescription, DialogClose, Button,
-} from '@webscit/registry';
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+  Button,
+} from "@webscit/registry";
 
 const meta = {
-  title: 'Components/Dialog',
+  title: "Components/Dialog",
   component: Dialog,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Dialog>;
 
 export default meta;
@@ -21,8 +28,8 @@ export const Default: Story = {
         <DialogHeader>
           <DialogTitle>Are you sure?</DialogTitle>
           <DialogDescription>
-            This action cannot be undone. This will permanently delete your account and remove your
-            data from our servers.
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>

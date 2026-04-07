@@ -1,10 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from '@webscit/registry';
+import type { Meta, StoryObj } from "@storybook/react";
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+  TooltipContent,
+} from "@webscit/registry";
 
 const meta = {
-  title: 'Components/Tooltip',
+  title: "Components/Tooltip",
   component: Tooltip,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <TooltipProvider>
@@ -31,7 +36,7 @@ export const Default: Story = {
 export const OnButton: Story = {
   render: () => (
     <Tooltip>
-      <TooltipTrigger style={{ padding: '6px 12px', cursor: 'pointer' }}>
+      <TooltipTrigger style={{ padding: "6px 12px", cursor: "pointer" }}>
         More info
       </TooltipTrigger>
       <TooltipContent>

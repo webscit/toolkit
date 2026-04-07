@@ -11,7 +11,9 @@
     max-width: 16rem;
     word-break: break-word;
     outline: none;
-    transition: opacity 150ms, transform 150ms;
+    transition:
+      opacity 150ms,
+      transform 150ms;
   }
 
   :scope[data-starting-style],

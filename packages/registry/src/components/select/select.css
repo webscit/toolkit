@@ -16,12 +16,15 @@
     box-shadow: var(--sct-shadow-xs);
     cursor: pointer;
     outline: none;
-    transition: border-color 150ms, box-shadow 150ms;
+    transition:
+      border-color 150ms,
+      box-shadow 150ms;
   }
 
   :scope:focus-visible {
     border-color: var(--sct-color-ring);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
   :scope[data-disabled] {

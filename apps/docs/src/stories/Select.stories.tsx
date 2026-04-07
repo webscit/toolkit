@@ -1,10 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectLabel, SelectSeparator } from '@webscit/registry';
+import type { Meta, StoryObj } from "@storybook/react";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  SelectLabel,
+  SelectSeparator,
+} from "@webscit/registry";
 
 const meta = {
-  title: 'Components/Select',
+  title: "Components/Select",
   component: Select,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -13,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <Select>
-      <SelectTrigger style={{ width: '200px' }}>
+      <SelectTrigger style={{ width: "200px" }}>
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
@@ -28,7 +36,7 @@ export const Default: Story = {
 export const WithGroupLabel: Story = {
   render: () => (
     <Select>
-      <SelectTrigger style={{ width: '220px' }}>
+      <SelectTrigger style={{ width: "220px" }}>
         <SelectValue placeholder="Select a timezone" />
       </SelectTrigger>
       <SelectContent>
@@ -47,7 +55,7 @@ export const WithGroupLabel: Story = {
 export const Disabled: Story = {
   render: () => (
     <Select disabled>
-      <SelectTrigger style={{ width: '200px' }}>
+      <SelectTrigger style={{ width: "200px" }}>
         <SelectValue placeholder="Disabled select" />
       </SelectTrigger>
       <SelectContent>
@@ -60,7 +68,7 @@ export const Disabled: Story = {
 export const Playground: Story = {
   render: () => (
     <Select>
-      <SelectTrigger style={{ width: '200px' }}>
+      <SelectTrigger style={{ width: "200px" }}>
         <SelectValue placeholder="Select an option" />
       </SelectTrigger>
       <SelectContent>

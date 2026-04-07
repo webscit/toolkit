@@ -1,9 +1,15 @@
-import { render } from 'vitest-browser-react';
-import { describe, it, expect } from 'vitest';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './select';
+import { render } from "vitest-browser-react";
+import { describe, it, expect } from "vitest";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./select";
 
-describe('Select', () => {
-  it('renders trigger without crashing', async () => {
+describe("Select", () => {
+  it("renders trigger without crashing", async () => {
     const screen = await render(
       <Select>
         <SelectTrigger>
@@ -14,10 +20,10 @@ describe('Select', () => {
         </SelectContent>
       </Select>,
     );
-    await expect.element(screen.getByRole('combobox')).toBeInTheDocument();
+    await expect.element(screen.getByRole("combobox")).toBeInTheDocument();
   });
 
-  it('forwards className on trigger', async () => {
+  it("forwards className on trigger", async () => {
     const screen = await render(
       <Select>
         <SelectTrigger className="my-class">
@@ -25,10 +31,12 @@ describe('Select', () => {
         </SelectTrigger>
       </Select>,
     );
-    await expect.element(screen.getByRole('combobox')).toHaveClass('sct-select-trigger my-class');
+    await expect
+      .element(screen.getByRole("combobox"))
+      .toHaveClass("sct-select-trigger my-class");
   });
 
-  it('sets data-slot on trigger', async () => {
+  it("sets data-slot on trigger", async () => {
     const screen = await render(
       <Select>
         <SelectTrigger>
@@ -36,6 +44,8 @@ describe('Select', () => {
         </SelectTrigger>
       </Select>,
     );
-    await expect.element(screen.getByRole('combobox')).toHaveAttribute('data-slot', 'select-trigger');
+    await expect
+      .element(screen.getByRole("combobox"))
+      .toHaveAttribute("data-slot", "select-trigger");
   });
 });

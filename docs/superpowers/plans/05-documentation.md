@@ -1,6 +1,7 @@
 # Phase 5 — Documentation
 
 ## Goal
+
 A Storybook instance in `apps/docs/` that documents all 17 components with interactive stories, design token reference, and a theme toggle. Accessibility is validated in-browser via the a11y addon.
 
 ---
@@ -16,17 +17,15 @@ npm install --save-dev @storybook/addon-a11y @storybook/addon-docs
 ```
 
 `.storybook/main.ts`
+
 ```ts
-import type { StorybookConfig } from '@storybook/react-vite';
+import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.tsx'],
-  addons: [
-    '@storybook/addon-docs',
-    '@storybook/addon-a11y',
-  ],
+  stories: ["../src/**/*.stories.tsx"],
+  addons: ["@storybook/addon-docs", "@storybook/addon-a11y"],
   framework: {
-    name: '@storybook/react-vite',
+    name: "@storybook/react-vite",
     options: {},
   },
 };
@@ -38,6 +37,7 @@ export default config;
 ### 5.2 — Import tokens + theme toggle
 
 `.storybook/preview.ts`
+
 ```ts
 import '@webscit/tokens/tokens.css';
 import '@webscit/tokens/tokens-dark.css';
@@ -75,21 +75,23 @@ export default preview;
 Component tests run in a real browser via `@vitest/browser` (using the Playwright provider internally — no standalone Playwright test suite needed).
 
 `packages/registry/vitest.config.ts`
+
 ```ts
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
     browser: {
       enabled: true,
-      provider: 'playwright',
-      instances: [{ browser: 'chromium' }],
+      provider: "playwright",
+      instances: [{ browser: "chromium" }],
     },
   },
 });
 ```
 
 Install the browser provider:
+
 ```sh
 cd packages/registry
 npm install --save-dev @vitest/browser playwright
@@ -99,32 +101,36 @@ npx playwright install chromium
 This enables tests that assert on real DOM rendering without a separate Playwright test runner.
 
 Example test pattern:
+
 ```tsx
-import { render, screen } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
-import { describe, it, expect } from 'vitest';
-import { Button } from './button';
+import { render, screen } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
+import { describe, it, expect } from "vitest";
+import { Button } from "./button";
 
-describe('Button', () => {
-  it('renders with scope anchor class', () => {
+describe("Button", () => {
+  it("renders with scope anchor class", () => {
     render(<Button>Click</Button>);
-    expect(screen.getByRole('button')).toHaveClass('sct-button');
+    expect(screen.getByRole("button")).toHaveClass("sct-button");
   });
 
-  it('forwards className', () => {
+  it("forwards className", () => {
     render(<Button className="custom">Click</Button>);
-    expect(screen.getByRole('button')).toHaveClass('sct-button', 'custom');
+    expect(screen.getByRole("button")).toHaveClass("sct-button", "custom");
   });
 
-  it('applies data-variant attribute', () => {
+  it("applies data-variant attribute", () => {
     render(<Button variant="destructive">Delete</Button>);
-    expect(screen.getByRole('button')).toHaveAttribute('data-variant', 'destructive');
+    expect(screen.getByRole("button")).toHaveAttribute(
+      "data-variant",
+      "destructive",
+    );
   });
 
-  it('sets data-disabled when disabled', async () => {
+  it("sets data-disabled when disabled", async () => {
     render(<Button disabled>Click</Button>);
-    const btn = screen.getByRole('button');
-    expect(btn).toHaveAttribute('data-disabled');
+    const btn = screen.getByRole("button");
+    expect(btn).toHaveAttribute("data-disabled");
   });
 });
 ```
@@ -136,17 +142,27 @@ describe('Button', () => {
 Every story follows this template:
 
 ```tsx
-import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '@webscit/registry';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "@webscit/registry";
 
 const meta = {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    variant: { control: 'select', options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'] },
-    size:    { control: 'select', options: ['default', 'xs', 'sm', 'lg', 'icon'] },
-    disabled:{ control: 'boolean' },
+    variant: {
+      control: "select",
+      options: [
+        "default",
+        "destructive",
+        "outline",
+        "secondary",
+        "ghost",
+        "link",
+      ],
+    },
+    size: { control: "select", options: ["default", "xs", "sm", "lg", "icon"] },
+    disabled: { control: "boolean" },
   },
 } satisfies Meta<typeof Button>;
 
@@ -155,7 +171,7 @@ type Story = StoryObj<typeof meta>;
 
 export const AllVariants: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+    <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
       <Button variant="default">Default</Button>
       <Button variant="destructive">Destructive</Button>
       <Button variant="outline">Outline</Button>
@@ -168,7 +184,7 @@ export const AllVariants: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
       <Button size="xs">XSmall</Button>
       <Button size="sm">Small</Button>
       <Button size="default">Default</Button>
@@ -178,11 +194,11 @@ export const Sizes: Story = {
 };
 
 export const Disabled: Story = {
-  args: { disabled: true, children: 'Disabled' },
+  args: { disabled: true, children: "Disabled" },
 };
 
 export const Playground: Story = {
-  args: { children: 'Click me', variant: 'default', size: 'default' },
+  args: { children: "Click me", variant: "default", size: "default" },
 };
 ```
 
@@ -193,6 +209,7 @@ export const Playground: Story = {
 `apps/docs/src/tokens/Tokens.stories.tsx`
 
 A documentation-only story that renders all `--sct-*` token values as visual swatches:
+
 - Color palette grid (background, border, text previews per color token)
 - Spacing scale ruler
 - Typography scale with font size + weight samples
@@ -208,21 +225,22 @@ The Storybook static build is deployed alongside the registry in the same GitHub
 Add to `.github/workflows/deploy-registry.yml`:
 
 ```yaml
-      - name: Build Storybook
-        run: npm run build --workspace=apps/docs
+- name: Build Storybook
+  run: npm run build --workspace=apps/docs
 
-      - name: Prepare Pages artifact
-        run: |
-          mkdir -p _site/r
-          mkdir -p _site/tokens
-          mkdir -p _site/storybook
-          cp -r packages/registry/registry/* _site/r/
-          cp packages/tokens/dist/*.css _site/tokens/
-          cp packages/tokens/dist/*.json _site/tokens/
-          cp -r apps/docs/storybook-static/* _site/storybook/
+- name: Prepare Pages artifact
+  run: |
+    mkdir -p _site/r
+    mkdir -p _site/tokens
+    mkdir -p _site/storybook
+    cp -r packages/registry/registry/* _site/r/
+    cp packages/tokens/dist/*.css _site/tokens/
+    cp packages/tokens/dist/*.json _site/tokens/
+    cp -r apps/docs/storybook-static/* _site/storybook/
 ```
 
 Final URLs:
+
 - Registry: `https://webscit.github.io/toolkit/r/`
 - Tokens CSS: `https://webscit.github.io/toolkit/tokens/tokens.css`
 - Storybook: `https://webscit.github.io/toolkit/storybook/`

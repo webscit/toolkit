@@ -2,7 +2,11 @@
   :scope {
     position: fixed;
     inset: 0;
-    background-color: color-mix(in srgb, var(--sct-color-foreground) 50%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--sct-color-foreground) 50%,
+      transparent
+    );
     z-index: 50;
     transition: opacity 200ms;
   }
@@ -28,7 +32,9 @@
     box-shadow: var(--sct-shadow-lg);
     padding: 1.5rem;
     outline: none;
-    transition: opacity 200ms, transform 200ms;
+    transition:
+      opacity 200ms,
+      transform 200ms;
   }
 
   @starting-style {
@@ -85,7 +91,9 @@
     color: var(--sct-color-muted-foreground);
     cursor: pointer;
     outline: none;
-    transition: background-color 150ms, color 150ms;
+    transition:
+      background-color 150ms,
+      color 150ms;
   }
 
   .sct-dialog-close:hover {
@@ -94,6 +102,7 @@
   }
 
   .sct-dialog-close:focus-visible {
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 }

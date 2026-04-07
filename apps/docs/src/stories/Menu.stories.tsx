@@ -1,13 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 import {
-  Menu, MenuTrigger, MenuContent, MenuItem, MenuSeparator,
-  MenuLabel, MenuCheckboxItem, MenuRadioGroup, MenuRadioItem,
-} from '@webscit/registry';
+  Menu,
+  MenuTrigger,
+  MenuContent,
+  MenuItem,
+  MenuSeparator,
+  MenuLabel,
+  MenuCheckboxItem,
+  MenuRadioGroup,
+  MenuRadioItem,
+} from "@webscit/registry";
 
 const meta = {
-  title: 'Components/Menu',
+  title: "Components/Menu",
   component: Menu,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Menu>;
 
 export default meta;

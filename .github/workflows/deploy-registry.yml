@@ -4,10 +4,10 @@ on:
   push:
     branches: [main]
     paths:
-      - 'packages/registry/src/**'
-      - 'packages/registry/scripts/**'
-      - 'apps/docs/src/**'
-      - 'apps/docs/.storybook/**'
+      - "packages/registry/src/**"
+      - "packages/registry/scripts/**"
+      - "apps/docs/src/**"
+      - "apps/docs/.storybook/**"
   workflow_dispatch:
 
 permissions:

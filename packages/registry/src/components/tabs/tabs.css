@@ -28,7 +28,10 @@
     background-color: transparent;
     cursor: pointer;
     outline: none;
-    transition: background-color 150ms, color 150ms, box-shadow 150ms;
+    transition:
+      background-color 150ms,
+      color 150ms,
+      box-shadow 150ms;
     white-space: nowrap;
     user-select: none;
   }
@@ -40,7 +43,8 @@
   }
 
   .sct-tabs-trigger:focus-visible {
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
   .sct-tabs-trigger[data-disabled] {
@@ -53,7 +57,8 @@
   }
 
   .sct-tabs-content:focus-visible {
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
     border-radius: var(--sct-radius-md);
   }
 }

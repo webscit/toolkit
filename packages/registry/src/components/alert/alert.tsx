@@ -1,40 +1,47 @@
-import './alert.css';
+import "./alert.css";
 
-export interface AlertProps extends React.ComponentProps<'div'> {
-  variant?: 'default' | 'destructive';
+export interface AlertProps extends React.ComponentProps<"div"> {
+  variant?: "default" | "destructive";
 }
 
-export function Alert({ variant = 'default', className, ...props }: AlertProps) {
+export function Alert({
+  variant = "default",
+  className,
+  ...props
+}: AlertProps) {
   return (
     <div
       role="alert"
       data-slot="alert"
       data-variant={variant}
-      className={`sct-alert${className ? ` ${className}` : ''}`}
+      className={`sct-alert${className ? ` ${className}` : ""}`}
       {...props}
     />
   );
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface AlertTitleProps extends React.ComponentProps<'div'> {}
+export interface AlertTitleProps extends React.ComponentProps<"div"> {}
 export function AlertTitle({ className, ...props }: AlertTitleProps) {
   return (
     <div
       data-slot="alert-title"
-      className={`sct-alert-title${className ? ` ${className}` : ''}`}
+      className={`sct-alert-title${className ? ` ${className}` : ""}`}
       {...props}
     />
   );
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface AlertDescriptionProps extends React.ComponentProps<'div'> {}
-export function AlertDescription({ className, ...props }: AlertDescriptionProps) {
+export interface AlertDescriptionProps extends React.ComponentProps<"div"> {}
+export function AlertDescription({
+  className,
+  ...props
+}: AlertDescriptionProps) {
   return (
     <div
       data-slot="alert-description"
-      className={`sct-alert-description${className ? ` ${className}` : ''}`}
+      className={`sct-alert-description${className ? ` ${className}` : ""}`}
       {...props}
     />
   );

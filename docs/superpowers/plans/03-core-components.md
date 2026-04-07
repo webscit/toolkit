@@ -1,43 +1,46 @@
 # Phase 3 — Core Components
 
 ## Goal
+
 Implement all 17 core components in `packages/registry/src/components/`. Each component consists of a `.tsx` file and a `.css` file (`@scope` rules). CSS rules are translated directly from shadcn v4 Tailwind classes into equivalent plain CSS properties using `--sct-*` tokens.
 
 ---
 
 ## General CSS translation rules
 
-| Tailwind class | Plain CSS |
-|---|---|
-| `inline-flex` | `display: inline-flex` |
-| `items-center` | `align-items: center` |
-| `justify-center` | `justify-content: center` |
-| `gap-2` | `gap: 0.5rem` |
-| `rounded-md` | `border-radius: var(--sct-radius-md)` |
-| `text-sm` | `font-size: var(--sct-font-size-sm)` |
-| `font-medium` | `font-weight: var(--sct-font-weight-medium)` |
-| `whitespace-nowrap` | `white-space: nowrap` |
-| `transition-all` | `transition: all 150ms` |
-| `shadow-xs` | `box-shadow: var(--sct-shadow-xs)` |
-| `h-9` | `height: 2.25rem` |
-| `px-4` | `padding-inline: 1rem` |
-| `py-2` | `padding-block: 0.5rem` |
-| `w-full` | `width: 100%` |
-| `min-w-0` | `min-width: 0` |
-| `shrink-0` | `flex-shrink: 0` |
-| `opacity-50` | `opacity: 0.5` |
-| `pointer-events-none` | `pointer-events: none` |
-| `select-none` | `user-select: none` |
-| `field-sizing-content` | `field-sizing: content` |
+| Tailwind class         | Plain CSS                                    |
+| ---------------------- | -------------------------------------------- |
+| `inline-flex`          | `display: inline-flex`                       |
+| `items-center`         | `align-items: center`                        |
+| `justify-center`       | `justify-content: center`                    |
+| `gap-2`                | `gap: 0.5rem`                                |
+| `rounded-md`           | `border-radius: var(--sct-radius-md)`        |
+| `text-sm`              | `font-size: var(--sct-font-size-sm)`         |
+| `font-medium`          | `font-weight: var(--sct-font-weight-medium)` |
+| `whitespace-nowrap`    | `white-space: nowrap`                        |
+| `transition-all`       | `transition: all 150ms`                      |
+| `shadow-xs`            | `box-shadow: var(--sct-shadow-xs)`           |
+| `h-9`                  | `height: 2.25rem`                            |
+| `px-4`                 | `padding-inline: 1rem`                       |
+| `py-2`                 | `padding-block: 0.5rem`                      |
+| `w-full`               | `width: 100%`                                |
+| `min-w-0`              | `min-width: 0`                               |
+| `shrink-0`             | `flex-shrink: 0`                             |
+| `opacity-50`           | `opacity: 0.5`                               |
+| `pointer-events-none`  | `pointer-events: none`                       |
+| `select-none`          | `user-select: none`                          |
+| `field-sizing-content` | `field-sizing: content`                      |
 
 **Alpha colors** — `bg-primary/90` → `color-mix(in srgb, var(--sct-color-primary) 90%, transparent)`
 
 **Focus ring** — shadcn's `focus-visible:ring-[3px] focus-visible:ring-ring/50`:
+
 ```css
 :scope:focus-visible {
   outline: none;
   border-color: var(--sct-color-ring);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
 }
 ```
 
@@ -48,18 +51,24 @@ Implement all 17 core components in `packages/registry/src/components/`. Each co
 ## General TSX pattern
 
 ```tsx
-import './component.css';
+import "./component.css";
 
-export interface ComponentProps extends React.ComponentProps<typeof BasePrimitive> {
-  variant?: 'default' | 'destructive';
+export interface ComponentProps extends React.ComponentProps<
+  typeof BasePrimitive
+> {
+  variant?: "default" | "destructive";
 }
 
-export function Component({ variant = 'default', className, ...props }: ComponentProps) {
+export function Component({
+  variant = "default",
+  className,
+  ...props
+}: ComponentProps) {
   return (
     <BasePrimitive
       data-slot="component"
       data-variant={variant}
-      className={`sct-component${className ? ` ${className}` : ''}`}
+      className={`sct-component${className ? ` ${className}` : ""}`}
       {...props}
     />
   );
@@ -71,10 +80,11 @@ export function Component({ variant = 'default', className, ...props }: Componen
 ## Shared utility
 
 `packages/registry/src/lib/cx.ts`
+
 ```ts
 /** Minimal className joiner. No tailwind-merge needed. */
 export function cx(...classes: (string | undefined | null | false)[]): string {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 ```
 
@@ -90,21 +100,32 @@ export function cx(...classes: (string | undefined | null | false)[]): string {
 **Sizes:** `default | xs | sm | lg | icon`
 
 ```tsx
-import { Button as BaseButton } from '@base-ui-components/react/button';
-import './button.css';
+import { Button as BaseButton } from "@base-ui-components/react/button";
+import "./button.css";
 
 export interface ButtonProps extends React.ComponentProps<typeof BaseButton> {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
-  size?: 'default' | 'xs' | 'sm' | 'lg' | 'icon';
+  variant?:
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link";
+  size?: "default" | "xs" | "sm" | "lg" | "icon";
 }
 
-export function Button({ variant = 'default', size = 'default', className, ...props }: ButtonProps) {
+export function Button({
+  variant = "default",
+  size = "default",
+  className,
+  ...props
+}: ButtonProps) {
   return (
     <BaseButton
       data-slot="button"
       data-variant={variant}
       data-size={size}
-      className={`sct-button${className ? ` ${className}` : ''}`}
+      className={`sct-button${className ? ` ${className}` : ""}`}
       {...props}
     />
   );
@@ -125,7 +146,11 @@ export function Button({ variant = 'default', size = 'default', className, ...pr
     white-space: nowrap;
     border: none;
     cursor: pointer;
-    transition: background-color 150ms, color 150ms, box-shadow 150ms, border-color 150ms;
+    transition:
+      background-color 150ms,
+      color 150ms,
+      box-shadow 150ms,
+      border-color 150ms;
     outline: none;
     text-decoration: none;
 
@@ -142,7 +167,8 @@ export function Button({ variant = 'default', size = 'default', className, ...pr
   /* Focus ring */
   :scope:focus-visible {
     border-color: var(--sct-color-ring);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
   /* Disabled */
@@ -153,7 +179,11 @@ export function Button({ variant = 'default', size = 'default', className, ...pr
 
   /* Hover: default */
   :scope:not([data-disabled]):hover {
-    background-color: color-mix(in srgb, var(--sct-color-primary) 90%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--sct-color-primary) 90%,
+      transparent
+    );
   }
 
   /* Variants */
@@ -162,10 +192,15 @@ export function Button({ variant = 'default', size = 'default', className, ...pr
     color: var(--sct-color-destructive-foreground);
   }
   :scope[data-variant="destructive"]:not([data-disabled]):hover {
-    background-color: color-mix(in srgb, var(--sct-color-destructive) 90%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--sct-color-destructive) 90%,
+      transparent
+    );
   }
   :scope[data-variant="destructive"]:focus-visible {
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
   }
 
   :scope[data-variant="outline"] {
@@ -184,7 +219,11 @@ export function Button({ variant = 'default', size = 'default', className, ...pr
     color: var(--sct-color-secondary-foreground);
   }
   :scope[data-variant="secondary"]:not([data-disabled]):hover {
-    background-color: color-mix(in srgb, var(--sct-color-secondary) 80%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--sct-color-secondary) 80%,
+      transparent
+    );
   }
 
   :scope[data-variant="ghost"] {
@@ -248,16 +287,16 @@ export function Button({ variant = 'default', size = 'default', className, ...pr
 **Primitive:** Native `<input>` (no Base UI wrapper)
 
 ```tsx
-import './input.css';
+import "./input.css";
 
-export type InputProps = React.ComponentProps<'input'>;
+export type InputProps = React.ComponentProps<"input">;
 
 export function Input({ className, type, ...props }: InputProps) {
   return (
     <input
       type={type}
       data-slot="input"
-      className={`sct-input${className ? ` ${className}` : ''}`}
+      className={`sct-input${className ? ` ${className}` : ""}`}
       {...props}
     />
   );
@@ -279,7 +318,10 @@ export function Input({ className, type, ...props }: InputProps) {
     font-family: var(--sct-font-family-sans);
     color: var(--sct-color-foreground);
     box-shadow: var(--sct-shadow-xs);
-    transition: color 150ms, box-shadow 150ms, border-color 150ms;
+    transition:
+      color 150ms,
+      box-shadow 150ms,
+      border-color 150ms;
     outline: none;
   }
 
@@ -289,7 +331,8 @@ export function Input({ className, type, ...props }: InputProps) {
 
   :scope:focus-visible {
     border-color: var(--sct-color-ring);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
   :scope:disabled {
@@ -300,7 +343,8 @@ export function Input({ className, type, ...props }: InputProps) {
 
   :scope[aria-invalid="true"] {
     border-color: var(--sct-color-destructive);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
   }
 
   :scope::file-selector-button {
@@ -323,15 +367,15 @@ export function Input({ className, type, ...props }: InputProps) {
 **Primitive:** Native `<label>` (not Radix/Base UI Label)
 
 ```tsx
-import './label.css';
+import "./label.css";
 
-export type LabelProps = React.ComponentProps<'label'>;
+export type LabelProps = React.ComponentProps<"label">;
 
 export function Label({ className, ...props }: LabelProps) {
   return (
     <label
       data-slot="label"
-      className={`sct-label${className ? ` ${className}` : ''}`}
+      className={`sct-label${className ? ` ${className}` : ""}`}
       {...props}
     />
   );
@@ -368,15 +412,15 @@ export function Label({ className, ...props }: LabelProps) {
 **Primitive:** Native `<textarea>` (no Base UI wrapper)
 
 ```tsx
-import './textarea.css';
+import "./textarea.css";
 
-export type TextareaProps = React.ComponentProps<'textarea'>;
+export type TextareaProps = React.ComponentProps<"textarea">;
 
 export function Textarea({ className, ...props }: TextareaProps) {
   return (
     <textarea
       data-slot="textarea"
-      className={`sct-textarea${className ? ` ${className}` : ''}`}
+      className={`sct-textarea${className ? ` ${className}` : ""}`}
       {...props}
     />
   );
@@ -399,16 +443,22 @@ export function Textarea({ className, ...props }: TextareaProps) {
     font-family: var(--sct-font-family-sans);
     color: var(--sct-color-foreground);
     box-shadow: var(--sct-shadow-xs);
-    transition: color 150ms, box-shadow 150ms, border-color 150ms;
+    transition:
+      color 150ms,
+      box-shadow 150ms,
+      border-color 150ms;
     outline: none;
     resize: vertical;
   }
 
-  :scope::placeholder { color: var(--sct-color-muted-foreground); }
+  :scope::placeholder {
+    color: var(--sct-color-muted-foreground);
+  }
 
   :scope:focus-visible {
     border-color: var(--sct-color-ring);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
   :scope:disabled {
@@ -418,7 +468,8 @@ export function Textarea({ className, ...props }: TextareaProps) {
 
   :scope[aria-invalid="true"] {
     border-color: var(--sct-color-destructive);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
   }
 }
 ```
@@ -431,8 +482,8 @@ export function Textarea({ className, ...props }: TextareaProps) {
 **Primitive:** Base UI `@base-ui-components/react/checkbox` (Checkbox.Root + Checkbox.Indicator)
 
 ```tsx
-import { Checkbox as BaseCheckbox } from '@base-ui-components/react/checkbox';
-import './checkbox.css';
+import { Checkbox as BaseCheckbox } from "@base-ui-components/react/checkbox";
+import "./checkbox.css";
 
 export type CheckboxProps = React.ComponentProps<typeof BaseCheckbox.Root>;
 
@@ -440,13 +491,23 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
   return (
     <BaseCheckbox.Root
       data-slot="checkbox"
-      className={`sct-checkbox${className ? ` ${className}` : ''}`}
+      className={`sct-checkbox${className ? ` ${className}` : ""}`}
       {...props}
     >
-      <BaseCheckbox.Indicator data-slot="checkbox-indicator" className="sct-checkbox-indicator">
+      <BaseCheckbox.Indicator
+        data-slot="checkbox-indicator"
+        className="sct-checkbox-indicator"
+      >
         {/* Checkmark SVG */}
         <svg viewBox="0 0 14 14" aria-hidden="true">
-          <path d="M2 7l4 4 6-6" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M2 7l4 4 6-6"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </BaseCheckbox.Indicator>
     </BaseCheckbox.Root>
@@ -467,7 +528,10 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
     border: 1px solid var(--sct-color-input);
     background-color: transparent;
     box-shadow: var(--sct-shadow-xs);
-    transition: box-shadow 150ms, background-color 150ms, border-color 150ms;
+    transition:
+      box-shadow 150ms,
+      background-color 150ms,
+      border-color 150ms;
     outline: none;
     cursor: pointer;
     padding: 0;
@@ -476,7 +540,8 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
 
   :scope:focus-visible {
     border-color: var(--sct-color-ring);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
   :scope[data-checked] {
@@ -492,7 +557,8 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
 
   :scope[aria-invalid="true"] {
     border-color: var(--sct-color-destructive);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
   }
 
   .sct-checkbox-indicator {
@@ -517,22 +583,30 @@ export function Checkbox({ className, ...props }: CheckboxProps) {
 **Primitive:** No direct Base UI primitive — composition of native `<fieldset>` + `<legend>` + Checkbox items
 
 ```tsx
-import './checkbox-group.css';
+import "./checkbox-group.css";
 
-export interface CheckboxGroupProps extends React.ComponentProps<'fieldset'> {
+export interface CheckboxGroupProps extends React.ComponentProps<"fieldset"> {
   legend?: React.ReactNode;
-  orientation?: 'horizontal' | 'vertical';
+  orientation?: "horizontal" | "vertical";
 }
 
-export function CheckboxGroup({ legend, orientation = 'vertical', className, children, ...props }: CheckboxGroupProps) {
+export function CheckboxGroup({
+  legend,
+  orientation = "vertical",
+  className,
+  children,
+  ...props
+}: CheckboxGroupProps) {
   return (
     <fieldset
       data-slot="checkbox-group"
       data-orientation={orientation}
-      className={`sct-checkbox-group${className ? ` ${className}` : ''}`}
+      className={`sct-checkbox-group${className ? ` ${className}` : ""}`}
       {...props}
     >
-      {legend && <legend className="sct-checkbox-group-legend">{legend}</legend>}
+      {legend && (
+        <legend className="sct-checkbox-group-legend">{legend}</legend>
+      )}
       {children}
     </fieldset>
   );
@@ -573,8 +647,8 @@ export function CheckboxGroup({ legend, orientation = 'vertical', className, chi
 **Note:** Must be used inside a RadioGroup.
 
 ```tsx
-import { RadioGroup } from '@base-ui-components/react/radio-group';
-import './radio.css';
+import { RadioGroup } from "@base-ui-components/react/radio-group";
+import "./radio.css";
 
 export type RadioProps = React.ComponentProps<typeof RadioGroup.Item>;
 
@@ -582,10 +656,13 @@ export function Radio({ className, ...props }: RadioProps) {
   return (
     <RadioGroup.Item
       data-slot="radio"
-      className={`sct-radio${className ? ` ${className}` : ''}`}
+      className={`sct-radio${className ? ` ${className}` : ""}`}
       {...props}
     >
-      <RadioGroup.Indicator data-slot="radio-indicator" className="sct-radio-indicator" />
+      <RadioGroup.Indicator
+        data-slot="radio-indicator"
+        className="sct-radio-indicator"
+      />
     </RadioGroup.Item>
   );
 }
@@ -604,7 +681,9 @@ export function Radio({ className, ...props }: RadioProps) {
     border: 1px solid var(--sct-color-input);
     background-color: transparent;
     box-shadow: var(--sct-shadow-xs);
-    transition: box-shadow 150ms, border-color 150ms;
+    transition:
+      box-shadow 150ms,
+      border-color 150ms;
     outline: none;
     cursor: pointer;
     padding: 0;
@@ -613,7 +692,8 @@ export function Radio({ className, ...props }: RadioProps) {
 
   :scope:focus-visible {
     border-color: var(--sct-color-ring);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
   :scope[data-checked] {
@@ -649,20 +729,27 @@ export function Radio({ className, ...props }: RadioProps) {
 **Note:** Wraps Radio items; uses `<fieldset>` semantics.
 
 ```tsx
-import { RadioGroup as BaseRadioGroup } from '@base-ui-components/react/radio-group';
-import './radio-group.css';
+import { RadioGroup as BaseRadioGroup } from "@base-ui-components/react/radio-group";
+import "./radio-group.css";
 
-export interface RadioGroupProps extends React.ComponentProps<typeof BaseRadioGroup> {
+export interface RadioGroupProps extends React.ComponentProps<
+  typeof BaseRadioGroup
+> {
   legend?: React.ReactNode;
-  orientation?: 'horizontal' | 'vertical';
+  orientation?: "horizontal" | "vertical";
 }
 
-export function RadioGroup({ legend, orientation = 'vertical', className, ...props }: RadioGroupProps) {
+export function RadioGroup({
+  legend,
+  orientation = "vertical",
+  className,
+  ...props
+}: RadioGroupProps) {
   return (
     <BaseRadioGroup
       data-slot="radio-group"
       data-orientation={orientation}
-      className={`sct-radio-group${className ? ` ${className}` : ''}`}
+      className={`sct-radio-group${className ? ` ${className}` : ""}`}
       {...props}
     />
   );
@@ -692,8 +779,8 @@ export function RadioGroup({ legend, orientation = 'vertical', className, ...pro
 **Primitive:** Base UI `@base-ui-components/react/switch` (Switch.Root + Switch.Thumb)
 
 ```tsx
-import { Switch as BaseSwitch } from '@base-ui-components/react/switch';
-import './switch.css';
+import { Switch as BaseSwitch } from "@base-ui-components/react/switch";
+import "./switch.css";
 
 export type SwitchProps = React.ComponentProps<typeof BaseSwitch.Root>;
 
@@ -701,7 +788,7 @@ export function Switch({ className, ...props }: SwitchProps) {
   return (
     <BaseSwitch.Root
       data-slot="switch"
-      className={`sct-switch${className ? ` ${className}` : ''}`}
+      className={`sct-switch${className ? ` ${className}` : ""}`}
       {...props}
     >
       <BaseSwitch.Thumb data-slot="switch-thumb" className="sct-switch-thumb" />
@@ -723,13 +810,16 @@ export function Switch({ className, ...props }: SwitchProps) {
     background-color: var(--sct-color-input);
     padding: 0;
     cursor: pointer;
-    transition: background-color 150ms, box-shadow 150ms;
+    transition:
+      background-color 150ms,
+      box-shadow 150ms;
     outline: none;
     appearance: none;
   }
 
   :scope:focus-visible {
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
   :scope[data-checked] {
@@ -780,13 +870,22 @@ Each sub-part has its own `data-slot` attribute and participates in the parent `
 Sub-parts: `Dialog` (Root), `DialogTrigger`, `DialogPortal`, `DialogOverlay`, `DialogContent`, `DialogHeader`, `DialogFooter`, `DialogTitle`, `DialogDescription`, `DialogClose`.
 
 **Animations** use CSS `@starting-style` (no JS animation library):
+
 ```css
 @scope (.sct-dialog-content) {
   :scope {
-    transition: opacity 200ms, transform 200ms;
-    @starting-style { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
+    transition:
+      opacity 200ms,
+      transform 200ms;
+    @starting-style {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.95);
+    }
   }
-  :scope[data-ending-style] { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
+  :scope[data-ending-style] {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
 }
 ```
 
@@ -851,6 +950,7 @@ Sub-parts: `Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, 
 ## registry.meta.json pattern
 
 Every component directory contains:
+
 ```json
 {
   "title": "Button",
@@ -868,6 +968,7 @@ Every component directory contains:
 ## Tests (per component)
 
 Each component gets `component.test.tsx` covering:
+
 1. Renders without crashing
 2. Forwards `className` correctly (appended after scope anchor)
 3. Applies correct `data-variant` / `data-size` attributes

@@ -6,13 +6,13 @@
 
 ## Phases
 
-| # | Phase | Deliverable | Depends On |
-|---|---|---|---|
-| 1 | Monorepo Scaffold | Working repo with all tooling configured | — |
-| 2 | Design Token System | `packages/tokens` — CSS, Figma, Penpot outputs | 1 |
-| 3 | Core Components | 17 components in `packages/registry` | 2 |
-| 4 | Registry & CLI | Hosted registry manifest + thin CLI wrapper + GitHub Actions deploy | 3 |
-| 5 | Documentation | Storybook with all components documented | 3 |
+| #   | Phase               | Deliverable                                                         | Depends On |
+| --- | ------------------- | ------------------------------------------------------------------- | ---------- |
+| 1   | Monorepo Scaffold   | Working repo with all tooling configured                            | —          |
+| 2   | Design Token System | `packages/tokens` — CSS, Figma, Penpot outputs                      | 1          |
+| 3   | Core Components     | 17 components in `packages/registry`                                | 2          |
+| 4   | Registry & CLI      | Hosted registry manifest + thin CLI wrapper + GitHub Actions deploy | 3          |
+| 5   | Documentation       | Storybook with all components documented                            | 3          |
 
 ---
 

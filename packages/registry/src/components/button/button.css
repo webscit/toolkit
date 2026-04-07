@@ -11,7 +11,11 @@
     white-space: nowrap;
     border: none;
     cursor: pointer;
-    transition: background-color 150ms, color 150ms, box-shadow 150ms, border-color 150ms;
+    transition:
+      background-color 150ms,
+      color 150ms,
+      box-shadow 150ms,
+      border-color 150ms;
     outline: none;
     text-decoration: none;
 
@@ -27,7 +31,8 @@
 
   :scope:focus-visible {
     border-color: var(--sct-color-ring);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
   :scope[data-disabled] {
@@ -36,7 +41,11 @@
   }
 
   :scope:not([data-disabled]):hover {
-    background-color: color-mix(in srgb, var(--sct-color-primary) 90%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--sct-color-primary) 90%,
+      transparent
+    );
   }
 
   :scope[data-variant="destructive"] {
@@ -44,10 +53,15 @@
     color: var(--sct-color-destructive-foreground);
   }
   :scope[data-variant="destructive"]:not([data-disabled]):hover {
-    background-color: color-mix(in srgb, var(--sct-color-destructive) 90%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--sct-color-destructive) 90%,
+      transparent
+    );
   }
   :scope[data-variant="destructive"]:focus-visible {
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-destructive) 20%, transparent);
   }
 
   :scope[data-variant="outline"] {
@@ -66,7 +80,11 @@
     color: var(--sct-color-secondary-foreground);
   }
   :scope[data-variant="secondary"]:not([data-disabled]):hover {
-    background-color: color-mix(in srgb, var(--sct-color-secondary) 80%, transparent);
+    background-color: color-mix(
+      in srgb,
+      var(--sct-color-secondary) 80%,
+      transparent
+    );
   }
 
   :scope[data-variant="ghost"] {

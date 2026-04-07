@@ -11,7 +11,9 @@
     font-size: var(--sct-font-size-xs);
     font-weight: var(--sct-font-weight-medium);
     white-space: nowrap;
-    transition: background-color 150ms, color 150ms;
+    transition:
+      background-color 150ms,
+      color 150ms;
 
     /* default variant */
     background-color: var(--sct-color-primary);
