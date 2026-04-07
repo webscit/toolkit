@@ -4,6 +4,7 @@ import './menu.css';
 export const Menu = BaseMenu.Root;
 export type MenuProps = React.ComponentProps<typeof BaseMenu.Root>;
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface MenuTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 export function MenuTrigger({ ...props }: MenuTriggerProps) {
   return <BaseMenu.Trigger data-slot="menu-trigger" {...props} />;
@@ -42,6 +43,7 @@ export function MenuItem({ className, ...props }: MenuItemProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface MenuSeparatorProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function MenuSeparator({ className, ...props }: MenuSeparatorProps) {
   return (
@@ -54,6 +56,7 @@ export function MenuSeparator({ className, ...props }: MenuSeparatorProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface MenuLabelProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function MenuLabel({ className, ...props }: MenuLabelProps) {
   return (

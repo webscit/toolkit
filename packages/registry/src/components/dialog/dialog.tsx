@@ -4,6 +4,7 @@ import './dialog.css';
 export const Dialog = BaseDialog.Root;
 export type DialogProps = React.ComponentProps<typeof BaseDialog.Root>;
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface DialogTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 export function DialogTrigger({ ...props }: DialogTriggerProps) {
   return <BaseDialog.Trigger data-slot="dialog-trigger" {...props} />;
@@ -13,6 +14,7 @@ export function DialogPortal(props: React.ComponentProps<typeof BaseDialog.Porta
   return <BaseDialog.Portal {...props} />;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface DialogOverlayProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function DialogOverlay({ className, ...props }: DialogOverlayProps) {
   return (
@@ -24,6 +26,7 @@ export function DialogOverlay({ className, ...props }: DialogOverlayProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface DialogContentProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function DialogContent({ className, children, ...props }: DialogContentProps) {
   return (
@@ -40,6 +43,7 @@ export function DialogContent({ className, children, ...props }: DialogContentPr
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface DialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function DialogHeader({ className, ...props }: DialogHeaderProps) {
   return (
@@ -51,6 +55,7 @@ export function DialogHeader({ className, ...props }: DialogHeaderProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface DialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function DialogFooter({ className, ...props }: DialogFooterProps) {
   return (
@@ -62,6 +67,7 @@ export function DialogFooter({ className, ...props }: DialogFooterProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface DialogTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
 export function DialogTitle({ className, ...props }: DialogTitleProps) {
   return (
@@ -73,6 +79,7 @@ export function DialogTitle({ className, ...props }: DialogTitleProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface DialogDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
 export function DialogDescription({ className, ...props }: DialogDescriptionProps) {
   return (
@@ -84,6 +91,7 @@ export function DialogDescription({ className, ...props }: DialogDescriptionProp
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface DialogCloseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 export function DialogClose({ className, ...props }: DialogCloseProps) {
   return (

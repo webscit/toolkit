@@ -4,6 +4,7 @@ import './select.css';
 export const Select = BaseSelect.Root;
 export type SelectProps = React.ComponentProps<typeof BaseSelect.Root>;
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface SelectTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 export function SelectTrigger({ className, children, ...props }: SelectTriggerProps) {
   return (
@@ -69,6 +70,7 @@ export function SelectItem({ className, children, ...props }: SelectItemProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface SelectSeparatorProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function SelectSeparator({ className, ...props }: SelectSeparatorProps) {
   return (
@@ -81,6 +83,7 @@ export function SelectSeparator({ className, ...props }: SelectSeparatorProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface SelectLabelProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function SelectLabel({ className, ...props }: SelectLabelProps) {
   return (

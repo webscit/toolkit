@@ -1,5 +1,6 @@
 import './card.css';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CardProps extends React.ComponentProps<'div'> {}
 export function Card({ className, ...props }: CardProps) {
   return (
@@ -11,6 +12,7 @@ export function Card({ className, ...props }: CardProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CardHeaderProps extends React.ComponentProps<'div'> {}
 export function CardHeader({ className, ...props }: CardHeaderProps) {
   return (
@@ -22,6 +24,7 @@ export function CardHeader({ className, ...props }: CardHeaderProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CardTitleProps extends React.ComponentProps<'div'> {}
 export function CardTitle({ className, ...props }: CardTitleProps) {
   return (
@@ -33,6 +36,7 @@ export function CardTitle({ className, ...props }: CardTitleProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CardDescriptionProps extends React.ComponentProps<'div'> {}
 export function CardDescription({ className, ...props }: CardDescriptionProps) {
   return (
@@ -44,6 +48,7 @@ export function CardDescription({ className, ...props }: CardDescriptionProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CardContentProps extends React.ComponentProps<'div'> {}
 export function CardContent({ className, ...props }: CardContentProps) {
   return (
@@ -55,6 +60,7 @@ export function CardContent({ className, ...props }: CardContentProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CardFooterProps extends React.ComponentProps<'div'> {}
 export function CardFooter({ className, ...props }: CardFooterProps) {
   return (
