@@ -1,42 +1,42 @@
-import { render, screen } from '@testing-library/react';
+import { render } from 'vitest-browser-react';
 import { RadioGroup } from '@base-ui/react/radio-group';
 import { describe, it, expect } from 'vitest';
 import { Radio } from './radio';
 
 describe('Radio', () => {
-  it('renders without crashing inside a RadioGroup', () => {
-    render(
+  it('renders without crashing inside a RadioGroup', async () => {
+    const screen = await render(
       <RadioGroup>
         <Radio value="a" />
       </RadioGroup>,
     );
-    expect(screen.getByRole('radio')).toBeInTheDocument();
+    await expect.element(screen.getByRole('radio')).toBeInTheDocument();
   });
 
-  it('forwards className after scope anchor', () => {
-    render(
+  it('forwards className after scope anchor', async () => {
+    const screen = await render(
       <RadioGroup>
         <Radio value="a" className="my-class" />
       </RadioGroup>,
     );
-    expect(screen.getByRole('radio')).toHaveClass('sct-radio', 'my-class');
+    await expect.element(screen.getByRole('radio')).toHaveClass('sct-radio my-class');
   });
 
-  it('sets data-slot attribute', () => {
-    render(
+  it('sets data-slot attribute', async () => {
+    const screen = await render(
       <RadioGroup>
         <Radio value="a" />
       </RadioGroup>,
     );
-    expect(screen.getByRole('radio')).toHaveAttribute('data-slot', 'radio');
+    await expect.element(screen.getByRole('radio')).toHaveAttribute('data-slot', 'radio');
   });
 
-  it('disabled state applies data-disabled', () => {
-    render(
+  it('disabled state applies data-disabled', async () => {
+    const screen = await render(
       <RadioGroup>
         <Radio value="a" disabled />
       </RadioGroup>,
     );
-    expect(screen.getByRole('radio')).toHaveAttribute('data-disabled');
+    await expect.element(screen.getByRole('radio')).toHaveAttribute('data-disabled');
   });
 });

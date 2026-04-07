@@ -1,11 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render } from 'vitest-browser-react';
 import { describe, it, expect } from 'vitest';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip';
 
 describe('Tooltip', () => {
-  it('renders trigger without crashing', () => {
-    render(
+  it('renders trigger without crashing', async () => {
+    const screen = await render(
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>Hover me</TooltipTrigger>
@@ -13,12 +12,12 @@ describe('Tooltip', () => {
         </Tooltip>
       </TooltipProvider>,
     );
-    expect(screen.getByText('Hover me')).toBeInTheDocument();
+    await expect.element(screen.getByText('Hover me')).toBeInTheDocument();
   });
 
   it('shows tooltip content on hover', async () => {
-    const user = userEvent.setup();
-    render(
+    
+    const screen = await render(
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>Hover me</TooltipTrigger>
@@ -26,13 +25,13 @@ describe('Tooltip', () => {
         </Tooltip>
       </TooltipProvider>,
     );
-    await user.hover(screen.getByText('Hover me'));
-    expect(await screen.findByText('Tooltip text')).toBeInTheDocument();
+    await screen.getByText('Hover me').hover();
+    await expect.element(screen.getByText('Tooltip text')).toBeInTheDocument();
   });
 
   it('tooltip content has data-slot attribute', async () => {
-    const user = userEvent.setup();
-    render(
+    
+    const screen = await render(
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger>Hover me</TooltipTrigger>
@@ -40,8 +39,8 @@ describe('Tooltip', () => {
         </Tooltip>
       </TooltipProvider>,
     );
-    await user.hover(screen.getByText('Hover me'));
-    const tooltip = await screen.findByText('Tooltip text');
-    expect(tooltip).toHaveAttribute('data-slot', 'tooltip-content');
+    await screen.getByText('Hover me').hover();
+    const tooltip = screen.getByText('Tooltip text');
+    await expect.element(tooltip).toHaveAttribute('data-slot', 'tooltip-content');
   });
 });

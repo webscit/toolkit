@@ -1,20 +1,43 @@
-import { render, screen } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './card';
+import { render } from "vitest-browser-react";
+import { describe, it, expect } from "vitest";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./card";
 
-describe('Card', () => {
-  it('renders without crashing', () => {
-    render(<Card>content</Card>);
-    expect(screen.getByText('content')).toBeInTheDocument();
+import { locators, type Locator } from "vitest/browser";
+
+declare module "vitest/browser" {
+  interface LocatorSelectors {
+    getBySlot(slot: string): Locator;
+  }
+}
+
+locators.extend({
+  getBySlot(slot: string) {
+    return `[data-slot="${slot}"]`;
+  },
+});
+
+describe("Card", () => {
+  it("renders without crashing", async () => {
+    const screen = await render(<Card>content</Card>);
+    await expect.element(screen.getByText("content")).toBeInTheDocument();
   });
 
-  it('forwards className', () => {
-    render(<Card className="my-class">content</Card>);
-    expect(screen.getByText('content')).toHaveClass('sct-card', 'my-class');
+  it("forwards className", async () => {
+    const screen = await render(<Card className="my-class">content</Card>);
+    await expect
+      .element(screen.getByText("content"))
+      .toHaveClass("sct-card my-class");
   });
 
-  it('renders full card composition', () => {
-    render(
+  it("renders full card composition", async () => {
+    const screen = await render(
       <Card>
         <CardHeader>
           <CardTitle>Title</CardTitle>
@@ -24,14 +47,14 @@ describe('Card', () => {
         <CardFooter>Footer</CardFooter>
       </Card>,
     );
-    expect(screen.getByText('Title')).toBeInTheDocument();
-    expect(screen.getByText('Description')).toBeInTheDocument();
-    expect(screen.getByText('Content')).toBeInTheDocument();
-    expect(screen.getByText('Footer')).toBeInTheDocument();
+    await expect.element(screen.getByText("Title")).toBeInTheDocument();
+    await expect.element(screen.getByText("Description")).toBeInTheDocument();
+    await expect.element(screen.getByText("Content")).toBeInTheDocument();
+    await expect.element(screen.getByText("Footer")).toBeInTheDocument();
   });
 
-  it('sets data-slot on each part', () => {
-    render(
+  it("sets data-slot on each part", async () => {
+    const screen = await render(
       <Card>
         <CardHeader>
           <CardTitle>Title</CardTitle>
@@ -40,8 +63,14 @@ describe('Card', () => {
         <CardFooter>Footer</CardFooter>
       </Card>,
     );
-    expect(screen.getByText('Title').closest('[data-slot="card-title"]')).toBeInTheDocument();
-    expect(screen.getByText('Content').closest('[data-slot="card-content"]')).toBeInTheDocument();
-    expect(screen.getByText('Footer').closest('[data-slot="card-footer"]')).toBeInTheDocument();
+    await expect
+      .element(screen.getBySlot("card-title").getByText("Title"))
+      .toBeInTheDocument();
+    await expect
+      .element(screen.getBySlot("card-content").getByText("Content"))
+      .toBeInTheDocument();
+    await expect
+      .element(screen.getBySlot("card-footer").getByText("Footer"))
+      .toBeInTheDocument();
   });
 });

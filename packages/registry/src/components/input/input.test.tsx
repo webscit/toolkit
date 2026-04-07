@@ -1,30 +1,30 @@
-import { render, screen } from '@testing-library/react';
+import { render } from 'vitest-browser-react';
 import { describe, it, expect } from 'vitest';
 import { Input } from './input';
 
 describe('Input', () => {
-  it('renders without crashing', () => {
-    render(<Input />);
-    expect(screen.getByRole('textbox')).toBeInTheDocument();
+  it('renders without crashing', async () => {
+    const screen = await render(<Input />);
+    await expect.element(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
-  it('forwards className after scope anchor', () => {
-    render(<Input className="my-class" />);
-    expect(screen.getByRole('textbox')).toHaveClass('sct-input', 'my-class');
+  it('forwards className after scope anchor', async () => {
+    const screen = await render(<Input className="my-class" />);
+    await expect.element(screen.getByRole('textbox')).toHaveClass('sct-input my-class');
   });
 
-  it('sets data-slot attribute', () => {
-    render(<Input />);
-    expect(screen.getByRole('textbox')).toHaveAttribute('data-slot', 'input');
+  it('sets data-slot attribute', async () => {
+    const screen = await render(<Input />);
+    await expect.element(screen.getByRole('textbox')).toHaveAttribute('data-slot', 'input');
   });
 
-  it('passes type prop', () => {
-    render(<Input type="email" />);
-    expect(screen.getByRole('textbox')).toHaveAttribute('type', 'email');
+  it('passes type prop', async () => {
+    const screen = await render(<Input type="email" />);
+    await expect.element(screen.getByRole('textbox')).toHaveAttribute('type', 'email');
   });
 
-  it('passes disabled prop', () => {
-    render(<Input disabled />);
-    expect(screen.getByRole('textbox')).toBeDisabled();
+  it('passes disabled prop', async () => {
+    const screen = await render(<Input disabled />);
+    await expect.element(screen.getByRole('textbox')).toBeDisabled();
   });
 });

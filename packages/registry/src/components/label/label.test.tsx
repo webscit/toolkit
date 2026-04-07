@@ -1,26 +1,26 @@
-import { render, screen } from '@testing-library/react';
+import { render } from 'vitest-browser-react';
 import { describe, it, expect } from 'vitest';
 import { Label } from './label';
 
 describe('Label', () => {
-  it('renders without crashing', () => {
-    render(<Label>My Label</Label>);
-    expect(screen.getByText('My Label')).toBeInTheDocument();
+  it('renders without crashing', async () => {
+    const screen = await render(<Label>My Label</Label>);
+    await expect.element(screen.getByText('My Label')).toBeInTheDocument();
   });
 
-  it('forwards className after scope anchor', () => {
-    render(<Label className="my-class">Label</Label>);
+  it('forwards className after scope anchor', async () => {
+    const screen = await render(<Label className="my-class">Label</Label>);
     const el = screen.getByText('Label');
-    expect(el).toHaveClass('sct-label', 'my-class');
+    await expect.element(el).toHaveClass('sct-label my-class');
   });
 
-  it('sets data-slot attribute', () => {
-    render(<Label>Label</Label>);
-    expect(screen.getByText('Label')).toHaveAttribute('data-slot', 'label');
+  it('sets data-slot attribute', async () => {
+    const screen = await render(<Label>Label</Label>);
+    await expect.element(screen.getByText('Label')).toHaveAttribute('data-slot', 'label');
   });
 
-  it('passes htmlFor prop', () => {
-    render(<Label htmlFor="my-input">Label</Label>);
-    expect(screen.getByText('Label')).toHaveAttribute('for', 'my-input');
+  it('passes htmlFor prop', async () => {
+    const screen = await render(<Label htmlFor="my-input">Label</Label>);
+    await expect.element(screen.getByText('Label')).toHaveAttribute('for', 'my-input');
   });
 });
