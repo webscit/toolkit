@@ -16,6 +16,7 @@ export function Alert({ variant = 'default', className, ...props }: AlertProps) 
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface AlertTitleProps extends React.ComponentProps<'div'> {}
 export function AlertTitle({ className, ...props }: AlertTitleProps) {
   return (
@@ -27,6 +28,7 @@ export function AlertTitle({ className, ...props }: AlertTitleProps) {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface AlertDescriptionProps extends React.ComponentProps<'div'> {}
 export function AlertDescription({ className, ...props }: AlertDescriptionProps) {
   return (

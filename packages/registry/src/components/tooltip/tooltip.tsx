@@ -7,6 +7,7 @@ export type TooltipProviderProps = React.ComponentProps<typeof BaseTooltip.Provi
 export const Tooltip = BaseTooltip.Root;
 export type TooltipProps = React.ComponentProps<typeof BaseTooltip.Root>;
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface TooltipTriggerProps extends React.HTMLAttributes<HTMLElement> {}
 export function TooltipTrigger({ ...props }: TooltipTriggerProps) {
   return <BaseTooltip.Trigger data-slot="tooltip-trigger" {...props} />;
