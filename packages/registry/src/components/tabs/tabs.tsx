@@ -1,4 +1,4 @@
-import { Tabs as BaseTabs } from '@base-ui-components/react/tabs';
+import { Tabs as BaseTabs } from '@base-ui/react/tabs';
 import './tabs.css';
 
 export interface TabsProps extends React.ComponentProps<typeof BaseTabs.Root> {}

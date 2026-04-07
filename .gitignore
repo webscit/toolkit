@@ -3,3 +3,5 @@ dist/
 *.tsbuildinfo
 storybook-static/
 packages/registry/registry/
+
+*storybook.log

@@ -10,8 +10,9 @@
       "import": "./dist/index.js"
     }
   },
+  "files": ["dist/**/*"],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && npm run build:registry",
+    "build": "tsc -p tsconfig.build.json && copyfiles -u 1 src/**/*.css dist/ && npm run build:registry",
     "build:registry": "node scripts/build-registry.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests"
@@ -21,17 +22,20 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@base-ui-components/react": "^1.0.0-rc.0"
+    "@base-ui/react": "^1.3.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.0.0",
-    "@testing-library/react": "^16.0.0",
-    "@testing-library/user-event": "^14.0.0",
-    "@vitejs/plugin-react": "^4.0.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.0",
+    "@vitejs/plugin-react": "^6.0.1",
     "@vitest/browser": "^2.0.0",
+    "copyfiles": "^2.4.1",
     "jsdom": "^25.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-"vitest": "^2.0.0"
+    "typescript": "^6.0.2",
+    "vite": "^8.0.5",
+    "vitest": "^4.1.2"
   }
 }

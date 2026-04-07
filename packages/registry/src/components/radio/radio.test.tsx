@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { RadioGroup } from '@base-ui-components/react/radio-group';
+import { RadioGroup } from '@base-ui/react/radio-group';
 import { describe, it, expect } from 'vitest';
 import { Radio } from './radio';
 

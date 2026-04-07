@@ -1,7 +1,7 @@
 {
   "title": "Tabs",
   "description": "Accessible tabs built on Base UI.",
-  "dependencies": ["@base-ui-components/react"],
+  "dependencies": ["@base-ui/react"],
   "devDependencies": [],
   "registryDependencies": []
 }

@@ -1,7 +1,7 @@
 {
   "title": "Radio",
   "description": "Individual radio button built on Base UI RadioGroup.Item.",
-  "dependencies": ["@base-ui-components/react"],
+  "dependencies": ["@base-ui/react"],
   "devDependencies": [],
   "registryDependencies": ["radio-group"]
 }

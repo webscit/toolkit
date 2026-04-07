@@ -1,4 +1,4 @@
-import { Radio as BaseRadio } from '@base-ui-components/react/radio';
+import { Radio as BaseRadio } from '@base-ui/react/radio';
 import './radio.css';
 
 export type RadioProps = React.ComponentProps<typeof BaseRadio.Root>;

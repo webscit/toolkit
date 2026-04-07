@@ -1,4 +1,4 @@
-import { Button as BaseButton } from '@base-ui-components/react/button';
+import { Button as BaseButton } from '@base-ui/react/button';
 import './button.css';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
