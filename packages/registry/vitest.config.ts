@@ -9,8 +9,11 @@ export default defineConfig({
       "@base-ui/react/accordion",
       "@base-ui/react/alert-dialog",
       "@base-ui/react/collapsible",
+      "@base-ui/react/dialog",
       "@base-ui/react/popover",
       "@base-ui/react/slider",
+      "@base-ui/react/toast",
+      "react-resizable-panels",
     ],
   },
   test: {
