@@ -1,0 +1,7 @@
+{
+  "title": "Alert Dialog",
+  "description": "A modal dialog that requires user confirmation before proceeding.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}
