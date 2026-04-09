@@ -1,0 +1,54 @@
+@scope (.sct-scroll-area) {
+  :scope {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sct-scroll-area-viewport {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--sct-color-border) transparent;
+  }
+
+  .sct-scroll-area-viewport::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .sct-scroll-area-viewport::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sct-scroll-area-viewport::-webkit-scrollbar-thumb {
+    background-color: var(--sct-color-border);
+    border-radius: var(--sct-radius-full);
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .sct-scroll-area-viewport::-webkit-scrollbar-thumb:hover {
+    background-color: var(--sct-color-muted-foreground);
+  }
+}
+
+@scope (.sct-scroll-bar) {
+  :scope {
+    display: flex;
+    touch-action: none;
+    user-select: none;
+    padding: 1px;
+  }
+
+  :scope[data-orientation="vertical"] {
+    width: 8px;
+    border-left: 1px solid transparent;
+  }
+
+  :scope[data-orientation="horizontal"] {
+    height: 8px;
+    flex-direction: column;
+    border-top: 1px solid transparent;
+  }
+}
