@@ -6,6 +6,9 @@ export default defineConfig({
   optimizeDeps: {
     include: [
       "react/jsx-dev-runtime",
+      "@base-ui/react/accordion",
+      "@base-ui/react/alert-dialog",
+      "@base-ui/react/collapsible",
       "@base-ui/react/popover",
       "@base-ui/react/slider",
     ],

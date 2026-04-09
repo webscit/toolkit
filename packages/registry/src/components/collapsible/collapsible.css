@@ -1,0 +1,11 @@
+@scope (.sct-collapsible-content) {
+  :scope {
+    overflow: hidden;
+    transition: height 200ms ease;
+  }
+
+  :scope[data-starting-style],
+  :scope[data-ending-style] {
+    height: 0;
+  }
+}
