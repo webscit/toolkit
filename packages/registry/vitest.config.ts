@@ -7,6 +7,8 @@ export default defineConfig({
     include: [
       "react/jsx-dev-runtime",
       "@base-ui/react/accordion",
+      "@base-ui/react/field",
+      "@base-ui/react/fieldset",
       "@base-ui/react/alert-dialog",
       "@base-ui/react/collapsible",
       "@base-ui/react/dialog",

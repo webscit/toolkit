@@ -1,0 +1,7 @@
+{
+  "title": "Field",
+  "description": "Accessible form field with label, description, and error messaging.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": ["separator", "label"]
+}
