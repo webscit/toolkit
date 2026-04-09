@@ -1,0 +1,7 @@
+{
+  "title": "Toast",
+  "description": "Dismissable notification messages built on Base UI Toast.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}
