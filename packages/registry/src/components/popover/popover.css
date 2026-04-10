@@ -1,0 +1,27 @@
+@scope (.sct-popover-content) {
+  :scope {
+    z-index: 50;
+    width: 18rem;
+    background-color: var(--sct-color-background);
+    border: 1px solid var(--sct-color-border);
+    border-radius: var(--sct-radius-lg);
+    padding: 1rem;
+    box-shadow: var(--sct-shadow-lg);
+    outline: none;
+    transition:
+      opacity 200ms,
+      transform 200ms;
+  }
+
+  @starting-style {
+    :scope {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  :scope[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

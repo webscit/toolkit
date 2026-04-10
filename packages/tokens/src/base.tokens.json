@@ -13,6 +13,16 @@
         "base": { "$type": "color", "$value": "#c72e2e" },
         "dark": { "$type": "color", "$value": "#a12626" }
       },
+      "green": {
+        "light": { "$type": "color", "$value": "#4caf50" },
+        "base": { "$type": "color", "$value": "#2e7d32" },
+        "dark": { "$type": "color", "$value": "#1b5e20" }
+      },
+      "amber": {
+        "light": { "$type": "color", "$value": "#ffb300" },
+        "base": { "$type": "color", "$value": "#f57f17" },
+        "dark": { "$type": "color", "$value": "#e65100" }
+      },
       "neutral": {
         "0": { "$type": "color", "$value": "#ffffff" },
         "50": { "$type": "color", "$value": "#f3f3f3" },

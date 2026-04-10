@@ -1,0 +1,35 @@
+@scope (.sct-input-group) {
+  :scope {
+    display: flex;
+    align-items: stretch;
+  }
+
+  :scope > :not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+
+  :scope > :first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  :scope > :last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  :scope > :not(:first-child) {
+    margin-left: -1px;
+  }
+
+  .sct-input-group-addon {
+    display: flex;
+    align-items: center;
+    padding-inline: 0.75rem;
+    border: 1px solid var(--sct-color-input);
+    background-color: var(--sct-color-muted);
+    font-size: var(--sct-font-size-sm);
+    color: var(--sct-color-muted-foreground);
+    white-space: nowrap;
+  }
+}

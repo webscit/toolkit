@@ -1,0 +1,36 @@
+@scope (.sct-resizable-panel-group) {
+  :scope {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .sct-resizable-handle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--sct-color-border);
+    transition: background-color 150ms;
+    outline: none;
+  }
+
+  .sct-resizable-handle:hover {
+    background-color: var(--sct-color-primary);
+  }
+
+  .sct-resizable-handle:focus-visible {
+    background-color: var(--sct-color-ring);
+  }
+
+  :scope[data-panel-group-direction="horizontal"] > .sct-resizable-handle {
+    width: 3px;
+    cursor: col-resize;
+  }
+
+  :scope[data-panel-group-direction="vertical"] > .sct-resizable-handle {
+    height: 3px;
+    cursor: row-resize;
+  }
+}

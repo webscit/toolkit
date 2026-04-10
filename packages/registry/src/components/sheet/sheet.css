@@ -1,0 +1,107 @@
+@scope (.sct-sheet-overlay) {
+  :scope {
+    position: fixed;
+    inset: 0;
+    background-color: color-mix(
+      in srgb,
+      var(--sct-color-foreground) 50%,
+      transparent
+    );
+    z-index: 50;
+    transition: opacity 200ms;
+  }
+
+  :scope[data-starting-style],
+  :scope[data-ending-style] {
+    opacity: 0;
+  }
+}
+
+@scope (.sct-sheet-content) {
+  :scope {
+    position: fixed;
+    z-index: 50;
+    background-color: var(--sct-color-background);
+    box-shadow: var(--sct-shadow-lg);
+    padding: 1.5rem;
+    outline: none;
+    transition: transform 300ms ease;
+  }
+
+  :scope[data-side="right"] {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 75vw;
+    max-width: 24rem;
+    border-left: 1px solid var(--sct-color-border);
+  }
+
+  :scope[data-side="right"][data-starting-style],
+  :scope[data-side="right"][data-ending-style] {
+    transform: translateX(100%);
+  }
+
+  :scope[data-side="left"] {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 75vw;
+    max-width: 24rem;
+    border-right: 1px solid var(--sct-color-border);
+  }
+
+  :scope[data-side="left"][data-starting-style],
+  :scope[data-side="left"][data-ending-style] {
+    transform: translateX(-100%);
+  }
+
+  :scope[data-side="top"] {
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid var(--sct-color-border);
+  }
+
+  :scope[data-side="top"][data-starting-style],
+  :scope[data-side="top"][data-ending-style] {
+    transform: translateY(-100%);
+  }
+
+  :scope[data-side="bottom"] {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--sct-color-border);
+  }
+
+  :scope[data-side="bottom"][data-starting-style],
+  :scope[data-side="bottom"][data-ending-style] {
+    transform: translateY(100%);
+  }
+
+  .sct-sheet-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    margin-bottom: 1rem;
+  }
+
+  .sct-sheet-title {
+    font-size: var(--sct-font-size-lg);
+    font-weight: var(--sct-font-weight-semibold);
+    color: var(--sct-color-foreground);
+  }
+
+  .sct-sheet-description {
+    font-size: var(--sct-font-size-sm);
+    color: var(--sct-color-muted-foreground);
+  }
+
+  .sct-sheet-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+}

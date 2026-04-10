@@ -1,0 +1,7 @@
+{
+  "title": "Sheet",
+  "description": "A side-sliding panel dialog.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Accordion",
+  "description": "A vertically stacked set of expandable panels.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,17 @@
+@keyframes sct-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@scope (.sct-skeleton) {
+  :scope {
+    background-color: var(--sct-color-muted);
+    border-radius: var(--sct-radius-md);
+    animation: sct-skeleton-pulse 2s ease-in-out infinite;
+  }
+}

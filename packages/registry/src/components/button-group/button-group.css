@@ -1,0 +1,45 @@
+@scope (.sct-button-group) {
+  :scope {
+    display: inline-flex;
+  }
+
+  :scope[data-orientation="vertical"] {
+    flex-direction: column;
+  }
+
+  :scope[data-orientation="horizontal"] > :not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+
+  :scope[data-orientation="horizontal"] > :first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  :scope[data-orientation="horizontal"] > :last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  :scope[data-orientation="vertical"] > :not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+
+  :scope[data-orientation="vertical"] > :first-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  :scope[data-orientation="vertical"] > :last-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  :scope[data-orientation="horizontal"] > :not(:first-child) {
+    margin-left: -1px;
+  }
+
+  :scope[data-orientation="vertical"] > :not(:first-child) {
+    margin-top: -1px;
+  }
+}

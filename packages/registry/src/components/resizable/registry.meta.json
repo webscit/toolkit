@@ -1,0 +1,7 @@
+{
+  "title": "Resizable",
+  "description": "Resizable panel groups with draggable handles.",
+  "dependencies": ["react-resizable-panels"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

@@ -1,0 +1,16 @@
+@scope (.sct-separator) {
+  :scope {
+    flex-shrink: 0;
+    background-color: var(--sct-color-border);
+  }
+
+  :scope[data-orientation="horizontal"] {
+    height: 1px;
+    width: 100%;
+  }
+
+  :scope[data-orientation="vertical"] {
+    width: 1px;
+    height: 100%;
+  }
+}

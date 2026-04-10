@@ -1,0 +1,7 @@
+{
+  "title": "Popover",
+  "description": "A floating panel anchored to a trigger element.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

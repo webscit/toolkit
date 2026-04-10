@@ -1,0 +1,7 @@
+{
+  "title": "Slider",
+  "description": "A range input slider built on Base UI.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

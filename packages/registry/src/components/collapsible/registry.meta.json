@@ -1,0 +1,7 @@
+{
+  "title": "Collapsible",
+  "description": "A panel that can be expanded or collapsed.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

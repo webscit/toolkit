@@ -1,0 +1,64 @@
+@scope (.sct-slider) {
+  :scope {
+    position: relative;
+    display: flex;
+    width: 100%;
+    touch-action: none;
+    user-select: none;
+  }
+
+  .sct-slider-control {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 1.25rem;
+  }
+
+  .sct-slider-track {
+    position: relative;
+    width: 100%;
+    height: 0.25rem;
+    border-radius: var(--sct-radius-full);
+    background-color: var(--sct-color-muted);
+    overflow: hidden;
+  }
+
+  .sct-slider-range {
+    position: absolute;
+    height: 100%;
+    background-color: var(--sct-color-primary);
+  }
+
+  .sct-slider-thumb {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: var(--sct-radius-full);
+    border: 2px solid var(--sct-color-primary);
+    background-color: var(--sct-color-background);
+    box-shadow: var(--sct-shadow-xs);
+    cursor: pointer;
+    outline: none;
+    transition:
+      box-shadow 150ms,
+      border-color 150ms;
+  }
+
+  .sct-slider-thumb:hover {
+    border-color: color-mix(
+      in srgb,
+      var(--sct-color-primary) 80%,
+      transparent
+    );
+  }
+
+  .sct-slider-thumb:focus-visible {
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+  }
+
+  .sct-slider-thumb[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
