@@ -94,7 +94,7 @@ export function SidebarProvider({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [toggleSidebar]);
 
-  const state = open ? "expanded" : "collapsed";
+  const state: "expanded" | "collapsed" = open ? "expanded" : "collapsed";
 
   const value = useMemo(
     () => ({ open, setOpen, toggleSidebar, isMobile, state }),
