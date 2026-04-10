@@ -8,7 +8,8 @@
   },
   "exports": {
     "./tokens.css": "./dist/tokens.css",
-    "./tokens-dark.css": "./dist/tokens-dark.css"
+    "./tokens-dark.css": "./dist/tokens-dark.css",
+    "./base.css": "./dist/base.css"
   },
   "devDependencies": {
     "@tokens-studio/sd-transforms": "^2.0.3",

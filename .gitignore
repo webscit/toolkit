@@ -5,3 +5,4 @@ storybook-static/
 packages/registry/registry/
 
 *storybook.log
+.claude/scheduled_tasks.lock
