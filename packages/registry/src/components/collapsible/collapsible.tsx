@@ -6,9 +6,8 @@ export type CollapsibleProps = React.ComponentProps<
   typeof BaseCollapsible.Root
 >;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface CollapsibleTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type CollapsibleTriggerProps =
+  React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function CollapsibleTrigger({ ...props }: CollapsibleTriggerProps) {
   return (
@@ -16,8 +15,7 @@ export function CollapsibleTrigger({ ...props }: CollapsibleTriggerProps) {
   );
 }
 
-export interface CollapsibleContentProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type CollapsibleContentProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function CollapsibleContent({
   className,

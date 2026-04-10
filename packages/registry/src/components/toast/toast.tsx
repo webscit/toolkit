@@ -7,8 +7,7 @@ export const createToastManager = BaseToast.createToastManager;
 export const ToastProvider = BaseToast.Provider;
 export type ToastProviderProps = React.ComponentProps<typeof BaseToast.Provider>;
 
-export interface ToastViewportProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type ToastViewportProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function ToastViewport({ className, ...props }: ToastViewportProps) {
   return (
@@ -20,8 +19,7 @@ export function ToastViewport({ className, ...props }: ToastViewportProps) {
   );
 }
 
-export interface ToastProps
-  extends React.ComponentProps<typeof BaseToast.Root> {}
+export type ToastProps = React.ComponentProps<typeof BaseToast.Root>;
 
 export function Toast({ className, ...props }: ToastProps) {
   const variant = props.toast?.type ?? "default";
@@ -35,8 +33,7 @@ export function Toast({ className, ...props }: ToastProps) {
   );
 }
 
-export interface ToastContentProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type ToastContentProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function ToastContent({ className, ...props }: ToastContentProps) {
   return (
@@ -48,8 +45,7 @@ export function ToastContent({ className, ...props }: ToastContentProps) {
   );
 }
 
-export interface ToastTitleProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type ToastTitleProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function ToastTitle({ className, ...props }: ToastTitleProps) {
   return (
@@ -61,8 +57,7 @@ export function ToastTitle({ className, ...props }: ToastTitleProps) {
   );
 }
 
-export interface ToastDescriptionProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type ToastDescriptionProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function ToastDescription({
   className,
@@ -77,9 +72,7 @@ export function ToastDescription({
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface ToastCloseProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type ToastCloseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function ToastClose({ ...props }: ToastCloseProps) {
   return (
@@ -92,9 +85,7 @@ export function ToastClose({ ...props }: ToastCloseProps) {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface ToastActionProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type ToastActionProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function ToastAction({ ...props }: ToastActionProps) {
   return <BaseToast.Action data-slot="toast-action" {...props} />;

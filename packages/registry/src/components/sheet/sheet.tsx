@@ -4,16 +4,13 @@ import "./sheet.css";
 export const Sheet = BaseDialog.Root;
 export type SheetProps = React.ComponentProps<typeof BaseDialog.Root>;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface SheetTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type SheetTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function SheetTrigger({ ...props }: SheetTriggerProps) {
   return <BaseDialog.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
-export interface SheetOverlayProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type SheetOverlayProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function SheetOverlay({ className, ...props }: SheetOverlayProps) {
   return (
@@ -75,8 +72,7 @@ export function SheetFooter({ className, ...props }: SheetFooterProps) {
   );
 }
 
-export interface SheetTitleProps
-  extends React.HTMLAttributes<HTMLHeadingElement> {}
+export type SheetTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
 
 export function SheetTitle({ className, ...props }: SheetTitleProps) {
   return (
@@ -88,8 +84,7 @@ export function SheetTitle({ className, ...props }: SheetTitleProps) {
   );
 }
 
-export interface SheetDescriptionProps
-  extends React.HTMLAttributes<HTMLParagraphElement> {}
+export type SheetDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
 
 export function SheetDescription({
   className,
@@ -104,9 +99,7 @@ export function SheetDescription({
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface SheetCloseProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type SheetCloseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function SheetClose({ ...props }: SheetCloseProps) {
   return <BaseDialog.Close data-slot="sheet-close" {...props} />;

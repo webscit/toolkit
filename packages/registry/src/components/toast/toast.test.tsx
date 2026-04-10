@@ -4,7 +4,6 @@ import { Toast as BaseToast } from "@base-ui/react/toast";
 import {
   ToastProvider,
   ToastViewport,
-  Toast,
   ToastTitle,
   ToastDescription,
   ToastClose,

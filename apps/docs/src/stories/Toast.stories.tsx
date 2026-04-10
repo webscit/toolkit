@@ -7,8 +7,7 @@ import {
   Button,
 } from "@webscit/registry";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const meta: Meta<any> = {
+const meta: Meta = {
   title: "Components/Toast",
   component: Toast,
   tags: ["autodocs"],
@@ -23,7 +22,7 @@ const meta: Meta<any> = {
 } satisfies Meta<typeof Toast>;
 
 export default meta;
-type Story = StoryObj<typeof meta>; // eslint-disable-line @typescript-eslint/no-explicit-any
+type Story = StoryObj<typeof meta>;
 
 function ToastDemo() {
   const toastManager = useToastManager();

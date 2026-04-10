@@ -16,8 +16,7 @@ export function AlertDialogTrigger({ ...props }: AlertDialogTriggerProps) {
   );
 }
 
-export interface AlertDialogOverlayProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type AlertDialogOverlayProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function AlertDialogOverlay({
   className,
@@ -32,8 +31,7 @@ export function AlertDialogOverlay({
   );
 }
 
-export interface AlertDialogContentProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type AlertDialogContentProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function AlertDialogContent({
   className,
@@ -84,8 +82,7 @@ export function AlertDialogFooter({
   );
 }
 
-export interface AlertDialogTitleProps
-  extends React.HTMLAttributes<HTMLHeadingElement> {}
+export type AlertDialogTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
 
 export function AlertDialogTitle({
   className,
@@ -100,8 +97,8 @@ export function AlertDialogTitle({
   );
 }
 
-export interface AlertDialogDescriptionProps
-  extends React.HTMLAttributes<HTMLParagraphElement> {}
+export type AlertDialogDescriptionProps =
+  React.HTMLAttributes<HTMLParagraphElement>;
 
 export function AlertDialogDescription({
   className,

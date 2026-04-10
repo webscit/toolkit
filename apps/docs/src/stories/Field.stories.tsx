@@ -7,7 +7,6 @@ import {
   FieldSet,
   FieldLegend,
   FieldGroup,
-  FieldContent,
   FieldSeparator,
   Input,
 } from "@webscit/registry";

@@ -4,16 +4,13 @@ import "./popover.css";
 export const Popover = BasePopover.Root;
 export type PopoverProps = React.ComponentProps<typeof BasePopover.Root>;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface PopoverTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type PopoverTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function PopoverTrigger({ ...props }: PopoverTriggerProps) {
   return <BasePopover.Trigger data-slot="popover-trigger" {...props} />;
 }
 
-export interface PopoverContentProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type PopoverContentProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function PopoverContent({
   className,
@@ -35,9 +32,7 @@ export function PopoverContent({
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface PopoverCloseProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type PopoverCloseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function PopoverClose({ ...props }: PopoverCloseProps) {
   return <BasePopover.Close data-slot="popover-close" {...props} />;

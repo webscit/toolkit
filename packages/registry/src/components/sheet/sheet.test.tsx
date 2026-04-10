@@ -8,7 +8,6 @@ import {
   SheetHeader,
   SheetTitle,
   SheetDescription,
-  SheetClose,
 } from "./sheet";
 
 describe("Sheet", () => {

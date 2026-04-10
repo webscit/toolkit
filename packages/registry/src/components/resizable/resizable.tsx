@@ -31,7 +31,7 @@ export function ResizablePanelGroup({
   );
 }
 
-export interface ResizablePanelProps extends ComponentProps<typeof Panel> {}
+export type ResizablePanelProps = ComponentProps<typeof Panel>;
 
 export function ResizablePanel({ className, ...props }: ResizablePanelProps) {
   return (
@@ -43,8 +43,7 @@ export function ResizablePanel({ className, ...props }: ResizablePanelProps) {
   );
 }
 
-export interface ResizableHandleProps
-  extends ComponentProps<typeof PanelResizeHandle> {}
+export type ResizableHandleProps = ComponentProps<typeof PanelResizeHandle>;
 
 export function ResizableHandle({
   className,

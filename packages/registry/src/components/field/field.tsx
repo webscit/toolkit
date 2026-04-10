@@ -35,8 +35,7 @@ export function FieldLabel({ className, ...props }: FieldLabelProps) {
   );
 }
 
-export interface FieldDescriptionProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type FieldDescriptionProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function FieldDescription({
   className,
@@ -51,8 +50,7 @@ export function FieldDescription({
   );
 }
 
-export interface FieldErrorProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type FieldErrorProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function FieldError({ className, ...props }: FieldErrorProps) {
   return (
@@ -84,8 +82,9 @@ export function FieldSet({ className, ...props }: FieldSetProps) {
   );
 }
 
-export interface FieldLegendProps
-  extends React.ComponentProps<typeof BaseFieldset.Legend> {}
+export type FieldLegendProps = React.ComponentProps<
+  typeof BaseFieldset.Legend
+>;
 
 export function FieldLegend({ className, ...props }: FieldLegendProps) {
   return (

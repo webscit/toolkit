@@ -179,8 +179,7 @@ export function Sidebar({
 
 // ---- Trigger ----
 
-export interface SidebarTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type SidebarTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function SidebarTrigger({
   className,
