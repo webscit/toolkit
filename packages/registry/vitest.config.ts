@@ -5,6 +5,7 @@ import path from "path";
 export default defineConfig({
   optimizeDeps: {
     include: [
+      "react",
       "react/jsx-dev-runtime",
       "@base-ui/react/accordion",
       "@base-ui/react/field",
@@ -21,8 +22,11 @@ export default defineConfig({
   test: {
     browser: {
       provider: playwright({
-        launch: {
+        launchOptions: {
           args: ["--disable-dev-shm-usage"],
+        },
+        contextOptions: {
+          viewport: { width: 1280, height: 720 },
         },
       }),
       enabled: true,

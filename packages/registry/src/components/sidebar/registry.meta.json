@@ -1,0 +1,16 @@
+{
+  "title": "Sidebar",
+  "description": "A responsive sidebar navigation with collapsible, mobile, and icon-only modes.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": [
+    "button",
+    "collapsible",
+    "sheet",
+    "separator",
+    "skeleton",
+    "scroll-area",
+    "tooltip",
+    "input"
+  ]
+}
