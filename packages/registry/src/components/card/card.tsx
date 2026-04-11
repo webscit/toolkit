@@ -7,7 +7,7 @@ export function Card({ size = "default", className, ...props }: CardProps) {
   return (
     <div
       data-slot="card"
-      data-size={size}
+      data-size={size !== "default" ? size : undefined}
       className={`sct-card${className ? ` ${className}` : ""}`}
       {...props}
     />
