@@ -4,7 +4,7 @@ export type TableProps = React.ComponentProps<"table">;
 
 export function Table({ className, ...props }: TableProps) {
   return (
-    <div data-slot="table-container" className="sct-table-wrapper">
+    <div data-slot="table-wrapper" className="sct-table-wrapper">
       <table
         data-slot="table"
         className={`sct-table${className ? ` ${className}` : ""}`}
