@@ -1,11 +1,13 @@
 import "./card.css";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface CardProps extends React.ComponentProps<"div"> {}
-export function Card({ className, ...props }: CardProps) {
+export interface CardProps extends React.ComponentProps<"div"> {
+  size?: "default" | "sm";
+}
+export function Card({ size = "default", className, ...props }: CardProps) {
   return (
     <div
       data-slot="card"
+      data-size={size}
       className={`sct-card${className ? ` ${className}` : ""}`}
       {...props}
     />
@@ -55,6 +57,18 @@ export function CardContent({ className, ...props }: CardContentProps) {
     <div
       data-slot="card-content"
       className={`sct-card-content${className ? ` ${className}` : ""}`}
+      {...props}
+    />
+  );
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface CardActionProps extends React.ComponentProps<"div"> {}
+export function CardAction({ className, ...props }: CardActionProps) {
+  return (
+    <div
+      data-slot="card-action"
+      className={`sct-card-action${className ? ` ${className}` : ""}`}
       {...props}
     />
   );

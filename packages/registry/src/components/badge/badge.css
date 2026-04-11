@@ -35,4 +35,18 @@
     border-color: var(--sct-color-border);
     color: var(--sct-color-foreground);
   }
+
+  :scope[data-variant="ghost"] {
+    background-color: var(--sct-color-muted);
+    color: var(--sct-color-muted-foreground);
+    border-color: transparent;
+  }
+
+  :scope[data-variant="link"] {
+    background-color: transparent;
+    color: var(--sct-color-primary);
+    border-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
 }

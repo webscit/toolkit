@@ -307,3 +307,67 @@ Systematic per-component review; fix deviations that are not intentional; docume
 | Prop type | `React.ComponentProps<"label">` | `React.ComponentProps<"label">` | ✅ match |
 | `data-slot` | `"label"` | `"label"` | ✅ match |
 | Underlying element | native `<label>` | native `<label>` | ✅ match |
+
+### `badge`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Badge` | `Badge` | ✅ match |
+| Underlying element | `<span>` | `<span>` (via `useRender`) | ✅ match |
+| `data-slot` | `"badge"` | `"badge"` | ✅ match |
+| Prop type | `React.ComponentProps<"span">` | `useRender.ComponentProps<"span">` | ✅ match (equivalent) |
+| `variant` prop | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link"` | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link"` | 🔧 fixed (added `ghost`, `link`) |
+| `data-variant` attribute | ✅ present | via state slot | ✅ match |
+| `asChild` / `render` | not present | `render` prop (Base UI pattern) | ⚠️ accepted deviation — our convention omits render prop |
+
+### `card`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Card` | `Card` | ✅ match |
+| `CardHeader` | ✅ present | `CardHeader` | ✅ match |
+| `CardTitle` | ✅ present | `CardTitle` | ✅ match |
+| `CardDescription` | ✅ present | `CardDescription` | ✅ match |
+| `CardContent` | ✅ present | `CardContent` | ✅ match |
+| `CardFooter` | ✅ present | `CardFooter` | ✅ match |
+| `CardAction` | ✅ added | `CardAction` | 🔧 fixed (was missing) |
+| `size` prop on `Card` | ✅ added `"default" \| "sm"` | `"default" \| "sm"` | 🔧 fixed (was missing) |
+| `data-size` attribute | ✅ added | ✅ present | 🔧 fixed |
+| `data-slot` root | `"card"` | `"card"` | ✅ match |
+
+### `separator`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Separator` | `Separator` | ✅ match |
+| Underlying element | native `<div>` | `@base-ui/react/separator` primitive | ⚠️ accepted deviation — native div with manual ARIA is simpler for a decorative separator |
+| `orientation` prop | `"horizontal" \| "vertical"` | `"horizontal" \| "vertical"` | ✅ match |
+| `decorative` prop | ✅ present, controls `role`/`aria-orientation` | not present (shadcn v4 Base UI primitive handles ARIA internally) | ⚠️ accepted deviation — `decorative` adds useful semantic control |
+| `data-slot` | `"separator"` | `"separator"` | ✅ match |
+| `data-orientation` | ✅ present | ✅ present (via Base UI) | ✅ match |
+
+### `skeleton`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Skeleton` | `Skeleton` | ✅ match |
+| Underlying element | `<div>` | `<div>` | ✅ match |
+| Prop type | `React.ComponentProps<"div">` | `React.ComponentProps<"div">` | 🔧 fixed (was `React.HTMLAttributes<HTMLDivElement>`) |
+| `data-slot` | `"skeleton"` | `"skeleton"` | ✅ match |
+| Sub-components | none | none | ✅ match |
+
+### `alert`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Alert` | `Alert` | ✅ match |
+| `AlertTitle` | ✅ present | `AlertTitle` | ✅ match |
+| `AlertDescription` | ✅ present | `AlertDescription` | ✅ match |
+| `AlertAction` | ✅ added | `AlertAction` | 🔧 fixed (was missing) |
+| `variant` prop | `"default" \| "destructive"` | `"default" \| "destructive"` | ✅ match |
+| `data-slot` root | `"alert"` | `"alert"` | ✅ match |
+| `role="alert"` | ✅ present | ✅ present | ✅ match |
+
+### `toast`
+
+Custom extension — shadcn v4 removed this component (replaced with `sonner`). Kept intentionally as scientific UIs don't use sonner. No audit performed.

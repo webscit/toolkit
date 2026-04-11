@@ -29,6 +29,13 @@
     color: var(--sct-color-muted-foreground);
   }
 
+  .sct-card-action {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .sct-card-content {
     padding: 1.5rem;
   }

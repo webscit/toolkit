@@ -46,3 +46,15 @@ export function AlertDescription({
     />
   );
 }
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface AlertActionProps extends React.ComponentProps<"div"> {}
+export function AlertAction({ className, ...props }: AlertActionProps) {
+  return (
+    <div
+      data-slot="alert-action"
+      className={`sct-alert-action${className ? ` ${className}` : ""}`}
+      {...props}
+    />
+  );
+}
