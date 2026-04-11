@@ -147,3 +147,81 @@ Each component is fully implemented with `.tsx`, `.css`, `registry.meta.json`, a
 Systematic per-component review; fix deviations that are not intentional; document accepted deviations.
 
 **Skipped components:** calendar, carousel, chart, avatar, input-otp, sonner.
+
+---
+
+## Audit Results
+
+### `menu` (vs shadcn `dropdown-menu`)
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Menu` | `DropdownMenu` | ⚠️ accepted deviation — cleaner name for our API |
+| `MenuTrigger` | ✅ present | `DropdownMenuTrigger` | ✅ match (renamed) |
+| `MenuContent` | ✅ present | `DropdownMenuContent` | ✅ match (renamed) |
+| `MenuItem` | ✅ present | `DropdownMenuItem` | ✅ match (renamed) |
+| `MenuSeparator` | ✅ present | `DropdownMenuSeparator` | ✅ match (renamed) |
+| `MenuLabel` | ✅ present | `DropdownMenuLabel` | ✅ match (renamed) |
+| `MenuCheckboxItem` | ✅ present | `DropdownMenuCheckboxItem` | ✅ match (renamed) |
+| `MenuRadioGroup` | ✅ present | `DropdownMenuRadioGroup` | ✅ match (renamed) |
+| `MenuRadioItem` | ✅ present | `DropdownMenuRadioItem` | ✅ match (renamed) |
+| `MenuGroup` | ✅ added | `DropdownMenuGroup` | 🔧 fixed |
+| `MenuShortcut` | ✅ added | `DropdownMenuShortcut` | 🔧 fixed |
+| `MenuSub` | ✅ added | `DropdownMenuSub` | 🔧 fixed |
+| `MenuSubTrigger` | ✅ added | `DropdownMenuSubTrigger` | 🔧 fixed |
+| `MenuSubContent` | ✅ added | `DropdownMenuSubContent` | 🔧 fixed |
+| `MenuPortal` | not exported (handled in `MenuContent`) | `DropdownMenuPortal` | ⚠️ accepted deviation |
+| `inset` on `MenuItem` | ✅ added | ✅ present | 🔧 fixed |
+| `asChild` | not present | present | ❌ intentional skip (Radix pattern) |
+
+### `select` (vs shadcn `select`)
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Select` | `Select` | ✅ match |
+| `SelectTrigger` | ✅ present | `SelectTrigger` | ✅ match |
+| `SelectValue` | ✅ present | `SelectValue` | ✅ match |
+| `SelectContent` | ✅ present | `SelectContent` | ✅ match |
+| `SelectItem` | ✅ present | `SelectItem` | ✅ match |
+| `SelectSeparator` | ✅ present | `SelectSeparator` | ✅ match |
+| `SelectLabel` | ✅ present | `SelectLabel` | ✅ match |
+| `SelectGroup` | ✅ added | `SelectGroup` | 🔧 fixed |
+| `SelectScrollUpButton` | ✅ added (via `BaseSelect.ScrollUpArrow`) | `SelectScrollUpButton` | 🔧 fixed |
+| `SelectScrollDownButton` | ✅ added (via `BaseSelect.ScrollDownArrow`) | `SelectScrollDownButton` | 🔧 fixed |
+| `SelectItemText` | inlined inside `SelectItem` | `SelectItemText` exported separately | ⚠️ accepted deviation — simpler consumer API |
+| `SelectPortal` | not exported (handled in `SelectContent`) | `SelectPortal` | ⚠️ accepted deviation |
+| `asChild` | not present | present | ❌ intentional skip (Radix pattern) |
+
+### `dialog` (vs shadcn `dialog`)
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Dialog` | `Dialog` | ✅ match |
+| `DialogTrigger` | ✅ present | `DialogTrigger` | ✅ match |
+| `DialogPortal` | ✅ present | `DialogPortal` | ✅ match |
+| `DialogOverlay` | ✅ present (via `BaseDialog.Backdrop`) | `DialogOverlay` | ✅ match (renamed primitive) |
+| `DialogContent` | ✅ present | `DialogContent` | ✅ match |
+| `DialogHeader` | ✅ present | `DialogHeader` | ✅ match |
+| `DialogFooter` | ✅ present | `DialogFooter` | ✅ match |
+| `DialogTitle` | ✅ present | `DialogTitle` | ✅ match |
+| `DialogDescription` | ✅ present | `DialogDescription` | ✅ match |
+| `DialogClose` | ✅ present | `DialogClose` | ✅ match |
+| Built-in close X button in `DialogContent` | not included | included | ⚠️ accepted deviation — consumer adds their own |
+| `asChild` | not present | present | ❌ intentional skip (Radix pattern) |
+
+### `alert-dialog` (vs shadcn `alert-dialog`)
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `AlertDialog` | `AlertDialog` | ✅ match |
+| `AlertDialogTrigger` | ✅ present | `AlertDialogTrigger` | ✅ match |
+| `AlertDialogOverlay` | ✅ present (via `BaseAlertDialog.Backdrop`) | `AlertDialogOverlay` | ✅ match (renamed primitive) |
+| `AlertDialogContent` | ✅ present | `AlertDialogContent` | ✅ match |
+| `AlertDialogHeader` | ✅ present | `AlertDialogHeader` | ✅ match |
+| `AlertDialogFooter` | ✅ present | `AlertDialogFooter` | ✅ match |
+| `AlertDialogTitle` | ✅ present | `AlertDialogTitle` | ✅ match |
+| `AlertDialogDescription` | ✅ present | `AlertDialogDescription` | ✅ match |
+| `AlertDialogAction` | ✅ present | `AlertDialogAction` | ✅ match |
+| `AlertDialogCancel` | ✅ present (via `BaseAlertDialog.Close`) | `AlertDialogCancel` | ✅ match |
+| `AlertDialogPortal` | not exported (handled in `AlertDialogContent`) | `AlertDialogPortal` | ⚠️ accepted deviation |
+| `asChild` | not present | present | ❌ intentional skip (Radix pattern) |

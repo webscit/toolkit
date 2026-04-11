@@ -92,6 +92,44 @@ export function SelectItem({ className, children, ...props }: SelectItemProps) {
   );
 }
 
+export function SelectGroup({ className, ...props }: React.ComponentProps<typeof BaseSelect.Group>) {
+  return (
+    <BaseSelect.Group
+      data-slot="select-group"
+      className={`sct-select-group${className ? ` ${className}` : ""}`}
+      {...props}
+    />
+  );
+}
+
+export function SelectScrollUpButton({ className, ...props }: React.ComponentProps<typeof BaseSelect.ScrollUpArrow>) {
+  return (
+    <BaseSelect.ScrollUpArrow
+      data-slot="select-scroll-up-button"
+      className={`sct-select-scroll-button${className ? ` ${className}` : ""}`}
+      {...props}
+    >
+      <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" width="14" height="14">
+        <path d="M4 10l4-4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </BaseSelect.ScrollUpArrow>
+  );
+}
+
+export function SelectScrollDownButton({ className, ...props }: React.ComponentProps<typeof BaseSelect.ScrollDownArrow>) {
+  return (
+    <BaseSelect.ScrollDownArrow
+      data-slot="select-scroll-down-button"
+      className={`sct-select-scroll-button${className ? ` ${className}` : ""}`}
+      {...props}
+    >
+      <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" width="14" height="14">
+        <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </BaseSelect.ScrollDownArrow>
+  );
+}
+
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface SelectSeparatorProps extends React.HTMLAttributes<HTMLDivElement> {}
 export function SelectSeparator({ className, ...props }: SelectSeparatorProps) {

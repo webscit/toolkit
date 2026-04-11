@@ -34,14 +34,14 @@ export function MenuContent({
   );
 }
 
-export interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  disabled?: boolean;
-  closeOnClick?: boolean;
+export interface MenuItemProps extends React.ComponentProps<typeof BaseMenu.Item> {
+  inset?: boolean;
 }
-export function MenuItem({ className, ...props }: MenuItemProps) {
+export function MenuItem({ className, inset, ...props }: MenuItemProps) {
   return (
     <BaseMenu.Item
       data-slot="menu-item"
+      data-inset={inset || undefined}
       className={`sct-menu-item${className ? ` ${className}` : ""}`}
       {...props}
     />
@@ -103,6 +103,64 @@ export function MenuCheckboxItem({
       </BaseMenu.CheckboxItemIndicator>
       {children}
     </BaseMenu.CheckboxItem>
+  );
+}
+
+export function MenuGroup({ className, ...props }: React.ComponentProps<typeof BaseMenu.Group>) {
+  return (
+    <BaseMenu.Group
+      data-slot="menu-group"
+      className={`sct-menu-group${className ? ` ${className}` : ""}`}
+      {...props}
+    />
+  );
+}
+
+export function MenuShortcut({ className, ...props }: React.ComponentProps<"span">) {
+  return (
+    <span
+      data-slot="menu-shortcut"
+      className={`sct-menu-shortcut${className ? ` ${className}` : ""}`}
+      {...props}
+    />
+  );
+}
+
+export const MenuSub = BaseMenu.SubmenuRoot;
+export type MenuSubProps = React.ComponentProps<typeof BaseMenu.SubmenuRoot>;
+
+export function MenuSubTrigger({ className, children, ...props }: React.ComponentProps<typeof BaseMenu.SubmenuTrigger>) {
+  return (
+    <BaseMenu.SubmenuTrigger
+      data-slot="menu-sub-trigger"
+      className={`sct-menu-item sct-menu-sub-trigger${className ? ` ${className}` : ""}`}
+      {...props}
+    >
+      {children}
+      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14" className="sct-menu-chevron">
+        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </BaseMenu.SubmenuTrigger>
+  );
+}
+
+export interface MenuSubContentProps extends React.ComponentProps<typeof BaseMenu.Popup> {
+  positionerProps?: React.ComponentProps<typeof BaseMenu.Positioner>;
+}
+
+export function MenuSubContent({ className, children, positionerProps, ...props }: MenuSubContentProps) {
+  return (
+    <BaseMenu.Portal>
+      <BaseMenu.Positioner side="right" {...positionerProps}>
+        <BaseMenu.Popup
+          data-slot="menu-sub-content"
+          className={`sct-menu-content${className ? ` ${className}` : ""}`}
+          {...props}
+        >
+          {children}
+        </BaseMenu.Popup>
+      </BaseMenu.Positioner>
+    </BaseMenu.Portal>
   );
 }
 
