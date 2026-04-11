@@ -1,0 +1,7 @@
+{
+  "title": "Aspect Ratio",
+  "description": "Constrains content to a fixed aspect ratio using a CSS custom property.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": []
+}
