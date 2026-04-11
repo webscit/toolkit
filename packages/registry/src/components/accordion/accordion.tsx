@@ -33,7 +33,7 @@ export function AccordionItem({ className, ...props }: AccordionItemProps) {
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface AccordionTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+  extends React.ComponentProps<typeof BaseAccordion.Trigger> {}
 
 export function AccordionTrigger({
   className,
@@ -67,7 +67,9 @@ export function AccordionTrigger({
   );
 }
 
-export type AccordionContentProps = React.HTMLAttributes<HTMLDivElement>;
+export type AccordionContentProps = React.ComponentProps<
+  typeof BaseAccordion.Panel
+>;
 
 export function AccordionContent({
   className,

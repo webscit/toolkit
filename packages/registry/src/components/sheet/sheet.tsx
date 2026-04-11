@@ -4,13 +4,13 @@ import "./sheet.css";
 export const Sheet = BaseDialog.Root;
 export type SheetProps = React.ComponentProps<typeof BaseDialog.Root>;
 
-export type SheetTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type SheetTriggerProps = React.ComponentProps<typeof BaseDialog.Trigger>;
 
 export function SheetTrigger({ ...props }: SheetTriggerProps) {
   return <BaseDialog.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
-export type SheetOverlayProps = React.HTMLAttributes<HTMLDivElement>;
+export type SheetOverlayProps = React.ComponentProps<typeof BaseDialog.Backdrop>;
 
 export function SheetOverlay({ className, ...props }: SheetOverlayProps) {
   return (
@@ -23,12 +23,14 @@ export function SheetOverlay({ className, ...props }: SheetOverlayProps) {
 }
 
 export interface SheetContentProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+  extends React.ComponentProps<typeof BaseDialog.Popup> {
   side?: "top" | "right" | "bottom" | "left";
+  showCloseButton?: boolean;
 }
 
 export function SheetContent({
   side = "right",
+  showCloseButton = false,
   className,
   children,
   ...props
@@ -43,12 +45,15 @@ export function SheetContent({
         {...props}
       >
         {children}
+        {showCloseButton && (
+          <BaseDialog.Close data-slot="sheet-close" className="sct-sheet-close-icon" />
+        )}
       </BaseDialog.Popup>
     </BaseDialog.Portal>
   );
 }
 
-export type SheetHeaderProps = React.HTMLAttributes<HTMLDivElement>;
+export type SheetHeaderProps = React.ComponentProps<"div">;
 
 export function SheetHeader({ className, ...props }: SheetHeaderProps) {
   return (
@@ -60,7 +65,7 @@ export function SheetHeader({ className, ...props }: SheetHeaderProps) {
   );
 }
 
-export type SheetFooterProps = React.HTMLAttributes<HTMLDivElement>;
+export type SheetFooterProps = React.ComponentProps<"div">;
 
 export function SheetFooter({ className, ...props }: SheetFooterProps) {
   return (
@@ -72,7 +77,7 @@ export function SheetFooter({ className, ...props }: SheetFooterProps) {
   );
 }
 
-export type SheetTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
+export type SheetTitleProps = React.ComponentProps<typeof BaseDialog.Title>;
 
 export function SheetTitle({ className, ...props }: SheetTitleProps) {
   return (
@@ -84,7 +89,9 @@ export function SheetTitle({ className, ...props }: SheetTitleProps) {
   );
 }
 
-export type SheetDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
+export type SheetDescriptionProps = React.ComponentProps<
+  typeof BaseDialog.Description
+>;
 
 export function SheetDescription({
   className,
@@ -99,7 +106,7 @@ export function SheetDescription({
   );
 }
 
-export type SheetCloseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type SheetCloseProps = React.ComponentProps<typeof BaseDialog.Close>;
 
 export function SheetClose({ ...props }: SheetCloseProps) {
   return <BaseDialog.Close data-slot="sheet-close" {...props} />;

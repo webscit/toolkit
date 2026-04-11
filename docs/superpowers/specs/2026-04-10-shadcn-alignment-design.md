@@ -371,3 +371,134 @@ Systematic per-component review; fix deviations that are not intentional; docume
 ### `toast`
 
 Custom extension — shadcn v4 removed this component (replaced with `sonner`). Kept intentionally as scientific UIs don't use sonner. No audit performed.
+
+### `tooltip`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `TooltipProvider` export | ✅ present (was `const` re-export) | `TooltipProvider` function | 🔧 fixed — converted to function with `data-slot="tooltip-provider"` and default `delay=0` |
+| `Tooltip` export | ✅ present (was `const` re-export) | `Tooltip` function | 🔧 fixed — converted to function with `data-slot="tooltip"` |
+| `TooltipTrigger` export | ✅ present | ✅ present | ✅ match |
+| `TooltipTrigger` prop type | `React.HTMLAttributes<HTMLElement>` | `TooltipPrimitive.Trigger.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseTooltip.Trigger>` |
+| `TooltipContent` export | ✅ present | ✅ present | ✅ match |
+| `TooltipContent` positioner props | via `positionerProps` nested object | flat props: `side`, `sideOffset`, `align`, `alignOffset` | 🔧 fixed — flattened to inline props with same defaults (`side="top"`, `sideOffset=4`) |
+| `TooltipContent` prop type | `React.HTMLAttributes<HTMLDivElement>` + `positionerProps` | `TooltipPrimitive.Popup.Props` + `Pick<Positioner.Props, …>` | 🔧 fixed |
+| Arrow inside content | not present | `TooltipPrimitive.Arrow` included | ⚠️ accepted deviation — arrow styling deferred to CSS |
+| `asChild` | not present | not present (Base UI) | ✅ match |
+
+### `popover`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `Popover` export | ✅ present | ✅ present | ✅ match |
+| `PopoverTrigger` export | ✅ present | ✅ present | ✅ match |
+| `PopoverTrigger` prop type | `React.ButtonHTMLAttributes<HTMLButtonElement>` | `PopoverPrimitive.Trigger.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BasePopover.Trigger>` |
+| `PopoverContent` export | ✅ present | ✅ present | ✅ match |
+| `PopoverContent` positioner props | not exposed | flat props: `side`, `sideOffset`, `align`, `alignOffset` | 🔧 fixed — added with defaults (`side="bottom"`, `sideOffset=4`) |
+| `PopoverContent` prop type | `React.HTMLAttributes<HTMLDivElement>` | `PopoverPrimitive.Popup.Props` + `Pick<Positioner.Props, …>` | 🔧 fixed |
+| `PopoverHeader` export | not present | ✅ present | 🔧 fixed — added as native `<div>` with `data-slot="popover-header"` |
+| `PopoverTitle` export | not present | ✅ present (via `BasePopover.Title`) | 🔧 fixed — added |
+| `PopoverDescription` export | not present | ✅ present (via `BasePopover.Description`) | 🔧 fixed — added |
+| `PopoverAnchor` export | not present | not present in shadcn v4 Base UI version | ✅ match (N/A) |
+| `PopoverClose` export | ✅ present | not exported by shadcn v4 | ⚠️ accepted deviation — useful for explicit close buttons |
+| `asChild` | not present | not present (Base UI) | ✅ match |
+
+### `collapsible`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `Collapsible` export | ✅ present | ✅ present | ✅ match |
+| `CollapsibleTrigger` export | ✅ present | ✅ present | ✅ match |
+| `CollapsibleTrigger` prop type | `React.ButtonHTMLAttributes<HTMLButtonElement>` | `CollapsiblePrimitive.Trigger.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseCollapsible.Trigger>` |
+| `CollapsibleContent` export | ✅ present | ✅ present | ✅ match |
+| `CollapsibleContent` prop type | `React.HTMLAttributes<HTMLDivElement>` | `CollapsiblePrimitive.Panel.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseCollapsible.Panel>` |
+| `asChild` | not present | not present (Base UI) | ✅ match |
+
+### `accordion`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `Accordion` export | ✅ present | ✅ present | ✅ match |
+| `AccordionItem` export | ✅ present | ✅ present | ✅ match |
+| `AccordionTrigger` export | ✅ present | ✅ present | ✅ match |
+| `AccordionTrigger` prop type | `React.ButtonHTMLAttributes<HTMLButtonElement>` | `AccordionPrimitive.Trigger.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseAccordion.Trigger>` |
+| Chevron SVG in trigger | ✅ present | ✅ present (via icon placeholder) | ✅ match |
+| `AccordionContent` export | ✅ present | ✅ present | ✅ match |
+| `AccordionContent` prop type | `React.HTMLAttributes<HTMLDivElement>` | `AccordionPrimitive.Panel.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseAccordion.Panel>` |
+| Inner wrapper `<div>` in content | not present | present (for height animation) | ⚠️ accepted deviation — animation handled via CSS |
+| `asChild` | not present | not present (Base UI) | ✅ match |
+
+### `tabs`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `Tabs` export | ✅ present | ✅ present | ✅ match |
+| `Tabs` prop type | `React.ComponentProps<typeof BaseTabs.Root>` | `TabsPrimitive.Root.Props` (same type) | ✅ match |
+| `TabsList` export | ✅ present | ✅ present | ✅ match |
+| `TabsList` prop type | `React.ComponentProps<typeof BaseTabs.List>` | `TabsPrimitive.List.Props` (same type) | ✅ match |
+| `variant` prop on `TabsList` | not present | `"default" \| "line"` via CVA | ⚠️ accepted deviation — no CVA; variant styling handled via CSS |
+| `TabsTrigger` export | ✅ present | ✅ present | ✅ match |
+| `TabsTrigger` prop type | `React.ComponentProps<typeof BaseTabs.Tab>` | `TabsPrimitive.Tab.Props` (same type) | ✅ match |
+| `TabsContent` export | ✅ present | ✅ present | ✅ match |
+| `TabsContent` prop type | `React.ComponentProps<typeof BaseTabs.Panel>` | `TabsPrimitive.Panel.Props` (same type) | ✅ match |
+| `tabsListVariants` export | not present | ✅ exported | ⚠️ accepted deviation — CVA not used |
+| `asChild` | not present | not present (Base UI) | ✅ match |
+
+### `sheet`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `Sheet` export | ✅ present | ✅ present | ✅ match |
+| `SheetTrigger` export | ✅ present | ✅ present | ✅ match |
+| `SheetTrigger` prop type | `React.ButtonHTMLAttributes<HTMLButtonElement>` | `SheetPrimitive.Trigger.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseDialog.Trigger>` |
+| `SheetClose` export | ✅ present | ✅ present | ✅ match |
+| `SheetClose` prop type | `React.ButtonHTMLAttributes<HTMLButtonElement>` | `SheetPrimitive.Close.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseDialog.Close>` |
+| `SheetContent` export | ✅ present | ✅ present | ✅ match |
+| `SheetContent` `side` prop | ✅ present | ✅ present | ✅ match |
+| `SheetContent` prop type | `React.HTMLAttributes<HTMLDivElement>` | `SheetPrimitive.Popup.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseDialog.Popup>` |
+| `SheetContent` `showCloseButton` prop | not present | ✅ present (defaults `true`) | 🔧 fixed — added (defaults `false` — consumer-adds-own convention) |
+| `SheetOverlay` export | ✅ present | not exported | ⚠️ accepted deviation — useful for custom portal composition |
+| `SheetOverlay` prop type | `React.HTMLAttributes<HTMLDivElement>` | `SheetPrimitive.Backdrop.Props` | 🔧 fixed |
+| `SheetHeader` export | ✅ present | ✅ present | ✅ match |
+| `SheetHeader` prop type | `React.HTMLAttributes<HTMLDivElement>` | `React.ComponentProps<"div">` | 🔧 fixed |
+| `SheetFooter` export | ✅ present | ✅ present | ✅ match |
+| `SheetFooter` prop type | `React.HTMLAttributes<HTMLDivElement>` | `React.ComponentProps<"div">` | 🔧 fixed |
+| `SheetTitle` export | ✅ present | ✅ present | ✅ match |
+| `SheetTitle` prop type | `React.HTMLAttributes<HTMLHeadingElement>` | `SheetPrimitive.Title.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseDialog.Title>` |
+| `SheetDescription` export | ✅ present | ✅ present | ✅ match |
+| `SheetDescription` prop type | `React.HTMLAttributes<HTMLParagraphElement>` | `SheetPrimitive.Description.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseDialog.Description>` |
+| `SheetPortal` export | not exported | not exported in public API | ✅ match |
+| `asChild` | not present | not present (Base UI) | ✅ match |
+
+### `scroll-area`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `ScrollArea` export | ✅ present | ✅ present | ✅ match |
+| `ScrollArea` underlying element | plain `<div>` wrapper | `@base-ui/react/scroll-area` `Root` | 🔧 fixed — now uses `BaseScrollArea.Root` + `BaseScrollArea.Viewport` |
+| `ScrollArea` prop type | `React.HTMLAttributes<HTMLDivElement>` | `ScrollAreaPrimitive.Root.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseScrollArea.Root>` |
+| `ScrollBar` export | ✅ present | ✅ present | ✅ match |
+| `ScrollBar` underlying element | plain `<div>` | `BaseScrollArea.Scrollbar` + `BaseScrollArea.Thumb` | 🔧 fixed — now uses Base UI primitives |
+| `ScrollBar` prop type | `React.HTMLAttributes<HTMLDivElement>` | `ScrollAreaPrimitive.Scrollbar.Props` | 🔧 fixed — uses `React.ComponentProps<typeof BaseScrollArea.Scrollbar>` |
+| `ScrollBar` `orientation` prop | ✅ present | ✅ present | ✅ match |
+| `ScrollAreaCorner` | included inside `ScrollArea` (not exported) | `ScrollAreaPrimitive.Corner` included | ✅ match |
+| `@base-ui/react` dependency | not declared | declared | 🔧 fixed — added to `registry.meta.json` |
+
+### `resizable`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `ResizablePanelGroup` export | ✅ present | ✅ present | ✅ match |
+| `ResizablePanelGroup` prop type | `ComponentProps<typeof PanelGroup>` | `ResizablePrimitive.GroupProps` | ✅ match (equivalent) |
+| `data-testid` forwarding via `id` | ✅ present | not present | ⚠️ accepted deviation — test infrastructure for react-resizable-panels |
+| `ResizablePanel` export | ✅ present | ✅ present | ✅ match |
+| `ResizablePanel` prop type | `ComponentProps<typeof Panel>` | `ResizablePrimitive.PanelProps` | ✅ match (equivalent) |
+| `ResizableHandle` export | ✅ present | ✅ present | ✅ match |
+| `ResizableHandle` prop type | `ComponentProps<typeof PanelResizeHandle>` | `ResizablePrimitive.SeparatorProps` | ✅ match (equivalent) |
+| `ResizableHandle` `withHandle` prop | not present | ✅ present | 🔧 fixed — added with inner `<div data-slot="resizable-handle-icon">` |
+| Named imports vs namespace import | named imports | namespace `import *` | ⚠️ accepted deviation — explicit named imports preferred |
+| `asChild` | not present | not applicable (not Radix) | ✅ match |
+
+### `sidebar`
+
+Custom extension — no shadcn v4 counterpart. Kept intentionally as a complex navigation component for scientific UIs.

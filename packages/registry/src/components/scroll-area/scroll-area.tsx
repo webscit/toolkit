@@ -1,22 +1,29 @@
+import { ScrollArea as BaseScrollArea } from "@base-ui/react/scroll-area";
 import "./scroll-area.css";
 
-export type ScrollAreaProps = React.HTMLAttributes<HTMLDivElement>;
+export type ScrollAreaProps = React.ComponentProps<typeof BaseScrollArea.Root>;
 
 export function ScrollArea({ className, children, ...props }: ScrollAreaProps) {
   return (
-    <div
+    <BaseScrollArea.Root
       data-slot="scroll-area"
       className={`sct-scroll-area${className ? ` ${className}` : ""}`}
       {...props}
     >
-      <div data-slot="scroll-area-viewport" className="sct-scroll-area-viewport">
+      <BaseScrollArea.Viewport
+        data-slot="scroll-area-viewport"
+        className="sct-scroll-area-viewport"
+      >
         {children}
-      </div>
-    </div>
+      </BaseScrollArea.Viewport>
+      <ScrollBar />
+      <BaseScrollArea.Corner />
+    </BaseScrollArea.Root>
   );
 }
 
-export interface ScrollBarProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ScrollBarProps
+  extends React.ComponentProps<typeof BaseScrollArea.Scrollbar> {
   orientation?: "vertical" | "horizontal";
 }
 
@@ -26,11 +33,17 @@ export function ScrollBar({
   ...props
 }: ScrollBarProps) {
   return (
-    <div
-      data-slot="scroll-bar"
+    <BaseScrollArea.Scrollbar
+      data-slot="scroll-area-scrollbar"
       data-orientation={orientation}
+      orientation={orientation}
       className={`sct-scroll-bar${className ? ` ${className}` : ""}`}
       {...props}
-    />
+    >
+      <BaseScrollArea.Thumb
+        data-slot="scroll-area-thumb"
+        className="sct-scroll-area-thumb"
+      />
+    </BaseScrollArea.Scrollbar>
   );
 }

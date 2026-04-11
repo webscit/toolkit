@@ -36,13 +36,23 @@ describe("ScrollArea", () => {
 });
 
 describe("ScrollBar", () => {
-  it("renders without crashing", async () => {
-    const screen = await render(<ScrollBar data-testid="bar" />);
+  it("renders inside ScrollArea without crashing", async () => {
+    const screen = await render(
+      <ScrollArea data-testid="scroll">
+        <ScrollBar data-testid="bar" />
+        <div>Content</div>
+      </ScrollArea>,
+    );
     await expect.element(screen.getByTestId("bar")).toBeInTheDocument();
   });
 
   it("defaults to vertical orientation", async () => {
-    const screen = await render(<ScrollBar data-testid="bar" />);
+    const screen = await render(
+      <ScrollArea data-testid="scroll">
+        <ScrollBar data-testid="bar" />
+        <div>Content</div>
+      </ScrollArea>,
+    );
     await expect
       .element(screen.getByTestId("bar"))
       .toHaveAttribute("data-orientation", "vertical");
@@ -50,7 +60,10 @@ describe("ScrollBar", () => {
 
   it("supports horizontal orientation", async () => {
     const screen = await render(
-      <ScrollBar data-testid="bar" orientation="horizontal" />,
+      <ScrollArea data-testid="scroll">
+        <ScrollBar data-testid="bar" orientation="horizontal" />
+        <div>Content</div>
+      </ScrollArea>,
     );
     await expect
       .element(screen.getByTestId("bar"))

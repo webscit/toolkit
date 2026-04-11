@@ -6,8 +6,9 @@ export type CollapsibleProps = React.ComponentProps<
   typeof BaseCollapsible.Root
 >;
 
-export type CollapsibleTriggerProps =
-  React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type CollapsibleTriggerProps = React.ComponentProps<
+  typeof BaseCollapsible.Trigger
+>;
 
 export function CollapsibleTrigger({ ...props }: CollapsibleTriggerProps) {
   return (
@@ -15,7 +16,9 @@ export function CollapsibleTrigger({ ...props }: CollapsibleTriggerProps) {
   );
 }
 
-export type CollapsibleContentProps = React.HTMLAttributes<HTMLDivElement>;
+export type CollapsibleContentProps = React.ComponentProps<
+  typeof BaseCollapsible.Panel
+>;
 
 export function CollapsibleContent({
   className,
