@@ -4,8 +4,7 @@ import "./select.css";
 export const Select = BaseSelect.Root;
 export type SelectProps = React.ComponentProps<typeof BaseSelect.Root>;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface SelectTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type SelectTriggerProps = React.ComponentProps<typeof BaseSelect.Trigger>;
 export function SelectTrigger({
   className,
   children,
@@ -34,9 +33,7 @@ export function SelectTrigger({
   );
 }
 
-export interface SelectValueProps extends React.HTMLAttributes<HTMLSpanElement> {
-  placeholder?: string;
-}
+export type SelectValueProps = React.ComponentProps<typeof BaseSelect.Value>;
 export function SelectValue({ ...props }: SelectValueProps) {
   return <BaseSelect.Value data-slot="select-value" {...props} />;
 }
@@ -65,10 +62,7 @@ export function SelectContent({
   );
 }
 
-export interface SelectItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  value: string;
-  disabled?: boolean;
-}
+export type SelectItemProps = React.ComponentProps<typeof BaseSelect.Item>;
 export function SelectItem({ className, children, ...props }: SelectItemProps) {
   return (
     <BaseSelect.Item
@@ -130,12 +124,10 @@ export function SelectScrollDownButton({ className, ...props }: React.ComponentP
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface SelectSeparatorProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type SelectSeparatorProps = React.ComponentProps<typeof BaseSelect.Separator>;
 export function SelectSeparator({ className, ...props }: SelectSeparatorProps) {
   return (
-    <div
-      role="separator"
+    <BaseSelect.Separator
       data-slot="select-separator"
       className={`sct-select-separator${className ? ` ${className}` : ""}`}
       {...props}
@@ -143,8 +135,7 @@ export function SelectSeparator({ className, ...props }: SelectSeparatorProps) {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface SelectLabelProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type SelectLabelProps = React.ComponentProps<typeof BaseSelect.GroupLabel>;
 export function SelectLabel({ className, ...props }: SelectLabelProps) {
   return (
     <BaseSelect.GroupLabel

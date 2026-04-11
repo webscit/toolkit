@@ -100,7 +100,7 @@
     color: var(--sct-color-muted-foreground);
   }
 
-  :scope .sct-menu-item[data-inset] {
+  .sct-menu-item[data-inset] {
     padding-left: 2rem;
   }
 }

@@ -4,13 +4,12 @@ import "./menu.css";
 export const Menu = BaseMenu.Root;
 export type MenuProps = React.ComponentProps<typeof BaseMenu.Root>;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface MenuTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export type MenuTriggerProps = React.ComponentProps<typeof BaseMenu.Trigger>;
 export function MenuTrigger({ ...props }: MenuTriggerProps) {
   return <BaseMenu.Trigger data-slot="menu-trigger" {...props} />;
 }
 
-export interface MenuContentProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface MenuContentProps extends React.ComponentProps<typeof BaseMenu.Popup> {
   positionerProps?: React.ComponentProps<typeof BaseMenu.Positioner>;
 }
 export function MenuContent({
@@ -48,12 +47,10 @@ export function MenuItem({ className, inset, ...props }: MenuItemProps) {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface MenuSeparatorProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type MenuSeparatorProps = React.ComponentProps<typeof BaseMenu.Separator>;
 export function MenuSeparator({ className, ...props }: MenuSeparatorProps) {
   return (
-    <div
-      role="separator"
+    <BaseMenu.Separator
       data-slot="menu-separator"
       className={`sct-menu-separator${className ? ` ${className}` : ""}`}
       {...props}
@@ -61,8 +58,7 @@ export function MenuSeparator({ className, ...props }: MenuSeparatorProps) {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface MenuLabelProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type MenuLabelProps = React.ComponentProps<typeof BaseMenu.GroupLabel>;
 export function MenuLabel({ className, ...props }: MenuLabelProps) {
   return (
     <BaseMenu.GroupLabel
@@ -73,12 +69,7 @@ export function MenuLabel({ className, ...props }: MenuLabelProps) {
   );
 }
 
-export interface MenuCheckboxItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  checked?: boolean;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-  closeOnClick?: boolean;
-}
+export type MenuCheckboxItemProps = React.ComponentProps<typeof BaseMenu.CheckboxItem>;
 export function MenuCheckboxItem({
   className,
   children,
@@ -169,11 +160,7 @@ export type MenuRadioGroupProps = React.ComponentProps<
   typeof BaseMenu.RadioGroup
 >;
 
-export interface MenuRadioItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  value: string;
-  disabled?: boolean;
-  closeOnClick?: boolean;
-}
+export type MenuRadioItemProps = React.ComponentProps<typeof BaseMenu.RadioItem>;
 export function MenuRadioItem({
   className,
   children,
