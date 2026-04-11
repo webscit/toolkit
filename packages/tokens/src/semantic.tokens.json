@@ -43,6 +43,9 @@
     "sidebar": {
       "width": { "$type": "dimension", "$value": "256px" },
       "width-collapsed": { "$type": "dimension", "$value": "48px" }
+    },
+    "progress": {
+      "height": { "$type": "dimension", "$value": "0.5rem" }
     }
   }
 }
