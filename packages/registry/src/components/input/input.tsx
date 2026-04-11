@@ -1,7 +1,7 @@
 import { Input as InputPrimitive } from "@base-ui/react/input";
 import "./input.css";
 
-export type InputProps = React.ComponentProps<"input">;
+export type InputProps = React.ComponentProps<typeof InputPrimitive>;
 
 export function Input({ className, type, ...props }: InputProps) {
   return (

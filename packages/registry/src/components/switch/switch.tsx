@@ -9,7 +9,7 @@ export function Switch({ className, size = "default", ...props }: SwitchProps) {
   return (
     <BaseSwitch.Root
       data-slot="switch"
-      data-size={size}
+      data-size={size !== "default" ? size : undefined}
       className={`sct-switch${className ? ` ${className}` : ""}`}
       {...props}
     >

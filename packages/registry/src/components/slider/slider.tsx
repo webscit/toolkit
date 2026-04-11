@@ -11,11 +11,11 @@ export function Slider({
   max = 100,
   ...props
 }: SliderProps) {
-  const _values = Array.isArray(value)
-    ? value
+  const thumbCount = Array.isArray(value)
+    ? value.length
     : Array.isArray(defaultValue)
-      ? defaultValue
-      : [min, max];
+      ? defaultValue.length
+      : 1;
 
   return (
     <BaseSlider.Root
@@ -35,7 +35,7 @@ export function Slider({
             className="sct-slider-range"
           />
         </BaseSlider.Track>
-        {Array.from({ length: _values.length }, (_, index) => (
+        {Array.from({ length: thumbCount }, (_, index) => (
           <BaseSlider.Thumb
             data-slot="slider-thumb"
             key={index}
