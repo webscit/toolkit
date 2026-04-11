@@ -49,10 +49,7 @@ export function ComboboxContent({ className, children, positionerProps, ...props
   );
 }
 
-export interface ComboboxItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  value: string;
-  disabled?: boolean;
-}
+export interface ComboboxItemProps extends React.ComponentProps<typeof BaseCombobox.Item> {}
 
 export function ComboboxItem({ className, children, ...props }: ComboboxItemProps) {
   return (

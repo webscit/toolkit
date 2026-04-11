@@ -8,7 +8,7 @@ export function DrawerTrigger({ ...props }: React.ComponentProps<typeof BaseDraw
   return <BaseDrawer.Trigger data-slot="drawer-trigger" {...props} />;
 }
 
-export interface DrawerContentProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface DrawerContentProps extends React.ComponentProps<typeof BaseDrawer.Popup> {
   side?: "left" | "right" | "top" | "bottom";
 }
 
@@ -17,6 +17,8 @@ export function DrawerContent({ className, side = "right", children, ...props }:
     <BaseDrawer.Portal>
       <BaseDrawer.Backdrop className="sct-drawer-backdrop" />
       <BaseDrawer.Popup
+        role="dialog"
+        aria-modal="true"
         data-slot="drawer-content"
         data-side={side}
         className={`sct-drawer-content${className ? ` ${className}` : ""}`}

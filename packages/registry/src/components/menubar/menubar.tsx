@@ -45,9 +45,7 @@ export function MenubarContent({ className, children, positionerProps, ...props 
   );
 }
 
-export interface MenubarItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  disabled?: boolean;
-}
+export type MenubarItemProps = React.ComponentProps<typeof BaseMenu.Item>;
 
 export function MenubarItem({ className, ...props }: MenubarItemProps) {
   return (
@@ -80,11 +78,7 @@ export function MenubarLabel({ className, ...props }: React.HTMLAttributes<HTMLD
   );
 }
 
-export interface MenubarCheckboxItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  checked?: boolean;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-}
+export type MenubarCheckboxItemProps = React.ComponentProps<typeof BaseMenu.CheckboxItem>;
 
 export function MenubarCheckboxItem({ className, children, ...props }: MenubarCheckboxItemProps) {
   return (
@@ -106,10 +100,7 @@ export function MenubarCheckboxItem({ className, children, ...props }: MenubarCh
 export const MenubarRadioGroup = BaseMenu.RadioGroup;
 export type MenubarRadioGroupProps = React.ComponentProps<typeof BaseMenu.RadioGroup>;
 
-export interface MenubarRadioItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  value: string;
-  disabled?: boolean;
-}
+export type MenubarRadioItemProps = React.ComponentProps<typeof BaseMenu.RadioItem>;
 
 export function MenubarRadioItem({ className, children, ...props }: MenubarRadioItemProps) {
   return (

@@ -1,5 +1,4 @@
 import { ContextMenu as BaseContextMenu } from "@base-ui/react/context-menu";
-import { Menu as BaseMenu } from "@base-ui/react/menu";
 import "./context-menu.css";
 
 export const ContextMenu = BaseContextMenu.Root;
@@ -35,9 +34,7 @@ export function ContextMenuContent({ className, children, positionerProps, ...pr
   );
 }
 
-export interface ContextMenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  disabled?: boolean;
-}
+export type ContextMenuItemProps = React.ComponentProps<typeof BaseContextMenu.Item>;
 
 export function ContextMenuItem({ className, ...props }: ContextMenuItemProps) {
   return (
@@ -49,9 +46,9 @@ export function ContextMenuItem({ className, ...props }: ContextMenuItemProps) {
   );
 }
 
-export function ContextMenuSeparator({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+export function ContextMenuSeparator({ className, ...props }: React.ComponentProps<typeof BaseContextMenu.Separator>) {
   return (
-    <BaseMenu.Separator
+    <BaseContextMenu.Separator
       data-slot="context-menu-separator"
       className={`sct-context-menu-separator${className ? ` ${className}` : ""}`}
       {...props}
@@ -69,11 +66,7 @@ export function ContextMenuLabel({ className, ...props }: React.HTMLAttributes<H
   );
 }
 
-export interface ContextMenuCheckboxItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  checked?: boolean;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-}
+export type ContextMenuCheckboxItemProps = React.ComponentProps<typeof BaseContextMenu.CheckboxItem>;
 
 export function ContextMenuCheckboxItem({ className, children, ...props }: ContextMenuCheckboxItemProps) {
   return (
@@ -95,10 +88,7 @@ export function ContextMenuCheckboxItem({ className, children, ...props }: Conte
 export const ContextMenuRadioGroup = BaseContextMenu.RadioGroup;
 export type ContextMenuRadioGroupProps = React.ComponentProps<typeof BaseContextMenu.RadioGroup>;
 
-export interface ContextMenuRadioItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  value: string;
-  disabled?: boolean;
-}
+export type ContextMenuRadioItemProps = React.ComponentProps<typeof BaseContextMenu.RadioItem>;
 
 export function ContextMenuRadioItem({ className, children, ...props }: ContextMenuRadioItemProps) {
   return (
