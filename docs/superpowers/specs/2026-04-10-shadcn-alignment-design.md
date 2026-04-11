@@ -502,3 +502,50 @@ Custom extension — shadcn v4 removed this component (replaced with `sonner`). 
 ### `sidebar`
 
 Custom extension — no shadcn v4 counterpart. Kept intentionally as a complex navigation component for scientific UIs.
+
+### `button`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `Button` export | ✅ present | ✅ present | ✅ match |
+| `data-slot="button"` | ✅ present | ✅ present | ✅ match |
+| `ButtonProps` base type | `React.ButtonHTMLAttributes<HTMLButtonElement>` | `ButtonPrimitive.Props` (`React.ComponentProps<typeof BaseButton>`) | 🔧 fixed — now uses `React.ComponentProps<typeof BaseButton>` |
+| `variant` values | `"default" \| "destructive" \| "outline" \| "secondary" \| "ghost" \| "link"` | same 6 values | ✅ match |
+| `size` values | `"default" \| "xs" \| "sm" \| "lg" \| "icon"` | `"default" \| "xs" \| "sm" \| "lg" \| "icon" \| "icon-xs" \| "icon-sm" \| "icon-lg"` | ⚠️ `"xs"` is our extension (kept); `"icon-xs"` / `"icon-sm"` / `"icon-lg"` omitted intentionally to avoid API churn |
+| `buttonVariants` helper | not exported | exported | ⚠️ accepted deviation — no `cva` in this codebase (no Tailwind) |
+| `asChild` | not present | not present (Base UI) | ✅ match |
+
+### `table`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| `Table` export | ✅ present | ✅ present | ✅ match |
+| `Table` prop type | `React.HTMLAttributes<HTMLTableElement>` | `React.ComponentProps<"table">` | 🔧 fixed — now uses `React.ComponentProps<"table">` |
+| `data-slot="table-container"` on wrapper `<div>` | not present | ✅ present | 🔧 fixed — added `data-slot="table-container"` to wrapper div |
+| `data-slot="table"` on `<table>` | ✅ present | ✅ present | ✅ match |
+| `TableHeader` export | ✅ present | ✅ present | ✅ match |
+| `TableHeader` prop type | `React.HTMLAttributes<HTMLTableSectionElement>` | `React.ComponentProps<"thead">` | 🔧 fixed |
+| `TableBody` export | ✅ present | ✅ present | ✅ match |
+| `TableBody` prop type | `React.HTMLAttributes<HTMLTableSectionElement>` | `React.ComponentProps<"tbody">` | 🔧 fixed |
+| `TableFooter` export | ✅ present | ✅ present | ✅ match |
+| `TableFooter` prop type | `React.HTMLAttributes<HTMLTableSectionElement>` | `React.ComponentProps<"tfoot">` | 🔧 fixed |
+| `TableRow` export | ✅ present | ✅ present | ✅ match |
+| `TableRow` prop type | `React.HTMLAttributes<HTMLTableRowElement>` | `React.ComponentProps<"tr">` | 🔧 fixed |
+| `TableHead` export | ✅ present | ✅ present | ✅ match |
+| `TableHead` prop type | `React.ThHTMLAttributes<HTMLTableCellElement>` | `React.ComponentProps<"th">` | 🔧 fixed |
+| `TableCell` export | ✅ present | ✅ present | ✅ match |
+| `TableCell` prop type | `React.TdHTMLAttributes<HTMLTableCellElement>` | `React.ComponentProps<"td">` | 🔧 fixed |
+| `TableCaption` export | ✅ present | ✅ present | ✅ match |
+| `TableCaption` prop type | `React.HTMLAttributes<HTMLTableCaptionElement>` | `React.ComponentProps<"caption">` | 🔧 fixed |
+
+### Custom extensions (no shadcn counterpart)
+
+| Component | Notes |
+|---|---|
+| `button-group` | Groups buttons with shared border-radius treatment |
+| `checkbox-group` | Multi-checkbox with shared label and error state |
+| `radio` | Standalone radio item (shadcn only ships `radio-group`) |
+| `input-group` | Input with prefix/suffix slots |
+| `toast` | Kept because we drop `sonner` (not relevant to scientific UIs) |
+| `sidebar` | Custom complex navigation component |
+| `field` | Form field with label, description, error slot |
