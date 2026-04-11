@@ -1,0 +1,7 @@
+{
+  "title": "Item",
+  "description": "Generic styled list-row primitive supporting selected and disabled states.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": []
+}
