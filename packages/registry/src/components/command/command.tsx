@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useId } from "react";
 import "./command.css";
 
 interface CommandContextValue {
@@ -61,6 +61,7 @@ export function CommandList({ className, ...props }: React.ComponentProps<"div">
   return (
     <div
       role="listbox"
+      aria-label="Commands"
       data-slot="command-list"
       className={`sct-command-list${className ? ` ${className}` : ""}`}
       {...props}
@@ -83,15 +84,17 @@ export interface CommandGroupProps extends React.ComponentProps<"div"> {
 }
 
 export function CommandGroup({ heading, className, children, ...props }: CommandGroupProps) {
+  const headingId = useId();
   return (
     <div
       role="group"
+      aria-labelledby={heading ? headingId : undefined}
       data-slot="command-group"
       className={`sct-command-group${className ? ` ${className}` : ""}`}
       {...props}
     >
       {heading && (
-        <div data-slot="command-group-heading" className="sct-command-group-heading">
+        <div id={headingId} data-slot="command-group-heading" className="sct-command-group-heading">
           {heading}
         </div>
       )}
@@ -120,10 +123,18 @@ export function CommandItem({
   return (
     <div
       role="option"
+      aria-selected={false}
+      tabIndex={0}
       data-slot="command-item"
       data-value={value}
       className={`sct-command-item${className ? ` ${className}` : ""}`}
       onClick={() => onSelect?.(value)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect?.(value);
+        }
+      }}
       {...props}
     />
   );

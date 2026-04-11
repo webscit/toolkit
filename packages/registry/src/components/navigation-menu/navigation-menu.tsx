@@ -88,14 +88,3 @@ export function NavigationMenuLink({ className, ...props }: NavigationMenuLinkPr
   );
 }
 
-export type NavigationMenuViewportProps = React.ComponentProps<typeof BaseNav.Viewport>;
-
-export function NavigationMenuViewport({ className, ...props }: NavigationMenuViewportProps) {
-  return (
-    <BaseNav.Viewport
-      data-slot="navigation-menu-viewport"
-      className={`sct-navigation-menu-viewport${className ? ` ${className}` : ""}`}
-      {...props}
-    />
-  );
-}

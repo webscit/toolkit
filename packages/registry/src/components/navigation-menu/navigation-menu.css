@@ -45,15 +45,6 @@
     box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 
-  .sct-navigation-menu-content {
-    min-width: 12rem;
-    padding: 0.5rem;
-    background-color: var(--sct-color-background);
-    border: 1px solid var(--sct-color-border);
-    border-radius: var(--sct-radius-lg);
-    box-shadow: var(--sct-shadow-lg);
-  }
-
   .sct-navigation-menu-link {
     display: block;
     padding: 0.5rem 0.75rem;
@@ -68,10 +59,14 @@
     background-color: var(--sct-color-accent);
     color: var(--sct-color-accent-foreground);
   }
+}
 
-  .sct-navigation-menu-viewport {
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
+/* portal-rendered: scoped outside so it applies when teleported to body */
+.sct-navigation-menu-content {
+  min-width: 12rem;
+  padding: 0.5rem;
+  background-color: var(--sct-color-background);
+  border: 1px solid var(--sct-color-border);
+  border-radius: var(--sct-radius-lg);
+  box-shadow: var(--sct-shadow-lg);
 }
