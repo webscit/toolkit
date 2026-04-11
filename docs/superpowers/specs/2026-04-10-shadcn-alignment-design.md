@@ -225,3 +225,85 @@ Systematic per-component review; fix deviations that are not intentional; docume
 | `AlertDialogCancel` | ✅ present (via `BaseAlertDialog.Close`) | `AlertDialogCancel` | ✅ match |
 | `AlertDialogPortal` | not exported (handled in `AlertDialogContent`) | `AlertDialogPortal` | ⚠️ accepted deviation |
 | `asChild` | not present | present | ❌ intentional skip (Radix pattern) |
+
+### `input`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Input` | `Input` | ✅ match |
+| Prop type | `React.ComponentProps<"input">` | `React.ComponentProps<"input">` | ✅ match |
+| `data-slot` | `"input"` | `"input"` | ✅ match |
+| Underlying element | `InputPrimitive` from `@base-ui/react/input` | `InputPrimitive` from `@base-ui/react/input` | 🔧 fixed (was plain `<input>`) |
+| Sub-components | none (not needed) | none | ✅ match |
+
+### `textarea`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Textarea` | `Textarea` | ✅ match |
+| Prop type | `React.ComponentProps<"textarea">` | `React.ComponentProps<"textarea">` | ✅ match |
+| `data-slot` | `"textarea"` | `"textarea"` | ✅ match |
+| Underlying element | native `<textarea>` | native `<textarea>` | ✅ match |
+| Sub-components | none (not needed) | none | ✅ match |
+
+### `checkbox`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Checkbox` | `Checkbox` | ✅ match |
+| Prop type | `React.ComponentProps<typeof BaseCheckbox.Root>` | `CheckboxPrimitive.Root.Props` (same type) | ✅ match |
+| `data-slot` root | `"checkbox"` | `"checkbox"` | ✅ match |
+| `data-slot` indicator | `"checkbox-indicator"` | `"checkbox-indicator"` | ✅ match |
+| Indicator inlined | yes (`BaseCheckbox.Indicator`) | yes (`CheckboxPrimitive.Indicator`) | ✅ match |
+| Sub-components | none exported | none exported | ✅ match |
+| `asChild` | not present | not present (Base UI) | ✅ match |
+
+### `radio-group`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `RadioGroup` | `RadioGroup` | ✅ match |
+| `RadioGroupItem` export | ✅ added | `RadioGroupItem` | 🔧 fixed (was missing) |
+| `RadioGroupItem` prop type | `React.ComponentProps<typeof BaseRadio.Root>` | `RadioPrimitive.Root.Props` (same type) | ✅ match |
+| `data-slot` root | `"radio-group"` | `"radio-group"` | ✅ match |
+| `data-slot` item | `"radio-group-item"` | `"radio-group-item"` | ✅ match |
+| `data-slot` indicator | `"radio-group-indicator"` | `"radio-group-indicator"` | ✅ match |
+| `orientation` prop on root | `"horizontal" \| "vertical"` via `data-orientation` | not present (shadcn) | ⚠️ accepted deviation — useful CSS hook |
+| Inlined `Indicator` in item | ✅ present | ✅ present | ✅ match |
+
+### `switch`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Switch` | `Switch` | ✅ match |
+| Prop type | `React.ComponentProps<typeof BaseSwitch.Root> & { size? }` | `SwitchPrimitive.Root.Props & { size? }` (same type) | ✅ match |
+| `data-slot` root | `"switch"` | `"switch"` | ✅ match |
+| `data-slot` thumb | `"switch-thumb"` | `"switch-thumb"` | ✅ match |
+| `size` prop | ✅ added `"sm" \| "default"` | `"sm" \| "default"` | 🔧 fixed (was missing) |
+| `data-size` attribute | ✅ added | ✅ present | 🔧 fixed |
+| Thumb inlined | ✅ present | ✅ present | ✅ match |
+
+### `slider`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Slider` | `Slider` | ✅ match |
+| Prop type | `React.ComponentProps<typeof BaseSlider.Root>` | `SliderPrimitive.Root.Props` (same type) | ✅ match |
+| Redundant `className?` re-declaration | removed | not present | 🔧 fixed |
+| `data-slot` root | `"slider"` | `"slider"` | ✅ match |
+| `data-slot` control | `"slider-control"` | not present on Control (shadcn omits) | ⚠️ accepted deviation — useful CSS hook |
+| `data-slot` track | `"slider-track"` | `"slider-track"` | ✅ match |
+| `data-slot` range | `"slider-range"` | `"slider-range"` | ✅ match |
+| `data-slot` thumb | `"slider-thumb"` | `"slider-thumb"` | ✅ match |
+| `thumbAlignment` | ✅ added `"edge"` | `"edge"` | 🔧 fixed (was missing) |
+| Multiple thumbs from value array | ✅ fixed | ✅ present | 🔧 fixed (was single thumb) |
+| Thumb placement | inside `Control` (alongside `Track`) | inside `Control` (alongside `Track`) | ✅ match |
+
+### `label`
+
+| Prop / slot | Our value | Shadcn v4 value | Status |
+|---|---|---|---|
+| Root export | `Label` | `Label` | ✅ match |
+| Prop type | `React.ComponentProps<"label">` | `React.ComponentProps<"label">` | ✅ match |
+| `data-slot` | `"label"` | `"label"` | ✅ match |
+| Underlying element | native `<label>` | native `<label>` | ✅ match |
