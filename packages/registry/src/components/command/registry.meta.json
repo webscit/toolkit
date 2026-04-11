@@ -1,0 +1,7 @@
+{
+  "title": "Command",
+  "description": "Searchable command palette with groups, items, keyboard shortcuts, and empty state.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": []
+}
