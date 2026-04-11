@@ -11,8 +11,6 @@ export function Item({ selected, disabled, className, ...props }: ItemProps) {
       data-slot="item"
       data-selected={selected || undefined}
       data-disabled={disabled || undefined}
-      aria-selected={selected}
-      aria-disabled={disabled}
       className={`sct-item${className ? ` ${className}` : ""}`}
       {...props}
     />

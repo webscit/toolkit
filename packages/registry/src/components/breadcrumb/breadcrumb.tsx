@@ -44,9 +44,7 @@ export function BreadcrumbLink({ className, ...props }: React.ComponentProps<"a"
 export function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
-      role="link"
       aria-current="page"
-      aria-disabled="true"
       data-slot="breadcrumb-page"
       className={`sct-breadcrumb-page${className ? ` ${className}` : ""}`}
       {...props}
