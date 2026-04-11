@@ -38,7 +38,7 @@ export function SelectValue({ ...props }: SelectValueProps) {
   return <BaseSelect.Value data-slot="select-value" {...props} />;
 }
 
-export interface SelectContentProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SelectContentProps extends React.ComponentProps<typeof BaseSelect.Popup> {
   positionerProps?: React.ComponentProps<typeof BaseSelect.Positioner>;
 }
 export function SelectContent({
