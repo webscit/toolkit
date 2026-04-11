@@ -1,13 +1,12 @@
-@scope (.sct-context-menu-content) {
-  :scope {
-    min-width: 10rem;
-    padding: 0.25rem;
-    background-color: var(--sct-color-background);
-    border: 1px solid var(--sct-color-border);
-    border-radius: var(--sct-radius-lg);
-    box-shadow: var(--sct-shadow-lg);
-    outline: none;
-  }
+/* portal-rendered: outside scope so styles apply when teleported to body */
+.sct-context-menu-content {
+  min-width: 10rem;
+  padding: 0.25rem;
+  background-color: var(--sct-color-background);
+  border: 1px solid var(--sct-color-border);
+  border-radius: var(--sct-radius-lg);
+  box-shadow: var(--sct-shadow-lg);
+  outline: none;
 }
 @scope (.sct-context-menu-item) {
   :scope {
