@@ -1,0 +1,1 @@
+{ "title": "Combobox", "description": "Filterable select with keyboard navigation, built on Base UI Combobox.", "dependencies": ["@base-ui/react"], "devDependencies": [], "registryDependencies": [] }
