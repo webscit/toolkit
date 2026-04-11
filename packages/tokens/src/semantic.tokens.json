@@ -46,6 +46,9 @@
     },
     "progress": {
       "height": { "$type": "dimension", "$value": "0.5rem" }
+    },
+    "drawer": {
+      "width": { "$type": "dimension", "$value": "320px" }
     }
   }
 }
