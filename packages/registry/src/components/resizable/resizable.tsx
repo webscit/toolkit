@@ -9,7 +9,6 @@ import "./resizable.css";
 export interface ResizablePanelGroupProps
   extends ComponentProps<typeof PanelGroup> {
   "data-testid"?: string;
-  direction?: "horizontal" | "vertical";
 }
 
 export function ResizablePanelGroup({
