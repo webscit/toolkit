@@ -1,0 +1,7 @@
+{
+  "title": "Direction",
+  "description": "React context provider that sets the text direction (ltr/rtl) for all child components via Base UI DirectionProvider.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}
