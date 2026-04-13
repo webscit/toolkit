@@ -43,7 +43,7 @@ export function SheetContent({
       <SheetOverlay />
       <BaseDialog.Popup
         data-slot="sheet-content"
-        data-side={side !== "right" ? side : undefined}
+        data-side={side}
         className={`sct-sheet-content${className ? ` ${className}` : ""}`}
         {...props}
       >

@@ -2,12 +2,15 @@ import { Radio as BaseRadio } from "@base-ui/react/radio";
 import { RadioGroup as BaseRadioGroup } from "@base-ui/react/radio-group";
 import "./radio-group.css";
 
-export type RadioGroupProps = React.ComponentProps<typeof BaseRadioGroup>;
+export interface RadioGroupProps extends React.ComponentProps<typeof BaseRadioGroup> {
+  orientation?: "horizontal" | "vertical";
+}
 
-export function RadioGroup({ className, ...props }: RadioGroupProps) {
+export function RadioGroup({ className, orientation = "vertical", ...props }: RadioGroupProps) {
   return (
     <BaseRadioGroup
       data-slot="radio-group"
+      data-orientation={orientation}
       className={`sct-radio-group${className ? ` ${className}` : ""}`}
       {...props}
     />

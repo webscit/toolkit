@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { render } from "vitest-browser-react";
+import { userEvent } from "vitest/browser";
 import {
   Menubar,
   MenubarContent,
@@ -51,8 +52,9 @@ describe("Menubar", () => {
         </MenubarMenu>
       </Menubar>,
     );
+    // Base UI renders the trigger with role="menuitem" inside a menubar context
     await expect
-      .element(screen.getByRole("button", { name: "File" }))
+      .element(screen.getByRole("menuitem", { name: "File" }))
       .toBeInTheDocument();
   });
   it("popup is closed before trigger click", async () => {
@@ -69,7 +71,7 @@ describe("Menubar", () => {
     expect(document.querySelector("[data-slot='menubar-content']")).toBeNull();
   });
   it("MenubarShortcut renders with correct slot", async () => {
-    await render(
+    const screen = await render(
       <Menubar>
         <MenubarMenu>
           <MenubarTrigger>F</MenubarTrigger>
@@ -81,8 +83,10 @@ describe("Menubar", () => {
         </MenubarMenu>
       </Menubar>,
     );
-    expect(
-      document.querySelector("[data-testid='sc']")?.getAttribute("data-slot"),
-    ).toBe("menubar-shortcut");
+    // MenubarContent is in a Portal — open the menu first so the shortcut renders
+    await userEvent.click(screen.getByRole("menuitem", { name: "F" }));
+    await expect
+      .element(screen.getByTestId("sc"))
+      .toHaveAttribute("data-slot", "menubar-shortcut");
   });
 });

@@ -37,6 +37,6 @@ describe("Progress", () => {
   it("renders indeterminate state when value is null", async () => {
     await render(<Progress value={null} max={100} />);
     const root = document.querySelector("[data-slot='progress']");
-    expect(root?.getAttribute("data-status")).toBe("indeterminate");
+    expect(root?.hasAttribute("data-indeterminate")).toBe(true);
   });
 });
