@@ -22,7 +22,14 @@ export const Default: Story = {
         <Button variant="ghost">Toggle content</Button>
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <div style={{ padding: "8px", border: "1px solid var(--sct-color-border)", borderRadius: "var(--sct-radius-md)", marginTop: "8px" }}>
+        <div
+          style={{
+            padding: "8px",
+            border: "1px solid var(--sct-color-border)",
+            borderRadius: "var(--sct-radius-md)",
+            marginTop: "8px",
+          }}
+        >
           This content can be collapsed and expanded.
         </div>
       </CollapsibleContent>
@@ -37,7 +44,14 @@ export const DefaultOpen: Story = {
         <Button variant="ghost">Toggle content</Button>
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <div style={{ padding: "8px", border: "1px solid var(--sct-color-border)", borderRadius: "var(--sct-radius-md)", marginTop: "8px" }}>
+        <div
+          style={{
+            padding: "8px",
+            border: "1px solid var(--sct-color-border)",
+            borderRadius: "var(--sct-radius-md)",
+            marginTop: "8px",
+          }}
+        >
           This starts expanded.
         </div>
       </CollapsibleContent>

@@ -1,0 +1,16 @@
+@scope (.sct-aspect-ratio) {
+  :scope {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: calc(100% / var(--sct-aspect-ratio, 1.7778));
+  }
+
+  :scope > * {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

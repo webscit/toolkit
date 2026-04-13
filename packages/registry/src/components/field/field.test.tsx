@@ -80,9 +80,7 @@ describe("FieldSet", () => {
       </FieldSet>,
     );
     await expect.element(screen.getByRole("group")).toBeInTheDocument();
-    await expect
-      .element(screen.getByText("Contact Info"))
-      .toBeInTheDocument();
+    await expect.element(screen.getByText("Contact Info")).toBeInTheDocument();
   });
 });
 

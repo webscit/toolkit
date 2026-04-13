@@ -1,0 +1,7 @@
+{
+  "title": "Toggle Group",
+  "description": "Group of toggle buttons with shared single or multiple selection state, built on Base UI ToggleGroup.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

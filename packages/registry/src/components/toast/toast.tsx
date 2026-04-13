@@ -5,7 +5,9 @@ export const useToastManager = BaseToast.useToastManager;
 export const createToastManager = BaseToast.createToastManager;
 
 export const ToastProvider = BaseToast.Provider;
-export type ToastProviderProps = React.ComponentProps<typeof BaseToast.Provider>;
+export type ToastProviderProps = React.ComponentProps<
+  typeof BaseToast.Provider
+>;
 
 export type ToastViewportProps = React.HTMLAttributes<HTMLDivElement>;
 

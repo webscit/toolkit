@@ -1,0 +1,19 @@
+@scope (.sct-kbd) {
+  :scope {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.25rem;
+    min-width: 1.25rem;
+    padding-inline: 0.25rem;
+    border: 1px solid var(--sct-color-border);
+    border-bottom-width: 2px;
+    border-radius: var(--sct-radius-md);
+    background-color: var(--sct-color-muted);
+    font-family: var(--sct-font-family-mono);
+    font-size: var(--sct-font-size-xs);
+    font-weight: var(--sct-font-weight-normal);
+    color: var(--sct-color-foreground);
+    line-height: 1;
+  }
+}

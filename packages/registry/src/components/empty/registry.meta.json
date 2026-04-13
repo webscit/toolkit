@@ -1,0 +1,7 @@
+{
+  "title": "Empty",
+  "description": "Empty state placeholder with slots for icon, title, description, and action.",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": []
+}

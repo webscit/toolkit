@@ -1,0 +1,7 @@
+{
+  "title": "Navigation Menu",
+  "description": "Horizontal navigation with dropdown sub-menus, built on Base UI NavigationMenu.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

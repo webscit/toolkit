@@ -7,8 +7,7 @@ export type AlertDialogProps = React.ComponentProps<
 >;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface AlertDialogTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface AlertDialogTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export function AlertDialogTrigger({ ...props }: AlertDialogTriggerProps) {
   return (
@@ -114,16 +113,14 @@ export function AlertDialogDescription({
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface AlertDialogActionProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface AlertDialogActionProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export function AlertDialogAction({ ...props }: AlertDialogActionProps) {
   return <button data-slot="alert-dialog-action" {...props} />;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface AlertDialogCancelProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface AlertDialogCancelProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export function AlertDialogCancel({ ...props }: AlertDialogCancelProps) {
   return <BaseAlertDialog.Close data-slot="alert-dialog-cancel" {...props} />;

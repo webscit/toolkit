@@ -120,12 +120,8 @@ describe("SidebarMenu", () => {
         </Sidebar>
       </SidebarProvider>,
     );
-    await expect
-      .element(screen.getByText("Home"))
-      .toBeInTheDocument();
-    await expect
-      .element(screen.getByText("Navigation"))
-      .toBeInTheDocument();
+    await expect.element(screen.getByText("Home")).toBeInTheDocument();
+    await expect.element(screen.getByText("Navigation")).toBeInTheDocument();
   });
 });
 

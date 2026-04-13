@@ -11,10 +11,7 @@ import {
 } from "./toast";
 
 // Helper: wrap in provider with a fake toast object
-function renderToast(
-  ui: React.ReactNode,
-  type?: string,
-) {
+function renderToast(ui: React.ReactNode, type?: string) {
   const toast = {
     id: "test-toast",
     title: "Test",
@@ -23,9 +20,7 @@ function renderToast(
   return render(
     <ToastProvider>
       <ToastViewport data-testid="viewport">
-        <BaseToast.Root toast={toast}>
-          {ui}
-        </BaseToast.Root>
+        <BaseToast.Root toast={toast}>{ui}</BaseToast.Root>
       </ToastViewport>
     </ToastProvider>,
   );

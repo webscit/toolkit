@@ -72,7 +72,14 @@ export const Default: Story = {
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
-          <p style={{ fontSize: "12px", color: "var(--sct-color-muted-foreground)" }}>v1.0.0</p>
+          <p
+            style={{
+              fontSize: "12px",
+              color: "var(--sct-color-muted-foreground)",
+            }}
+          >
+            v1.0.0
+          </p>
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>

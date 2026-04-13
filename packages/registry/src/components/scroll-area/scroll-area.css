@@ -8,47 +8,37 @@
     height: 100%;
     width: 100%;
     overflow: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--sct-color-border) transparent;
+    scrollbar-width: none;
   }
 
   .sct-scroll-area-viewport::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    display: none;
   }
 
-  .sct-scroll-area-viewport::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .sct-scroll-area-viewport::-webkit-scrollbar-thumb {
-    background-color: var(--sct-color-border);
-    border-radius: var(--sct-radius-full);
-    border: 2px solid transparent;
-    background-clip: content-box;
-  }
-
-  .sct-scroll-area-viewport::-webkit-scrollbar-thumb:hover {
-    background-color: var(--sct-color-muted-foreground);
-  }
-}
-
-@scope (.sct-scroll-bar) {
-  :scope {
+  .sct-scroll-bar {
     display: flex;
     touch-action: none;
     user-select: none;
     padding: 1px;
+    transition: colors;
   }
 
-  :scope[data-orientation="vertical"] {
+  .sct-scroll-bar[data-orientation="vertical"] {
+    height: 100%;
     width: 8px;
     border-left: 1px solid transparent;
   }
 
-  :scope[data-orientation="horizontal"] {
+  .sct-scroll-bar[data-orientation="horizontal"] {
     height: 8px;
     flex-direction: column;
     border-top: 1px solid transparent;
+  }
+
+  .sct-scroll-area-thumb {
+    position: relative;
+    flex: 1;
+    background-color: var(--sct-color-border);
+    border-radius: var(--sct-radius-full);
   }
 }

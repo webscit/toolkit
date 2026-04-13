@@ -1,10 +1,10 @@
 import "./table.css";
 
-export type TableProps = React.HTMLAttributes<HTMLTableElement>;
+export type TableProps = React.ComponentProps<"table">;
 
 export function Table({ className, ...props }: TableProps) {
   return (
-    <div className="sct-table-wrapper">
+    <div data-slot="table-wrapper" className="sct-table-wrapper">
       <table
         data-slot="table"
         className={`sct-table${className ? ` ${className}` : ""}`}
@@ -14,7 +14,7 @@ export function Table({ className, ...props }: TableProps) {
   );
 }
 
-export type TableHeaderProps = React.HTMLAttributes<HTMLTableSectionElement>;
+export type TableHeaderProps = React.ComponentProps<"thead">;
 
 export function TableHeader({ className, ...props }: TableHeaderProps) {
   return (
@@ -26,7 +26,7 @@ export function TableHeader({ className, ...props }: TableHeaderProps) {
   );
 }
 
-export type TableBodyProps = React.HTMLAttributes<HTMLTableSectionElement>;
+export type TableBodyProps = React.ComponentProps<"tbody">;
 
 export function TableBody({ className, ...props }: TableBodyProps) {
   return (
@@ -38,7 +38,7 @@ export function TableBody({ className, ...props }: TableBodyProps) {
   );
 }
 
-export type TableFooterProps = React.HTMLAttributes<HTMLTableSectionElement>;
+export type TableFooterProps = React.ComponentProps<"tfoot">;
 
 export function TableFooter({ className, ...props }: TableFooterProps) {
   return (
@@ -50,7 +50,7 @@ export function TableFooter({ className, ...props }: TableFooterProps) {
   );
 }
 
-export type TableRowProps = React.HTMLAttributes<HTMLTableRowElement>;
+export type TableRowProps = React.ComponentProps<"tr">;
 
 export function TableRow({ className, ...props }: TableRowProps) {
   return (
@@ -62,7 +62,7 @@ export function TableRow({ className, ...props }: TableRowProps) {
   );
 }
 
-export type TableHeadProps = React.ThHTMLAttributes<HTMLTableCellElement>;
+export type TableHeadProps = React.ComponentProps<"th">;
 
 export function TableHead({ className, ...props }: TableHeadProps) {
   return (
@@ -74,7 +74,7 @@ export function TableHead({ className, ...props }: TableHeadProps) {
   );
 }
 
-export type TableCellProps = React.TdHTMLAttributes<HTMLTableCellElement>;
+export type TableCellProps = React.ComponentProps<"td">;
 
 export function TableCell({ className, ...props }: TableCellProps) {
   return (
@@ -86,7 +86,7 @@ export function TableCell({ className, ...props }: TableCellProps) {
   );
 }
 
-export type TableCaptionProps = React.HTMLAttributes<HTMLTableCaptionElement>;
+export type TableCaptionProps = React.ComponentProps<"caption">;
 
 export function TableCaption({ className, ...props }: TableCaptionProps) {
   return (

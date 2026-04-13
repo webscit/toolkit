@@ -47,4 +47,8 @@
     font-size: var(--sct-font-size-sm);
     color: var(--sct-color-muted-foreground);
   }
+
+  .sct-alert-action {
+    margin-top: 0.5rem;
+  }
 }

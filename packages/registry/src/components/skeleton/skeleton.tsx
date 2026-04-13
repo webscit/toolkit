@@ -1,6 +1,6 @@
 import "./skeleton.css";
 
-export type SkeletonProps = React.HTMLAttributes<HTMLDivElement>;
+export type SkeletonProps = React.ComponentProps<"div">;
 
 export function Skeleton({ className, ...props }: SkeletonProps) {
   return (

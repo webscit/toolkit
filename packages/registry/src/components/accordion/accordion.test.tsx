@@ -1,6 +1,6 @@
 import { render } from "vitest-browser-react";
 import { describe, it, expect } from "vitest";
-import { userEvent } from "@vitest/browser/context";
+import { userEvent } from "vitest/browser";
 import {
   Accordion,
   AccordionItem,
@@ -59,9 +59,7 @@ describe("Accordion", () => {
       </Accordion>,
     );
     await userEvent.click(screen.getByRole("button", { name: "Toggle" }));
-    await expect
-      .element(screen.getByText("Expanded text"))
-      .toBeInTheDocument();
+    await expect.element(screen.getByText("Expanded text")).toBeInTheDocument();
   });
 
   it("forwards className on root", async () => {

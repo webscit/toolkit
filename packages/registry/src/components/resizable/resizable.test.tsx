@@ -9,7 +9,7 @@ import {
 describe("ResizablePanelGroup", () => {
   it("renders without crashing", async () => {
     const screen = await render(
-      <ResizablePanelGroup direction="horizontal" data-testid="group">
+      <ResizablePanelGroup orientation="horizontal" data-testid="group">
         <ResizablePanel>Panel 1</ResizablePanel>
         <ResizableHandle />
         <ResizablePanel>Panel 2</ResizablePanel>
@@ -20,7 +20,7 @@ describe("ResizablePanelGroup", () => {
 
   it("sets data-slot on group", async () => {
     const screen = await render(
-      <ResizablePanelGroup direction="horizontal" data-testid="group">
+      <ResizablePanelGroup orientation="horizontal" data-testid="group">
         <ResizablePanel>Panel 1</ResizablePanel>
         <ResizableHandle />
         <ResizablePanel>Panel 2</ResizablePanel>
@@ -33,7 +33,7 @@ describe("ResizablePanelGroup", () => {
 
   it("renders panels with content", async () => {
     const screen = await render(
-      <ResizablePanelGroup direction="horizontal">
+      <ResizablePanelGroup orientation="horizontal">
         <ResizablePanel>Left</ResizablePanel>
         <ResizableHandle />
         <ResizablePanel>Right</ResizablePanel>
@@ -45,7 +45,7 @@ describe("ResizablePanelGroup", () => {
 
   it("renders handle with separator role", async () => {
     const screen = await render(
-      <ResizablePanelGroup direction="horizontal">
+      <ResizablePanelGroup orientation="horizontal">
         <ResizablePanel>A</ResizablePanel>
         <ResizableHandle />
         <ResizablePanel>B</ResizablePanel>

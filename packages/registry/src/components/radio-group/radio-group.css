@@ -10,3 +10,41 @@
     flex-wrap: wrap;
   }
 }
+
+@scope (.sct-radio-group-item) {
+  :scope {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+    border: 1px solid var(--sct-color-border);
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+  }
+
+  :scope[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .sct-radio-group-indicator {
+    display: none;
+  }
+
+  :scope[data-checked] .sct-radio-group-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sct-radio-group-indicator-icon {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: currentColor;
+  }
+}

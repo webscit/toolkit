@@ -27,7 +27,10 @@
       },
       "success": { "$type": "color", "$value": "{sct.color.green.light}" },
       "warning": { "$type": "color", "$value": "{sct.color.amber.light}" },
-      "warning-foreground": { "$type": "color", "$value": "{sct.color.neutral.950}" },
+      "warning-foreground": {
+        "$type": "color",
+        "$value": "{sct.color.neutral.950}"
+      },
       "info": { "$type": "color", "$value": "{sct.color.blue.light}" }
     }
   }

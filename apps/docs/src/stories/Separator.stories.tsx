@@ -21,7 +21,14 @@ export const Default: Story = {};
 
 export const Vertical: Story = {
   render: () => (
-    <div style={{ display: "flex", alignItems: "center", gap: "8px", height: "24px" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+        height: "24px",
+      }}
+    >
       <span>Left</span>
       <Separator orientation="vertical" />
       <span>Right</span>

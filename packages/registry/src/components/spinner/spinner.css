@@ -1,0 +1,30 @@
+@keyframes sct-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@scope (.sct-spinner) {
+  :scope {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--sct-color-muted);
+    border-top-color: var(--sct-color-primary);
+    border-radius: var(--sct-radius-full);
+    animation: sct-spin 0.75s linear infinite;
+    flex-shrink: 0;
+  }
+
+  :scope[data-size="sm"] {
+    width: 1rem;
+    height: 1rem;
+    border-width: 1.5px;
+  }
+
+  :scope[data-size="lg"] {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-width: 2.5px;
+  }
+}

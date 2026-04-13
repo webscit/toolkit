@@ -31,7 +31,10 @@ function ToastDemo() {
       <Button
         variant="outline"
         onClick={() =>
-          toastManager.add({ title: "Default toast", description: "This is a default notification." })
+          toastManager.add({
+            title: "Default toast",
+            description: "This is a default notification.",
+          })
         }
       >
         Default
@@ -39,7 +42,11 @@ function ToastDemo() {
       <Button
         variant="outline"
         onClick={() =>
-          toastManager.add({ title: "Success!", description: "Operation completed.", type: "success" })
+          toastManager.add({
+            title: "Success!",
+            description: "Operation completed.",
+            type: "success",
+          })
         }
       >
         Success
@@ -47,7 +54,11 @@ function ToastDemo() {
       <Button
         variant="outline"
         onClick={() =>
-          toastManager.add({ title: "Warning", description: "Please check your input.", type: "warning" })
+          toastManager.add({
+            title: "Warning",
+            description: "Please check your input.",
+            type: "warning",
+          })
         }
       >
         Warning
@@ -55,7 +66,11 @@ function ToastDemo() {
       <Button
         variant="outline"
         onClick={() =>
-          toastManager.add({ title: "Info", description: "New updates available.", type: "info" })
+          toastManager.add({
+            title: "Info",
+            description: "New updates available.",
+            type: "info",
+          })
         }
       >
         Info
@@ -63,7 +78,11 @@ function ToastDemo() {
       <Button
         variant="destructive"
         onClick={() =>
-          toastManager.add({ title: "Error", description: "Something went wrong.", type: "destructive" })
+          toastManager.add({
+            title: "Error",
+            description: "Something went wrong.",
+            type: "destructive",
+          })
         }
       >
         Destructive

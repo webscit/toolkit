@@ -14,10 +14,7 @@ export function InputGroup({ className, ...props }: InputGroupProps) {
 
 export type InputGroupAddonProps = React.HTMLAttributes<HTMLDivElement>;
 
-export function InputGroupAddon({
-  className,
-  ...props
-}: InputGroupAddonProps) {
+export function InputGroupAddon({ className, ...props }: InputGroupAddonProps) {
   return (
     <div
       data-slot="input-group-addon"

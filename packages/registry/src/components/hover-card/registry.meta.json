@@ -1,0 +1,7 @@
+{
+  "title": "Hover Card",
+  "description": "Card that appears when hovering a trigger, built on Base UI PreviewCard.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

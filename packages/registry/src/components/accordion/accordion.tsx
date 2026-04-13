@@ -1,8 +1,9 @@
 import { Accordion as BaseAccordion } from "@base-ui/react/accordion";
 import "./accordion.css";
 
-export interface AccordionProps
-  extends React.ComponentProps<typeof BaseAccordion.Root> {
+export interface AccordionProps extends React.ComponentProps<
+  typeof BaseAccordion.Root
+> {
   className?: string;
 }
 
@@ -16,8 +17,9 @@ export function Accordion({ className, ...props }: AccordionProps) {
   );
 }
 
-export interface AccordionItemProps
-  extends React.ComponentProps<typeof BaseAccordion.Item> {
+export interface AccordionItemProps extends React.ComponentProps<
+  typeof BaseAccordion.Item
+> {
   className?: string;
 }
 
@@ -32,8 +34,9 @@ export function AccordionItem({ className, ...props }: AccordionItemProps) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface AccordionTriggerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface AccordionTriggerProps extends React.ComponentProps<
+  typeof BaseAccordion.Trigger
+> {}
 
 export function AccordionTrigger({
   className,
@@ -67,7 +70,9 @@ export function AccordionTrigger({
   );
 }
 
-export type AccordionContentProps = React.HTMLAttributes<HTMLDivElement>;
+export type AccordionContentProps = React.ComponentProps<
+  typeof BaseAccordion.Panel
+>;
 
 export function AccordionContent({
   className,

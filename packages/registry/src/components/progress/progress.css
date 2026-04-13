@@ -1,0 +1,37 @@
+@scope (.sct-progress) {
+  :scope {
+    display: block;
+    width: 100%;
+  }
+
+  .sct-progress-track {
+    position: relative;
+    width: 100%;
+    height: var(--sct-progress-height, 0.5rem);
+    background-color: var(--sct-color-muted);
+    border-radius: var(--sct-radius-full);
+    overflow: hidden;
+  }
+
+  .sct-progress-indicator {
+    height: 100%;
+    background-color: var(--sct-color-primary);
+    border-radius: var(--sct-radius-full);
+    transition: width 300ms ease;
+    width: calc(var(--progress-percent, 0) * 1%);
+  }
+
+  :scope[data-status="indeterminate"] .sct-progress-indicator {
+    width: 40%;
+    animation: sct-progress-indeterminate 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes sct-progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}

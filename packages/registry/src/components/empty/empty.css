@@ -1,0 +1,42 @@
+@scope (.sct-empty) {
+  :scope {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--sct-color-muted-foreground);
+  }
+
+  .sct-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    color: var(--sct-color-muted-foreground);
+  }
+
+  .sct-empty-title {
+    font-size: var(--sct-font-size-lg);
+    font-weight: var(--sct-font-weight-semibold);
+    color: var(--sct-color-foreground);
+    margin: 0;
+  }
+
+  .sct-empty-description {
+    font-size: var(--sct-font-size-sm);
+    color: var(--sct-color-muted-foreground);
+    margin: 0;
+    max-width: 24rem;
+  }
+
+  .sct-empty-action {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+}

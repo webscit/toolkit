@@ -1,0 +1,7 @@
+{
+  "title": "Progress",
+  "description": "Progress bar built on Base UI Progress. Supports determinate and indeterminate states.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

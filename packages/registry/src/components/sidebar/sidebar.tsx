@@ -39,8 +39,7 @@ export function useSidebar() {
 
 // ---- Provider ----
 
-export interface SidebarProviderProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface SidebarProviderProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultOpen?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
@@ -369,8 +368,7 @@ export function SidebarMenuItem({ className, ...props }: SidebarMenuItemProps) {
   );
 }
 
-export interface SidebarMenuButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface SidebarMenuButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isActive?: boolean;
   variant?: "default" | "outline";
   size?: "default" | "sm" | "lg";
@@ -441,8 +439,7 @@ export function SidebarMenuBadge({
   );
 }
 
-export interface SidebarMenuSkeletonProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface SidebarMenuSkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   showIcon?: boolean;
 }
 
@@ -498,8 +495,7 @@ export function SidebarMenuSubItem({
   );
 }
 
-export interface SidebarMenuSubButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface SidebarMenuSubButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isActive?: boolean;
 }
 

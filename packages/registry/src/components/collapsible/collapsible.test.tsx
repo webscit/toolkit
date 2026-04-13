@@ -1,6 +1,6 @@
 import { render } from "vitest-browser-react";
 import { describe, it, expect } from "vitest";
-import { userEvent } from "@vitest/browser/context";
+import { userEvent } from "vitest/browser";
 import {
   Collapsible,
   CollapsibleTrigger,
@@ -52,8 +52,6 @@ describe("Collapsible", () => {
       </Collapsible>,
     );
     await userEvent.click(screen.getByRole("button", { name: "Toggle" }));
-    await expect
-      .element(screen.getByText("Toggle me"))
-      .toBeInTheDocument();
+    await expect.element(screen.getByText("Toggle me")).toBeInTheDocument();
   });
 });

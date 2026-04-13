@@ -77,4 +77,30 @@
   .sct-menu-radio-item:not([data-checked]) .sct-menu-item-indicator {
     visibility: hidden;
   }
+
+  .sct-menu-group {
+    padding: 0.25rem 0;
+  }
+
+  .sct-menu-shortcut {
+    margin-left: auto;
+    font-size: var(--sct-font-size-xs);
+    color: var(--sct-color-muted-foreground);
+    font-family: var(--sct-font-family-mono);
+  }
+
+  .sct-menu-sub-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sct-menu-chevron {
+    flex-shrink: 0;
+    color: var(--sct-color-muted-foreground);
+  }
+
+  .sct-menu-item[data-inset] {
+    padding-left: 2rem;
+  }
 }

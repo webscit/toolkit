@@ -6,10 +6,10 @@ import {
 import type { ComponentProps } from "react";
 import "./resizable.css";
 
-export interface ResizablePanelGroupProps
-  extends ComponentProps<typeof PanelGroup> {
+export interface ResizablePanelGroupProps extends ComponentProps<
+  typeof PanelGroup
+> {
   "data-testid"?: string;
-  direction?: "horizontal" | "vertical";
 }
 
 export function ResizablePanelGroup({
@@ -43,10 +43,15 @@ export function ResizablePanel({ className, ...props }: ResizablePanelProps) {
   );
 }
 
-export type ResizableHandleProps = ComponentProps<typeof PanelResizeHandle>;
+export interface ResizableHandleProps extends ComponentProps<
+  typeof PanelResizeHandle
+> {
+  withHandle?: boolean;
+}
 
 export function ResizableHandle({
   className,
+  withHandle,
   ...props
 }: ResizableHandleProps) {
   return (
@@ -54,6 +59,13 @@ export function ResizableHandle({
       data-slot="resizable-handle"
       className={`sct-resizable-handle${className ? ` ${className}` : ""}`}
       {...props}
-    />
+    >
+      {withHandle && (
+        <div
+          data-slot="resizable-handle-icon"
+          className="sct-resizable-handle-icon"
+        />
+      )}
+    </PanelResizeHandle>
   );
 }

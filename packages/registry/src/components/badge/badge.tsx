@@ -1,7 +1,13 @@
 import "./badge.css";
 
 export interface BadgeProps extends React.ComponentProps<"span"> {
-  variant?: "default" | "secondary" | "destructive" | "outline";
+  variant?:
+    | "default"
+    | "secondary"
+    | "destructive"
+    | "outline"
+    | "ghost"
+    | "link";
 }
 
 export function Badge({

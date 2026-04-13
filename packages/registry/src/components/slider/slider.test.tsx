@@ -27,9 +27,7 @@ describe("Slider", () => {
   });
 
   it("renders with min and max attributes", async () => {
-    const screen = await render(
-      <Slider defaultValue={25} min={0} max={100} />,
-    );
+    const screen = await render(<Slider defaultValue={25} min={0} max={100} />);
     const slider = screen.getByRole("slider");
     await expect.element(slider).toHaveAttribute("min", "0");
     await expect.element(slider).toHaveAttribute("max", "100");
