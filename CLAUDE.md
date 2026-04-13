@@ -80,8 +80,11 @@ Tokens are W3C DTCG JSON files in `packages/tokens/src/`:
 
 Style Dictionary outputs:
 
-- `dist/tokens.css` — `:root { --sct-* }` (light theme)
-- `dist/tokens-dark.css` — `[data-theme="dark"] { --sct-* }` (dark overrides)
+- `dist/tokens.css` — `@layer design-tokens { :root { --sct-* } }` (light theme) + `@layer design-tokens, theme;` ordering declaration
+- `dist/tokens-dark.css` — `@layer design-tokens { [data-theme="dark"] { --sct-* } }` (dark overrides)
+- `dist/base.css` — `@layer theme { html, :host { font-family: var(--sct-font-family-sans) } }` (base element styles)
+
+**CSS layer contract:** Tokens live in `@layer design-tokens` (lowest priority); the default element styles live in `@layer theme`. The layer order `design-tokens, theme` is declared at the top of `tokens.css`. Consuming apps that use their own `@layer` declarations **must** import `tokens.css` before any other layered stylesheet, or explicitly redeclare the layer order (`@layer design-tokens, theme, <app-layers...>;`) before their own layers. Unlayered consumer rules always win over both layers regardless of import order.
 
 Token names are kebab-case prefixed `sct-`, e.g. `--sct-color-primary`. Dark mode is toggled by setting `data-theme="dark"` on `<html>`.
 
