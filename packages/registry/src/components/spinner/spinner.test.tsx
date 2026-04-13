@@ -10,7 +10,9 @@ describe("Spinner", () => {
 
   it("has accessible label", async () => {
     const screen = await render(<Spinner />);
-    await expect.element(screen.getByRole("status")).toHaveAttribute("aria-label", "Loading");
+    await expect
+      .element(screen.getByRole("status"))
+      .toHaveAttribute("aria-label", "Loading");
   });
 
   it("renders with scope class", async () => {
@@ -20,16 +22,22 @@ describe("Spinner", () => {
 
   it("forwards className", async () => {
     const screen = await render(<Spinner className="custom" />);
-    await expect.element(screen.getByRole("status")).toHaveClass("sct-spinner custom");
+    await expect
+      .element(screen.getByRole("status"))
+      .toHaveClass("sct-spinner custom");
   });
 
   it("applies data-size attribute", async () => {
     const screen = await render(<Spinner size="lg" />);
-    await expect.element(screen.getByRole("status")).toHaveAttribute("data-size", "lg");
+    await expect
+      .element(screen.getByRole("status"))
+      .toHaveAttribute("data-size", "lg");
   });
 
   it("defaults to size=default", async () => {
     const screen = await render(<Spinner />);
-    await expect.element(screen.getByRole("status")).toHaveAttribute("data-size", "default");
+    await expect
+      .element(screen.getByRole("status"))
+      .toHaveAttribute("data-size", "default");
   });
 });

@@ -10,7 +10,9 @@ export function SheetTrigger({ ...props }: SheetTriggerProps) {
   return <BaseDialog.Trigger data-slot="sheet-trigger" {...props} />;
 }
 
-export type SheetOverlayProps = React.ComponentProps<typeof BaseDialog.Backdrop>;
+export type SheetOverlayProps = React.ComponentProps<
+  typeof BaseDialog.Backdrop
+>;
 
 export function SheetOverlay({ className, ...props }: SheetOverlayProps) {
   return (
@@ -22,8 +24,9 @@ export function SheetOverlay({ className, ...props }: SheetOverlayProps) {
   );
 }
 
-export interface SheetContentProps
-  extends React.ComponentProps<typeof BaseDialog.Popup> {
+export interface SheetContentProps extends React.ComponentProps<
+  typeof BaseDialog.Popup
+> {
   side?: "top" | "right" | "bottom" | "left";
   showCloseButton?: boolean;
 }
@@ -46,7 +49,10 @@ export function SheetContent({
       >
         {children}
         {showCloseButton && (
-          <BaseDialog.Close data-slot="sheet-close" className="sct-sheet-close-icon" />
+          <BaseDialog.Close
+            data-slot="sheet-close"
+            className="sct-sheet-close-icon"
+          />
         )}
       </BaseDialog.Popup>
     </BaseDialog.Portal>

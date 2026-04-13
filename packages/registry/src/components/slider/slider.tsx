@@ -28,7 +28,10 @@ export function Slider({
       thumbAlignment="edge"
       {...props}
     >
-      <BaseSlider.Control data-slot="slider-control" className="sct-slider-control">
+      <BaseSlider.Control
+        data-slot="slider-control"
+        className="sct-slider-control"
+      >
         <BaseSlider.Track data-slot="slider-track" className="sct-slider-track">
           <BaseSlider.Indicator
             data-slot="slider-range"

@@ -22,8 +22,9 @@ export function ScrollArea({ className, children, ...props }: ScrollAreaProps) {
   );
 }
 
-export interface ScrollBarProps
-  extends React.ComponentProps<typeof BaseScrollArea.Scrollbar> {
+export interface ScrollBarProps extends React.ComponentProps<
+  typeof BaseScrollArea.Scrollbar
+> {
   orientation?: "vertical" | "horizontal";
 }
 

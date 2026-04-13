@@ -5,9 +5,14 @@ export const Combobox = BaseCombobox.Root;
 export type ComboboxProps = React.ComponentProps<typeof BaseCombobox.Root>;
 
 export const ComboboxLabel = BaseCombobox.Label;
-export type ComboboxLabelProps = React.ComponentProps<typeof BaseCombobox.Label>;
+export type ComboboxLabelProps = React.ComponentProps<
+  typeof BaseCombobox.Label
+>;
 
-export function ComboboxInput({ className, ...props }: React.ComponentProps<typeof BaseCombobox.Input>) {
+export function ComboboxInput({
+  className,
+  ...props
+}: React.ComponentProps<typeof BaseCombobox.Input>) {
   return (
     <BaseCombobox.Input
       data-slot="combobox-input"
@@ -17,7 +22,10 @@ export function ComboboxInput({ className, ...props }: React.ComponentProps<type
   );
 }
 
-export function ComboboxTrigger({ className, ...props }: React.ComponentProps<typeof BaseCombobox.Trigger>) {
+export function ComboboxTrigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof BaseCombobox.Trigger>) {
   return (
     <BaseCombobox.Trigger
       data-slot="combobox-trigger"
@@ -31,7 +39,12 @@ export interface ComboboxContentProps extends React.HTMLAttributes<HTMLDivElemen
   positionerProps?: React.ComponentProps<typeof BaseCombobox.Positioner>;
 }
 
-export function ComboboxContent({ className, children, positionerProps, ...props }: ComboboxContentProps) {
+export function ComboboxContent({
+  className,
+  children,
+  positionerProps,
+  ...props
+}: ComboboxContentProps) {
   return (
     <BaseCombobox.Portal>
       <BaseCombobox.Positioner sideOffset={4} {...positionerProps}>
@@ -49,9 +62,15 @@ export function ComboboxContent({ className, children, positionerProps, ...props
   );
 }
 
-export interface ComboboxItemProps extends React.ComponentProps<typeof BaseCombobox.Item> {}
+export interface ComboboxItemProps extends React.ComponentProps<
+  typeof BaseCombobox.Item
+> {}
 
-export function ComboboxItem({ className, children, ...props }: ComboboxItemProps) {
+export function ComboboxItem({
+  className,
+  children,
+  ...props
+}: ComboboxItemProps) {
   return (
     <BaseCombobox.Item
       data-slot="combobox-item"
@@ -59,8 +78,20 @@ export function ComboboxItem({ className, children, ...props }: ComboboxItemProp
       {...props}
     >
       <BaseCombobox.ItemIndicator className="sct-combobox-item-indicator">
-        <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" width="14" height="14">
-          <path d="M3 8l4 4 6-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <svg
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+          fill="none"
+          width="14"
+          height="14"
+        >
+          <path
+            d="M3 8l4 4 6-7"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </BaseCombobox.ItemIndicator>
       {children}
@@ -68,7 +99,10 @@ export function ComboboxItem({ className, children, ...props }: ComboboxItemProp
   );
 }
 
-export function ComboboxEmpty({ className, ...props }: React.ComponentProps<typeof BaseCombobox.Empty>) {
+export function ComboboxEmpty({
+  className,
+  ...props
+}: React.ComponentProps<typeof BaseCombobox.Empty>) {
   return (
     <BaseCombobox.Empty
       data-slot="combobox-empty"
@@ -78,11 +112,18 @@ export function ComboboxEmpty({ className, ...props }: React.ComponentProps<type
   );
 }
 
-export interface ComboboxGroupProps extends React.ComponentProps<typeof BaseCombobox.Group> {
+export interface ComboboxGroupProps extends React.ComponentProps<
+  typeof BaseCombobox.Group
+> {
   label?: string;
 }
 
-export function ComboboxGroup({ label, className, children, ...props }: ComboboxGroupProps) {
+export function ComboboxGroup({
+  label,
+  className,
+  children,
+  ...props
+}: ComboboxGroupProps) {
   return (
     <BaseCombobox.Group
       data-slot="combobox-group"

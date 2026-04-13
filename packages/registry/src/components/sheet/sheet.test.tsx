@@ -53,9 +53,7 @@ describe("Sheet", () => {
     );
     await userEvent.click(screen.getByRole("button", { name: "Open" }));
     await expect.element(screen.getByRole("dialog")).toBeInTheDocument();
-    await expect
-      .element(screen.getByText("Sheet Title"))
-      .toBeInTheDocument();
+    await expect.element(screen.getByText("Sheet Title")).toBeInTheDocument();
   });
 
   it("defaults to right side", async () => {

@@ -2,9 +2,14 @@ import { ContextMenu as BaseContextMenu } from "@base-ui/react/context-menu";
 import "./context-menu.css";
 
 export const ContextMenu = BaseContextMenu.Root;
-export type ContextMenuProps = React.ComponentProps<typeof BaseContextMenu.Root>;
+export type ContextMenuProps = React.ComponentProps<
+  typeof BaseContextMenu.Root
+>;
 
-export function ContextMenuTrigger({ className, ...props }: React.ComponentProps<typeof BaseContextMenu.Trigger>) {
+export function ContextMenuTrigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof BaseContextMenu.Trigger>) {
   return (
     <BaseContextMenu.Trigger
       data-slot="context-menu-trigger"
@@ -18,7 +23,12 @@ export interface ContextMenuContentProps extends React.HTMLAttributes<HTMLDivEle
   positionerProps?: React.ComponentProps<typeof BaseContextMenu.Positioner>;
 }
 
-export function ContextMenuContent({ className, children, positionerProps, ...props }: ContextMenuContentProps) {
+export function ContextMenuContent({
+  className,
+  children,
+  positionerProps,
+  ...props
+}: ContextMenuContentProps) {
   return (
     <BaseContextMenu.Portal>
       <BaseContextMenu.Positioner {...positionerProps}>
@@ -34,7 +44,9 @@ export function ContextMenuContent({ className, children, positionerProps, ...pr
   );
 }
 
-export type ContextMenuItemProps = React.ComponentProps<typeof BaseContextMenu.Item>;
+export type ContextMenuItemProps = React.ComponentProps<
+  typeof BaseContextMenu.Item
+>;
 
 export function ContextMenuItem({ className, ...props }: ContextMenuItemProps) {
   return (
@@ -46,7 +58,10 @@ export function ContextMenuItem({ className, ...props }: ContextMenuItemProps) {
   );
 }
 
-export function ContextMenuSeparator({ className, ...props }: React.ComponentProps<typeof BaseContextMenu.Separator>) {
+export function ContextMenuSeparator({
+  className,
+  ...props
+}: React.ComponentProps<typeof BaseContextMenu.Separator>) {
   return (
     <BaseContextMenu.Separator
       data-slot="context-menu-separator"
@@ -56,7 +71,10 @@ export function ContextMenuSeparator({ className, ...props }: React.ComponentPro
   );
 }
 
-export function ContextMenuLabel({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+export function ContextMenuLabel({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <BaseContextMenu.GroupLabel
       data-slot="context-menu-label"
@@ -66,9 +84,15 @@ export function ContextMenuLabel({ className, ...props }: React.HTMLAttributes<H
   );
 }
 
-export type ContextMenuCheckboxItemProps = React.ComponentProps<typeof BaseContextMenu.CheckboxItem>;
+export type ContextMenuCheckboxItemProps = React.ComponentProps<
+  typeof BaseContextMenu.CheckboxItem
+>;
 
-export function ContextMenuCheckboxItem({ className, children, ...props }: ContextMenuCheckboxItemProps) {
+export function ContextMenuCheckboxItem({
+  className,
+  children,
+  ...props
+}: ContextMenuCheckboxItemProps) {
   return (
     <BaseContextMenu.CheckboxItem
       data-slot="context-menu-checkbox-item"
@@ -76,8 +100,20 @@ export function ContextMenuCheckboxItem({ className, children, ...props }: Conte
       {...props}
     >
       <BaseContextMenu.CheckboxItemIndicator className="sct-context-menu-item-indicator">
-        <svg viewBox="0 0 14 14" aria-hidden="true" fill="none" width="14" height="14">
-          <path d="M2 7l4 4 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <svg
+          viewBox="0 0 14 14"
+          aria-hidden="true"
+          fill="none"
+          width="14"
+          height="14"
+        >
+          <path
+            d="M2 7l4 4 6-6"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </BaseContextMenu.CheckboxItemIndicator>
       {children}
@@ -86,11 +122,19 @@ export function ContextMenuCheckboxItem({ className, children, ...props }: Conte
 }
 
 export const ContextMenuRadioGroup = BaseContextMenu.RadioGroup;
-export type ContextMenuRadioGroupProps = React.ComponentProps<typeof BaseContextMenu.RadioGroup>;
+export type ContextMenuRadioGroupProps = React.ComponentProps<
+  typeof BaseContextMenu.RadioGroup
+>;
 
-export type ContextMenuRadioItemProps = React.ComponentProps<typeof BaseContextMenu.RadioItem>;
+export type ContextMenuRadioItemProps = React.ComponentProps<
+  typeof BaseContextMenu.RadioItem
+>;
 
-export function ContextMenuRadioItem({ className, children, ...props }: ContextMenuRadioItemProps) {
+export function ContextMenuRadioItem({
+  className,
+  children,
+  ...props
+}: ContextMenuRadioItemProps) {
   return (
     <BaseContextMenu.RadioItem
       data-slot="context-menu-radio-item"
@@ -98,7 +142,13 @@ export function ContextMenuRadioItem({ className, children, ...props }: ContextM
       {...props}
     >
       <BaseContextMenu.RadioItemIndicator className="sct-context-menu-item-indicator">
-        <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" width="16" height="16">
+        <svg
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+          fill="currentColor"
+          width="16"
+          height="16"
+        >
           <circle cx="8" cy="8" r="3" />
         </svg>
       </BaseContextMenu.RadioItemIndicator>
@@ -108,9 +158,15 @@ export function ContextMenuRadioItem({ className, children, ...props }: ContextM
 }
 
 export const ContextMenuSub = BaseContextMenu.SubmenuRoot;
-export type ContextMenuSubProps = React.ComponentProps<typeof BaseContextMenu.SubmenuRoot>;
+export type ContextMenuSubProps = React.ComponentProps<
+  typeof BaseContextMenu.SubmenuRoot
+>;
 
-export function ContextMenuSubTrigger({ className, children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+export function ContextMenuSubTrigger({
+  className,
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <BaseContextMenu.SubmenuTrigger
       data-slot="context-menu-sub-trigger"
@@ -118,14 +174,32 @@ export function ContextMenuSubTrigger({ className, children, ...props }: React.H
       {...props}
     >
       {children}
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14" className="sct-context-menu-chevron">
-        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <svg
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+        width="14"
+        height="14"
+        className="sct-context-menu-chevron"
+      >
+        <path
+          d="M6 4l4 4-4 4"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     </BaseContextMenu.SubmenuTrigger>
   );
 }
 
-export function ContextMenuSubContent({ className, children, positionerProps, ...props }: ContextMenuContentProps) {
+export function ContextMenuSubContent({
+  className,
+  children,
+  positionerProps,
+  ...props
+}: ContextMenuContentProps) {
   return (
     <BaseContextMenu.Portal>
       <BaseContextMenu.Positioner side="right" {...positionerProps}>

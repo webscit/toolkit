@@ -32,7 +32,8 @@
     color: var(--sct-color-accent-foreground);
   }
   .sct-menubar-trigger:focus-visible {
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--sct-color-ring) 50%, transparent);
   }
 }
 /* portal-rendered content */
@@ -64,21 +65,62 @@
     background-color: var(--sct-color-accent);
     color: var(--sct-color-accent-foreground);
   }
-  :scope[data-disabled] { pointer-events: none; opacity: 0.5; }
+  :scope[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 @scope (.sct-menubar-checkbox-item) {
-  :scope { padding-left: 2rem; position: relative; }
-  .sct-menubar-item-indicator { position: absolute; left: 0.5rem; display: flex; align-items: center; justify-content: center; width: 1rem; height: 1rem; }
+  :scope {
+    padding-left: 2rem;
+    position: relative;
+  }
+  .sct-menubar-item-indicator {
+    position: absolute;
+    left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+  }
 }
 @scope (.sct-menubar-radio-item) {
-  :scope { padding-left: 2rem; position: relative; }
-  .sct-menubar-item-indicator { position: absolute; left: 0.5rem; display: flex; align-items: center; justify-content: center; width: 1rem; height: 1rem; }
+  :scope {
+    padding-left: 2rem;
+    position: relative;
+  }
+  .sct-menubar-item-indicator {
+    position: absolute;
+    left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+  }
 }
 @scope (.sct-menubar-label) {
-  :scope { padding: 0.375rem 0.5rem; font-size: var(--sct-font-size-xs); font-weight: var(--sct-font-weight-semibold); color: var(--sct-color-muted-foreground); }
+  :scope {
+    padding: 0.375rem 0.5rem;
+    font-size: var(--sct-font-size-xs);
+    font-weight: var(--sct-font-weight-semibold);
+    color: var(--sct-color-muted-foreground);
+  }
 }
 @scope (.sct-menubar-separator) {
-  :scope { height: 1px; background-color: var(--sct-color-border); margin: 0.25rem 0; }
+  :scope {
+    height: 1px;
+    background-color: var(--sct-color-border);
+    margin: 0.25rem 0;
+  }
 }
-.sct-menubar-shortcut { margin-left: auto; font-size: var(--sct-font-size-xs); color: var(--sct-color-muted-foreground); font-family: var(--sct-font-family-mono); }
-.sct-menubar-chevron { margin-left: auto; }
+.sct-menubar-shortcut {
+  margin-left: auto;
+  font-size: var(--sct-font-size-xs);
+  color: var(--sct-color-muted-foreground);
+  font-family: var(--sct-font-family-mono);
+}
+.sct-menubar-chevron {
+  margin-left: auto;
+}

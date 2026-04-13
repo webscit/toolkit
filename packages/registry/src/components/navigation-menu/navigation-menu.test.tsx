@@ -14,7 +14,7 @@ describe("NavigationMenu", () => {
     const screen = await render(
       <NavigationMenu>
         <NavigationMenuList />
-      </NavigationMenu>
+      </NavigationMenu>,
     );
     await expect.element(screen.getByRole("navigation")).toBeInTheDocument();
   });
@@ -23,18 +23,22 @@ describe("NavigationMenu", () => {
     const screen = await render(
       <NavigationMenu>
         <NavigationMenuList />
-      </NavigationMenu>
+      </NavigationMenu>,
     );
-    await expect.element(screen.getByRole("navigation")).toHaveClass("sct-navigation-menu");
+    await expect
+      .element(screen.getByRole("navigation"))
+      .toHaveClass("sct-navigation-menu");
   });
 
   it("forwards className on root", async () => {
     const screen = await render(
       <NavigationMenu className="custom">
         <NavigationMenuList />
-      </NavigationMenu>
+      </NavigationMenu>,
     );
-    await expect.element(screen.getByRole("navigation")).toHaveClass("sct-navigation-menu custom");
+    await expect
+      .element(screen.getByRole("navigation"))
+      .toHaveClass("sct-navigation-menu custom");
   });
 
   it("renders a NavigationMenuLink as an anchor", async () => {
@@ -45,9 +49,11 @@ describe("NavigationMenu", () => {
             <NavigationMenuLink href="/docs">Docs</NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
-      </NavigationMenu>
+      </NavigationMenu>,
     );
-    await expect.element(screen.getByRole("link", { name: "Docs" })).toBeInTheDocument();
+    await expect
+      .element(screen.getByRole("link", { name: "Docs" }))
+      .toBeInTheDocument();
   });
 
   it("renders NavigationMenuTrigger as a button", async () => {
@@ -56,11 +62,15 @@ describe("NavigationMenu", () => {
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-            <NavigationMenuContent><p>Content</p></NavigationMenuContent>
+            <NavigationMenuContent>
+              <p>Content</p>
+            </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
-      </NavigationMenu>
+      </NavigationMenu>,
     );
-    await expect.element(screen.getByRole("button", { name: /products/i })).toBeInTheDocument();
+    await expect
+      .element(screen.getByRole("button", { name: /products/i }))
+      .toBeInTheDocument();
   });
 });

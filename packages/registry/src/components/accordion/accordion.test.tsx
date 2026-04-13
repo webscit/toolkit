@@ -59,9 +59,7 @@ describe("Accordion", () => {
       </Accordion>,
     );
     await userEvent.click(screen.getByRole("button", { name: "Toggle" }));
-    await expect
-      .element(screen.getByText("Expanded text"))
-      .toBeInTheDocument();
+    await expect.element(screen.getByText("Expanded text")).toBeInTheDocument();
   });
 
   it("forwards className on root", async () => {

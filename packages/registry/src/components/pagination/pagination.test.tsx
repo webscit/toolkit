@@ -13,7 +13,9 @@ import {
 describe("Pagination", () => {
   it("renders a navigation landmark", async () => {
     const screen = await render(
-      <Pagination><PaginationContent /></Pagination>
+      <Pagination>
+        <PaginationContent />
+      </Pagination>,
     );
     await expect.element(screen.getByRole("navigation")).toBeInTheDocument();
   });
@@ -23,12 +25,16 @@ describe("Pagination", () => {
       <Pagination>
         <PaginationContent>
           <PaginationItem>
-            <PaginationLink href="#" isActive>2</PaginationLink>
+            <PaginationLink href="#" isActive>
+              2
+            </PaginationLink>
           </PaginationItem>
         </PaginationContent>
-      </Pagination>
+      </Pagination>,
     );
-    await expect.element(screen.getByText("2")).toHaveAttribute("aria-current", "page");
+    await expect
+      .element(screen.getByText("2"))
+      .toHaveAttribute("aria-current", "page");
   });
 
   it("PaginationLink does not set aria-current when not active", async () => {
@@ -39,7 +45,7 @@ describe("Pagination", () => {
             <PaginationLink href="#">1</PaginationLink>
           </PaginationItem>
         </PaginationContent>
-      </Pagination>
+      </Pagination>,
     );
     const link = screen.getByText("1");
     await expect.element(link).not.toHaveAttribute("aria-current");
@@ -49,31 +55,41 @@ describe("Pagination", () => {
     const screen = await render(
       <Pagination>
         <PaginationContent>
-          <PaginationItem><PaginationPrevious href="#" /></PaginationItem>
+          <PaginationItem>
+            <PaginationPrevious href="#" />
+          </PaginationItem>
         </PaginationContent>
-      </Pagination>
+      </Pagination>,
     );
-    await expect.element(screen.getByRole("link", { name: /previous/i })).toBeInTheDocument();
+    await expect
+      .element(screen.getByRole("link", { name: /previous/i }))
+      .toBeInTheDocument();
   });
 
   it("PaginationNext has accessible label", async () => {
     const screen = await render(
       <Pagination>
         <PaginationContent>
-          <PaginationItem><PaginationNext href="#" /></PaginationItem>
+          <PaginationItem>
+            <PaginationNext href="#" />
+          </PaginationItem>
         </PaginationContent>
-      </Pagination>
+      </Pagination>,
     );
-    await expect.element(screen.getByRole("link", { name: /next/i })).toBeInTheDocument();
+    await expect
+      .element(screen.getByRole("link", { name: /next/i }))
+      .toBeInTheDocument();
   });
 
   it("PaginationEllipsis is aria-hidden", async () => {
     await render(
       <Pagination>
         <PaginationContent>
-          <PaginationItem><PaginationEllipsis /></PaginationItem>
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
         </PaginationContent>
-      </Pagination>
+      </Pagination>,
     );
     const el = document.querySelector("[data-slot='pagination-ellipsis']");
     expect(el?.getAttribute("aria-hidden")).toBe("true");

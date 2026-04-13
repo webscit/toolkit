@@ -10,18 +10,28 @@ describe("Progress", () => {
 
   it("renders with scope class", async () => {
     const screen = await render(<Progress value={30} max={100} />);
-    await expect.element(screen.getByRole("progressbar")).toHaveClass("sct-progress");
+    await expect
+      .element(screen.getByRole("progressbar"))
+      .toHaveClass("sct-progress");
   });
 
   it("forwards className", async () => {
-    const screen = await render(<Progress value={30} max={100} className="custom" />);
-    await expect.element(screen.getByRole("progressbar")).toHaveClass("sct-progress custom");
+    const screen = await render(
+      <Progress value={30} max={100} className="custom" />,
+    );
+    await expect
+      .element(screen.getByRole("progressbar"))
+      .toHaveClass("sct-progress custom");
   });
 
   it("renders track and indicator sub-elements", async () => {
     await render(<Progress value={60} max={100} />);
-    expect(document.querySelector("[data-slot='progress-track']")).not.toBeNull();
-    expect(document.querySelector("[data-slot='progress-indicator']")).not.toBeNull();
+    expect(
+      document.querySelector("[data-slot='progress-track']"),
+    ).not.toBeNull();
+    expect(
+      document.querySelector("[data-slot='progress-indicator']"),
+    ).not.toBeNull();
   });
 
   it("renders indeterminate state when value is null", async () => {

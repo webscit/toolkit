@@ -12,7 +12,7 @@ describe("DirectionProvider", () => {
     await render(
       <DirectionProvider direction="ltr">
         <DirectionConsumer />
-      </DirectionProvider>
+      </DirectionProvider>,
     );
     const el = document.querySelector("[data-testid='dir-value']");
     expect(el?.textContent).toBe("ltr");
@@ -22,7 +22,7 @@ describe("DirectionProvider", () => {
     await render(
       <DirectionProvider direction="rtl">
         <DirectionConsumer />
-      </DirectionProvider>
+      </DirectionProvider>,
     );
     const el = document.querySelector("[data-testid='dir-value']");
     expect(el?.textContent).toBe("rtl");

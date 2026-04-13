@@ -14,7 +14,9 @@ export function AspectRatio({
     <div
       data-slot="aspect-ratio"
       className={`sct-aspect-ratio${className ? ` ${className}` : ""}`}
-      style={{ "--sct-aspect-ratio": String(ratio), ...style } as React.CSSProperties}
+      style={
+        { "--sct-aspect-ratio": String(ratio), ...style } as React.CSSProperties
+      }
       {...props}
     />
   );

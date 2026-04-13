@@ -1,1 +1,7 @@
-{ "title": "Menubar", "description": "Horizontal menu bar with dropdown menus, built on Base UI Menubar + Menu.", "dependencies": ["@base-ui/react"], "devDependencies": [], "registryDependencies": [] }
+{
+  "title": "Menubar",
+  "description": "Horizontal menu bar with dropdown menus, built on Base UI Menubar + Menu.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

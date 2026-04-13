@@ -1,1 +1,7 @@
-{ "title": "Toggle", "description": "Two-state pressed/unpressed button built on Base UI Toggle.", "dependencies": ["@base-ui/react"], "devDependencies": [], "registryDependencies": [] }
+{
+  "title": "Toggle",
+  "description": "Two-state pressed/unpressed button built on Base UI Toggle.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

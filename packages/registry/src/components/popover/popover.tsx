@@ -13,7 +13,8 @@ export function PopoverTrigger({ ...props }: PopoverTriggerProps) {
 }
 
 export interface PopoverContentProps
-  extends React.ComponentProps<typeof BasePopover.Popup>,
+  extends
+    React.ComponentProps<typeof BasePopover.Popup>,
     Pick<
       React.ComponentProps<typeof BasePopover.Positioner>,
       "align" | "alignOffset" | "side" | "sideOffset"

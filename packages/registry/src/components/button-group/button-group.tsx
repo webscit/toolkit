@@ -1,7 +1,6 @@
 import "./button-group.css";
 
-export interface ButtonGroupProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   orientation?: "horizontal" | "vertical";
 }
 

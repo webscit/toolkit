@@ -27,22 +27,39 @@
     background-color: var(--sct-color-accent);
     color: var(--sct-color-accent-foreground);
   }
-  :scope[data-disabled] { pointer-events: none; opacity: 0.5; }
+  :scope[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 @scope (.sct-context-menu-checkbox-item) {
-  :scope { padding-left: 2rem; position: relative; }
+  :scope {
+    padding-left: 2rem;
+    position: relative;
+  }
   .sct-context-menu-item-indicator {
-    position: absolute; left: 0.5rem;
-    display: flex; align-items: center; justify-content: center;
-    width: 1rem; height: 1rem;
+    position: absolute;
+    left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
   }
 }
 @scope (.sct-context-menu-radio-item) {
-  :scope { padding-left: 2rem; position: relative; }
+  :scope {
+    padding-left: 2rem;
+    position: relative;
+  }
   .sct-context-menu-item-indicator {
-    position: absolute; left: 0.5rem;
-    display: flex; align-items: center; justify-content: center;
-    width: 1rem; height: 1rem;
+    position: absolute;
+    left: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
   }
 }
 @scope (.sct-context-menu-label) {
@@ -54,6 +71,12 @@
   }
 }
 @scope (.sct-context-menu-separator) {
-  :scope { height: 1px; background-color: var(--sct-color-border); margin: 0.25rem 0; }
+  :scope {
+    height: 1px;
+    background-color: var(--sct-color-border);
+    margin: 0.25rem 0;
+  }
 }
-.sct-context-menu-chevron { margin-left: auto; }
+.sct-context-menu-chevron {
+  margin-left: auto;
+}

@@ -52,8 +52,6 @@ describe("Collapsible", () => {
       </Collapsible>,
     );
     await userEvent.click(screen.getByRole("button", { name: "Toggle" }));
-    await expect
-      .element(screen.getByText("Toggle me"))
-      .toBeInTheDocument();
+    await expect.element(screen.getByText("Toggle me")).toBeInTheDocument();
   });
 });

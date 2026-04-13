@@ -31,7 +31,10 @@ export function CommandInput({
 }: React.ComponentProps<"input">) {
   const { setSearch } = useContext(CommandContext);
   return (
-    <div data-slot="command-input-wrapper" className="sct-command-input-wrapper">
+    <div
+      data-slot="command-input-wrapper"
+      className="sct-command-input-wrapper"
+    >
       <svg
         width="14"
         height="14"
@@ -41,7 +44,12 @@ export function CommandInput({
         className="sct-command-search-icon"
       >
         <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M11 11l3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        <path
+          d="M11 11l3 3"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
       </svg>
       <input
         type="text"
@@ -57,7 +65,10 @@ export function CommandInput({
   );
 }
 
-export function CommandList({ className, ...props }: React.ComponentProps<"div">) {
+export function CommandList({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       role="listbox"
@@ -69,7 +80,10 @@ export function CommandList({ className, ...props }: React.ComponentProps<"div">
   );
 }
 
-export function CommandEmpty({ className, ...props }: React.ComponentProps<"div">) {
+export function CommandEmpty({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="command-empty"
@@ -83,7 +97,12 @@ export interface CommandGroupProps extends React.ComponentProps<"div"> {
   heading?: string;
 }
 
-export function CommandGroup({ heading, className, children, ...props }: CommandGroupProps) {
+export function CommandGroup({
+  heading,
+  className,
+  children,
+  ...props
+}: CommandGroupProps) {
   const headingId = useId();
   return (
     <div
@@ -94,7 +113,11 @@ export function CommandGroup({ heading, className, children, ...props }: Command
       {...props}
     >
       {heading && (
-        <div id={headingId} data-slot="command-group-heading" className="sct-command-group-heading">
+        <div
+          id={headingId}
+          data-slot="command-group-heading"
+          className="sct-command-group-heading"
+        >
           {heading}
         </div>
       )}
@@ -103,7 +126,10 @@ export function CommandGroup({ heading, className, children, ...props }: Command
   );
 }
 
-export interface CommandItemProps extends Omit<React.ComponentProps<"div">, "onSelect"> {
+export interface CommandItemProps extends Omit<
+  React.ComponentProps<"div">,
+  "onSelect"
+> {
   value?: string;
   onSelect?: (value: string) => void;
 }
@@ -115,8 +141,7 @@ export function CommandItem({
   ...props
 }: CommandItemProps) {
   const { search } = useContext(CommandContext);
-  const visible =
-    !search || value.toLowerCase().includes(search.toLowerCase());
+  const visible = !search || value.toLowerCase().includes(search.toLowerCase());
 
   if (!visible) return null;
 
@@ -140,7 +165,10 @@ export function CommandItem({
   );
 }
 
-export function CommandSeparator({ className, ...props }: React.ComponentProps<"div">) {
+export function CommandSeparator({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       role="separator"
@@ -151,7 +179,10 @@ export function CommandSeparator({ className, ...props }: React.ComponentProps<"
   );
 }
 
-export function CommandShortcut({ className, ...props }: React.ComponentProps<"span">) {
+export function CommandShortcut({
+  className,
+  ...props
+}: React.ComponentProps<"span">) {
   return (
     <span
       data-slot="command-shortcut"

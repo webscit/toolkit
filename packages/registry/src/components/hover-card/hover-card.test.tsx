@@ -7,8 +7,10 @@ describe("HoverCard", () => {
     const screen = await render(
       <HoverCard>
         <HoverCardTrigger data-testid="trigger">Hover me</HoverCardTrigger>
-        <HoverCardContent><p>Details</p></HoverCardContent>
-      </HoverCard>
+        <HoverCardContent>
+          <p>Details</p>
+        </HoverCardContent>
+      </HoverCard>,
     );
     await expect.element(screen.getByTestId("trigger")).toBeInTheDocument();
   });
@@ -16,18 +18,26 @@ describe("HoverCard", () => {
     const screen = await render(
       <HoverCard>
         <HoverCardTrigger data-testid="trigger">Hover me</HoverCardTrigger>
-        <HoverCardContent><p>Details</p></HoverCardContent>
-      </HoverCard>
+        <HoverCardContent>
+          <p>Details</p>
+        </HoverCardContent>
+      </HoverCard>,
     );
-    await expect.element(screen.getByTestId("trigger")).toHaveAttribute("data-slot", "hover-card-trigger");
+    await expect
+      .element(screen.getByTestId("trigger"))
+      .toHaveAttribute("data-slot", "hover-card-trigger");
   });
   it("popup is not visible before hover", async () => {
     await render(
       <HoverCard>
         <HoverCardTrigger>Hover me</HoverCardTrigger>
-        <HoverCardContent><p data-testid="content">Details</p></HoverCardContent>
-      </HoverCard>
+        <HoverCardContent>
+          <p data-testid="content">Details</p>
+        </HoverCardContent>
+      </HoverCard>,
     );
-    expect(document.querySelector("[data-slot='hover-card-content']")).toBeNull();
+    expect(
+      document.querySelector("[data-slot='hover-card-content']"),
+    ).toBeNull();
   });
 });

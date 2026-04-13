@@ -1,6 +1,9 @@
 import "./native-select.css";
 
-export function NativeSelect({ className, ...props }: React.ComponentProps<"select">) {
+export function NativeSelect({
+  className,
+  ...props
+}: React.ComponentProps<"select">) {
   return (
     <select
       data-slot="native-select"

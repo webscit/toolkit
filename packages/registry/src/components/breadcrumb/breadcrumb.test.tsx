@@ -12,7 +12,11 @@ import {
 
 describe("Breadcrumb", () => {
   it("renders a nav landmark", async () => {
-    const screen = await render(<Breadcrumb><BreadcrumbList /></Breadcrumb>);
+    const screen = await render(
+      <Breadcrumb>
+        <BreadcrumbList />
+      </Breadcrumb>,
+    );
     await expect.element(screen.getByRole("navigation")).toBeInTheDocument();
   });
 
@@ -20,9 +24,11 @@ describe("Breadcrumb", () => {
     const screen = await render(
       <Breadcrumb>
         <BreadcrumbList>
-          <BreadcrumbItem><BreadcrumbLink href="/">Home</BreadcrumbLink></BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
         </BreadcrumbList>
-      </Breadcrumb>
+      </Breadcrumb>,
     );
     const list = document.querySelector("ol");
     expect(list).not.toBeNull();
@@ -32,27 +38,51 @@ describe("Breadcrumb", () => {
     const screen = await render(
       <Breadcrumb>
         <BreadcrumbList>
-          <BreadcrumbItem><BreadcrumbPage>Current</BreadcrumbPage></BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbPage>Current</BreadcrumbPage>
+          </BreadcrumbItem>
         </BreadcrumbList>
-      </Breadcrumb>
+      </Breadcrumb>,
     );
-    await expect.element(screen.getByText("Current")).toHaveAttribute("aria-current", "page");
+    await expect
+      .element(screen.getByText("Current"))
+      .toHaveAttribute("aria-current", "page");
   });
 
   it("BreadcrumbSeparator renders a default slash", async () => {
-    await render(<Breadcrumb><BreadcrumbList><BreadcrumbSeparator /></BreadcrumbList></Breadcrumb>);
+    await render(
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbSeparator />
+        </BreadcrumbList>
+      </Breadcrumb>,
+    );
     const sep = document.querySelector("[data-slot='breadcrumb-separator']");
     expect(sep?.textContent).toBe("/");
   });
 
   it("BreadcrumbEllipsis renders ellipsis text", async () => {
-    await render(<Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbEllipsis /></BreadcrumbItem></BreadcrumbList></Breadcrumb>);
+    await render(
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbEllipsis />
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>,
+    );
     const el = document.querySelector("[data-slot='breadcrumb-ellipsis']");
     expect(el?.textContent).toBe("…");
   });
 
   it("Breadcrumb forwards className", async () => {
-    const screen = await render(<Breadcrumb className="custom"><BreadcrumbList /></Breadcrumb>);
-    await expect.element(screen.getByRole("navigation")).toHaveClass("sct-breadcrumb custom");
+    const screen = await render(
+      <Breadcrumb className="custom">
+        <BreadcrumbList />
+      </Breadcrumb>,
+    );
+    await expect
+      .element(screen.getByRole("navigation"))
+      .toHaveClass("sct-breadcrumb custom");
   });
 });

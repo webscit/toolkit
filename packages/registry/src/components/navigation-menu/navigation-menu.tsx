@@ -15,7 +15,10 @@ export function NavigationMenu({ className, ...props }: NavigationMenuProps) {
 
 export type NavigationMenuListProps = React.ComponentProps<typeof BaseNav.List>;
 
-export function NavigationMenuList({ className, ...props }: NavigationMenuListProps) {
+export function NavigationMenuList({
+  className,
+  ...props
+}: NavigationMenuListProps) {
   return (
     <BaseNav.List
       data-slot="navigation-menu-list"
@@ -27,7 +30,10 @@ export function NavigationMenuList({ className, ...props }: NavigationMenuListPr
 
 export type NavigationMenuItemProps = React.ComponentProps<typeof BaseNav.Item>;
 
-export function NavigationMenuItem({ className, ...props }: NavigationMenuItemProps) {
+export function NavigationMenuItem({
+  className,
+  ...props
+}: NavigationMenuItemProps) {
   return (
     <BaseNav.Item
       data-slot="navigation-menu-item"
@@ -37,9 +43,14 @@ export function NavigationMenuItem({ className, ...props }: NavigationMenuItemPr
   );
 }
 
-export type NavigationMenuTriggerProps = React.ComponentProps<typeof BaseNav.Trigger>;
+export type NavigationMenuTriggerProps = React.ComponentProps<
+  typeof BaseNav.Trigger
+>;
 
-export function NavigationMenuTrigger({ className, ...props }: NavigationMenuTriggerProps) {
+export function NavigationMenuTrigger({
+  className,
+  ...props
+}: NavigationMenuTriggerProps) {
   return (
     <BaseNav.Trigger
       data-slot="navigation-menu-trigger"
@@ -49,7 +60,9 @@ export function NavigationMenuTrigger({ className, ...props }: NavigationMenuTri
   );
 }
 
-export interface NavigationMenuContentProps extends React.ComponentProps<typeof BaseNav.Content> {
+export interface NavigationMenuContentProps extends React.ComponentProps<
+  typeof BaseNav.Content
+> {
   positionerProps?: React.ComponentProps<typeof BaseNav.Positioner>;
 }
 
@@ -78,7 +91,10 @@ export function NavigationMenuContent({
 
 export type NavigationMenuLinkProps = React.ComponentProps<typeof BaseNav.Link>;
 
-export function NavigationMenuLink({ className, ...props }: NavigationMenuLinkProps) {
+export function NavigationMenuLink({
+  className,
+  ...props
+}: NavigationMenuLinkProps) {
   return (
     <BaseNav.Link
       data-slot="navigation-menu-link"
@@ -87,4 +103,3 @@ export function NavigationMenuLink({ className, ...props }: NavigationMenuLinkPr
     />
   );
 }
-

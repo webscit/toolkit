@@ -4,7 +4,11 @@ export interface SpinnerProps extends React.ComponentProps<"span"> {
   size?: "sm" | "default" | "lg";
 }
 
-export function Spinner({ size = "default", className, ...props }: SpinnerProps) {
+export function Spinner({
+  size = "default",
+  className,
+  ...props
+}: SpinnerProps) {
   return (
     <span
       role="status"

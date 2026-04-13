@@ -4,7 +4,9 @@ import "./hover-card.css";
 export const HoverCard = BasePreviewCard.Root;
 export type HoverCardProps = React.ComponentProps<typeof BasePreviewCard.Root>;
 
-export function HoverCardTrigger({ ...props }: React.ComponentProps<typeof BasePreviewCard.Trigger>) {
+export function HoverCardTrigger({
+  ...props
+}: React.ComponentProps<typeof BasePreviewCard.Trigger>) {
   return <BasePreviewCard.Trigger data-slot="hover-card-trigger" {...props} />;
 }
 
@@ -12,7 +14,12 @@ export interface HoverCardContentProps extends React.HTMLAttributes<HTMLDivEleme
   positionerProps?: React.ComponentProps<typeof BasePreviewCard.Positioner>;
 }
 
-export function HoverCardContent({ className, children, positionerProps, ...props }: HoverCardContentProps) {
+export function HoverCardContent({
+  className,
+  children,
+  positionerProps,
+  ...props
+}: HoverCardContentProps) {
   return (
     <BasePreviewCard.Portal>
       <BasePreviewCard.Positioner sideOffset={8} {...positionerProps}>

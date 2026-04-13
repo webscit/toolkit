@@ -24,7 +24,12 @@ export const Default: Story = {
       </PopoverTrigger>
       <PopoverContent>
         <p style={{ fontWeight: 600, marginBottom: "4px" }}>Dimensions</p>
-        <p style={{ fontSize: "12px", color: "var(--sct-color-muted-foreground)" }}>
+        <p
+          style={{
+            fontSize: "12px",
+            color: "var(--sct-color-muted-foreground)",
+          }}
+        >
           Set the dimensions for the layer.
         </p>
       </PopoverContent>
@@ -41,7 +46,9 @@ export const WithClose: Story = {
       <PopoverContent>
         <p>Some detailed information here.</p>
         <PopoverClose>
-          <Button variant="outline" size="sm">Close</Button>
+          <Button variant="outline" size="sm">
+            Close
+          </Button>
         </PopoverClose>
       </PopoverContent>
     </Popover>

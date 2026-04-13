@@ -14,25 +14,31 @@ import {
 describe("Command", () => {
   it("renders root with scope class", async () => {
     await render(<Command data-testid="cmd" />);
-    expect(document.querySelector("[data-testid='cmd']")?.className).toBe("sct-command");
+    expect(document.querySelector("[data-testid='cmd']")?.className).toBe(
+      "sct-command",
+    );
   });
 
   it("CommandInput renders an input", async () => {
     const screen = await render(
       <Command>
         <CommandInput placeholder="Search…" />
-      </Command>
+      </Command>,
     );
-    await expect.element(screen.getByPlaceholderText("Search…")).toBeInTheDocument();
+    await expect
+      .element(screen.getByPlaceholderText("Search…"))
+      .toBeInTheDocument();
   });
 
   it("CommandList renders with listbox role", async () => {
     await render(
       <Command>
         <CommandList data-testid="list" />
-      </Command>
+      </Command>,
     );
-    expect(document.querySelector("[data-testid='list']")?.getAttribute("role")).toBe("listbox");
+    expect(
+      document.querySelector("[data-testid='list']")?.getAttribute("role"),
+    ).toBe("listbox");
   });
 
   it("CommandItem renders with option role", async () => {
@@ -41,9 +47,11 @@ describe("Command", () => {
         <CommandList>
           <CommandItem value="copy">Copy</CommandItem>
         </CommandList>
-      </Command>
+      </Command>,
     );
-    await expect.element(screen.getByRole("option", { name: "Copy" })).toBeInTheDocument();
+    await expect
+      .element(screen.getByRole("option", { name: "Copy" }))
+      .toBeInTheDocument();
   });
 
   it("CommandItem is hidden when search does not match its value", async () => {
@@ -54,7 +62,7 @@ describe("Command", () => {
           <CommandItem value="copy">Copy</CommandItem>
           <CommandItem value="paste">Paste</CommandItem>
         </CommandList>
-      </Command>
+      </Command>,
     );
     const input = screen.getByPlaceholderText("Search");
     await input.fill("copy");
@@ -70,7 +78,7 @@ describe("Command", () => {
         <CommandList>
           <CommandItem value="copy">Copy</CommandItem>
         </CommandList>
-      </Command>
+      </Command>,
     );
     const input = screen.getByPlaceholderText("Search");
     await input.fill("cop");
@@ -86,13 +94,24 @@ describe("Command", () => {
             <CommandItem value="cut">Cut</CommandItem>
           </CommandGroup>
         </CommandList>
-      </Command>
+      </Command>,
     );
     await expect.element(screen.getByText("Actions")).toBeInTheDocument();
   });
 
   it("CommandShortcut renders with slot", async () => {
-    await render(<Command><CommandList><CommandItem value="x"><span>Cut</span><CommandShortcut data-testid="sc">⌘X</CommandShortcut></CommandItem></CommandList></Command>);
-    expect(document.querySelector("[data-testid='sc']")?.getAttribute("data-slot")).toBe("command-shortcut");
+    await render(
+      <Command>
+        <CommandList>
+          <CommandItem value="x">
+            <span>Cut</span>
+            <CommandShortcut data-testid="sc">⌘X</CommandShortcut>
+          </CommandItem>
+        </CommandList>
+      </Command>,
+    );
+    expect(
+      document.querySelector("[data-testid='sc']")?.getAttribute("data-slot"),
+    ).toBe("command-shortcut");
   });
 });

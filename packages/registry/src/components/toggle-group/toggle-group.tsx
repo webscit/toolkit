@@ -14,7 +14,9 @@ export function ToggleGroup({ className, ...props }: ToggleGroupProps) {
   );
 }
 
-export interface ToggleGroupItemProps extends React.ComponentProps<typeof BaseToggle> {
+export interface ToggleGroupItemProps extends React.ComponentProps<
+  typeof BaseToggle
+> {
   value: string;
 }
 

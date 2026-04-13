@@ -5,8 +5,9 @@ import "./field.css";
 
 // --- Field (single field) ---
 
-export interface FieldProps
-  extends React.ComponentProps<typeof BaseField.Root> {
+export interface FieldProps extends React.ComponentProps<
+  typeof BaseField.Root
+> {
   className?: string;
 }
 
@@ -20,8 +21,9 @@ export function Field({ className, ...props }: FieldProps) {
   );
 }
 
-export interface FieldLabelProps
-  extends React.ComponentProps<typeof BaseField.Label> {
+export interface FieldLabelProps extends React.ComponentProps<
+  typeof BaseField.Label
+> {
   className?: string;
 }
 
@@ -63,12 +65,15 @@ export function FieldError({ className, ...props }: FieldErrorProps) {
 }
 
 export const FieldValidity = BaseField.Validity;
-export type FieldValidityProps = React.ComponentProps<typeof BaseField.Validity>;
+export type FieldValidityProps = React.ComponentProps<
+  typeof BaseField.Validity
+>;
 
 // --- Fieldset ---
 
-export interface FieldSetProps
-  extends React.ComponentProps<typeof BaseFieldset.Root> {
+export interface FieldSetProps extends React.ComponentProps<
+  typeof BaseFieldset.Root
+> {
   className?: string;
 }
 
@@ -82,9 +87,7 @@ export function FieldSet({ className, ...props }: FieldSetProps) {
   );
 }
 
-export type FieldLegendProps = React.ComponentProps<
-  typeof BaseFieldset.Legend
->;
+export type FieldLegendProps = React.ComponentProps<typeof BaseFieldset.Legend>;
 
 export function FieldLegend({ className, ...props }: FieldLegendProps) {
   return (

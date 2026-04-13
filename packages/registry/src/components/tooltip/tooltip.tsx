@@ -5,13 +5,21 @@ export function TooltipProvider({
   delay = 0,
   ...props
 }: React.ComponentProps<typeof BaseTooltip.Provider>) {
-  return <BaseTooltip.Provider data-slot="tooltip-provider" delay={delay} {...props} />;
+  return (
+    <BaseTooltip.Provider
+      data-slot="tooltip-provider"
+      delay={delay}
+      {...props}
+    />
+  );
 }
 export type TooltipProviderProps = React.ComponentProps<
   typeof BaseTooltip.Provider
 >;
 
-export function Tooltip({ ...props }: React.ComponentProps<typeof BaseTooltip.Root>) {
+export function Tooltip({
+  ...props
+}: React.ComponentProps<typeof BaseTooltip.Root>) {
   return <BaseTooltip.Root data-slot="tooltip" {...props} />;
 }
 export type TooltipProps = React.ComponentProps<typeof BaseTooltip.Root>;
@@ -24,7 +32,8 @@ export function TooltipTrigger({ ...props }: TooltipTriggerProps) {
 }
 
 export interface TooltipContentProps
-  extends React.ComponentProps<typeof BaseTooltip.Popup>,
+  extends
+    React.ComponentProps<typeof BaseTooltip.Popup>,
     Pick<
       React.ComponentProps<typeof BaseTooltip.Positioner>,
       "align" | "alignOffset" | "side" | "sideOffset"

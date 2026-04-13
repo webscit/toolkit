@@ -9,7 +9,9 @@ export function MenuTrigger({ ...props }: MenuTriggerProps) {
   return <BaseMenu.Trigger data-slot="menu-trigger" {...props} />;
 }
 
-export interface MenuContentProps extends React.ComponentProps<typeof BaseMenu.Popup> {
+export interface MenuContentProps extends React.ComponentProps<
+  typeof BaseMenu.Popup
+> {
   positionerProps?: React.ComponentProps<typeof BaseMenu.Positioner>;
 }
 export function MenuContent({
@@ -33,7 +35,9 @@ export function MenuContent({
   );
 }
 
-export interface MenuItemProps extends React.ComponentProps<typeof BaseMenu.Item> {
+export interface MenuItemProps extends React.ComponentProps<
+  typeof BaseMenu.Item
+> {
   inset?: boolean;
 }
 export function MenuItem({ className, inset, ...props }: MenuItemProps) {
@@ -47,7 +51,9 @@ export function MenuItem({ className, inset, ...props }: MenuItemProps) {
   );
 }
 
-export type MenuSeparatorProps = React.ComponentProps<typeof BaseMenu.Separator>;
+export type MenuSeparatorProps = React.ComponentProps<
+  typeof BaseMenu.Separator
+>;
 export function MenuSeparator({ className, ...props }: MenuSeparatorProps) {
   return (
     <BaseMenu.Separator
@@ -69,7 +75,9 @@ export function MenuLabel({ className, ...props }: MenuLabelProps) {
   );
 }
 
-export type MenuCheckboxItemProps = React.ComponentProps<typeof BaseMenu.CheckboxItem>;
+export type MenuCheckboxItemProps = React.ComponentProps<
+  typeof BaseMenu.CheckboxItem
+>;
 export function MenuCheckboxItem({
   className,
   children,
@@ -97,7 +105,10 @@ export function MenuCheckboxItem({
   );
 }
 
-export function MenuGroup({ className, ...props }: React.ComponentProps<typeof BaseMenu.Group>) {
+export function MenuGroup({
+  className,
+  ...props
+}: React.ComponentProps<typeof BaseMenu.Group>) {
   return (
     <BaseMenu.Group
       data-slot="menu-group"
@@ -107,7 +118,10 @@ export function MenuGroup({ className, ...props }: React.ComponentProps<typeof B
   );
 }
 
-export function MenuShortcut({ className, ...props }: React.ComponentProps<"span">) {
+export function MenuShortcut({
+  className,
+  ...props
+}: React.ComponentProps<"span">) {
   return (
     <span
       data-slot="menu-shortcut"
@@ -120,7 +134,11 @@ export function MenuShortcut({ className, ...props }: React.ComponentProps<"span
 export const MenuSub = BaseMenu.SubmenuRoot;
 export type MenuSubProps = React.ComponentProps<typeof BaseMenu.SubmenuRoot>;
 
-export function MenuSubTrigger({ className, children, ...props }: React.ComponentProps<typeof BaseMenu.SubmenuTrigger>) {
+export function MenuSubTrigger({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof BaseMenu.SubmenuTrigger>) {
   return (
     <BaseMenu.SubmenuTrigger
       data-slot="menu-sub-trigger"
@@ -128,18 +146,38 @@ export function MenuSubTrigger({ className, children, ...props }: React.Componen
       {...props}
     >
       {children}
-      <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" width="14" height="14" className="sct-menu-chevron">
-        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <svg
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
+        width="14"
+        height="14"
+        className="sct-menu-chevron"
+      >
+        <path
+          d="M6 4l4 4-4 4"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     </BaseMenu.SubmenuTrigger>
   );
 }
 
-export interface MenuSubContentProps extends React.ComponentProps<typeof BaseMenu.Popup> {
+export interface MenuSubContentProps extends React.ComponentProps<
+  typeof BaseMenu.Popup
+> {
   positionerProps?: React.ComponentProps<typeof BaseMenu.Positioner>;
 }
 
-export function MenuSubContent({ className, children, positionerProps, ...props }: MenuSubContentProps) {
+export function MenuSubContent({
+  className,
+  children,
+  positionerProps,
+  ...props
+}: MenuSubContentProps) {
   return (
     <BaseMenu.Portal>
       <BaseMenu.Positioner side="right" {...positionerProps}>
@@ -160,7 +198,9 @@ export type MenuRadioGroupProps = React.ComponentProps<
   typeof BaseMenu.RadioGroup
 >;
 
-export type MenuRadioItemProps = React.ComponentProps<typeof BaseMenu.RadioItem>;
+export type MenuRadioItemProps = React.ComponentProps<
+  typeof BaseMenu.RadioItem
+>;
 export function MenuRadioItem({
   className,
   children,

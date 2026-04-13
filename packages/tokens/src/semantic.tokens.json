@@ -34,9 +34,15 @@
         "$value": "{sct.color.neutral.950}"
       },
       "success": { "$type": "color", "$value": "{sct.color.green.base}" },
-      "success-foreground": { "$type": "color", "$value": "{sct.color.neutral.0}" },
+      "success-foreground": {
+        "$type": "color",
+        "$value": "{sct.color.neutral.0}"
+      },
       "warning": { "$type": "color", "$value": "{sct.color.amber.base}" },
-      "warning-foreground": { "$type": "color", "$value": "{sct.color.neutral.950}" },
+      "warning-foreground": {
+        "$type": "color",
+        "$value": "{sct.color.neutral.950}"
+      },
       "info": { "$type": "color", "$value": "{sct.color.blue.base}" },
       "info-foreground": { "$type": "color", "$value": "{sct.color.neutral.0}" }
     },

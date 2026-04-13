@@ -6,8 +6,9 @@ import {
 import type { ComponentProps } from "react";
 import "./resizable.css";
 
-export interface ResizablePanelGroupProps
-  extends ComponentProps<typeof PanelGroup> {
+export interface ResizablePanelGroupProps extends ComponentProps<
+  typeof PanelGroup
+> {
   "data-testid"?: string;
 }
 
@@ -42,8 +43,9 @@ export function ResizablePanel({ className, ...props }: ResizablePanelProps) {
   );
 }
 
-export interface ResizableHandleProps
-  extends ComponentProps<typeof PanelResizeHandle> {
+export interface ResizableHandleProps extends ComponentProps<
+  typeof PanelResizeHandle
+> {
   withHandle?: boolean;
 }
 
@@ -59,7 +61,10 @@ export function ResizableHandle({
       {...props}
     >
       {withHandle && (
-        <div data-slot="resizable-handle-icon" className="sct-resizable-handle-icon" />
+        <div
+          data-slot="resizable-handle-icon"
+          className="sct-resizable-handle-icon"
+        />
       )}
     </PanelResizeHandle>
   );

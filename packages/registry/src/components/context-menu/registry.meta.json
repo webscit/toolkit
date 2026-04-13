@@ -1,1 +1,7 @@
-{ "title": "Context Menu", "description": "Right-click context menu built on Base UI ContextMenu with items, separators, checkboxes, radios, and submenus.", "dependencies": ["@base-ui/react"], "devDependencies": [], "registryDependencies": [] }
+{
+  "title": "Context Menu",
+  "description": "Right-click context menu built on Base UI ContextMenu with items, separators, checkboxes, radios, and submenus.",
+  "dependencies": ["@base-ui/react"],
+  "devDependencies": [],
+  "registryDependencies": []
+}

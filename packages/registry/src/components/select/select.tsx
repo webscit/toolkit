@@ -4,7 +4,9 @@ import "./select.css";
 export const Select = BaseSelect.Root;
 export type SelectProps = React.ComponentProps<typeof BaseSelect.Root>;
 
-export type SelectTriggerProps = React.ComponentProps<typeof BaseSelect.Trigger>;
+export type SelectTriggerProps = React.ComponentProps<
+  typeof BaseSelect.Trigger
+>;
 export function SelectTrigger({
   className,
   children,
@@ -38,7 +40,9 @@ export function SelectValue({ ...props }: SelectValueProps) {
   return <BaseSelect.Value data-slot="select-value" {...props} />;
 }
 
-export interface SelectContentProps extends React.ComponentProps<typeof BaseSelect.Popup> {
+export interface SelectContentProps extends React.ComponentProps<
+  typeof BaseSelect.Popup
+> {
   positionerProps?: React.ComponentProps<typeof BaseSelect.Positioner>;
 }
 export function SelectContent({
@@ -86,7 +90,10 @@ export function SelectItem({ className, children, ...props }: SelectItemProps) {
   );
 }
 
-export function SelectGroup({ className, ...props }: React.ComponentProps<typeof BaseSelect.Group>) {
+export function SelectGroup({
+  className,
+  ...props
+}: React.ComponentProps<typeof BaseSelect.Group>) {
   return (
     <BaseSelect.Group
       data-slot="select-group"
@@ -96,35 +103,67 @@ export function SelectGroup({ className, ...props }: React.ComponentProps<typeof
   );
 }
 
-export function SelectScrollUpButton({ className, ...props }: React.ComponentProps<typeof BaseSelect.ScrollUpArrow>) {
+export function SelectScrollUpButton({
+  className,
+  ...props
+}: React.ComponentProps<typeof BaseSelect.ScrollUpArrow>) {
   return (
     <BaseSelect.ScrollUpArrow
       data-slot="select-scroll-up-button"
       className={`sct-select-scroll-button${className ? ` ${className}` : ""}`}
       {...props}
     >
-      <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" width="14" height="14">
-        <path d="M4 10l4-4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <svg
+        viewBox="0 0 16 16"
+        aria-hidden="true"
+        fill="none"
+        width="14"
+        height="14"
+      >
+        <path
+          d="M4 10l4-4 4 4"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     </BaseSelect.ScrollUpArrow>
   );
 }
 
-export function SelectScrollDownButton({ className, ...props }: React.ComponentProps<typeof BaseSelect.ScrollDownArrow>) {
+export function SelectScrollDownButton({
+  className,
+  ...props
+}: React.ComponentProps<typeof BaseSelect.ScrollDownArrow>) {
   return (
     <BaseSelect.ScrollDownArrow
       data-slot="select-scroll-down-button"
       className={`sct-select-scroll-button${className ? ` ${className}` : ""}`}
       {...props}
     >
-      <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" width="14" height="14">
-        <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <svg
+        viewBox="0 0 16 16"
+        aria-hidden="true"
+        fill="none"
+        width="14"
+        height="14"
+      >
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     </BaseSelect.ScrollDownArrow>
   );
 }
 
-export type SelectSeparatorProps = React.ComponentProps<typeof BaseSelect.Separator>;
+export type SelectSeparatorProps = React.ComponentProps<
+  typeof BaseSelect.Separator
+>;
 export function SelectSeparator({ className, ...props }: SelectSeparatorProps) {
   return (
     <BaseSelect.Separator
@@ -135,7 +174,9 @@ export function SelectSeparator({ className, ...props }: SelectSeparatorProps) {
   );
 }
 
-export type SelectLabelProps = React.ComponentProps<typeof BaseSelect.GroupLabel>;
+export type SelectLabelProps = React.ComponentProps<
+  typeof BaseSelect.GroupLabel
+>;
 export function SelectLabel({ className, ...props }: SelectLabelProps) {
   return (
     <BaseSelect.GroupLabel

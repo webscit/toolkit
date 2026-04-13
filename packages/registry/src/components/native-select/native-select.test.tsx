@@ -7,7 +7,7 @@ describe("NativeSelect", () => {
     const screen = await render(
       <NativeSelect>
         <option value="a">Option A</option>
-      </NativeSelect>
+      </NativeSelect>,
     );
     await expect.element(screen.getByRole("combobox")).toBeInTheDocument();
   });
@@ -16,25 +16,29 @@ describe("NativeSelect", () => {
     const screen = await render(
       <NativeSelect>
         <option value="a">A</option>
-      </NativeSelect>
+      </NativeSelect>,
     );
-    await expect.element(screen.getByRole("combobox")).toHaveClass("sct-native-select");
+    await expect
+      .element(screen.getByRole("combobox"))
+      .toHaveClass("sct-native-select");
   });
 
   it("forwards className", async () => {
     const screen = await render(
       <NativeSelect className="custom">
         <option value="a">A</option>
-      </NativeSelect>
+      </NativeSelect>,
     );
-    await expect.element(screen.getByRole("combobox")).toHaveClass("sct-native-select custom");
+    await expect
+      .element(screen.getByRole("combobox"))
+      .toHaveClass("sct-native-select custom");
   });
 
   it("forwards disabled prop", async () => {
     const screen = await render(
       <NativeSelect disabled>
         <option value="a">A</option>
-      </NativeSelect>
+      </NativeSelect>,
     );
     await expect.element(screen.getByRole("combobox")).toBeDisabled();
   });

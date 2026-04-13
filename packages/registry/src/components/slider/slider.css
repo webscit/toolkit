@@ -45,11 +45,7 @@
   }
 
   .sct-slider-thumb:hover {
-    border-color: color-mix(
-      in srgb,
-      var(--sct-color-primary) 80%,
-      transparent
-    );
+    border-color: color-mix(in srgb, var(--sct-color-primary) 80%, transparent);
   }
 
   .sct-slider-thumb:focus-visible {

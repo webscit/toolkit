@@ -10,7 +10,10 @@ export function Empty({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-export function EmptyIcon({ className, ...props }: React.ComponentProps<"div">) {
+export function EmptyIcon({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="empty-icon"
@@ -20,7 +23,10 @@ export function EmptyIcon({ className, ...props }: React.ComponentProps<"div">) 
   );
 }
 
-export function EmptyTitle({ className, ...props }: React.ComponentProps<"h3">) {
+export function EmptyTitle({
+  className,
+  ...props
+}: React.ComponentProps<"h3">) {
   return (
     <h3
       data-slot="empty-title"
@@ -30,7 +36,10 @@ export function EmptyTitle({ className, ...props }: React.ComponentProps<"h3">) 
   );
 }
 
-export function EmptyDescription({ className, ...props }: React.ComponentProps<"p">) {
+export function EmptyDescription({
+  className,
+  ...props
+}: React.ComponentProps<"p">) {
   return (
     <p
       data-slot="empty-description"
@@ -40,7 +49,10 @@ export function EmptyDescription({ className, ...props }: React.ComponentProps<"
   );
 }
 
-export function EmptyAction({ className, ...props }: React.ComponentProps<"div">) {
+export function EmptyAction({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="empty-action"

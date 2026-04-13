@@ -11,9 +11,7 @@ export type CollapsibleTriggerProps = React.ComponentProps<
 >;
 
 export function CollapsibleTrigger({ ...props }: CollapsibleTriggerProps) {
-  return (
-    <BaseCollapsible.Trigger data-slot="collapsible-trigger" {...props} />
-  );
+  return <BaseCollapsible.Trigger data-slot="collapsible-trigger" {...props} />;
 }
 
 export type CollapsibleContentProps = React.ComponentProps<
