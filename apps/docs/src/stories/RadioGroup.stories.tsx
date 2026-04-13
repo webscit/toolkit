@@ -6,9 +6,6 @@ const meta = {
   title: "Components/RadioGroup",
   component: RadioGroup,
   tags: ["autodocs"],
-  argTypes: {
-    orientation: { control: "select", options: ["vertical", "horizontal"] },
-  },
 } satisfies Meta<typeof RadioGroup>;
 
 export default meta;
@@ -33,21 +30,6 @@ export const Default: Story = {
   ),
 };
 
-export const Horizontal: Story = {
-  render: () => (
-    <RadioGroup defaultValue="b" orientation="horizontal">
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <Radio id="h-a" value="a" />
-        <Label htmlFor="h-a">Option A</Label>
-      </div>
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <Radio id="h-b" value="b" />
-        <Label htmlFor="h-b">Option B</Label>
-      </div>
-    </RadioGroup>
-  ),
-};
-
 export const Disabled: Story = {
   render: () => (
     <RadioGroup defaultValue="a">
@@ -64,7 +46,7 @@ export const Disabled: Story = {
 };
 
 export const Playground: Story = {
-  args: { orientation: "vertical", defaultValue: "a" },
+  args: { defaultValue: "a" },
   render: (args: RadioGroupProps) => (
     <RadioGroup {...args}>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>

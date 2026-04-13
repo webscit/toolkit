@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <ResizablePanelGroup
-      direction="horizontal"
+      orientation="horizontal"
       style={{
         height: "200px",
         border: "1px solid var(--sct-color-border)",
@@ -56,7 +56,7 @@ export const Default: Story = {
 export const Vertical: Story = {
   render: () => (
     <ResizablePanelGroup
-      direction="vertical"
+      orientation="vertical"
       style={{
         height: "300px",
         border: "1px solid var(--sct-color-border)",
@@ -95,7 +95,7 @@ export const Vertical: Story = {
 export const ThreePanels: Story = {
   render: () => (
     <ResizablePanelGroup
-      direction="horizontal"
+      orientation="horizontal"
       style={{
         height: "200px",
         border: "1px solid var(--sct-color-border)",
