@@ -1,0 +1,18 @@
+version: 2
+
+multi-ecosystem-groups:
+  application:
+    schedule:
+      interval: "monthly"
+
+updates:
+  # Set update schedule for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    patterns: ["*"]
+    multi-ecosystem-group: "library"
+  # Set update schedule for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    patterns: ["*"]
+    multi-ecosystem-group: "library"
