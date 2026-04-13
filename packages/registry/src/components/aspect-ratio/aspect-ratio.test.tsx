@@ -14,7 +14,7 @@ describe("AspectRatio", () => {
   });
 
   it("forwards className", async () => {
-    const screen = await render(
+    await render(
       <AspectRatio className="my-class">
         <span />
       </AspectRatio>,

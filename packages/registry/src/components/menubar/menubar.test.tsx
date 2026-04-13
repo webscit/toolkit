@@ -1,14 +1,12 @@
+import { describe, expect, it } from "vitest";
 import { render } from "vitest-browser-react";
-import { describe, it, expect } from "vitest";
 import {
   Menubar,
-  MenubarMenu,
-  MenubarTrigger,
   MenubarContent,
   MenubarItem,
-  MenubarSeparator,
-  MenubarLabel,
+  MenubarMenu,
   MenubarShortcut,
+  MenubarTrigger
 } from "./menubar";
 
 describe("Menubar", () => {

@@ -1,13 +1,11 @@
+import { describe, expect, it } from "vitest";
 import { render } from "vitest-browser-react";
-import { describe, it, expect } from "vitest";
 import {
   Command,
-  CommandInput,
-  CommandList,
-  CommandEmpty,
   CommandGroup,
+  CommandInput,
   CommandItem,
-  CommandSeparator,
+  CommandList,
   CommandShortcut,
 } from "./command";
 
@@ -26,7 +24,7 @@ describe("Command", () => {
       </Command>,
     );
     await expect
-      .element(screen.getByPlaceholderText("Search…"))
+      .element(screen.getByPlaceholder("Search…"))
       .toBeInTheDocument();
   });
 
@@ -64,7 +62,7 @@ describe("Command", () => {
         </CommandList>
       </Command>,
     );
-    const input = screen.getByPlaceholderText("Search");
+    const input = screen.getByPlaceholder("Search");
     await input.fill("copy");
     // 'paste' item should no longer be in the DOM
     const pasteEl = document.querySelector("[data-value='paste']");
@@ -80,7 +78,7 @@ describe("Command", () => {
         </CommandList>
       </Command>,
     );
-    const input = screen.getByPlaceholderText("Search");
+    const input = screen.getByPlaceholder("Search");
     await input.fill("cop");
     const copyEl = document.querySelector("[data-value='copy']");
     expect(copyEl).not.toBeNull();

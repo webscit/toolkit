@@ -62,6 +62,7 @@ export function ComboboxContent({
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ComboboxItemProps extends React.ComponentProps<
   typeof BaseCombobox.Item
 > {}

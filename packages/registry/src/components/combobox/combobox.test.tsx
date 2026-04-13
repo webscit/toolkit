@@ -1,14 +1,11 @@
+import { describe, expect, it } from "vitest";
 import { render } from "vitest-browser-react";
-import { describe, it, expect } from "vitest";
 import {
   Combobox,
-  ComboboxTrigger,
-  ComboboxInput,
   ComboboxContent,
+  ComboboxInput,
   ComboboxItem,
-  ComboboxEmpty,
-  ComboboxGroup,
-  ComboboxLabel,
+  ComboboxTrigger
 } from "./combobox";
 
 const ITEMS = ["Apple", "Banana", "Cherry"];
@@ -29,7 +26,7 @@ describe("Combobox", () => {
       </Combobox>,
     );
     await expect
-      .element(screen.getByPlaceholderText("Search fruit…"))
+      .element(screen.getByPlaceholder("Search fruit…"))
       .toBeInTheDocument();
   });
   it("renders trigger button", async () => {
@@ -71,7 +68,7 @@ describe("Combobox", () => {
       </Combobox>,
     );
     await expect
-      .element(screen.getByPlaceholderText("Search…"))
+      .element(screen.getByPlaceholder("Search…"))
       .toHaveAttribute("data-slot", "combobox-input");
   });
 });

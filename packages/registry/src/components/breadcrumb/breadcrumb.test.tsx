@@ -21,7 +21,7 @@ describe("Breadcrumb", () => {
   });
 
   it("BreadcrumbList renders an ordered list", async () => {
-    const screen = await render(
+    await render(
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
