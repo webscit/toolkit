@@ -1,0 +1,101 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Docs/Theming" parameters={{ viewMode: "docs" }} />
+
+# Theming
+
+All visual decisions in `@webscit/toolkit` are expressed as CSS custom properties. There is no runtime theming logic — changing a token value in CSS changes every component that uses it.
+
+## Token naming
+
+Every token is prefixed `--sct-` and follows a kebab-case path:
+
+```
+--sct-color-primary
+--sct-color-background
+--sct-space-4
+--sct-font-size-sm
+--sct-radius-md
+--sct-shadow-lg
+```
+
+## Token categories
+
+| Category | Prefix | Example |
+|---|---|---|
+| Colors | `--sct-color-*` | `--sct-color-primary` |
+| Spacing | `--sct-space-*` | `--sct-space-4` (= 16px) |
+| Font size | `--sct-font-size-*` | `--sct-font-size-sm` |
+| Font weight | `--sct-font-weight-*` | `--sct-font-weight-semibold` |
+| Border radius | `--sct-radius-*` | `--sct-radius-md` |
+| Shadows | `--sct-shadow-*` | `--sct-shadow-sm` |
+
+Browse the full token set in the [Design Tokens](?path=/story/design-tokens--colors) story.
+
+## Light and dark themes
+
+Import both stylesheets to support dark mode:
+
+```ts
+import "@webscit/tokens/tokens.css";       // :root { ... }  (light)
+import "@webscit/tokens/tokens-dark.css";  // [data-theme="dark"] { ... }
+```
+
+`tokens.css` defines the light theme on `:root`. `tokens-dark.css` overrides only the tokens that change in dark mode, scoped to `[data-theme="dark"]`. Dark-mode values never affect the page unless `data-theme="dark"` is present on `<html>`.
+
+## Overriding tokens
+
+Set any token after importing the token stylesheets. Unlayered CSS rules always win over `@layer` rules, so you do not need to worry about specificity:
+
+```css
+/* my-theme.css — imported after tokens.css */
+:root {
+  --sct-color-primary: #0066cc;
+  --sct-radius-md: 2px;
+}
+```
+
+To override in dark mode only:
+
+```css
+[data-theme="dark"] {
+  --sct-color-primary: #4da6ff;
+}
+```
+
+## CSS layer architecture
+
+Tokens are delivered inside `@layer` blocks:
+
+| Layer | Contents |
+|---|---|
+| `design-tokens` | All `--sct-*` custom properties |
+| `theme` | Base element styles (font family, etc.) |
+
+The layer order `design-tokens, theme` is declared at the top of `tokens.css`. This means:
+
+- `design-tokens` has lower priority than `theme`
+- Both layers have lower priority than any unlayered CSS
+
+### Consuming apps with their own layers
+
+If your application uses `@layer`, import `tokens.css` before your own layered stylesheets:
+
+```css
+/* Correct: tokens.css is first */
+@import "@webscit/tokens/tokens.css";
+@import "@webscit/tokens/tokens-dark.css";
+
+@layer app-base, app-components;
+```
+
+If you cannot control import order, explicitly redeclare the full layer stack before your own layers:
+
+```css
+@layer design-tokens, theme, app-base, app-components;
+
+@import "@webscit/tokens/tokens.css";
+@import "@webscit/tokens/tokens-dark.css";
+```
+
+This establishes the priority order regardless of import sequence. Unlayered rules in your CSS always take precedence over all layers, so one-off overrides work without any `@layer` declaration.
