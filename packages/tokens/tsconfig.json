@@ -4,7 +4,8 @@
     "outDir": "dist",
     "module": "node16",
     "moduleResolution": "node16",
-    "rootDir": "src"
+    "rootDir": "src",
+    "types": ["node"]
   },
-  "files": []
+  "include": ["src/**/*"]
 }
