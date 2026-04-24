@@ -66,4 +66,16 @@ describe("runToolkitInit", () => {
       '@import "./theme.css";',
     ]);
   });
+
+  it("does not duplicate @import lines when run twice", () => {
+    const { cwd, cssPath } = makeFixture();
+
+    runToolkitInit(cwd, tokenBundle);
+    const afterFirst = readFileSync(cssPath, "utf8");
+    const secondResult = runToolkitInit(cwd, tokenBundle);
+    const afterSecond = readFileSync(cssPath, "utf8");
+
+    expect(afterSecond).toBe(afterFirst);
+    expect(secondResult.importsInjected).toEqual([]);
+  });
 });
