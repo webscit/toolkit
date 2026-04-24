@@ -4,56 +4,46 @@ import { Meta } from "@storybook/blocks";
 
 # Installation
 
-Components are not installed as a package. The CLI copies component source files into your project so you own them directly.
+Components and design tokens are not installed as a dependency. The CLI copies both component source files and compiled token CSS into your project so you own them directly.
 
 ## Prerequisites
 
 - Node.js 18 or later
 - A React project (Vite, Next.js, or similar)
 
-## Step 1 — Add a component
+## Step 1 — Initialize
 
-Run the CLI with the name of any component:
+Run the `init` command in the root of your project:
+
+```bash
+npx @webscit/toolkit init
+```
+
+`init` does three things:
+
+1. Runs `shadcn init` under the hood with sensible defaults, creating `components.json`.
+2. Copies the compiled token stylesheets (`tokens.css`, `tokens-dark.css`, `theme.css`) next to your CSS entry (for example `src/app/` for Next, `src/` for Vite).
+3. Prepends three `@import` lines to the top of your CSS entry so the tokens load before any other layered styles.
+
+The command prints exactly what it wrote and what it injected. It is safe to re-run — existing files are left alone and imports are deduplicated.
+
+## Step 2 — Add a component
 
 ```bash
 npx @webscit/toolkit add button
 ```
 
-To add multiple components at once:
+Add multiple components in one call:
 
 ```bash
 npx @webscit/toolkit add button input label
 ```
 
-The CLI wraps `npx shadcn@latest add` pointed at the `@webscit/toolkit` registry. On first run, shadcn will ask where to place components and how your project is configured. Your answers are saved to `components.json` in your project root and reused for subsequent `add` commands.
-
-The component source files (`.tsx` and `.css`) are written into your project. You can edit them freely.
-
-## Step 2 — Import design tokens
-
-Components rely on CSS custom properties defined in the token stylesheet. Import it once at your application entry point:
-
-```ts
-// main.ts / index.ts / _app.tsx
-import "@webscit/tokens/tokens.css";
-```
-
-To enable dark mode, also import the dark theme overrides:
-
-```ts
-import "@webscit/tokens/tokens.css";
-import "@webscit/tokens/tokens-dark.css";
-```
-
-> **Note:** `@webscit/tokens` is the one package you do install. Add it to your project:
->
-> ```bash
-> npm install @webscit/tokens
-> ```
+Component source files (`.tsx` and `.css`) are written into your project. You can edit them freely.
 
 ## Step 3 — Use the component
 
-Import the component from wherever shadcn placed it (typically `@/components/ui` or a path you specified):
+Import the component from wherever shadcn placed it (typically `@/components/ui`):
 
 ```tsx
 import { Button } from "@/components/ui/button";
@@ -93,4 +83,4 @@ function ThemeToggle() {
 
 ## CSS layer ordering
 
-If your application uses `@layer` declarations, import `tokens.css` before any other layered stylesheet. See [Theming](?path=/docs/docs-theming--docs) for details.
+The token CSS files are imported at the very top of your CSS entry precisely because they declare the `@layer design-tokens, theme` ordering that other styles in your app rely on. If you later reorganize your imports, keep these three `@import` lines first. See [Theming](?path=/docs/docs-theming--docs) for details.
