@@ -4,8 +4,15 @@ import { existsSync } from "node:fs";
 import { join, relative } from "node:path";
 import { generateTokens } from "@webscit/tokens";
 import { runToolkitInit } from "./init.js";
+import {
+  createComponentsJson,
+  findCssEntry,
+  patchComponentsJsonRegistries,
+  readTsconfigAliases,
+} from "./components-json.js";
 
-const REGISTRY_URL = "https://webscit.github.io/toolkit/r";
+const REGISTRY_URL =
+  process.env.WEBSCIT_REGISTRY_URL ?? "https://webscit.github.io/toolkit/r";
 const [, , command, ...args] = process.argv;
 
 function printUsage(): void {
@@ -22,23 +29,28 @@ Components: button, input, label, checkbox, checkbox-group, radio, radio-group,
   `);
 }
 
+function toRegistryUrl(name: string): string {
+  if (name.startsWith("http://") || name.startsWith("https://")) return name;
+  return `${REGISTRY_URL}/${name}.json`;
+}
+
 if (command === "add") {
-  const components = args.join(" ");
-  execSync(
-    `npx shadcn@latest add --registry ${REGISTRY_URL} ${components}`,
-    { stdio: "inherit" },
-  );
+  const urls = args.map(toRegistryUrl).join(" ");
+  execSync(`npx shadcn@latest add --yes ${urls}`, { stdio: "inherit" });
 } else if (command === "init") {
   const cwd = process.cwd();
+  const cssIdx = args.indexOf("--css");
+  const cssFlag = cssIdx !== -1 ? args[cssIdx + 1] : undefined;
 
   if (!existsSync(join(cwd, "components.json"))) {
-    console.log("Running shadcn init...");
-    execSync(
-      `npx shadcn@latest init --defaults --yes --registry ${REGISTRY_URL}`,
-      { stdio: "inherit", cwd },
-    );
+    const cssEntry = findCssEntry(cwd, cssFlag);
+    const cssRelPath = relative(cwd, cssEntry).replace(/\\/g, "/");
+    const { prefix } = readTsconfigAliases(cwd);
+    createComponentsJson(cwd, cssRelPath, prefix, REGISTRY_URL);
+    console.log("Created components.json.");
   } else {
-    console.log("components.json already exists — skipping shadcn init.");
+    console.log("components.json already exists — updating registries.");
+    patchComponentsJsonRegistries(cwd, REGISTRY_URL);
   }
 
   console.log("Copying token stylesheets...");
