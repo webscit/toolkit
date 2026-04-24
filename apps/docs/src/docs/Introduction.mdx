@@ -13,7 +13,7 @@ Styling uses plain CSS with [`@scope`](https://developer.mozilla.org/en-US/docs/
 - **50+ components** — form inputs, layout primitives, overlays, navigation, and feedback elements
 - **Design token system** — a semantic color palette, spacing scale, typography, shadows, and border radius values; all overridable via CSS
 - **Dark mode** — a single `data-theme="dark"` attribute on `<html>` switches the entire theme
-- **CLI** — `npx @webscit/toolkit add <component>` copies any component into your project
+- **CLI** — `npx @webscit/toolkit init` scaffolds tokens and `components.json`; `npx @webscit/toolkit add <component>` copies components
 
 ## Why copy-paste?
 
@@ -30,7 +30,7 @@ The trade-off is intentional: you take on responsibility for the code. That is t
 | Styling | Plain CSS, `@scope` per component |
 | Theming | CSS custom properties (`--sct-*`) via W3C DTCG tokens |
 | Interactivity | [Base UI](https://base-ui.com/) primitives where behavior is non-trivial |
-| Distribution | Copy-into-project via CLI (shadcn-compatible registry) |
+| Distribution | Copy-into-project for components and tokens via CLI (shadcn-compatible registry) |
 | Dark mode | `data-theme="dark"` on `<html>` |
 
 ## Getting started
