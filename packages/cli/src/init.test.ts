@@ -33,4 +33,18 @@ describe("runToolkitInit", () => {
     expect(readFileSync(join(cwd, "src/app/tokens-dark.css"), "utf8")).toBe("/* dark */");
     expect(readFileSync(join(cwd, "src/app/theme.css"), "utf8")).toBe("/* base */");
   });
+
+  it("skips files that already exist without overwriting", () => {
+    const { cwd } = makeFixture();
+    const existing = join(cwd, "src/app/tokens.css");
+    writeFileSync(existing, "/* user-customized */");
+
+    const result = runToolkitInit(cwd, tokenBundle);
+
+    expect(readFileSync(existing, "utf8")).toBe("/* user-customized */");
+    expect(result.filesSkipped).toContain(existing);
+    expect(result.filesWritten).not.toContain(existing);
+    expect(result.filesWritten).toContain(join(cwd, "src/app/tokens-dark.css"));
+    expect(result.filesWritten).toContain(join(cwd, "src/app/theme.css"));
+  });
 });
