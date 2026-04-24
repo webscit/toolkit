@@ -78,4 +78,23 @@ describe("runToolkitInit", () => {
     expect(afterSecond).toBe(afterFirst);
     expect(secondResult.importsInjected).toEqual([]);
   });
+
+  it("creates the CSS entry file if it is missing", () => {
+    const cwd = mkdtempSync(join(tmpdir(), "webscit-init-"));
+    mkdirSync(join(cwd, "src", "app"), { recursive: true });
+    writeFileSync(
+      join(cwd, "components.json"),
+      JSON.stringify({ tailwind: { css: "src/app/globals.css" } }),
+    );
+    // Note: globals.css intentionally NOT created.
+
+    runToolkitInit(cwd, tokenBundle);
+
+    const content = readFileSync(join(cwd, "src/app/globals.css"), "utf8");
+    expect(content).toBe(
+      '@import "./tokens.css";\n' +
+      '@import "./tokens-dark.css";\n' +
+      '@import "./theme.css";\n'
+    );
+  });
 });

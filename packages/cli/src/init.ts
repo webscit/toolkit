@@ -44,7 +44,7 @@ export function runToolkitInit(cwd: string, bundle: TokenBundle): InitResult {
   }
 
   const importLines = OUTPUTS.map(({ filename }) => `@import "./${filename}";`);
-  const original = readFileSync(cssEntryPath, "utf8");
+  const original = existsSync(cssEntryPath) ? readFileSync(cssEntryPath, "utf8") : "";
   const missing = importLines.filter((line) => !original.includes(line));
   if (missing.length > 0) {
     const prefix = missing.join("\n") + "\n";
