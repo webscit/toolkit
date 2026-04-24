@@ -43,5 +43,13 @@ export function runToolkitInit(cwd: string, bundle: TokenBundle): InitResult {
     filesWritten.push(dest);
   }
 
-  return { cssEntryPath, filesWritten, filesSkipped, importsInjected: [] };
+  const importLines = OUTPUTS.map(({ filename }) => `@import "./${filename}";`);
+  const original = readFileSync(cssEntryPath, "utf8");
+  const missing = importLines.filter((line) => !original.includes(line));
+  if (missing.length > 0) {
+    const prefix = missing.join("\n") + "\n";
+    writeFileSync(cssEntryPath, prefix + original);
+  }
+
+  return { cssEntryPath, filesWritten, filesSkipped, importsInjected: missing };
 }

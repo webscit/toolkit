@@ -47,4 +47,23 @@ describe("runToolkitInit", () => {
     expect(result.filesWritten).toContain(join(cwd, "src/app/tokens-dark.css"));
     expect(result.filesWritten).toContain(join(cwd, "src/app/theme.css"));
   });
+
+  it("prepends @import lines for the three token files to the CSS entry", () => {
+    const { cwd, cssPath } = makeFixture();
+
+    const result = runToolkitInit(cwd, tokenBundle);
+
+    const content = readFileSync(cssPath, "utf8");
+    expect(content.startsWith(
+      '@import "./tokens.css";\n' +
+      '@import "./tokens-dark.css";\n' +
+      '@import "./theme.css";\n'
+    )).toBe(true);
+    expect(content).toContain("body { color: red; }");
+    expect(result.importsInjected).toEqual([
+      '@import "./tokens.css";',
+      '@import "./tokens-dark.css";',
+      '@import "./theme.css";',
+    ]);
+  });
 });
