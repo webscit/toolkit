@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Skeleton } from "@webscit/registry";
+import { Skeleton as ShadcnSkeleton } from "@/components/ui/skeleton";
 
 const meta = {
   title: "Components/Skeleton",
@@ -25,6 +26,17 @@ export const Default: Story = {
       <Skeleton style={{ height: "1rem", width: "70%" }} />
     </div>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "300px" }}>
+          <ShadcnSkeleton className="h-4 w-4/5" />
+          <ShadcnSkeleton className="h-4 w-3/5" />
+          <ShadcnSkeleton className="h-4 w-[70%]" />
+        </div>
+      ),
+    },
+  },
 };
 
 export const Card: Story = {
@@ -39,4 +51,17 @@ export const Card: Story = {
       </div>
     </div>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+          <ShadcnSkeleton className="h-12 w-12 rounded-full" />
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <ShadcnSkeleton className="h-4 w-[200px]" />
+            <ShadcnSkeleton className="h-3 w-[150px]" />
+          </div>
+        </div>
+      ),
+    },
+  },
 };
