@@ -1,3 +1,4 @@
+import "../src/index.css";
 import "@webscit/tokens/tokens.css";
 import "@webscit/tokens/tokens-dark.css";
 import type { Preview } from "@storybook/react";
