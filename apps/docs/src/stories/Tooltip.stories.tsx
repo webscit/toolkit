@@ -5,6 +5,13 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@webscit/registry";
+import {
+  Tooltip as ShadcnTooltip,
+  TooltipProvider as ShadcnTooltipProvider,
+  TooltipTrigger as ShadcnTooltipTrigger,
+  TooltipContent as ShadcnTooltipContent,
+} from "@/components/ui/tooltip";
+import { Button as ShadcnButton } from "@/components/ui/button";
 
 const meta = {
   title: "Components/Tooltip",
@@ -31,6 +38,22 @@ export const Default: Story = {
       </TooltipContent>
     </Tooltip>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnTooltipProvider>
+          <ShadcnTooltip>
+            <ShadcnTooltipTrigger asChild>
+              <ShadcnButton variant="outline">Hover me</ShadcnButton>
+            </ShadcnTooltipTrigger>
+            <ShadcnTooltipContent>
+              <p>This is a tooltip</p>
+            </ShadcnTooltipContent>
+          </ShadcnTooltip>
+        </ShadcnTooltipProvider>
+      ),
+    },
+  },
 };
 
 export const OnButton: Story = {
@@ -44,6 +67,22 @@ export const OnButton: Story = {
       </TooltipContent>
     </Tooltip>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnTooltipProvider>
+          <ShadcnTooltip>
+            <ShadcnTooltipTrigger asChild>
+              <ShadcnButton variant="outline">More info</ShadcnButton>
+            </ShadcnTooltipTrigger>
+            <ShadcnTooltipContent>
+              <p>More information about this feature</p>
+            </ShadcnTooltipContent>
+          </ShadcnTooltip>
+        </ShadcnTooltipProvider>
+      ),
+    },
+  },
 };
 
 export const Playground: Story = {
@@ -53,4 +92,16 @@ export const Playground: Story = {
       <TooltipContent>Tooltip text</TooltipContent>
     </Tooltip>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnTooltipProvider>
+          <ShadcnTooltip>
+            <ShadcnTooltipTrigger>Tooltip trigger</ShadcnTooltipTrigger>
+            <ShadcnTooltipContent>Tooltip text</ShadcnTooltipContent>
+          </ShadcnTooltip>
+        </ShadcnTooltipProvider>
+      ),
+    },
+  },
 };

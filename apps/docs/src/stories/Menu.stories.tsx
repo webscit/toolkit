@@ -10,6 +10,18 @@ import {
   MenuRadioGroup,
   MenuRadioItem,
 } from "@webscit/registry";
+import {
+  DropdownMenu as ShadcnMenu,
+  DropdownMenuTrigger as ShadcnMenuTrigger,
+  DropdownMenuContent as ShadcnMenuContent,
+  DropdownMenuItem as ShadcnMenuItem,
+  DropdownMenuSeparator as ShadcnMenuSeparator,
+  DropdownMenuLabel as ShadcnMenuLabel,
+  DropdownMenuCheckboxItem as ShadcnMenuCheckboxItem,
+  DropdownMenuRadioGroup as ShadcnMenuRadioGroup,
+  DropdownMenuRadioItem as ShadcnMenuRadioItem,
+} from "@/components/ui/dropdown-menu";
+import { Button as ShadcnButton } from "@/components/ui/button";
 
 const meta = {
   title: "Components/Menu",
@@ -32,6 +44,23 @@ export const Default: Story = {
       </MenuContent>
     </Menu>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnMenu>
+          <ShadcnMenuTrigger asChild>
+            <ShadcnButton variant="outline">Open Menu</ShadcnButton>
+          </ShadcnMenuTrigger>
+          <ShadcnMenuContent>
+            <ShadcnMenuItem>Profile</ShadcnMenuItem>
+            <ShadcnMenuItem>Settings</ShadcnMenuItem>
+            <ShadcnMenuSeparator />
+            <ShadcnMenuItem>Logout</ShadcnMenuItem>
+          </ShadcnMenuContent>
+        </ShadcnMenu>
+      ),
+    },
+  },
 };
 
 export const WithLabel: Story = {
@@ -48,6 +77,25 @@ export const WithLabel: Story = {
       </MenuContent>
     </Menu>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnMenu>
+          <ShadcnMenuTrigger asChild>
+            <ShadcnButton variant="outline">My Account</ShadcnButton>
+          </ShadcnMenuTrigger>
+          <ShadcnMenuContent>
+            <ShadcnMenuLabel>My Account</ShadcnMenuLabel>
+            <ShadcnMenuItem>Profile</ShadcnMenuItem>
+            <ShadcnMenuItem>Billing</ShadcnMenuItem>
+            <ShadcnMenuItem>Settings</ShadcnMenuItem>
+            <ShadcnMenuSeparator />
+            <ShadcnMenuItem>Logout</ShadcnMenuItem>
+          </ShadcnMenuContent>
+        </ShadcnMenu>
+      ),
+    },
+  },
 };
 
 export const WithCheckboxItems: Story = {
@@ -62,6 +110,23 @@ export const WithCheckboxItems: Story = {
       </MenuContent>
     </Menu>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnMenu>
+          <ShadcnMenuTrigger asChild>
+            <ShadcnButton variant="outline">View</ShadcnButton>
+          </ShadcnMenuTrigger>
+          <ShadcnMenuContent>
+            <ShadcnMenuLabel>Panels</ShadcnMenuLabel>
+            <ShadcnMenuCheckboxItem checked>Status Bar</ShadcnMenuCheckboxItem>
+            <ShadcnMenuCheckboxItem>Activity Bar</ShadcnMenuCheckboxItem>
+            <ShadcnMenuCheckboxItem checked>Panel</ShadcnMenuCheckboxItem>
+          </ShadcnMenuContent>
+        </ShadcnMenu>
+      ),
+    },
+  },
 };
 
 export const WithRadioItems: Story = {
@@ -78,4 +143,23 @@ export const WithRadioItems: Story = {
       </MenuContent>
     </Menu>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnMenu>
+          <ShadcnMenuTrigger asChild>
+            <ShadcnButton variant="outline">Position</ShadcnButton>
+          </ShadcnMenuTrigger>
+          <ShadcnMenuContent>
+            <ShadcnMenuLabel>Panel Position</ShadcnMenuLabel>
+            <ShadcnMenuRadioGroup value="bottom">
+              <ShadcnMenuRadioItem value="top">Top</ShadcnMenuRadioItem>
+              <ShadcnMenuRadioItem value="bottom">Bottom</ShadcnMenuRadioItem>
+              <ShadcnMenuRadioItem value="right">Right</ShadcnMenuRadioItem>
+            </ShadcnMenuRadioGroup>
+          </ShadcnMenuContent>
+        </ShadcnMenu>
+      ),
+    },
+  },
 };
