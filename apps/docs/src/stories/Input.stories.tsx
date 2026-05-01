@@ -82,7 +82,7 @@ export const Disabled: Story = {
   args: { disabled: true, placeholder: "Disabled input" },
   parameters: {
     shadcn: {
-      render: (args: any) => (
+      render: (args: Record<string, unknown>) => (
         <ShadcnInput disabled={args["disabled"] as boolean} placeholder={args["placeholder"] as string} />
       ),
     },
@@ -93,7 +93,7 @@ export const Playground: Story = {
   args: { placeholder: "Placeholder text", type: "text" },
   parameters: {
     shadcn: {
-      render: (args: any) => (
+      render: (args: Record<string, unknown>) => (
         <ShadcnInput placeholder={args["placeholder"] as string} type={args["type"] as string} disabled={args["disabled"] as boolean | undefined} />
       ),
     },
