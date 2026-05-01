@@ -8,6 +8,15 @@ import {
   SelectLabel,
   SelectSeparator,
 } from "@webscit/registry";
+import {
+  Select as ShadcnSelect,
+  SelectTrigger as ShadcnSelectTrigger,
+  SelectValue as ShadcnSelectValue,
+  SelectContent as ShadcnSelectContent,
+  SelectItem as ShadcnSelectItem,
+  SelectLabel as ShadcnSelectLabel,
+  SelectSeparator as ShadcnSelectSeparator,
+} from "@/components/ui/select";
 
 const meta = {
   title: "Components/Select",
@@ -31,6 +40,22 @@ export const Default: Story = {
       </SelectContent>
     </Select>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnSelect>
+          <ShadcnSelectTrigger style={{ width: "200px" }}>
+            <ShadcnSelectValue placeholder="Select a fruit" />
+          </ShadcnSelectTrigger>
+          <ShadcnSelectContent>
+            <ShadcnSelectItem value="apple">Apple</ShadcnSelectItem>
+            <ShadcnSelectItem value="banana">Banana</ShadcnSelectItem>
+            <ShadcnSelectItem value="cherry">Cherry</ShadcnSelectItem>
+          </ShadcnSelectContent>
+        </ShadcnSelect>
+      ),
+    },
+  },
 };
 
 export const WithGroupLabel: Story = {
@@ -50,6 +75,26 @@ export const WithGroupLabel: Story = {
       </SelectContent>
     </Select>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnSelect>
+          <ShadcnSelectTrigger style={{ width: "220px" }}>
+            <ShadcnSelectValue placeholder="Select a timezone" />
+          </ShadcnSelectTrigger>
+          <ShadcnSelectContent>
+            <ShadcnSelectLabel>North America</ShadcnSelectLabel>
+            <ShadcnSelectItem value="est">Eastern Standard Time (EST)</ShadcnSelectItem>
+            <ShadcnSelectItem value="cst">Central Standard Time (CST)</ShadcnSelectItem>
+            <ShadcnSelectSeparator />
+            <ShadcnSelectLabel>Europe</ShadcnSelectLabel>
+            <ShadcnSelectItem value="gmt">Greenwich Mean Time (GMT)</ShadcnSelectItem>
+            <ShadcnSelectItem value="cet">Central European Time (CET)</ShadcnSelectItem>
+          </ShadcnSelectContent>
+        </ShadcnSelect>
+      ),
+    },
+  },
 };
 
 export const Disabled: Story = {
@@ -63,6 +108,20 @@ export const Disabled: Story = {
       </SelectContent>
     </Select>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnSelect disabled>
+          <ShadcnSelectTrigger style={{ width: "200px" }}>
+            <ShadcnSelectValue placeholder="Disabled select" />
+          </ShadcnSelectTrigger>
+          <ShadcnSelectContent>
+            <ShadcnSelectItem value="a">Option A</ShadcnSelectItem>
+          </ShadcnSelectContent>
+        </ShadcnSelect>
+      ),
+    },
+  },
 };
 
 export const Playground: Story = {
@@ -78,4 +137,20 @@ export const Playground: Story = {
       </SelectContent>
     </Select>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnSelect>
+          <ShadcnSelectTrigger style={{ width: "200px" }}>
+            <ShadcnSelectValue placeholder="Select an option" />
+          </ShadcnSelectTrigger>
+          <ShadcnSelectContent>
+            <ShadcnSelectItem value="1">Option 1</ShadcnSelectItem>
+            <ShadcnSelectItem value="2">Option 2</ShadcnSelectItem>
+            <ShadcnSelectItem value="3">Option 3</ShadcnSelectItem>
+          </ShadcnSelectContent>
+        </ShadcnSelect>
+      ),
+    },
+  },
 };
