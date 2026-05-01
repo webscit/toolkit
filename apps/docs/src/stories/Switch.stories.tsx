@@ -49,4 +49,10 @@ export const Disabled: Story = {
 
 export const Playground: Story = {
   args: { disabled: false, defaultChecked: false },
+  render: (args) => (
+    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <Switch id="pg-switch" {...args} />
+      <Label htmlFor="pg-switch">Enable notifications</Label>
+    </div>
+  ),
 };

@@ -49,4 +49,16 @@ export const Horizontal: Story = {
 
 export const Playground: Story = {
   args: { legend: "Group label", orientation: "vertical" },
+  render: (args) => (
+    <CheckboxGroup {...args}>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <Checkbox id="pg-cg-a" />
+        <Label htmlFor="pg-cg-a">Option A</Label>
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <Checkbox id="pg-cg-b" />
+        <Label htmlFor="pg-cg-b">Option B</Label>
+      </div>
+    </CheckboxGroup>
+  ),
 };
