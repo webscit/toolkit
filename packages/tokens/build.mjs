@@ -137,11 +137,11 @@ const dark = new StyleDictionary({
 await light.buildAllPlatforms();
 await dark.buildAllPlatforms();
 
-// Generate base.css: applies font-family token to html/:host.
-// Lives in its own @layer theme so it can override @layer design-tokens
+// Generate theme.css: applies font-family token to html/:host.
+// Lives in its own @layer base so it can override @layer design-tokens
 // without specificity fights, and consumers can override it via unlayered rules.
 writeFileSync(
-  "dist/base.css",
+  "dist/theme.css",
   `/**
  * Do not edit directly, this file was auto-generated.
  */

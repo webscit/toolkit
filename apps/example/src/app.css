@@ -1,0 +1,140 @@
+/* Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background: var(--sct-color-background);
+  color: var(--sct-color-foreground);
+}
+
+/* Page layout */
+.page {
+  display: flex;
+  min-height: 100dvh;
+}
+
+.page-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--sct-color-border);
+}
+
+.page-header-title {
+  font-size: var(--sct-font-size-xl);
+  font-weight: var(--sct-font-weight-semibold);
+  flex: 1;
+}
+
+.page-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1100px;
+}
+
+/* Utility layout helpers */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.text-sm {
+  font-size: var(--sct-font-size-sm);
+}
+
+.text-muted {
+  color: var(--sct-color-muted-foreground);
+}
+
+.font-medium {
+  font-weight: var(--sct-font-weight-medium);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--sct-color-border);
+  border-radius: var(--sct-radius-md);
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--sct-color-foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background: var(--sct-color-accent);
+}
+
+/* Field row for inline label + control */
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.field-row-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}

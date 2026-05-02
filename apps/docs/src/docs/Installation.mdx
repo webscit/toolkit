@@ -1,0 +1,105 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Docs/Installation" parameters={{ viewMode: "docs" }} />
+
+# Installation
+
+Components and design tokens are not installed as a dependency. The CLI copies both component source files and compiled token CSS into your project so you own them directly.
+
+## Prerequisites
+
+- Node.js 18 or later
+- A React project (Vite, Next.js, or similar)
+- `tsconfig.json` with a wildcard path alias — e.g., `"@/*": ["./src/*"]` — so the CLI can infer the `components.json` aliases
+
+## Step 1 — Initialize
+
+Run the `init` command in the root of your project:
+
+```bash
+npx @webscit/toolkit init
+```
+
+`init` does three things:
+
+1. Creates `components.json` by reading your `tsconfig.json` path aliases and locating your CSS entry file. The registry URL is set to `https://webscit.github.io/toolkit/r` automatically.
+2. Copies the compiled token stylesheets (`tokens.css`, `tokens-dark.css`, `theme.css`) next to your CSS entry file.
+3. Prepends three `@import` lines to the top of your CSS entry so the tokens load before any other layered styles.
+
+The command prints exactly what it wrote and what it injected. It is safe to re-run — existing files are left alone and imports are deduplicated. If `components.json` already exists, only its `registries` field is updated to add or refresh the `@webscit` registry URL; the rest of the file is untouched.
+
+### CSS entry file
+
+`init` looks for your CSS entry file in this order (first match wins):
+
+- `src/index.css`
+- `src/globals.css`
+- `src/global.css`
+- `src/app.css`
+- `src/main.css`
+- `src/styles.css`
+- `src/style.css`
+
+If none of these paths exist, pass the path explicitly with the `--css` flag:
+
+```bash
+npx @webscit/toolkit init --css src/app/globals.css
+```
+
+## Step 2 — Add a component
+
+```bash
+npx @webscit/toolkit add button
+```
+
+Add multiple components in one call:
+
+```bash
+npx @webscit/toolkit add button input label
+```
+
+Component source files (`.tsx` and `.css`) are written into your project. You can edit them freely.
+
+## Step 3 — Use the component
+
+Import the component from wherever shadcn placed it (typically `@/components/ui`):
+
+```tsx
+import { Button } from "@/components/ui/button";
+
+export function App() {
+  return <Button variant="default">Save</Button>;
+}
+```
+
+## Dark mode
+
+Toggle dark mode by setting `data-theme="dark"` on the `<html>` element:
+
+```ts
+// Enable dark mode
+document.documentElement.dataset.theme = "dark";
+
+// Return to light mode
+document.documentElement.dataset.theme = "";
+```
+
+In a React component:
+
+```tsx
+function ThemeToggle() {
+  const [dark, setDark] = React.useState(false);
+
+  function toggle() {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.dataset.theme = next ? "dark" : "";
+  }
+
+  return <button onClick={toggle}>{dark ? "Light mode" : "Dark mode"}</button>;
+}
+```
+
+## CSS layer ordering
+
+The token CSS files are imported at the very top of your CSS entry precisely because they declare the `@layer design-tokens, theme` ordering that other styles in your app rely on. If you later reorganize your imports, keep these three `@import` lines first. See [Theming](?path=/docs/docs-theming--docs) for details.

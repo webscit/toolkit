@@ -7,7 +7,7 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarShortcut,
-  MenubarTrigger
+  MenubarTrigger,
 } from "./menubar";
 
 describe("Menubar", () => {

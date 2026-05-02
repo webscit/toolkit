@@ -1,0 +1,38 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Docs/Introduction" parameters={{ viewMode: "docs" }} />
+
+# Introduction
+
+`@webscit/toolkit` is a component library for scientific-domain UIs. It is built on the same copy-into-project model as [shadcn/ui](https://ui.shadcn.com/): components are not installed as a dependency — they are copied directly into your codebase, where you own and modify them freely.
+
+Styling uses plain CSS with [`@scope`](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope) rules. There is no runtime JavaScript for styling, no Tailwind, and no CSS-in-JS. Theming is driven by [W3C Design Tokens](https://www.w3.org/community/design-tokens/) exposed as CSS custom properties prefixed `--sct-*`.
+
+## What's included
+
+- **50+ components** — form inputs, layout primitives, overlays, navigation, and feedback elements
+- **Design token system** — a semantic color palette, spacing scale, typography, shadows, and border radius values; all overridable via CSS
+- **Dark mode** — a single `data-theme="dark"` attribute on `<html>` switches the entire theme
+- **CLI** — `npx @webscit/toolkit init` scaffolds tokens and `components.json`; `npx @webscit/toolkit add <component>` copies components
+
+## Why copy-paste?
+
+This model is borrowed from shadcn/ui. The rationale is straightforward: you own the code.
+
+When a component is copied into your project, you can change its markup, adjust its CSS, and evolve it alongside your application — without waiting for an upstream release or working around a library's constraints. There is no version to upgrade, no peer dependency conflict, and no black box.
+
+The trade-off is intentional: you take on responsibility for the code. That is the point.
+
+## Technology choices
+
+| Concern       | Approach                                                                         |
+| ------------- | -------------------------------------------------------------------------------- |
+| Styling       | Plain CSS, `@scope` per component                                                |
+| Theming       | CSS custom properties (`--sct-*`) via W3C DTCG tokens                            |
+| Interactivity | [Base UI](https://base-ui.com/) primitives where behavior is non-trivial         |
+| Distribution  | Copy-into-project for components and tokens via CLI (shadcn-compatible registry) |
+| Dark mode     | `data-theme="dark"` on `<html>`                                                  |
+
+## Getting started
+
+See the [Installation](?path=/docs/docs-installation--docs) page for step-by-step setup, or browse individual component stories in the sidebar.
