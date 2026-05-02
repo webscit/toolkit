@@ -10,7 +10,14 @@ const meta = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["default", "destructive", "outline", "secondary", "ghost", "link"],
+      options: [
+        "default",
+        "destructive",
+        "outline",
+        "secondary",
+        "ghost",
+        "link",
+      ],
     },
     size: { control: "select", options: ["default", "xs", "sm", "lg", "icon"] },
     disabled: { control: "boolean" },
@@ -84,11 +91,19 @@ export const Playground: Story = {
     shadcn: {
       render: (args: Record<string, unknown>) => (
         <ShadcnButton
-          variant={args["variant"] as "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"}
+          variant={
+            args["variant"] as
+              | "default"
+              | "destructive"
+              | "outline"
+              | "secondary"
+              | "ghost"
+              | "link"
+          }
           size={args["size"] as "default" | "sm" | "lg" | "icon"}
           disabled={args["disabled"] as boolean | undefined}
         >
-          {args["children"] as React.ReactNode ?? "Click me"}
+          {(args["children"] as React.ReactNode) ?? "Click me"}
         </ShadcnButton>
       ),
     },

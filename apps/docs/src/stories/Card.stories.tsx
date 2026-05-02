@@ -51,7 +51,9 @@ export const Default: Story = {
         <ShadcnCard style={{ maxWidth: "360px" }}>
           <ShadcnCardHeader>
             <ShadcnCardTitle>Card Title</ShadcnCardTitle>
-            <ShadcnCardDescription>Card description that provides additional context.</ShadcnCardDescription>
+            <ShadcnCardDescription>
+              Card description that provides additional context.
+            </ShadcnCardDescription>
           </ShadcnCardHeader>
           <ShadcnCardContent>
             <p>Card content goes here. This can include any React content.</p>
@@ -93,7 +95,9 @@ export const Playground: Story = {
     shadcn: {
       render: (args: Record<string, unknown>) => (
         <ShadcnCard>
-          <ShadcnCardContent>{args["children"] as string ?? "Card content"}</ShadcnCardContent>
+          <ShadcnCardContent>
+            {(args["children"] as string) ?? "Card content"}
+          </ShadcnCardContent>
         </ShadcnCard>
       ),
     },

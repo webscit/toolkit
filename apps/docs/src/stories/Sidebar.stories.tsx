@@ -120,13 +120,19 @@ export const Default: Story = {
                 <ShadcnSidebarGroupContent>
                   <ShadcnSidebarMenu>
                     <ShadcnSidebarMenuItem>
-                      <ShadcnSidebarMenuButton isActive>Home</ShadcnSidebarMenuButton>
+                      <ShadcnSidebarMenuButton isActive>
+                        Home
+                      </ShadcnSidebarMenuButton>
                     </ShadcnSidebarMenuItem>
                     <ShadcnSidebarMenuItem>
-                      <ShadcnSidebarMenuButton>Dashboard</ShadcnSidebarMenuButton>
+                      <ShadcnSidebarMenuButton>
+                        Dashboard
+                      </ShadcnSidebarMenuButton>
                     </ShadcnSidebarMenuItem>
                     <ShadcnSidebarMenuItem>
-                      <ShadcnSidebarMenuButton>Settings</ShadcnSidebarMenuButton>
+                      <ShadcnSidebarMenuButton>
+                        Settings
+                      </ShadcnSidebarMenuButton>
                     </ShadcnSidebarMenuItem>
                   </ShadcnSidebarMenu>
                 </ShadcnSidebarGroupContent>
@@ -136,17 +142,23 @@ export const Default: Story = {
                 <ShadcnSidebarGroupContent>
                   <ShadcnSidebarMenu>
                     <ShadcnSidebarMenuItem>
-                      <ShadcnSidebarMenuButton>Project Alpha</ShadcnSidebarMenuButton>
+                      <ShadcnSidebarMenuButton>
+                        Project Alpha
+                      </ShadcnSidebarMenuButton>
                     </ShadcnSidebarMenuItem>
                     <ShadcnSidebarMenuItem>
-                      <ShadcnSidebarMenuButton>Project Beta</ShadcnSidebarMenuButton>
+                      <ShadcnSidebarMenuButton>
+                        Project Beta
+                      </ShadcnSidebarMenuButton>
                     </ShadcnSidebarMenuItem>
                   </ShadcnSidebarMenu>
                 </ShadcnSidebarGroupContent>
               </ShadcnSidebarGroup>
             </ShadcnSidebarContent>
             <ShadcnSidebarFooter>
-              <p style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>v1.0.0</p>
+              <p style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
+                v1.0.0
+              </p>
             </ShadcnSidebarFooter>
           </ShadcnSidebar>
           <ShadcnSidebarInset>
@@ -260,7 +272,9 @@ export const RightSide: Story = {
                 <ShadcnSidebarGroupContent>
                   <ShadcnSidebarMenu>
                     <ShadcnSidebarMenuItem>
-                      <ShadcnSidebarMenuButton>Properties</ShadcnSidebarMenuButton>
+                      <ShadcnSidebarMenuButton>
+                        Properties
+                      </ShadcnSidebarMenuButton>
                     </ShadcnSidebarMenuItem>
                     <ShadcnSidebarMenuItem>
                       <ShadcnSidebarMenuButton>History</ShadcnSidebarMenuButton>

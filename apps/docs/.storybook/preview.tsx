@@ -38,7 +38,11 @@ const preview: Preview = {
     (Story, context) => {
       const compare = context.globals["compareShadcn"] === "on";
       const shadcnRender = (
-        context.parameters as { shadcn?: { render?: (args: Record<string, unknown>) => React.ReactNode } }
+        context.parameters as {
+          shadcn?: {
+            render?: (args: Record<string, unknown>) => React.ReactNode;
+          };
+        }
       ).shadcn?.render;
 
       if (!compare || !shadcnRender) return <Story />;

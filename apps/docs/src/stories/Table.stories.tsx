@@ -91,7 +91,9 @@ export const Default: Story = {
               <ShadcnTableHead>Invoice</ShadcnTableHead>
               <ShadcnTableHead>Status</ShadcnTableHead>
               <ShadcnTableHead>Method</ShadcnTableHead>
-              <ShadcnTableHead style={{ textAlign: "right" }}>Amount</ShadcnTableHead>
+              <ShadcnTableHead style={{ textAlign: "right" }}>
+                Amount
+              </ShadcnTableHead>
             </ShadcnTableRow>
           </ShadcnTableHeader>
           <ShadcnTableBody>
@@ -100,14 +102,18 @@ export const Default: Story = {
                 <ShadcnTableCell>{inv.invoice}</ShadcnTableCell>
                 <ShadcnTableCell>{inv.status}</ShadcnTableCell>
                 <ShadcnTableCell>{inv.method}</ShadcnTableCell>
-                <ShadcnTableCell style={{ textAlign: "right" }}>{inv.amount}</ShadcnTableCell>
+                <ShadcnTableCell style={{ textAlign: "right" }}>
+                  {inv.amount}
+                </ShadcnTableCell>
               </ShadcnTableRow>
             ))}
           </ShadcnTableBody>
           <ShadcnTableFooter>
             <ShadcnTableRow>
               <ShadcnTableCell colSpan={3}>Total</ShadcnTableCell>
-              <ShadcnTableCell style={{ textAlign: "right" }}>$1,200.00</ShadcnTableCell>
+              <ShadcnTableCell style={{ textAlign: "right" }}>
+                $1,200.00
+              </ShadcnTableCell>
             </ShadcnTableRow>
           </ShadcnTableFooter>
         </ShadcnTable>

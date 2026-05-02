@@ -40,7 +40,14 @@ export const Vertical: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", height: "24px" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            height: "24px",
+          }}
+        >
           <span>Left</span>
           <ShadcnSeparator orientation="vertical" className="h-full" />
           <span>Right</span>

@@ -37,9 +37,20 @@ export const Default: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <div style={{display:"flex",flexDirection:"column",gap:"6px",maxWidth:"320px"}}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "6px",
+            maxWidth: "320px",
+          }}
+        >
           <ShadcnLabel htmlFor="sn-email">Email</ShadcnLabel>
-          <ShadcnInput id="sn-email" type="email" placeholder="you@example.com" />
+          <ShadcnInput
+            id="sn-email"
+            type="email"
+            placeholder="you@example.com"
+          />
         </div>
       ),
     },
@@ -66,7 +77,14 @@ export const AllTypes: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <div style={{display:"flex",flexDirection:"column",gap:"12px",maxWidth:"320px"}}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "12px",
+            maxWidth: "320px",
+          }}
+        >
           <ShadcnInput type="text" placeholder="Text input" />
           <ShadcnInput type="email" placeholder="Email input" />
           <ShadcnInput type="password" placeholder="Password input" />
@@ -83,7 +101,10 @@ export const Disabled: Story = {
   parameters: {
     shadcn: {
       render: (args: Record<string, unknown>) => (
-        <ShadcnInput disabled={args["disabled"] as boolean} placeholder={args["placeholder"] as string} />
+        <ShadcnInput
+          disabled={args["disabled"] as boolean}
+          placeholder={args["placeholder"] as string}
+        />
       ),
     },
   },
@@ -94,7 +115,11 @@ export const Playground: Story = {
   parameters: {
     shadcn: {
       render: (args: Record<string, unknown>) => (
-        <ShadcnInput placeholder={args["placeholder"] as string} type={args["type"] as string} disabled={args["disabled"] as boolean | undefined} />
+        <ShadcnInput
+          placeholder={args["placeholder"] as string}
+          type={args["type"] as string}
+          disabled={args["disabled"] as boolean | undefined}
+        />
       ),
     },
   },

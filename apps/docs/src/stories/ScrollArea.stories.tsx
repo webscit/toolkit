@@ -33,10 +33,19 @@ export const Default: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <ShadcnScrollArea style={{ height: "200px", width: "300px", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>
+        <ShadcnScrollArea
+          style={{
+            height: "200px",
+            width: "300px",
+            border: "1px solid var(--border)",
+            borderRadius: "var(--radius-md)",
+          }}
+        >
           <div style={{ padding: "16px" }}>
             {Array.from({ length: 30 }, (_, i) => (
-              <p key={i} style={{ margin: "8px 0" }}>Item {i + 1}</p>
+              <p key={i} style={{ margin: "8px 0" }}>
+                Item {i + 1}
+              </p>
             ))}
           </div>
         </ShadcnScrollArea>

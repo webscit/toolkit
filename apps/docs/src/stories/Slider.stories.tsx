@@ -20,7 +20,7 @@ export const Default: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <div style={{width:"300px"}}>
+        <div style={{ width: "300px" }}>
           <ShadcnSlider defaultValue={[50]} />
         </div>
       ),
@@ -37,7 +37,7 @@ export const Range: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <div style={{width:"300px"}}>
+        <div style={{ width: "300px" }}>
           <ShadcnSlider defaultValue={[25]} min={0} max={100} />
         </div>
       ),
@@ -54,7 +54,7 @@ export const Playground: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <div style={{width:"300px"}}>
+        <div style={{ width: "300px" }}>
           <ShadcnSlider defaultValue={[75]} min={0} max={100} step={5} />
         </div>
       ),

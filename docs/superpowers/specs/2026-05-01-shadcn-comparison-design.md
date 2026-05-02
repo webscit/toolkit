@@ -19,10 +19,12 @@
 Tailwind v4 and shadcn/ui are added **only to `apps/docs`**. The toolkit packages (`packages/registry`, `packages/tokens`) remain Tailwind-free.
 
 **Dependencies added to `apps/docs`:**
+
 - `tailwindcss` v4 + `@tailwindcss/vite` (dev)
 - shadcn peer deps: `class-variance-authority`, `clsx`, `tailwind-merge`, `lucide-react`
 
 **Files created/modified in `apps/docs`:**
+
 - `src/index.css` — `@import "tailwindcss"` plus shadcn CSS variable theme config
 - `.storybook/main.ts` — add `@tailwindcss/vite` plugin via the `viteFinal` hook (no separate vite.config exists)
 - `src/components/ui/` — shadcn component sources installed via `npx shadcn@latest add`
@@ -102,6 +104,7 @@ When a story has no `parameters.shadcn`, the decorator is a no-op — the story 
 Every story export gains `parameters.shadcn.render`. The render function receives the story's current `args`, enabling live prop sync in the Playground.
 
 **Playground (live prop sync):**
+
 ```ts
 export const Playground: Story = {
   args: { variant: "default", size: "default", children: "Click me" },
@@ -118,6 +121,7 @@ export const Playground: Story = {
 ```
 
 **Static stories (AllVariants, Sizes, Disabled — args ignored):**
+
 ```ts
 export const AllVariants: Story = {
   render: () => (/* toolkit layout */),
@@ -143,26 +147,26 @@ For components with no direct prop mapping (Menu, Sidebar, etc.) each story vari
 
 All 32 story files are reviewed for rendering issues. Known problem categories:
 
-| Category | Example components | Fix |
-|---|---|---|
-| Missing trigger for overlay components | Dialog, Sheet, Drawer, Toast | Add a trigger button that opens the component |
-| Sub-component composition required | Select, Menu, Accordion, Tabs | Add required sub-components (Trigger, Content, Item, etc.) |
-| Missing children / args-only stories | Button Disabled | Add `children` default in args |
-| Broken/missing exports from `@webscit/registry` | Any | Fix import or add export |
+| Category                                        | Example components            | Fix                                                        |
+| ----------------------------------------------- | ----------------------------- | ---------------------------------------------------------- |
+| Missing trigger for overlay components          | Dialog, Sheet, Drawer, Toast  | Add a trigger button that opens the component              |
+| Sub-component composition required              | Select, Menu, Accordion, Tabs | Add required sub-components (Trigger, Content, Item, etc.) |
+| Missing children / args-only stories            | Button Disabled               | Add `children` default in args                             |
+| Broken/missing exports from `@webscit/registry` | Any                           | Fix import or add export                                   |
 
 ---
 
 ## Critical Files
 
-| File | Change |
-|---|---|
-| `apps/docs/package.json` | Add Tailwind v4, shadcn deps |
-| `apps/docs/.storybook/main.ts` | Add `@tailwindcss/vite` plugin via `viteFinal` |
-| `apps/docs/src/index.css` | Add Tailwind import + shadcn theme vars |
-| `apps/docs/components.json` | shadcn project config |
-| `apps/docs/.storybook/preview.tsx` | Add `compareShadcn` global type + comparison decorator |
-| `apps/docs/src/components/ui/` | shadcn component sources (generated) |
-| `apps/docs/src/stories/*.stories.tsx` | Add `parameters.shadcn` to all story exports |
+| File                                  | Change                                                 |
+| ------------------------------------- | ------------------------------------------------------ |
+| `apps/docs/package.json`              | Add Tailwind v4, shadcn deps                           |
+| `apps/docs/.storybook/main.ts`        | Add `@tailwindcss/vite` plugin via `viteFinal`         |
+| `apps/docs/src/index.css`             | Add Tailwind import + shadcn theme vars                |
+| `apps/docs/components.json`           | shadcn project config                                  |
+| `apps/docs/.storybook/preview.tsx`    | Add `compareShadcn` global type + comparison decorator |
+| `apps/docs/src/components/ui/`        | shadcn component sources (generated)                   |
+| `apps/docs/src/stories/*.stories.tsx` | Add `parameters.shadcn` to all story exports           |
 
 ---
 

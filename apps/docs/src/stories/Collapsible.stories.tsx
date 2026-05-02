@@ -49,7 +49,14 @@ export const Default: Story = {
             <ShadcnButton variant="ghost">Toggle content</ShadcnButton>
           </ShadcnCollapsibleTrigger>
           <ShadcnCollapsibleContent>
-            <div style={{ padding: "8px", border: "1px solid var(--border)", borderRadius: "var(--radius-md)", marginTop: "8px" }}>
+            <div
+              style={{
+                padding: "8px",
+                border: "1px solid var(--border)",
+                borderRadius: "var(--radius-md)",
+                marginTop: "8px",
+              }}
+            >
               This content can be collapsed and expanded.
             </div>
           </ShadcnCollapsibleContent>
@@ -87,7 +94,14 @@ export const DefaultOpen: Story = {
             <ShadcnButton variant="ghost">Toggle content</ShadcnButton>
           </ShadcnCollapsibleTrigger>
           <ShadcnCollapsibleContent>
-            <div style={{ padding: "8px", border: "1px solid var(--border)", borderRadius: "var(--radius-md)", marginTop: "8px" }}>
+            <div
+              style={{
+                padding: "8px",
+                border: "1px solid var(--border)",
+                borderRadius: "var(--radius-md)",
+                marginTop: "8px",
+              }}
+            >
               This starts expanded.
             </div>
           </ShadcnCollapsibleContent>

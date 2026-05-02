@@ -46,9 +46,15 @@ export const Playground: Story = {
     shadcn: {
       render: (args: Record<string, unknown>) => (
         <ShadcnBadge
-          variant={args["variant"] as "default" | "secondary" | "destructive" | "outline"}
+          variant={
+            args["variant"] as
+              | "default"
+              | "secondary"
+              | "destructive"
+              | "outline"
+          }
         >
-          {args["children"] as string ?? "Badge"}
+          {(args["children"] as string) ?? "Badge"}
         </ShadcnBadge>
       ),
     },

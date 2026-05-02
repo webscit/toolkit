@@ -84,12 +84,20 @@ export const WithGroupLabel: Story = {
           </ShadcnSelectTrigger>
           <ShadcnSelectContent>
             <ShadcnSelectLabel>North America</ShadcnSelectLabel>
-            <ShadcnSelectItem value="est">Eastern Standard Time (EST)</ShadcnSelectItem>
-            <ShadcnSelectItem value="cst">Central Standard Time (CST)</ShadcnSelectItem>
+            <ShadcnSelectItem value="est">
+              Eastern Standard Time (EST)
+            </ShadcnSelectItem>
+            <ShadcnSelectItem value="cst">
+              Central Standard Time (CST)
+            </ShadcnSelectItem>
             <ShadcnSelectSeparator />
             <ShadcnSelectLabel>Europe</ShadcnSelectLabel>
-            <ShadcnSelectItem value="gmt">Greenwich Mean Time (GMT)</ShadcnSelectItem>
-            <ShadcnSelectItem value="cet">Central European Time (CET)</ShadcnSelectItem>
+            <ShadcnSelectItem value="gmt">
+              Greenwich Mean Time (GMT)
+            </ShadcnSelectItem>
+            <ShadcnSelectItem value="cet">
+              Central European Time (CET)
+            </ShadcnSelectItem>
           </ShadcnSelectContent>
         </ShadcnSelect>
       ),

@@ -29,9 +29,27 @@ export const Default: Story = {
     shadcn: {
       render: () => (
         <div style={{ display: "inline-flex" }}>
-          <ShadcnButton variant="outline" style={{ borderRadius: "var(--radius-md) 0 0 var(--radius-md)", borderRight: "none" }}>Left</ShadcnButton>
-          <ShadcnButton variant="outline" style={{ borderRadius: 0, borderRight: "none" }}>Center</ShadcnButton>
-          <ShadcnButton variant="outline" style={{ borderRadius: "0 var(--radius-md) var(--radius-md) 0" }}>Right</ShadcnButton>
+          <ShadcnButton
+            variant="outline"
+            style={{
+              borderRadius: "var(--radius-md) 0 0 var(--radius-md)",
+              borderRight: "none",
+            }}
+          >
+            Left
+          </ShadcnButton>
+          <ShadcnButton
+            variant="outline"
+            style={{ borderRadius: 0, borderRight: "none" }}
+          >
+            Center
+          </ShadcnButton>
+          <ShadcnButton
+            variant="outline"
+            style={{ borderRadius: "0 var(--radius-md) var(--radius-md) 0" }}
+          >
+            Right
+          </ShadcnButton>
         </div>
       ),
     },
@@ -50,9 +68,27 @@ export const Vertical: Story = {
     shadcn: {
       render: () => (
         <div style={{ display: "inline-flex", flexDirection: "column" }}>
-          <ShadcnButton variant="outline" style={{ borderRadius: "var(--radius-md) var(--radius-md) 0 0", borderBottom: "none" }}>Top</ShadcnButton>
-          <ShadcnButton variant="outline" style={{ borderRadius: 0, borderBottom: "none" }}>Middle</ShadcnButton>
-          <ShadcnButton variant="outline" style={{ borderRadius: "0 0 var(--radius-md) var(--radius-md)" }}>Bottom</ShadcnButton>
+          <ShadcnButton
+            variant="outline"
+            style={{
+              borderRadius: "var(--radius-md) var(--radius-md) 0 0",
+              borderBottom: "none",
+            }}
+          >
+            Top
+          </ShadcnButton>
+          <ShadcnButton
+            variant="outline"
+            style={{ borderRadius: 0, borderBottom: "none" }}
+          >
+            Middle
+          </ShadcnButton>
+          <ShadcnButton
+            variant="outline"
+            style={{ borderRadius: "0 0 var(--radius-md) var(--radius-md)" }}
+          >
+            Bottom
+          </ShadcnButton>
         </div>
       ),
     },
@@ -73,13 +109,24 @@ export const Playground: Story = {
       render: (args: Record<string, unknown>) => {
         const isVertical = args["orientation"] === "vertical";
         return (
-          <div style={{ display: "inline-flex", flexDirection: isVertical ? "column" : "row" }}>
+          <div
+            style={{
+              display: "inline-flex",
+              flexDirection: isVertical ? "column" : "row",
+            }}
+          >
             <ShadcnButton
               variant="outline"
               style={
                 isVertical
-                  ? { borderRadius: "var(--radius-md) var(--radius-md) 0 0", borderBottom: "none" }
-                  : { borderRadius: "var(--radius-md) 0 0 var(--radius-md)", borderRight: "none" }
+                  ? {
+                      borderRadius: "var(--radius-md) var(--radius-md) 0 0",
+                      borderBottom: "none",
+                    }
+                  : {
+                      borderRadius: "var(--radius-md) 0 0 var(--radius-md)",
+                      borderRight: "none",
+                    }
               }
             >
               A

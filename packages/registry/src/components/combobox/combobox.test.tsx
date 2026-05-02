@@ -5,7 +5,7 @@ import {
   ComboboxContent,
   ComboboxInput,
   ComboboxItem,
-  ComboboxTrigger
+  ComboboxTrigger,
 } from "./combobox";
 
 const ITEMS = ["Apple", "Banana", "Cherry"];

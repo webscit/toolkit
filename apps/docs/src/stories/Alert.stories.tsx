@@ -23,7 +23,9 @@ export const Default: Story = {
   render: () => (
     <Alert>
       <AlertTitle>Heads up!</AlertTitle>
-      <AlertDescription>You can add components to your app using the CLI.</AlertDescription>
+      <AlertDescription>
+        You can add components to your app using the CLI.
+      </AlertDescription>
     </Alert>
   ),
   parameters: {
@@ -31,7 +33,9 @@ export const Default: Story = {
       render: () => (
         <ShadcnAlert>
           <ShadcnAlertTitle>Heads up!</ShadcnAlertTitle>
-          <ShadcnAlertDescription>You can add components to your app using the CLI.</ShadcnAlertDescription>
+          <ShadcnAlertDescription>
+            You can add components to your app using the CLI.
+          </ShadcnAlertDescription>
         </ShadcnAlert>
       ),
     },
@@ -47,7 +51,9 @@ export const AllVariants: Story = {
       </Alert>
       <Alert variant="destructive">
         <AlertTitle>Destructive</AlertTitle>
-        <AlertDescription>Something went wrong. Please try again.</AlertDescription>
+        <AlertDescription>
+          Something went wrong. Please try again.
+        </AlertDescription>
       </Alert>
     </div>
   ),
@@ -57,11 +63,15 @@ export const AllVariants: Story = {
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           <ShadcnAlert variant="default">
             <ShadcnAlertTitle>Default</ShadcnAlertTitle>
-            <ShadcnAlertDescription>This is a default alert message.</ShadcnAlertDescription>
+            <ShadcnAlertDescription>
+              This is a default alert message.
+            </ShadcnAlertDescription>
           </ShadcnAlert>
           <ShadcnAlert variant="destructive">
             <ShadcnAlertTitle>Destructive</ShadcnAlertTitle>
-            <ShadcnAlertDescription>Something went wrong. Please try again.</ShadcnAlertDescription>
+            <ShadcnAlertDescription>
+              Something went wrong. Please try again.
+            </ShadcnAlertDescription>
           </ShadcnAlert>
         </div>
       ),
@@ -82,7 +92,9 @@ export const Playground: Story = {
       render: (args: Record<string, unknown>) => (
         <ShadcnAlert variant={args["variant"] as "default" | "destructive"}>
           <ShadcnAlertTitle>Alert title</ShadcnAlertTitle>
-          <ShadcnAlertDescription>Alert description goes here.</ShadcnAlertDescription>
+          <ShadcnAlertDescription>
+            Alert description goes here.
+          </ShadcnAlertDescription>
         </ShadcnAlert>
       ),
     },

@@ -30,7 +30,14 @@ export const WithInput: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <div style={{ display: "flex", flexDirection: "column", gap: "6px", maxWidth: "280px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "6px",
+            maxWidth: "280px",
+          }}
+        >
           <ShadcnLabel htmlFor="sn-name">Full name</ShadcnLabel>
           <ShadcnInput id="sn-name" placeholder="Enter your name" />
         </div>
@@ -64,7 +71,7 @@ export const Playground: Story = {
     shadcn: {
       render: (args: Record<string, unknown>) => (
         <ShadcnLabel htmlFor={args["htmlFor"] as string}>
-          {args["children"] as string ?? "Label text"}
+          {(args["children"] as string) ?? "Label text"}
         </ShadcnLabel>
       ),
     },

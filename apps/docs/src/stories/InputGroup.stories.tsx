@@ -33,8 +33,19 @@ export const Default: Story = {
     shadcn: {
       render: () => (
         <div style={{ display: "flex", width: "300px" }}>
-          <span style={{ ...addonStyle, borderRight: "none", borderRadius: "var(--radius-md) 0 0 var(--radius-md)" }}>$</span>
-          <ShadcnInput placeholder="0.00" style={{ borderRadius: "0 var(--radius-md) var(--radius-md) 0" }} />
+          <span
+            style={{
+              ...addonStyle,
+              borderRight: "none",
+              borderRadius: "var(--radius-md) 0 0 var(--radius-md)",
+            }}
+          >
+            $
+          </span>
+          <ShadcnInput
+            placeholder="0.00"
+            style={{ borderRadius: "0 var(--radius-md) var(--radius-md) 0" }}
+          />
         </div>
       ),
     },
@@ -52,8 +63,21 @@ export const WithSuffix: Story = {
     shadcn: {
       render: () => (
         <div style={{ display: "flex", width: "300px" }}>
-          <ShadcnInput placeholder="username" style={{ borderRadius: "var(--radius-md) 0 0 var(--radius-md)", borderRight: "none" }} />
-          <span style={{ ...addonStyle, borderRadius: "0 var(--radius-md) var(--radius-md) 0" }}>@example.com</span>
+          <ShadcnInput
+            placeholder="username"
+            style={{
+              borderRadius: "var(--radius-md) 0 0 var(--radius-md)",
+              borderRight: "none",
+            }}
+          />
+          <span
+            style={{
+              ...addonStyle,
+              borderRadius: "0 var(--radius-md) var(--radius-md) 0",
+            }}
+          >
+            @example.com
+          </span>
         </div>
       ),
     },
@@ -72,9 +96,27 @@ export const BothSides: Story = {
     shadcn: {
       render: () => (
         <div style={{ display: "flex", width: "300px" }}>
-          <span style={{ ...addonStyle, borderRight: "none", borderRadius: "var(--radius-md) 0 0 var(--radius-md)" }}>https://</span>
-          <ShadcnInput placeholder="example.com" style={{ borderRadius: 0, borderRight: "none" }} />
-          <span style={{ ...addonStyle, borderRadius: "0 var(--radius-md) var(--radius-md) 0" }}>/path</span>
+          <span
+            style={{
+              ...addonStyle,
+              borderRight: "none",
+              borderRadius: "var(--radius-md) 0 0 var(--radius-md)",
+            }}
+          >
+            https://
+          </span>
+          <ShadcnInput
+            placeholder="example.com"
+            style={{ borderRadius: 0, borderRight: "none" }}
+          />
+          <span
+            style={{
+              ...addonStyle,
+              borderRadius: "0 var(--radius-md) var(--radius-md) 0",
+            }}
+          >
+            /path
+          </span>
         </div>
       ),
     },

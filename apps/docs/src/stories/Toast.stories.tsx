@@ -99,11 +99,52 @@ function ShadcnToastDemo() {
     <>
       <ShadcnToaster />
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-        <ShadcnButton variant="outline" onClick={() => sonnerToast("Default toast", { description: "This is a default notification." })}>Default</ShadcnButton>
-        <ShadcnButton variant="outline" onClick={() => sonnerToast.success("Success!", { description: "Operation completed." })}>Success</ShadcnButton>
-        <ShadcnButton variant="outline" onClick={() => sonnerToast.warning("Warning", { description: "Please check your input." })}>Warning</ShadcnButton>
-        <ShadcnButton variant="outline" onClick={() => sonnerToast.info("Info", { description: "New updates available." })}>Info</ShadcnButton>
-        <ShadcnButton variant="destructive" onClick={() => sonnerToast.error("Error", { description: "Something went wrong." })}>Destructive</ShadcnButton>
+        <ShadcnButton
+          variant="outline"
+          onClick={() =>
+            sonnerToast("Default toast", {
+              description: "This is a default notification.",
+            })
+          }
+        >
+          Default
+        </ShadcnButton>
+        <ShadcnButton
+          variant="outline"
+          onClick={() =>
+            sonnerToast.success("Success!", {
+              description: "Operation completed.",
+            })
+          }
+        >
+          Success
+        </ShadcnButton>
+        <ShadcnButton
+          variant="outline"
+          onClick={() =>
+            sonnerToast.warning("Warning", {
+              description: "Please check your input.",
+            })
+          }
+        >
+          Warning
+        </ShadcnButton>
+        <ShadcnButton
+          variant="outline"
+          onClick={() =>
+            sonnerToast.info("Info", { description: "New updates available." })
+          }
+        >
+          Info
+        </ShadcnButton>
+        <ShadcnButton
+          variant="destructive"
+          onClick={() =>
+            sonnerToast.error("Error", { description: "Something went wrong." })
+          }
+        >
+          Destructive
+        </ShadcnButton>
       </div>
     </>
   );

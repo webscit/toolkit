@@ -50,15 +50,22 @@ export const Default: Story = {
         <ShadcnAccordion type="single" collapsible style={{ width: "400px" }}>
           <ShadcnAccordionItem value="item-1">
             <ShadcnAccordionTrigger>Is it accessible?</ShadcnAccordionTrigger>
-            <ShadcnAccordionContent>Yes. It adheres to the WAI-ARIA design pattern.</ShadcnAccordionContent>
+            <ShadcnAccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </ShadcnAccordionContent>
           </ShadcnAccordionItem>
           <ShadcnAccordionItem value="item-2">
             <ShadcnAccordionTrigger>Is it styled?</ShadcnAccordionTrigger>
-            <ShadcnAccordionContent>Yes. It comes with default styles that match your other components.</ShadcnAccordionContent>
+            <ShadcnAccordionContent>
+              Yes. It comes with default styles that match your other
+              components.
+            </ShadcnAccordionContent>
           </ShadcnAccordionItem>
           <ShadcnAccordionItem value="item-3">
             <ShadcnAccordionTrigger>Is it animated?</ShadcnAccordionTrigger>
-            <ShadcnAccordionContent>Yes. It uses CSS transitions for smooth expand/collapse.</ShadcnAccordionContent>
+            <ShadcnAccordionContent>
+              Yes. It uses CSS transitions for smooth expand/collapse.
+            </ShadcnAccordionContent>
           </ShadcnAccordionItem>
         </ShadcnAccordion>
       ),
@@ -89,11 +96,15 @@ export const Playground: Story = {
         <ShadcnAccordion type="single" collapsible style={{ width: "400px" }}>
           <ShadcnAccordionItem value="a">
             <ShadcnAccordionTrigger>Section A</ShadcnAccordionTrigger>
-            <ShadcnAccordionContent>Content for section A.</ShadcnAccordionContent>
+            <ShadcnAccordionContent>
+              Content for section A.
+            </ShadcnAccordionContent>
           </ShadcnAccordionItem>
           <ShadcnAccordionItem value="b">
             <ShadcnAccordionTrigger>Section B</ShadcnAccordionTrigger>
-            <ShadcnAccordionContent>Content for section B.</ShadcnAccordionContent>
+            <ShadcnAccordionContent>
+              Content for section B.
+            </ShadcnAccordionContent>
           </ShadcnAccordionItem>
         </ShadcnAccordion>
       ),

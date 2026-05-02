@@ -28,7 +28,9 @@ export const Default: Story = {
       render: () => (
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <ShadcnCheckbox id="sn-terms" />
-          <ShadcnLabel htmlFor="sn-terms">Accept terms and conditions</ShadcnLabel>
+          <ShadcnLabel htmlFor="sn-terms">
+            Accept terms and conditions
+          </ShadcnLabel>
         </div>
       ),
     },

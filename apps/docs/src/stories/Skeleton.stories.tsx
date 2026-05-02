@@ -29,7 +29,14 @@ export const Default: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "300px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+            width: "300px",
+          }}
+        >
           <ShadcnSkeleton className="h-4 w-4/5" />
           <ShadcnSkeleton className="h-4 w-3/5" />
           <ShadcnSkeleton className="h-4 w-[70%]" />

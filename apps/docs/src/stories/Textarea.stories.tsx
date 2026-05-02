@@ -33,9 +33,19 @@ export const Default: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <div style={{display:"flex",flexDirection:"column",gap:"6px",maxWidth:"320px"}}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "6px",
+            maxWidth: "320px",
+          }}
+        >
           <ShadcnLabel htmlFor="sn-message">Message</ShadcnLabel>
-          <ShadcnTextarea id="sn-message" placeholder="Type your message here..." />
+          <ShadcnTextarea
+            id="sn-message"
+            placeholder="Type your message here..."
+          />
         </div>
       ),
     },
@@ -47,7 +57,10 @@ export const Disabled: Story = {
   parameters: {
     shadcn: {
       render: (args: Record<string, unknown>) => (
-        <ShadcnTextarea disabled={args["disabled"] as boolean} placeholder={args["placeholder"] as string} />
+        <ShadcnTextarea
+          disabled={args["disabled"] as boolean}
+          placeholder={args["placeholder"] as string}
+        />
       ),
     },
   },
@@ -58,7 +71,11 @@ export const Playground: Story = {
   parameters: {
     shadcn: {
       render: (args: Record<string, unknown>) => (
-        <ShadcnTextarea placeholder={args["placeholder"] as string} rows={args["rows"] as number} disabled={args["disabled"] as boolean | undefined} />
+        <ShadcnTextarea
+          placeholder={args["placeholder"] as string}
+          rows={args["rows"] as number}
+          disabled={args["disabled"] as boolean | undefined}
+        />
       ),
     },
   },
