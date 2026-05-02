@@ -105,6 +105,6 @@ describe("FieldContent", () => {
 describe("FieldSeparator", () => {
   it("renders separator", async () => {
     const screen = await render(<FieldSeparator />);
-    await expect.element(screen.getByRole("none")).toBeInTheDocument();
+    await expect.element(screen.getByRole("separator")).toBeInTheDocument();
   });
 });

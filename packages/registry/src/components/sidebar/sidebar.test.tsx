@@ -152,6 +152,6 @@ describe("SidebarSeparator", () => {
         </Sidebar>
       </SidebarProvider>,
     );
-    await expect.element(screen.getByRole("none")).toBeInTheDocument();
+    await expect.element(screen.getByRole("separator")).toBeInTheDocument();
   });
 });
