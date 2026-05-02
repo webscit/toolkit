@@ -5,6 +5,12 @@ import {
   CollapsibleContent,
   Button,
 } from "@webscit/registry";
+import {
+  Collapsible as ShadcnCollapsible,
+  CollapsibleTrigger as ShadcnCollapsibleTrigger,
+  CollapsibleContent as ShadcnCollapsibleContent,
+} from "@/components/ui/collapsible";
+import { Button as ShadcnButton } from "@/components/ui/button";
 
 const meta = {
   title: "Components/Collapsible",
@@ -35,6 +41,29 @@ export const Default: Story = {
       </CollapsibleContent>
     </Collapsible>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnCollapsible style={{ width: "350px" }}>
+          <ShadcnCollapsibleTrigger>
+            <ShadcnButton variant="ghost">Toggle content</ShadcnButton>
+          </ShadcnCollapsibleTrigger>
+          <ShadcnCollapsibleContent>
+            <div
+              style={{
+                padding: "8px",
+                border: "1px solid var(--border)",
+                borderRadius: "var(--radius-md)",
+                marginTop: "8px",
+              }}
+            >
+              This content can be collapsed and expanded.
+            </div>
+          </ShadcnCollapsibleContent>
+        </ShadcnCollapsible>
+      ),
+    },
+  },
 };
 
 export const DefaultOpen: Story = {
@@ -57,4 +86,27 @@ export const DefaultOpen: Story = {
       </CollapsibleContent>
     </Collapsible>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnCollapsible defaultOpen style={{ width: "350px" }}>
+          <ShadcnCollapsibleTrigger>
+            <ShadcnButton variant="ghost">Toggle content</ShadcnButton>
+          </ShadcnCollapsibleTrigger>
+          <ShadcnCollapsibleContent>
+            <div
+              style={{
+                padding: "8px",
+                border: "1px solid var(--border)",
+                borderRadius: "var(--radius-md)",
+                marginTop: "8px",
+              }}
+            >
+              This starts expanded.
+            </div>
+          </ShadcnCollapsibleContent>
+        </ShadcnCollapsible>
+      ),
+    },
+  },
 };

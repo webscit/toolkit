@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Separator } from "@webscit/registry";
+import { Separator as ShadcnSeparator } from "@/components/ui/separator";
 
 const meta = {
   title: "Components/Separator",
@@ -10,14 +11,15 @@ const meta = {
       control: "select",
       options: ["horizontal", "vertical"],
     },
-    decorative: { control: "boolean" },
   },
 } satisfies Meta<typeof Separator>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  parameters: { shadcn: { render: () => <ShadcnSeparator /> } },
+};
 
 export const Vertical: Story = {
   render: () => (
@@ -34,8 +36,35 @@ export const Vertical: Story = {
       <span>Right</span>
     </div>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            height: "24px",
+          }}
+        >
+          <span>Left</span>
+          <ShadcnSeparator orientation="vertical" className="h-full" />
+          <span>Right</span>
+        </div>
+      ),
+    },
+  },
 };
 
 export const Playground: Story = {
-  args: { orientation: "horizontal", decorative: true },
+  args: { orientation: "horizontal" },
+  parameters: {
+    shadcn: {
+      render: (args: Record<string, unknown>) => (
+        <ShadcnSeparator
+          orientation={args["orientation"] as "horizontal" | "vertical"}
+        />
+      ),
+    },
+  },
 };

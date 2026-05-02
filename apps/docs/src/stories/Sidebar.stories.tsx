@@ -15,6 +15,21 @@ import {
   SidebarSeparator,
   SidebarInset,
 } from "@webscit/registry";
+import {
+  SidebarProvider as ShadcnSidebarProvider,
+  Sidebar as ShadcnSidebar,
+  SidebarHeader as ShadcnSidebarHeader,
+  SidebarContent as ShadcnSidebarContent,
+  SidebarFooter as ShadcnSidebarFooter,
+  SidebarTrigger as ShadcnSidebarTrigger,
+  SidebarGroup as ShadcnSidebarGroup,
+  SidebarGroupLabel as ShadcnSidebarGroupLabel,
+  SidebarGroupContent as ShadcnSidebarGroupContent,
+  SidebarMenu as ShadcnSidebarMenu,
+  SidebarMenuItem as ShadcnSidebarMenuItem,
+  SidebarMenuButton as ShadcnSidebarMenuButton,
+  SidebarInset as ShadcnSidebarInset,
+} from "@/components/ui/sidebar";
 
 const meta = {
   title: "Components/Sidebar",
@@ -91,6 +106,72 @@ export const Default: Story = {
       </SidebarInset>
     </SidebarProvider>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnSidebarProvider>
+          <ShadcnSidebar side="right">
+            <ShadcnSidebarHeader>
+              <h3 style={{ fontSize: "14px", fontWeight: 600 }}>My App</h3>
+            </ShadcnSidebarHeader>
+            <ShadcnSidebarContent>
+              <ShadcnSidebarGroup>
+                <ShadcnSidebarGroupLabel>Navigation</ShadcnSidebarGroupLabel>
+                <ShadcnSidebarGroupContent>
+                  <ShadcnSidebarMenu>
+                    <ShadcnSidebarMenuItem>
+                      <ShadcnSidebarMenuButton isActive>
+                        Home
+                      </ShadcnSidebarMenuButton>
+                    </ShadcnSidebarMenuItem>
+                    <ShadcnSidebarMenuItem>
+                      <ShadcnSidebarMenuButton>
+                        Dashboard
+                      </ShadcnSidebarMenuButton>
+                    </ShadcnSidebarMenuItem>
+                    <ShadcnSidebarMenuItem>
+                      <ShadcnSidebarMenuButton>
+                        Settings
+                      </ShadcnSidebarMenuButton>
+                    </ShadcnSidebarMenuItem>
+                  </ShadcnSidebarMenu>
+                </ShadcnSidebarGroupContent>
+              </ShadcnSidebarGroup>
+              <ShadcnSidebarGroup>
+                <ShadcnSidebarGroupLabel>Projects</ShadcnSidebarGroupLabel>
+                <ShadcnSidebarGroupContent>
+                  <ShadcnSidebarMenu>
+                    <ShadcnSidebarMenuItem>
+                      <ShadcnSidebarMenuButton>
+                        Project Alpha
+                      </ShadcnSidebarMenuButton>
+                    </ShadcnSidebarMenuItem>
+                    <ShadcnSidebarMenuItem>
+                      <ShadcnSidebarMenuButton>
+                        Project Beta
+                      </ShadcnSidebarMenuButton>
+                    </ShadcnSidebarMenuItem>
+                  </ShadcnSidebarMenu>
+                </ShadcnSidebarGroupContent>
+              </ShadcnSidebarGroup>
+            </ShadcnSidebarContent>
+            <ShadcnSidebarFooter>
+              <p style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
+                v1.0.0
+              </p>
+            </ShadcnSidebarFooter>
+          </ShadcnSidebar>
+          <ShadcnSidebarInset>
+            <div style={{ padding: "16px" }}>
+              <ShadcnSidebarTrigger />
+              <h2 style={{ marginTop: "16px" }}>Main Content</h2>
+              <p>This is the main content area next to the sidebar.</p>
+            </div>
+          </ShadcnSidebarInset>
+        </ShadcnSidebarProvider>
+      ),
+    },
+  },
 };
 
 export const CollapsedByDefault: Story = {
@@ -117,6 +198,33 @@ export const CollapsedByDefault: Story = {
       </SidebarInset>
     </SidebarProvider>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnSidebarProvider defaultOpen={false}>
+          <ShadcnSidebar side="right">
+            <ShadcnSidebarContent>
+              <ShadcnSidebarGroup>
+                <ShadcnSidebarGroupContent>
+                  <ShadcnSidebarMenu>
+                    <ShadcnSidebarMenuItem>
+                      <ShadcnSidebarMenuButton>Home</ShadcnSidebarMenuButton>
+                    </ShadcnSidebarMenuItem>
+                  </ShadcnSidebarMenu>
+                </ShadcnSidebarGroupContent>
+              </ShadcnSidebarGroup>
+            </ShadcnSidebarContent>
+          </ShadcnSidebar>
+          <ShadcnSidebarInset>
+            <div style={{ padding: "16px" }}>
+              <ShadcnSidebarTrigger />
+              <p>Sidebar starts collapsed.</p>
+            </div>
+          </ShadcnSidebarInset>
+        </ShadcnSidebarProvider>
+      ),
+    },
+  },
 };
 
 export const RightSide: Story = {
@@ -147,4 +255,37 @@ export const RightSide: Story = {
       </Sidebar>
     </SidebarProvider>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnSidebarProvider>
+          <ShadcnSidebarInset>
+            <div style={{ padding: "16px" }}>
+              <ShadcnSidebarTrigger />
+              <h2>Main Content</h2>
+            </div>
+          </ShadcnSidebarInset>
+          <ShadcnSidebar side="left">
+            <ShadcnSidebarContent>
+              <ShadcnSidebarGroup>
+                <ShadcnSidebarGroupLabel>Details</ShadcnSidebarGroupLabel>
+                <ShadcnSidebarGroupContent>
+                  <ShadcnSidebarMenu>
+                    <ShadcnSidebarMenuItem>
+                      <ShadcnSidebarMenuButton>
+                        Properties
+                      </ShadcnSidebarMenuButton>
+                    </ShadcnSidebarMenuItem>
+                    <ShadcnSidebarMenuItem>
+                      <ShadcnSidebarMenuButton>History</ShadcnSidebarMenuButton>
+                    </ShadcnSidebarMenuItem>
+                  </ShadcnSidebarMenu>
+                </ShadcnSidebarGroupContent>
+              </ShadcnSidebarGroup>
+            </ShadcnSidebarContent>
+          </ShadcnSidebar>
+        </ShadcnSidebarProvider>
+      ),
+    },
+  },
 };

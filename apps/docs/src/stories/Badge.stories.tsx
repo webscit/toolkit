@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "@webscit/registry";
+import { Badge as ShadcnBadge } from "@/components/ui/badge";
 
 const meta = {
   title: "Components/Badge",
@@ -25,8 +26,37 @@ export const AllVariants: Story = {
       <Badge variant="outline">Outline</Badge>
     </div>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          <ShadcnBadge variant="default">Default</ShadcnBadge>
+          <ShadcnBadge variant="secondary">Secondary</ShadcnBadge>
+          <ShadcnBadge variant="destructive">Destructive</ShadcnBadge>
+          <ShadcnBadge variant="outline">Outline</ShadcnBadge>
+        </div>
+      ),
+    },
+  },
 };
 
 export const Playground: Story = {
   args: { children: "Badge", variant: "default" },
+  parameters: {
+    shadcn: {
+      render: (args: Record<string, unknown>) => (
+        <ShadcnBadge
+          variant={
+            args["variant"] as
+              | "default"
+              | "secondary"
+              | "destructive"
+              | "outline"
+          }
+        >
+          {(args["children"] as string) ?? "Badge"}
+        </ShadcnBadge>
+      ),
+    },
+  },
 };

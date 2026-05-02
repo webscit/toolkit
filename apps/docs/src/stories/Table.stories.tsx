@@ -9,6 +9,16 @@ import {
   TableCell,
   TableCaption,
 } from "@webscit/registry";
+import {
+  Table as ShadcnTable,
+  TableHeader as ShadcnTableHeader,
+  TableBody as ShadcnTableBody,
+  TableFooter as ShadcnTableFooter,
+  TableRow as ShadcnTableRow,
+  TableHead as ShadcnTableHead,
+  TableCell as ShadcnTableCell,
+  TableCaption as ShadcnTableCaption,
+} from "@/components/ui/table";
 
 const meta = {
   title: "Components/Table",
@@ -71,4 +81,43 @@ export const Default: Story = {
       </TableFooter>
     </Table>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnTable>
+          <ShadcnTableCaption>A list of recent invoices.</ShadcnTableCaption>
+          <ShadcnTableHeader>
+            <ShadcnTableRow>
+              <ShadcnTableHead>Invoice</ShadcnTableHead>
+              <ShadcnTableHead>Status</ShadcnTableHead>
+              <ShadcnTableHead>Method</ShadcnTableHead>
+              <ShadcnTableHead style={{ textAlign: "right" }}>
+                Amount
+              </ShadcnTableHead>
+            </ShadcnTableRow>
+          </ShadcnTableHeader>
+          <ShadcnTableBody>
+            {invoices.map((inv) => (
+              <ShadcnTableRow key={inv.invoice}>
+                <ShadcnTableCell>{inv.invoice}</ShadcnTableCell>
+                <ShadcnTableCell>{inv.status}</ShadcnTableCell>
+                <ShadcnTableCell>{inv.method}</ShadcnTableCell>
+                <ShadcnTableCell style={{ textAlign: "right" }}>
+                  {inv.amount}
+                </ShadcnTableCell>
+              </ShadcnTableRow>
+            ))}
+          </ShadcnTableBody>
+          <ShadcnTableFooter>
+            <ShadcnTableRow>
+              <ShadcnTableCell colSpan={3}>Total</ShadcnTableCell>
+              <ShadcnTableCell style={{ textAlign: "right" }}>
+                $1,200.00
+              </ShadcnTableCell>
+            </ShadcnTableRow>
+          </ShadcnTableFooter>
+        </ShadcnTable>
+      ),
+    },
+  },
 };

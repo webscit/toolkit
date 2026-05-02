@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@webscit/registry";
 import type { TabsProps } from "@webscit/registry";
+import {
+  Tabs as ShadcnTabs,
+  TabsList as ShadcnTabsList,
+  TabsTrigger as ShadcnTabsTrigger,
+  TabsContent as ShadcnTabsContent,
+} from "@/components/ui/tabs";
 
 const meta = {
   title: "Components/Tabs",
@@ -32,6 +38,30 @@ export const Default: Story = {
       </TabsContent>
     </Tabs>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnTabs defaultValue="account" style={{ width: "400px" }}>
+          <ShadcnTabsList>
+            <ShadcnTabsTrigger value="account">Account</ShadcnTabsTrigger>
+            <ShadcnTabsTrigger value="password">Password</ShadcnTabsTrigger>
+            <ShadcnTabsTrigger value="settings">Settings</ShadcnTabsTrigger>
+          </ShadcnTabsList>
+          <ShadcnTabsContent value="account">
+            <p style={{ paddingBlock: "8px" }}>
+              Make changes to your account here.
+            </p>
+          </ShadcnTabsContent>
+          <ShadcnTabsContent value="password">
+            <p style={{ paddingBlock: "8px" }}>Change your password here.</p>
+          </ShadcnTabsContent>
+          <ShadcnTabsContent value="settings">
+            <p style={{ paddingBlock: "8px" }}>Edit your settings here.</p>
+          </ShadcnTabsContent>
+        </ShadcnTabs>
+      ),
+    },
+  },
 };
 
 export const WithDisabled: Story = {
@@ -49,6 +79,24 @@ export const WithDisabled: Story = {
       <TabsContent value="c">Content C</TabsContent>
     </Tabs>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnTabs defaultValue="a">
+          <ShadcnTabsList>
+            <ShadcnTabsTrigger value="a">Active</ShadcnTabsTrigger>
+            <ShadcnTabsTrigger value="b">Also Active</ShadcnTabsTrigger>
+            <ShadcnTabsTrigger value="c" disabled>
+              Disabled
+            </ShadcnTabsTrigger>
+          </ShadcnTabsList>
+          <ShadcnTabsContent value="a">Content A</ShadcnTabsContent>
+          <ShadcnTabsContent value="b">Content B</ShadcnTabsContent>
+          <ShadcnTabsContent value="c">Content C</ShadcnTabsContent>
+        </ShadcnTabs>
+      ),
+    },
+  },
 };
 
 export const Playground: Story = {
@@ -63,4 +111,18 @@ export const Playground: Story = {
       <TabsContent value="tab2">Content for Tab 2</TabsContent>
     </Tabs>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnTabs defaultValue="tab1">
+          <ShadcnTabsList>
+            <ShadcnTabsTrigger value="tab1">Tab 1</ShadcnTabsTrigger>
+            <ShadcnTabsTrigger value="tab2">Tab 2</ShadcnTabsTrigger>
+          </ShadcnTabsList>
+          <ShadcnTabsContent value="tab1">Content for Tab 1</ShadcnTabsContent>
+          <ShadcnTabsContent value="tab2">Content for Tab 2</ShadcnTabsContent>
+        </ShadcnTabs>
+      ),
+    },
+  },
 };

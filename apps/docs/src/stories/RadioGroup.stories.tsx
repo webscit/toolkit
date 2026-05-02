@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { RadioGroup, Radio, Label } from "@webscit/registry";
 import type { RadioGroupProps } from "@webscit/registry";
+import {
+  RadioGroup as ShadcnRadioGroup,
+  RadioGroupItem as ShadcnRadioGroupItem,
+} from "@/components/ui/radio-group";
+import { Label as ShadcnLabel } from "@/components/ui/label";
 
 const meta = {
   title: "Components/RadioGroup",
@@ -31,6 +36,26 @@ export const Default: Story = {
       </div>
     </RadioGroup>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnRadioGroup defaultValue="comfortable">
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <ShadcnRadioGroupItem value="compact" id="sn-compact" />
+            <ShadcnLabel htmlFor="sn-compact">Compact</ShadcnLabel>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <ShadcnRadioGroupItem value="comfortable" id="sn-comfortable" />
+            <ShadcnLabel htmlFor="sn-comfortable">Comfortable</ShadcnLabel>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <ShadcnRadioGroupItem value="spacious" id="sn-spacious" />
+            <ShadcnLabel htmlFor="sn-spacious">Spacious</ShadcnLabel>
+          </div>
+        </ShadcnRadioGroup>
+      ),
+    },
+  },
 };
 
 export const Horizontal: Story = {
@@ -46,6 +71,25 @@ export const Horizontal: Story = {
       </div>
     </RadioGroup>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnRadioGroup
+          defaultValue="b"
+          style={{ flexDirection: "row", display: "flex", gap: "16px" }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <ShadcnRadioGroupItem value="a" id="sn-h-a" />
+            <ShadcnLabel htmlFor="sn-h-a">Option A</ShadcnLabel>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <ShadcnRadioGroupItem value="b" id="sn-h-b" />
+            <ShadcnLabel htmlFor="sn-h-b">Option B</ShadcnLabel>
+          </div>
+        </ShadcnRadioGroup>
+      ),
+    },
+  },
 };
 
 export const Disabled: Story = {
@@ -61,6 +105,22 @@ export const Disabled: Story = {
       </div>
     </RadioGroup>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnRadioGroup defaultValue="a">
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <ShadcnRadioGroupItem value="a" id="sn-d-a" disabled />
+            <ShadcnLabel htmlFor="sn-d-a">Disabled option A</ShadcnLabel>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <ShadcnRadioGroupItem value="b" id="sn-d-b" disabled />
+            <ShadcnLabel htmlFor="sn-d-b">Disabled option B</ShadcnLabel>
+          </div>
+        </ShadcnRadioGroup>
+      ),
+    },
+  },
 };
 
 export const Playground: Story = {
@@ -77,4 +137,27 @@ export const Playground: Story = {
       </div>
     </RadioGroup>
   ),
+  parameters: {
+    shadcn: {
+      render: (args: Record<string, unknown>) => (
+        <ShadcnRadioGroup
+          defaultValue={args["defaultValue"] as string}
+          style={
+            args["orientation"] === "horizontal"
+              ? { flexDirection: "row", display: "flex", gap: "16px" }
+              : undefined
+          }
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <ShadcnRadioGroupItem value="a" id="sn-pg-a" />
+            <ShadcnLabel htmlFor="sn-pg-a">Option A</ShadcnLabel>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <ShadcnRadioGroupItem value="b" id="sn-pg-b" />
+            <ShadcnLabel htmlFor="sn-pg-b">Option B</ShadcnLabel>
+          </div>
+        </ShadcnRadioGroup>
+      ),
+    },
+  },
 };
