@@ -60,7 +60,7 @@ export const Default: Story = {
     shadcn: {
       render: () => (
         <ShadcnSheet>
-          <ShadcnSheetTrigger asChild>
+          <ShadcnSheetTrigger>
             <ShadcnButton variant="outline">Open Sheet</ShadcnButton>
           </ShadcnSheetTrigger>
           <ShadcnSheetContent>
@@ -74,7 +74,7 @@ export const Default: Story = {
               <p>Sheet content goes here.</p>
             </div>
             <ShadcnSheetFooter>
-              <ShadcnSheetClose asChild>
+              <ShadcnSheetClose>
                 <ShadcnButton variant="outline">Cancel</ShadcnButton>
               </ShadcnSheetClose>
               <ShadcnButton>Save changes</ShadcnButton>
@@ -104,7 +104,7 @@ export const Left: Story = {
     shadcn: {
       render: () => (
         <ShadcnSheet>
-          <ShadcnSheetTrigger asChild>
+          <ShadcnSheetTrigger>
             <ShadcnButton variant="outline">Open Left</ShadcnButton>
           </ShadcnSheetTrigger>
           <ShadcnSheetContent side="left">
@@ -137,7 +137,7 @@ export const Top: Story = {
     shadcn: {
       render: () => (
         <ShadcnSheet>
-          <ShadcnSheetTrigger asChild>
+          <ShadcnSheetTrigger>
             <ShadcnButton variant="outline">Open Top</ShadcnButton>
           </ShadcnSheetTrigger>
           <ShadcnSheetContent side="top">
@@ -170,7 +170,7 @@ export const Bottom: Story = {
     shadcn: {
       render: () => (
         <ShadcnSheet>
-          <ShadcnSheetTrigger asChild>
+          <ShadcnSheetTrigger>
             <ShadcnButton variant="outline">Open Bottom</ShadcnButton>
           </ShadcnSheetTrigger>
           <ShadcnSheetContent side="bottom">

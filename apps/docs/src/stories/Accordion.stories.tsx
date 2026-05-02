@@ -47,7 +47,7 @@ export const Default: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <ShadcnAccordion type="single" collapsible style={{ width: "400px" }}>
+        <ShadcnAccordion style={{ width: "400px" }}>
           <ShadcnAccordionItem value="item-1">
             <ShadcnAccordionTrigger>Is it accessible?</ShadcnAccordionTrigger>
             <ShadcnAccordionContent>
@@ -93,7 +93,7 @@ export const Playground: Story = {
   parameters: {
     shadcn: {
       render: () => (
-        <ShadcnAccordion type="single" collapsible style={{ width: "400px" }}>
+        <ShadcnAccordion style={{ width: "400px" }}>
           <ShadcnAccordionItem value="a">
             <ShadcnAccordionTrigger>Section A</ShadcnAccordionTrigger>
             <ShadcnAccordionContent>

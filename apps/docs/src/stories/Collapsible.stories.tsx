@@ -45,7 +45,7 @@ export const Default: Story = {
     shadcn: {
       render: () => (
         <ShadcnCollapsible style={{ width: "350px" }}>
-          <ShadcnCollapsibleTrigger asChild>
+          <ShadcnCollapsibleTrigger>
             <ShadcnButton variant="ghost">Toggle content</ShadcnButton>
           </ShadcnCollapsibleTrigger>
           <ShadcnCollapsibleContent>
@@ -90,7 +90,7 @@ export const DefaultOpen: Story = {
     shadcn: {
       render: () => (
         <ShadcnCollapsible defaultOpen style={{ width: "350px" }}>
-          <ShadcnCollapsibleTrigger asChild>
+          <ShadcnCollapsibleTrigger>
             <ShadcnButton variant="ghost">Toggle content</ShadcnButton>
           </ShadcnCollapsibleTrigger>
           <ShadcnCollapsibleContent>

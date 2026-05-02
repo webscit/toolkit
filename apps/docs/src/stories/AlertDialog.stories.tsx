@@ -62,7 +62,7 @@ export const Default: Story = {
     shadcn: {
       render: () => (
         <ShadcnAlertDialog>
-          <ShadcnAlertDialogTrigger asChild>
+          <ShadcnAlertDialogTrigger>
             <ShadcnButton variant="destructive">Delete Account</ShadcnButton>
           </ShadcnAlertDialogTrigger>
           <ShadcnAlertDialogContent>

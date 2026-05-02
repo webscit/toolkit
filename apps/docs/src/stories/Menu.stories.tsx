@@ -48,7 +48,7 @@ export const Default: Story = {
     shadcn: {
       render: () => (
         <ShadcnMenu>
-          <ShadcnMenuTrigger asChild>
+          <ShadcnMenuTrigger>
             <ShadcnButton variant="outline">Open Menu</ShadcnButton>
           </ShadcnMenuTrigger>
           <ShadcnMenuContent>
@@ -81,7 +81,7 @@ export const WithLabel: Story = {
     shadcn: {
       render: () => (
         <ShadcnMenu>
-          <ShadcnMenuTrigger asChild>
+          <ShadcnMenuTrigger>
             <ShadcnButton variant="outline">My Account</ShadcnButton>
           </ShadcnMenuTrigger>
           <ShadcnMenuContent>
@@ -114,7 +114,7 @@ export const WithCheckboxItems: Story = {
     shadcn: {
       render: () => (
         <ShadcnMenu>
-          <ShadcnMenuTrigger asChild>
+          <ShadcnMenuTrigger>
             <ShadcnButton variant="outline">View</ShadcnButton>
           </ShadcnMenuTrigger>
           <ShadcnMenuContent>
@@ -147,7 +147,7 @@ export const WithRadioItems: Story = {
     shadcn: {
       render: () => (
         <ShadcnMenu>
-          <ShadcnMenuTrigger asChild>
+          <ShadcnMenuTrigger>
             <ShadcnButton variant="outline">Position</ShadcnButton>
           </ShadcnMenuTrigger>
           <ShadcnMenuContent>

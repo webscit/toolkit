@@ -1,22 +1,18 @@
+import { Separator as SeparatorPrimitive } from "@base-ui/react/separator";
+
 import "./separator.css";
 
-export interface SeparatorProps extends React.HTMLAttributes<HTMLDivElement> {
-  orientation?: "horizontal" | "vertical";
-  decorative?: boolean;
-}
+export type SeparatorProps = SeparatorPrimitive.Props;
 
 export function Separator({
-  orientation = "horizontal",
-  decorative = true,
   className,
+  orientation = "horizontal",
   ...props
-}: SeparatorProps) {
+}: SeparatorPrimitive.Props) {
   return (
-    <div
-      role={decorative ? "none" : "separator"}
-      aria-orientation={decorative ? undefined : orientation}
+    <SeparatorPrimitive
       data-slot="separator"
-      data-orientation={orientation}
+      orientation={orientation}
       className={`sct-separator${className ? ` ${className}` : ""}`}
       {...props}
     />

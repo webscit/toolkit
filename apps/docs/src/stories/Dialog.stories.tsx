@@ -54,7 +54,7 @@ export const Default: Story = {
     shadcn: {
       render: () => (
         <ShadcnDialog>
-          <ShadcnDialogTrigger asChild>
+          <ShadcnDialogTrigger>
             <ShadcnButton variant="outline">Open Dialog</ShadcnButton>
           </ShadcnDialogTrigger>
           <ShadcnDialogContent>
@@ -66,7 +66,7 @@ export const Default: Story = {
               </ShadcnDialogDescription>
             </ShadcnDialogHeader>
             <ShadcnDialogFooter>
-              <ShadcnDialogClose asChild>
+              <ShadcnDialogClose>
                 <ShadcnButton variant="outline">Cancel</ShadcnButton>
               </ShadcnDialogClose>
               <ShadcnButton variant="destructive">Delete Account</ShadcnButton>
@@ -97,7 +97,7 @@ export const Playground: Story = {
     shadcn: {
       render: () => (
         <ShadcnDialog>
-          <ShadcnDialogTrigger asChild>
+          <ShadcnDialogTrigger>
             <ShadcnButton variant="outline">Open</ShadcnButton>
           </ShadcnDialogTrigger>
           <ShadcnDialogContent>
@@ -108,7 +108,7 @@ export const Playground: Story = {
               </ShadcnDialogDescription>
             </ShadcnDialogHeader>
             <ShadcnDialogFooter>
-              <ShadcnDialogClose asChild>
+              <ShadcnDialogClose>
                 <ShadcnButton variant="outline">Close</ShadcnButton>
               </ShadcnDialogClose>
             </ShadcnDialogFooter>

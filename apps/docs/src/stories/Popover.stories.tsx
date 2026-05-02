@@ -45,7 +45,7 @@ export const Default: Story = {
     shadcn: {
       render: () => (
         <ShadcnPopover>
-          <ShadcnPopoverTrigger asChild>
+          <ShadcnPopoverTrigger>
             <ShadcnButton variant="outline">Open popover</ShadcnButton>
           </ShadcnPopoverTrigger>
           <ShadcnPopoverContent>
@@ -80,7 +80,7 @@ export const WithClose: Story = {
     shadcn: {
       render: () => (
         <ShadcnPopover>
-          <ShadcnPopoverTrigger asChild>
+          <ShadcnPopoverTrigger>
             <ShadcnButton>Details</ShadcnButton>
           </ShadcnPopoverTrigger>
           <ShadcnPopoverContent>

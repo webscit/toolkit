@@ -43,7 +43,7 @@ export const Default: Story = {
       render: () => (
         <ShadcnTooltipProvider>
           <ShadcnTooltip>
-            <ShadcnTooltipTrigger asChild>
+            <ShadcnTooltipTrigger>
               <ShadcnButton variant="outline">Hover me</ShadcnButton>
             </ShadcnTooltipTrigger>
             <ShadcnTooltipContent>
@@ -72,7 +72,7 @@ export const OnButton: Story = {
       render: () => (
         <ShadcnTooltipProvider>
           <ShadcnTooltip>
-            <ShadcnTooltipTrigger asChild>
+            <ShadcnTooltipTrigger>
               <ShadcnButton variant="outline">More info</ShadcnButton>
             </ShadcnTooltipTrigger>
             <ShadcnTooltipContent>

@@ -11,7 +11,6 @@ const meta = {
       control: "select",
       options: ["horizontal", "vertical"],
     },
-    decorative: { control: "boolean" },
   },
 } satisfies Meta<typeof Separator>;
 
@@ -58,13 +57,12 @@ export const Vertical: Story = {
 };
 
 export const Playground: Story = {
-  args: { orientation: "horizontal", decorative: true },
+  args: { orientation: "horizontal" },
   parameters: {
     shadcn: {
       render: (args: Record<string, unknown>) => (
         <ShadcnSeparator
           orientation={args["orientation"] as "horizontal" | "vertical"}
-          decorative={args["decorative"] as boolean}
         />
       ),
     },
