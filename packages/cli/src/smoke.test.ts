@@ -211,11 +211,13 @@ describe("CLI smoke test against a local registry server", () => {
     expect(existsSync(join(cwd, "src/theme.css"))).toBe(true);
 
     const entry = readFileSync(join(cwd, "src/index.css"), "utf8");
-    expect(entry.startsWith(
-      '@import "./tokens.css";\n' +
-      '@import "./tokens-dark.css";\n' +
-      '@import "./theme.css";\n',
-    )).toBe(true);
+    expect(
+      entry.startsWith(
+        '@import "./tokens.css";\n' +
+          '@import "./tokens-dark.css";\n' +
+          '@import "./theme.css";\n',
+      ),
+    ).toBe(true);
     expect(entry).toContain("body { color: red; }");
 
     const tokens = readFileSync(join(cwd, "src/tokens.css"), "utf8");
@@ -235,22 +237,18 @@ describe("CLI smoke test against a local registry server", () => {
     expect(secondOutput).toContain("No imports needed");
   });
 
-  it(
-    "add fetches a component from the local registry",
-    () => {
-      const cwd = makeProject();
-      runCli(cwd, ["init"]);
+  it("add fetches a component from the local registry", () => {
+    const cwd = makeProject();
+    runCli(cwd, ["init"]);
 
-      runCli(cwd, ["add", "card"]);
+    runCli(cwd, ["add", "card"]);
 
-      const cardTsx = join(cwd, "src/components/card/card.tsx");
-      const cardCss = join(cwd, "src/components/card/card.css");
-      expect(existsSync(cardTsx)).toBe(true);
-      expect(existsSync(cardCss)).toBe(true);
+    const cardTsx = join(cwd, "src/components/card/card.tsx");
+    const cardCss = join(cwd, "src/components/card/card.css");
+    expect(existsSync(cardTsx)).toBe(true);
+    expect(existsSync(cardCss)).toBe(true);
 
-      expect(readFileSync(cardTsx, "utf8")).toContain("export function Card");
-      expect(readFileSync(cardCss, "utf8")).toContain("@scope (.sct-card)");
-    },
-    180_000,
-  );
+    expect(readFileSync(cardTsx, "utf8")).toContain("export function Card");
+    expect(readFileSync(cardCss, "utf8")).toContain("@scope (.sct-card)");
+  }, 180_000);
 });

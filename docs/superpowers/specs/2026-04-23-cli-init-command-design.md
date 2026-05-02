@@ -56,12 +56,12 @@ New exports from `packages/tokens/src/index.ts`:
 
 ```ts
 export interface TokenBundle {
-  tokensCss: string;      // light theme + @layer order declaration
-  tokensDarkCss: string;  // dark overrides
-  themeCss: string;       // base element styles
+  tokensCss: string; // light theme + @layer order declaration
+  tokensDarkCss: string; // dark overrides
+  themeCss: string; // base element styles
 }
 
-export interface TokenOptions {}  // empty today; placeholder for future inputs
+export interface TokenOptions {} // empty today; placeholder for future inputs
 
 export function generateTokens(options?: TokenOptions): TokenBundle;
 ```
@@ -71,6 +71,7 @@ export function generateTokens(options?: TokenOptions): TokenBundle;
 **Tomorrow:** `TokenOptions` grows fields (`brandColor`, `density`, …); the function runs theme-design rules and Style Dictionary programmatically against those inputs. The CLI does not change — it always calls `generateTokens(options)` and writes the result.
 
 Package shape:
+
 - `packages/tokens/src/index.ts` — new TS entry point.
 - `packages/tokens/package.json` gains `"main": "./dist/index.js"`, `"types": "./dist/index.d.ts"`, and an `"exports"` map. A TS compile step is added to the build pipeline alongside Style Dictionary.
 - Existing `dist/*.css` exports remain. The docs app continues to consume them as it does today.
@@ -90,6 +91,7 @@ The CLI transitions from a bare `.ts` file with only `execSync` to a real compil
 Bundled with the code change so the story stays coherent.
 
 **`apps/docs/src/docs/Installation.mdx`** — replace the current three-step flow:
+
 1. **Step 1 — Initialize:** `npx @webscit/toolkit init`. Creates `components.json`, copies `tokens.css`/`tokens-dark.css`/`theme.css` into the project, injects the three `@import` lines at the top of the CSS entry.
 2. **Step 2 — Add components:** unchanged `add` flow.
 3. **Step 3 — Use a component:** unchanged.

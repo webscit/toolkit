@@ -21,7 +21,9 @@ const OUTPUTS: Array<{ key: keyof TokenBundle; filename: string }> = [
 
 export function runToolkitInit(cwd: string, bundle: TokenBundle): InitResult {
   const componentsJsonPath = join(cwd, "components.json");
-  const cfg = JSON.parse(readFileSync(componentsJsonPath, "utf8")) as ComponentsJson;
+  const cfg = JSON.parse(
+    readFileSync(componentsJsonPath, "utf8"),
+  ) as ComponentsJson;
   const cssRel = cfg.tailwind?.css;
   if (!cssRel) {
     throw new Error(
@@ -44,7 +46,9 @@ export function runToolkitInit(cwd: string, bundle: TokenBundle): InitResult {
   }
 
   const importLines = OUTPUTS.map(({ filename }) => `@import "./${filename}";`);
-  const original = existsSync(cssEntryPath) ? readFileSync(cssEntryPath, "utf8") : "";
+  const original = existsSync(cssEntryPath)
+    ? readFileSync(cssEntryPath, "utf8")
+    : "";
   const missing = importLines.filter((line) => !original.includes(line));
   if (missing.length > 0) {
     const prefix = missing.join("\n") + "\n";

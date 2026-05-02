@@ -90,7 +90,10 @@ export function createComponentsJson(
       "@webscit": `${registryUrl}/{name}.json`,
     },
   };
-  writeFileSync(join(cwd, "components.json"), JSON.stringify(content, null, 2) + "\n");
+  writeFileSync(
+    join(cwd, "components.json"),
+    JSON.stringify(content, null, 2) + "\n",
+  );
 }
 
 export function patchComponentsJsonRegistries(

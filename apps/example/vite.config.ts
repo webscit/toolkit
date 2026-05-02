@@ -10,10 +10,7 @@ export default defineConfig({
         __dirname,
         "../../packages/registry/src",
       ),
-      "@webscit/tokens": path.resolve(
-        __dirname,
-        "../../packages/tokens/dist",
-      ),
+      "@webscit/tokens": path.resolve(__dirname, "../../packages/tokens/dist"),
     },
   },
 });

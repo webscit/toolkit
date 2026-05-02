@@ -109,9 +109,7 @@ describe("readTsconfigAliases", () => {
         compilerOptions: { paths: { "@/utils": ["./src/utils"] } },
       }),
     );
-    expect(() => readTsconfigAliases(cwd)).toThrow(
-      "no wildcard path alias",
-    );
+    expect(() => readTsconfigAliases(cwd)).toThrow("no wildcard path alias");
   });
 });
 

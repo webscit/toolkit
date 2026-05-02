@@ -21,14 +21,14 @@ Every token is prefixed `--sct-` and follows a kebab-case path:
 
 ## Token categories
 
-| Category | Prefix | Example |
-|---|---|---|
-| Colors | `--sct-color-*` | `--sct-color-primary` |
-| Spacing | `--sct-space-*` | `--sct-space-4` (= 16px) |
-| Font size | `--sct-font-size-*` | `--sct-font-size-sm` |
-| Font weight | `--sct-font-weight-*` | `--sct-font-weight-semibold` |
-| Border radius | `--sct-radius-*` | `--sct-radius-md` |
-| Shadows | `--sct-shadow-*` | `--sct-shadow-sm` |
+| Category      | Prefix                | Example                      |
+| ------------- | --------------------- | ---------------------------- |
+| Colors        | `--sct-color-*`       | `--sct-color-primary`        |
+| Spacing       | `--sct-space-*`       | `--sct-space-4` (= 16px)     |
+| Font size     | `--sct-font-size-*`   | `--sct-font-size-sm`         |
+| Font weight   | `--sct-font-weight-*` | `--sct-font-weight-semibold` |
+| Border radius | `--sct-radius-*`      | `--sct-radius-md`            |
+| Shadows       | `--sct-shadow-*`      | `--sct-shadow-sm`            |
 
 Browse the full token set in the [Design Tokens](?path=/story/design-tokens--colors) story.
 
@@ -37,8 +37,8 @@ Browse the full token set in the [Design Tokens](?path=/story/design-tokens--col
 Import both stylesheets to support dark mode:
 
 ```ts
-import "@webscit/tokens/tokens.css";       // :root { ... }  (light)
-import "@webscit/tokens/tokens-dark.css";  // [data-theme="dark"] { ... }
+import "@webscit/tokens/tokens.css"; // :root { ... }  (light)
+import "@webscit/tokens/tokens-dark.css"; // [data-theme="dark"] { ... }
 ```
 
 `tokens.css` defines the light theme on `:root`. `tokens-dark.css` overrides only the tokens that change in dark mode, scoped to `[data-theme="dark"]`. Dark-mode values never affect the page unless `data-theme="dark"` is present on `<html>`.
@@ -67,10 +67,10 @@ To override in dark mode only:
 
 Tokens are delivered inside `@layer` blocks:
 
-| Layer | Contents |
-|---|---|
-| `design-tokens` | All `--sct-*` custom properties |
-| `theme` | Base element styles (font family, etc.) |
+| Layer           | Contents                                |
+| --------------- | --------------------------------------- |
+| `design-tokens` | All `--sct-*` custom properties         |
+| `theme`         | Base element styles (font family, etc.) |
 
 The layer order `design-tokens, theme` is declared at the top of `tokens.css`. This means:
 

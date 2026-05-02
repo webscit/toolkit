@@ -8,7 +8,6 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-  CardFooter,
 } from "@webscit/registry/components/card/card";
 import {
   Tabs,
@@ -28,7 +27,10 @@ import {
 } from "@webscit/registry/components/select/select";
 import { Checkbox } from "@webscit/registry/components/checkbox/checkbox";
 import { Switch } from "@webscit/registry/components/switch/switch";
-import { RadioGroup, RadioGroupItem } from "@webscit/registry/components/radio-group/radio-group";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@webscit/registry/components/radio-group/radio-group";
 import { Badge } from "@webscit/registry/components/badge/badge";
 import { Separator } from "@webscit/registry/components/separator/separator";
 import { Slider } from "@webscit/registry/components/slider/slider";
@@ -62,7 +64,11 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
 } from "@webscit/registry/components/alert-dialog/alert-dialog";
-import { Alert, AlertTitle, AlertDescription } from "@webscit/registry/components/alert/alert";
+import {
+  Alert,
+  AlertTitle,
+  AlertDescription,
+} from "@webscit/registry/components/alert/alert";
 import {
   Accordion,
   AccordionItem,
@@ -132,7 +138,17 @@ import "./app.css";
 
 function IconFlask(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <path d="M9 3h6M10 3v7.4a2 2 0 0 1-.5 1.3L4 19a2 2 0 0 0 1.5 3h13a2 2 0 0 0 1.5-3l-5.5-7.3a2 2 0 0 1-.5-1.3V3" />
     </svg>
   );
@@ -140,7 +156,17 @@ function IconFlask(props: React.SVGProps<SVGSVGElement>) {
 
 function IconFolder(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
     </svg>
   );
@@ -148,7 +174,17 @@ function IconFolder(props: React.SVGProps<SVGSVGElement>) {
 
 function IconDatabase(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <ellipse cx="12" cy="5" rx="9" ry="3" />
       <path d="M3 5V19A9 3 0 0 0 21 19V5" />
       <path d="M3 12A9 3 0 0 0 21 12" />
@@ -158,7 +194,17 @@ function IconDatabase(props: React.SVGProps<SVGSVGElement>) {
 
 function IconSettings(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
       <circle cx="12" cy="12" r="3" />
     </svg>
@@ -167,7 +213,17 @@ function IconSettings(props: React.SVGProps<SVGSVGElement>) {
 
 function IconPlus(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <path d="M5 12h14" />
       <path d="M12 5v14" />
     </svg>
@@ -176,7 +232,17 @@ function IconPlus(props: React.SVGProps<SVGSVGElement>) {
 
 function IconSun(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <circle cx="12" cy="12" r="4" />
       <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
     </svg>
@@ -185,7 +251,17 @@ function IconSun(props: React.SVGProps<SVGSVGElement>) {
 
 function IconMoon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
     </svg>
   );
@@ -193,7 +269,17 @@ function IconMoon(props: React.SVGProps<SVGSVGElement>) {
 
 function IconChart(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <path d="M3 3v16a2 2 0 0 0 2 2h16" />
       <path d="m19 9-5 5-4-4-3 3" />
     </svg>
@@ -202,7 +288,17 @@ function IconChart(props: React.SVGProps<SVGSVGElement>) {
 
 function IconInfo(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <circle cx="12" cy="12" r="10" />
       <path d="M12 16v-4M12 8h.01" />
     </svg>
@@ -212,10 +308,30 @@ function IconInfo(props: React.SVGProps<SVGSVGElement>) {
 // ── Sample data ──
 
 const DATA_FILES = [
-  { name: "sample_001.csv", size: "2.4 MB", rows: "12,847", status: "ready" as const },
-  { name: "sample_002.csv", size: "1.8 MB", rows: "9,231", status: "ready" as const },
-  { name: "calibration.json", size: "340 KB", rows: "—", status: "ready" as const },
-  { name: "raw_spectra.h5", size: "847 MB", rows: "1,204,000", status: "processing" as const },
+  {
+    name: "sample_001.csv",
+    size: "2.4 MB",
+    rows: "12,847",
+    status: "ready" as const,
+  },
+  {
+    name: "sample_002.csv",
+    size: "1.8 MB",
+    rows: "9,231",
+    status: "ready" as const,
+  },
+  {
+    name: "calibration.json",
+    size: "340 KB",
+    rows: "—",
+    status: "ready" as const,
+  },
+  {
+    name: "raw_spectra.h5",
+    size: "847 MB",
+    rows: "1,204,000",
+    status: "processing" as const,
+  },
   { name: "metadata.yaml", size: "12 KB", rows: "—", status: "error" as const },
 ];
 
@@ -230,7 +346,10 @@ function AppInner() {
   const toggleTheme = () => {
     const next = !dark;
     setDark(next);
-    document.documentElement.setAttribute("data-theme", next ? "dark" : "light");
+    document.documentElement.setAttribute(
+      "data-theme",
+      next ? "dark" : "light",
+    );
   };
 
   const handleCreate = () => {
@@ -247,7 +366,10 @@ function AppInner() {
           {/* ── Sidebar ── */}
           <Sidebar>
             <SidebarHeader>
-              <div className="flex items-center gap-2" style={{ padding: "0.5rem" }}>
+              <div
+                className="flex items-center gap-2"
+                style={{ padding: "0.5rem" }}
+              >
                 <IconFlask width="20" height="20" />
                 <span className="font-medium">SCI Toolkit</span>
               </div>
@@ -345,7 +467,10 @@ function AppInner() {
                   {/* Title area */}
                   <div>
                     <h1 className="page-header-title">New Experiment</h1>
-                    <p className="text-sm text-muted" style={{ marginTop: "0.25rem" }}>
+                    <p
+                      className="text-sm text-muted"
+                      style={{ marginTop: "0.25rem" }}
+                    >
                       Configure and launch a new analysis experiment.
                     </p>
                   </div>
@@ -356,12 +481,17 @@ function AppInner() {
                       <TabsTrigger value="general">General</TabsTrigger>
                       <TabsTrigger value="parameters">Parameters</TabsTrigger>
                       <TabsTrigger value="data">Data Sources</TabsTrigger>
-                      <TabsTrigger value="notifications">Notifications</TabsTrigger>
+                      <TabsTrigger value="notifications">
+                        Notifications
+                      </TabsTrigger>
                     </TabsList>
 
                     {/* ── General tab ── */}
                     <TabsContent value="general">
-                      <div className="flex-col gap-6" style={{ paddingTop: "1.5rem" }}>
+                      <div
+                        className="flex-col gap-6"
+                        style={{ paddingTop: "1.5rem" }}
+                      >
                         <Card>
                           <CardHeader>
                             <CardTitle>Experiment Details</CardTitle>
@@ -392,11 +522,21 @@ function AppInner() {
                                       <SelectValue />
                                     </SelectTrigger>
                                     <SelectContent>
-                                      <SelectItem value="spectroscopy">Spectroscopy</SelectItem>
-                                      <SelectItem value="chromatography">Chromatography</SelectItem>
-                                      <SelectItem value="microscopy">Microscopy</SelectItem>
-                                      <SelectItem value="genomics">Genomics</SelectItem>
-                                      <SelectItem value="proteomics">Proteomics</SelectItem>
+                                      <SelectItem value="spectroscopy">
+                                        Spectroscopy
+                                      </SelectItem>
+                                      <SelectItem value="chromatography">
+                                        Chromatography
+                                      </SelectItem>
+                                      <SelectItem value="microscopy">
+                                        Microscopy
+                                      </SelectItem>
+                                      <SelectItem value="genomics">
+                                        Genomics
+                                      </SelectItem>
+                                      <SelectItem value="proteomics">
+                                        Proteomics
+                                      </SelectItem>
                                     </SelectContent>
                                   </Select>
                                 </Field>
@@ -409,9 +549,13 @@ function AppInner() {
                                     </SelectTrigger>
                                     <SelectContent>
                                       <SelectItem value="low">Low</SelectItem>
-                                      <SelectItem value="normal">Normal</SelectItem>
+                                      <SelectItem value="normal">
+                                        Normal
+                                      </SelectItem>
                                       <SelectItem value="high">High</SelectItem>
-                                      <SelectItem value="critical">Critical</SelectItem>
+                                      <SelectItem value="critical">
+                                        Critical
+                                      </SelectItem>
                                     </SelectContent>
                                   </Select>
                                 </Field>
@@ -422,7 +566,13 @@ function AppInner() {
                                 <FieldDescription>
                                   Assign tags for filtering and organization.
                                 </FieldDescription>
-                                <div className="flex gap-2" style={{ flexWrap: "wrap", marginTop: "0.5rem" }}>
+                                <div
+                                  className="flex gap-2"
+                                  style={{
+                                    flexWrap: "wrap",
+                                    marginTop: "0.5rem",
+                                  }}
+                                >
                                   <Badge>protein</Badge>
                                   <Badge variant="secondary">folding</Badge>
                                   <Badge variant="secondary">q2-2026</Badge>
@@ -439,29 +589,70 @@ function AppInner() {
                         <Card>
                           <CardHeader>
                             <CardTitle>Recent Activity</CardTitle>
-                            <CardDescription>Latest runs from your team.</CardDescription>
+                            <CardDescription>
+                              Latest runs from your team.
+                            </CardDescription>
                           </CardHeader>
                           <CardContent>
                             <div className="flex-col gap-3">
                               <div className="flex items-center gap-3">
-                                <Skeleton style={{ width: 32, height: 32, borderRadius: "50%" }} />
-                                <div className="flex-col gap-1" style={{ flex: 1 }}>
-                                  <Skeleton style={{ width: "60%", height: 14 }} />
-                                  <Skeleton style={{ width: "40%", height: 12 }} />
+                                <Skeleton
+                                  style={{
+                                    width: 32,
+                                    height: 32,
+                                    borderRadius: "50%",
+                                  }}
+                                />
+                                <div
+                                  className="flex-col gap-1"
+                                  style={{ flex: 1 }}
+                                >
+                                  <Skeleton
+                                    style={{ width: "60%", height: 14 }}
+                                  />
+                                  <Skeleton
+                                    style={{ width: "40%", height: 12 }}
+                                  />
                                 </div>
                               </div>
                               <div className="flex items-center gap-3">
-                                <Skeleton style={{ width: 32, height: 32, borderRadius: "50%" }} />
-                                <div className="flex-col gap-1" style={{ flex: 1 }}>
-                                  <Skeleton style={{ width: "75%", height: 14 }} />
-                                  <Skeleton style={{ width: "50%", height: 12 }} />
+                                <Skeleton
+                                  style={{
+                                    width: 32,
+                                    height: 32,
+                                    borderRadius: "50%",
+                                  }}
+                                />
+                                <div
+                                  className="flex-col gap-1"
+                                  style={{ flex: 1 }}
+                                >
+                                  <Skeleton
+                                    style={{ width: "75%", height: 14 }}
+                                  />
+                                  <Skeleton
+                                    style={{ width: "50%", height: 12 }}
+                                  />
                                 </div>
                               </div>
                               <div className="flex items-center gap-3">
-                                <Skeleton style={{ width: 32, height: 32, borderRadius: "50%" }} />
-                                <div className="flex-col gap-1" style={{ flex: 1 }}>
-                                  <Skeleton style={{ width: "55%", height: 14 }} />
-                                  <Skeleton style={{ width: "35%", height: 12 }} />
+                                <Skeleton
+                                  style={{
+                                    width: 32,
+                                    height: 32,
+                                    borderRadius: "50%",
+                                  }}
+                                />
+                                <div
+                                  className="flex-col gap-1"
+                                  style={{ flex: 1 }}
+                                >
+                                  <Skeleton
+                                    style={{ width: "55%", height: 14 }}
+                                  />
+                                  <Skeleton
+                                    style={{ width: "35%", height: 12 }}
+                                  />
                                 </div>
                               </div>
                             </div>
@@ -472,7 +663,10 @@ function AppInner() {
 
                     {/* ── Parameters tab ── */}
                     <TabsContent value="parameters">
-                      <div className="flex-col gap-6" style={{ paddingTop: "1.5rem" }}>
+                      <div
+                        className="flex-col gap-6"
+                        style={{ paddingTop: "1.5rem" }}
+                      >
                         <Card>
                           <CardHeader>
                             <CardTitle>Analysis Method</CardTitle>
@@ -481,30 +675,41 @@ function AppInner() {
                             </CardDescription>
                           </CardHeader>
                           <CardContent>
-                            <RadioGroup defaultValue="bayesian" aria-label="Analysis method">
+                            <RadioGroup
+                              defaultValue="bayesian"
+                              aria-label="Analysis method"
+                            >
                               <div className="flex-col gap-3">
                                 <label className="flex items-center gap-3">
                                   <RadioGroupItem value="bayesian" />
                                   <div>
-                                    <div className="font-medium">Bayesian Inference</div>
+                                    <div className="font-medium">
+                                      Bayesian Inference
+                                    </div>
                                     <div className="text-sm text-muted">
-                                      Posterior probability estimation with MCMC sampling.
+                                      Posterior probability estimation with MCMC
+                                      sampling.
                                     </div>
                                   </div>
                                 </label>
                                 <label className="flex items-center gap-3">
                                   <RadioGroupItem value="frequentist" />
                                   <div>
-                                    <div className="font-medium">Frequentist</div>
+                                    <div className="font-medium">
+                                      Frequentist
+                                    </div>
                                     <div className="text-sm text-muted">
-                                      Hypothesis testing with p-value significance.
+                                      Hypothesis testing with p-value
+                                      significance.
                                     </div>
                                   </div>
                                 </label>
                                 <label className="flex items-center gap-3">
                                   <RadioGroupItem value="ml" />
                                   <div>
-                                    <div className="font-medium">Machine Learning</div>
+                                    <div className="font-medium">
+                                      Machine Learning
+                                    </div>
                                     <div className="text-sm text-muted">
                                       Neural network-based pattern recognition.
                                     </div>
@@ -524,7 +729,9 @@ function AppInner() {
                               <div className="flex-col gap-2">
                                 <div className="flex justify-between">
                                   <Label>Confidence Level</Label>
-                                  <span className="text-sm text-muted">{confidence[0]}%</span>
+                                  <span className="text-sm text-muted">
+                                    {confidence[0]}%
+                                  </span>
                                 </div>
                                 <Slider
                                   value={confidence}
@@ -540,7 +747,9 @@ function AppInner() {
                               <div className="flex-col gap-2">
                                 <div className="flex justify-between">
                                   <Label>Max Iterations</Label>
-                                  <span className="text-sm text-muted">{iterations[0]?.toLocaleString()}</span>
+                                  <span className="text-sm text-muted">
+                                    {iterations[0]?.toLocaleString()}
+                                  </span>
                                 </div>
                                 <Slider
                                   value={iterations}
@@ -557,15 +766,21 @@ function AppInner() {
                                 <Label>Options</Label>
                                 <label className="flex items-center gap-2">
                                   <Checkbox defaultChecked />
-                                  <span className="text-sm">Enable cross-validation</span>
+                                  <span className="text-sm">
+                                    Enable cross-validation
+                                  </span>
                                 </label>
                                 <label className="flex items-center gap-2">
                                   <Checkbox defaultChecked />
-                                  <span className="text-sm">Normalize input data</span>
+                                  <span className="text-sm">
+                                    Normalize input data
+                                  </span>
                                 </label>
                                 <label className="flex items-center gap-2">
                                   <Checkbox />
-                                  <span className="text-sm">Use GPU acceleration</span>
+                                  <span className="text-sm">
+                                    Use GPU acceleration
+                                  </span>
                                 </label>
                               </div>
                             </div>
@@ -575,12 +790,21 @@ function AppInner() {
                         {/* Accordion for advanced settings */}
                         <Accordion>
                           <AccordionItem>
-                            <AccordionTrigger>Advanced Parameters</AccordionTrigger>
+                            <AccordionTrigger>
+                              Advanced Parameters
+                            </AccordionTrigger>
                             <AccordionContent>
-                              <div className="flex-col gap-4" style={{ padding: "0.5rem 0" }}>
+                              <div
+                                className="flex-col gap-4"
+                                style={{ padding: "0.5rem 0" }}
+                              >
                                 <Field>
                                   <FieldLabel>Learning Rate</FieldLabel>
-                                  <Input type="number" defaultValue="0.001" step="0.0001" />
+                                  <Input
+                                    type="number"
+                                    defaultValue="0.001"
+                                    step="0.0001"
+                                  />
                                 </Field>
                                 <Field>
                                   <FieldLabel>Batch Size</FieldLabel>
@@ -594,9 +818,14 @@ function AppInner() {
                             </AccordionContent>
                           </AccordionItem>
                           <AccordionItem>
-                            <AccordionTrigger>Convergence Criteria</AccordionTrigger>
+                            <AccordionTrigger>
+                              Convergence Criteria
+                            </AccordionTrigger>
                             <AccordionContent>
-                              <div className="flex-col gap-4" style={{ padding: "0.5rem 0" }}>
+                              <div
+                                className="flex-col gap-4"
+                                style={{ padding: "0.5rem 0" }}
+                              >
                                 <Field>
                                   <FieldLabel>Tolerance</FieldLabel>
                                   <Input type="number" defaultValue="1e-6" />
@@ -614,12 +843,16 @@ function AppInner() {
 
                     {/* ── Data Sources tab ── */}
                     <TabsContent value="data">
-                      <div className="flex-col gap-6" style={{ paddingTop: "1.5rem" }}>
+                      <div
+                        className="flex-col gap-6"
+                        style={{ paddingTop: "1.5rem" }}
+                      >
                         <Alert>
                           <IconInfo width="16" height="16" />
                           <AlertTitle>Data Validation</AlertTitle>
                           <AlertDescription>
-                            All uploaded files are validated against the experiment schema before processing begins.
+                            All uploaded files are validated against the
+                            experiment schema before processing begins.
                           </AlertDescription>
                         </Alert>
 
@@ -643,12 +876,17 @@ function AppInner() {
                                   <PopoverDescription>
                                     Upload a file or connect to a remote source.
                                   </PopoverDescription>
-                                  <div className="flex-col gap-3" style={{ marginTop: "0.75rem" }}>
+                                  <div
+                                    className="flex-col gap-3"
+                                    style={{ marginTop: "0.75rem" }}
+                                  >
                                     <Input placeholder="File path or URL..." />
                                     <div className="flex gap-2">
                                       <Button size="sm">Upload</Button>
                                       <PopoverClose>
-                                        <Button variant="ghost" size="sm">Cancel</Button>
+                                        <Button variant="ghost" size="sm">
+                                          Cancel
+                                        </Button>
                                       </PopoverClose>
                                     </div>
                                   </div>
@@ -669,7 +907,9 @@ function AppInner() {
                               <TableBody>
                                 {DATA_FILES.map((file) => (
                                   <TableRow key={file.name}>
-                                    <TableCell className="font-medium">{file.name}</TableCell>
+                                    <TableCell className="font-medium">
+                                      {file.name}
+                                    </TableCell>
                                     <TableCell>{file.size}</TableCell>
                                     <TableCell>{file.rows}</TableCell>
                                     <TableCell>
@@ -682,7 +922,9 @@ function AppInner() {
                                         </Badge>
                                       )}
                                       {file.status === "error" && (
-                                        <Badge variant="destructive">Error</Badge>
+                                        <Badge variant="destructive">
+                                          Error
+                                        </Badge>
                                       )}
                                     </TableCell>
                                   </TableRow>
@@ -727,19 +969,25 @@ function AppInner() {
 
                     {/* ── Notifications tab ── */}
                     <TabsContent value="notifications">
-                      <div className="flex-col gap-6" style={{ paddingTop: "1.5rem" }}>
+                      <div
+                        className="flex-col gap-6"
+                        style={{ paddingTop: "1.5rem" }}
+                      >
                         <Card>
                           <CardHeader>
                             <CardTitle>Email Notifications</CardTitle>
                             <CardDescription>
-                              Choose when you want to be notified about this experiment.
+                              Choose when you want to be notified about this
+                              experiment.
                             </CardDescription>
                           </CardHeader>
                           <CardContent>
                             <div className="flex-col gap-4">
                               <div className="field-row">
                                 <div className="field-row-label">
-                                  <span className="font-medium text-sm">Experiment Complete</span>
+                                  <span className="font-medium text-sm">
+                                    Experiment Complete
+                                  </span>
                                   <span className="text-sm text-muted">
                                     Get notified when the run finishes.
                                   </span>
@@ -749,7 +997,9 @@ function AppInner() {
                               <Separator />
                               <div className="field-row">
                                 <div className="field-row-label">
-                                  <span className="font-medium text-sm">Error Alerts</span>
+                                  <span className="font-medium text-sm">
+                                    Error Alerts
+                                  </span>
                                   <span className="text-sm text-muted">
                                     Immediate alert on processing failures.
                                   </span>
@@ -759,7 +1009,9 @@ function AppInner() {
                               <Separator />
                               <div className="field-row">
                                 <div className="field-row-label">
-                                  <span className="font-medium text-sm">Progress Updates</span>
+                                  <span className="font-medium text-sm">
+                                    Progress Updates
+                                  </span>
                                   <span className="text-sm text-muted">
                                     Periodic status reports during long runs.
                                   </span>
@@ -769,7 +1021,9 @@ function AppInner() {
                               <Separator />
                               <div className="field-row">
                                 <div className="field-row-label">
-                                  <span className="font-medium text-sm">Team Activity</span>
+                                  <span className="font-medium text-sm">
+                                    Team Activity
+                                  </span>
                                   <span className="text-sm text-muted">
                                     Notify when collaborators make changes.
                                   </span>
@@ -783,7 +1037,8 @@ function AppInner() {
                         <Alert variant="destructive">
                           <AlertTitle>Quota Warning</AlertTitle>
                           <AlertDescription>
-                            You have used 847 of 1,000 compute hours this billing period. Large experiments may be throttled.
+                            You have used 847 of 1,000 compute hours this
+                            billing period. Large experiments may be throttled.
                           </AlertDescription>
                         </Alert>
                       </div>
@@ -801,7 +1056,8 @@ function AppInner() {
                         <DialogHeader>
                           <DialogTitle>Experiment Configuration</DialogTitle>
                           <DialogDescription>
-                            Review the configuration before creating the experiment.
+                            Review the configuration before creating the
+                            experiment.
                           </DialogDescription>
                         </DialogHeader>
                         <pre
@@ -814,21 +1070,21 @@ function AppInner() {
                             maxHeight: 300,
                           }}
                         >
-{JSON.stringify(
-  {
-    name: "Protein folding analysis Q2",
-    type: "spectroscopy",
-    method: "bayesian",
-    confidence: confidence[0],
-    maxIterations: iterations[0],
-    crossValidation: true,
-    normalize: true,
-    gpuAcceleration: false,
-    dataSources: DATA_FILES.map((f) => f.name),
-  },
-  null,
-  2,
-)}
+                          {JSON.stringify(
+                            {
+                              name: "Protein folding analysis Q2",
+                              type: "spectroscopy",
+                              method: "bayesian",
+                              confidence: confidence[0],
+                              maxIterations: iterations[0],
+                              crossValidation: true,
+                              normalize: true,
+                              gpuAcceleration: false,
+                              dataSources: DATA_FILES.map((f) => f.name),
+                            },
+                            null,
+                            2,
+                          )}
                         </pre>
                         <DialogFooter>
                           <DialogClose>
@@ -846,9 +1102,12 @@ function AppInner() {
                         </AlertDialogTrigger>
                         <AlertDialogContent>
                           <AlertDialogHeader>
-                            <AlertDialogTitle>Create Experiment?</AlertDialogTitle>
+                            <AlertDialogTitle>
+                              Create Experiment?
+                            </AlertDialogTitle>
                             <AlertDialogDescription>
-                              This will queue the experiment for processing. Compute resources will be allocated immediately.
+                              This will queue the experiment for processing.
+                              Compute resources will be allocated immediately.
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
@@ -873,7 +1132,9 @@ function AppInner() {
             <Toast key={toast.id} toast={toast}>
               <ToastContent>
                 <ToastTitle>{toast.title}</ToastTitle>
-                <ToastDescription>{String(toast.description ?? "")}</ToastDescription>
+                <ToastDescription>
+                  {String(toast.description ?? "")}
+                </ToastDescription>
               </ToastContent>
               <ToastClose>Dismiss</ToastClose>
             </Toast>

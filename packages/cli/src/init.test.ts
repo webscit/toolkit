@@ -29,9 +29,15 @@ describe("runToolkitInit", () => {
 
     runToolkitInit(cwd, tokenBundle);
 
-    expect(readFileSync(join(cwd, "src/app/tokens.css"), "utf8")).toBe("/* light */");
-    expect(readFileSync(join(cwd, "src/app/tokens-dark.css"), "utf8")).toBe("/* dark */");
-    expect(readFileSync(join(cwd, "src/app/theme.css"), "utf8")).toBe("/* base */");
+    expect(readFileSync(join(cwd, "src/app/tokens.css"), "utf8")).toBe(
+      "/* light */",
+    );
+    expect(readFileSync(join(cwd, "src/app/tokens-dark.css"), "utf8")).toBe(
+      "/* dark */",
+    );
+    expect(readFileSync(join(cwd, "src/app/theme.css"), "utf8")).toBe(
+      "/* base */",
+    );
   });
 
   it("skips files that already exist without overwriting", () => {
@@ -54,11 +60,13 @@ describe("runToolkitInit", () => {
     const result = runToolkitInit(cwd, tokenBundle);
 
     const content = readFileSync(cssPath, "utf8");
-    expect(content.startsWith(
-      '@import "./tokens.css";\n' +
-      '@import "./tokens-dark.css";\n' +
-      '@import "./theme.css";\n'
-    )).toBe(true);
+    expect(
+      content.startsWith(
+        '@import "./tokens.css";\n' +
+          '@import "./tokens-dark.css";\n' +
+          '@import "./theme.css";\n',
+      ),
+    ).toBe(true);
     expect(content).toContain("body { color: red; }");
     expect(result.importsInjected).toEqual([
       '@import "./tokens.css";',
@@ -93,8 +101,8 @@ describe("runToolkitInit", () => {
     const content = readFileSync(join(cwd, "src/app/globals.css"), "utf8");
     expect(content).toBe(
       '@import "./tokens.css";\n' +
-      '@import "./tokens-dark.css";\n' +
-      '@import "./theme.css";\n'
+        '@import "./tokens-dark.css";\n' +
+        '@import "./theme.css";\n',
     );
   });
 });
