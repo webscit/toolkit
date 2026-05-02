@@ -33,7 +33,17 @@ const preview: Preview = {
     (Story, context) => {
       document.documentElement.dataset["theme"] =
         context.globals["theme"] === "dark" ? "dark" : "";
-      return <Story />;
+      return (
+        <div
+          style={{
+            backgroundColor: "var(--sct-color-background)",
+            color: "var(--sct-color-foreground)",
+            padding: "var(--sct-space-2)",
+          }}
+        >
+          <Story />
+        </div>
+      );
     },
     (Story, context) => {
       const compare = context.globals["compareShadcn"] === "on";
@@ -86,7 +96,15 @@ const preview: Preview = {
             >
               shadcn/ui
             </p>
-            {shadcnRender(context.args as Record<string, unknown>)}
+            <div
+              className="p-2"
+              style={{
+                backgroundColor: "var(--background)",
+                color: "var(--foreground)",
+              }}
+            >
+              {shadcnRender(context.args as Record<string, unknown>)}
+            </div>
           </div>
         </div>
       );
