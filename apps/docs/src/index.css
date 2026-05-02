@@ -1,5 +1,6 @@
 /* Tailwind utilities only — no preflight, avoiding global resets on toolkit components */
-@import "tailwindcss/utilities";
+/* FIXME @import "tailwindcss/utilities"; */
+@import "tailwindcss";
 @import "tw-animate-css";
 
 /* Map shadcn's [data-theme="dark"] to Tailwind's dark variant */

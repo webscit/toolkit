@@ -110,7 +110,7 @@ export const Default: Story = {
     shadcn: {
       render: () => (
         <ShadcnSidebarProvider>
-          <ShadcnSidebar>
+          <ShadcnSidebar side="right">
             <ShadcnSidebarHeader>
               <h3 style={{ fontSize: "14px", fontWeight: 600 }}>My App</h3>
             </ShadcnSidebarHeader>
@@ -190,7 +190,7 @@ export const CollapsedByDefault: Story = {
     shadcn: {
       render: () => (
         <ShadcnSidebarProvider defaultOpen={false}>
-          <ShadcnSidebar>
+          <ShadcnSidebar side="right">
             <ShadcnSidebarContent>
               <ShadcnSidebarGroup>
                 <ShadcnSidebarGroupContent>
@@ -253,7 +253,7 @@ export const RightSide: Story = {
               <h2>Main Content</h2>
             </div>
           </ShadcnSidebarInset>
-          <ShadcnSidebar side="right">
+          <ShadcnSidebar side="left">
             <ShadcnSidebarContent>
               <ShadcnSidebarGroup>
                 <ShadcnSidebarGroupLabel>Details</ShadcnSidebarGroupLabel>
