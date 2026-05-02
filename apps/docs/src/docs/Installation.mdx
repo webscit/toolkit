@@ -10,6 +10,7 @@ Components and design tokens are not installed as a dependency. The CLI copies b
 
 - Node.js 18 or later
 - A React project (Vite, Next.js, or similar)
+- `tsconfig.json` with a wildcard path alias — e.g., `"@/*": ["./src/*"]` — so the CLI can infer the `components.json` aliases
 
 ## Step 1 — Initialize
 
@@ -21,11 +22,29 @@ npx @webscit/toolkit init
 
 `init` does three things:
 
-1. Runs `shadcn init` under the hood with sensible defaults, creating `components.json`.
-2. Copies the compiled token stylesheets (`tokens.css`, `tokens-dark.css`, `theme.css`) next to your CSS entry (for example `src/app/` for Next, `src/` for Vite).
+1. Creates `components.json` by reading your `tsconfig.json` path aliases and locating your CSS entry file. The registry URL is set to `https://webscit.github.io/toolkit/r` automatically.
+2. Copies the compiled token stylesheets (`tokens.css`, `tokens-dark.css`, `theme.css`) next to your CSS entry file.
 3. Prepends three `@import` lines to the top of your CSS entry so the tokens load before any other layered styles.
 
-The command prints exactly what it wrote and what it injected. It is safe to re-run — existing files are left alone and imports are deduplicated.
+The command prints exactly what it wrote and what it injected. It is safe to re-run — existing files are left alone and imports are deduplicated. If `components.json` already exists, only its `registries` field is updated to add or refresh the `@webscit` registry URL; the rest of the file is untouched.
+
+### CSS entry file
+
+`init` looks for your CSS entry file in this order (first match wins):
+
+- `src/index.css`
+- `src/globals.css`
+- `src/global.css`
+- `src/app.css`
+- `src/main.css`
+- `src/styles.css`
+- `src/style.css`
+
+If none of these paths exist, pass the path explicitly with the `--css` flag:
+
+```bash
+npx @webscit/toolkit init --css src/app/globals.css
+```
 
 ## Step 2 — Add a component
 

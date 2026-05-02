@@ -34,14 +34,15 @@ Browse the full token set in the [Design Tokens](?path=/story/design-tokens--col
 
 ## Light and dark themes
 
-Import both stylesheets to support dark mode:
+After running `init`, your CSS entry file contains three `@import` lines for the local token files it copied:
 
-```ts
-import "@webscit/tokens/tokens.css"; // :root { ... }  (light)
-import "@webscit/tokens/tokens-dark.css"; // [data-theme="dark"] { ... }
+```css
+@import "./tokens.css";       /* :root { ... }  (light) */
+@import "./tokens-dark.css";  /* [data-theme="dark"] { ... } */
+@import "./theme.css";        /* base element styles (font family, etc.) */
 ```
 
-`tokens.css` defines the light theme on `:root`. `tokens-dark.css` overrides only the tokens that change in dark mode, scoped to `[data-theme="dark"]`. Dark-mode values never affect the page unless `data-theme="dark"` is present on `<html>`.
+`tokens.css` defines the light theme on `:root`. `tokens-dark.css` overrides only the tokens that change in dark mode, scoped to `[data-theme="dark"]`. `theme.css` provides base element styles such as the default font family. Dark-mode values never affect the page unless `data-theme="dark"` is present on `<html>`.
 
 ## Overriding tokens
 
@@ -82,9 +83,10 @@ The layer order `design-tokens, theme` is declared at the top of `tokens.css`. T
 If your application uses `@layer`, import `tokens.css` before your own layered stylesheets:
 
 ```css
-/* Correct: tokens.css is first */
-@import "@webscit/tokens/tokens.css";
-@import "@webscit/tokens/tokens-dark.css";
+/* Correct: token files are first */
+@import "./tokens.css";
+@import "./tokens-dark.css";
+@import "./theme.css";
 
 @layer app-base, app-components;
 ```
@@ -94,8 +96,9 @@ If you cannot control import order, explicitly redeclare the full layer stack be
 ```css
 @layer design-tokens, theme, app-base, app-components;
 
-@import "@webscit/tokens/tokens.css";
-@import "@webscit/tokens/tokens-dark.css";
+@import "./tokens.css";
+@import "./tokens-dark.css";
+@import "./theme.css";
 ```
 
 This establishes the priority order regardless of import sequence. Unlayered rules in your CSS always take precedence over all layers, so one-off overrides work without any `@layer` declaration.
