@@ -4,6 +4,11 @@ import {
   ResizablePanel,
   ResizableHandle,
 } from "@webscit/registry";
+import {
+  ResizablePanelGroup as ShadcnResizablePanelGroup,
+  ResizablePanel as ShadcnResizablePanel,
+  ResizableHandle as ShadcnResizableHandle,
+} from "@/components/ui/resizable";
 
 const meta = {
   title: "Components/Resizable",
@@ -51,6 +56,46 @@ export const Default: Story = {
       </ResizablePanel>
     </ResizablePanelGroup>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnResizablePanelGroup
+          orientation="horizontal"
+          style={{
+            height: "200px",
+            border: "1px solid var(--border)",
+            borderRadius: "var(--radius-lg)",
+          }}
+        >
+          <ShadcnResizablePanel defaultSize={50}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              Panel One
+            </div>
+          </ShadcnResizablePanel>
+          <ShadcnResizableHandle />
+          <ShadcnResizablePanel defaultSize={50}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              Panel Two
+            </div>
+          </ShadcnResizablePanel>
+        </ShadcnResizablePanelGroup>
+      ),
+    },
+  },
 };
 
 export const Vertical: Story = {
@@ -90,6 +135,46 @@ export const Vertical: Story = {
       </ResizablePanel>
     </ResizablePanelGroup>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnResizablePanelGroup
+          orientation="vertical"
+          style={{
+            height: "300px",
+            border: "1px solid var(--border)",
+            borderRadius: "var(--radius-lg)",
+          }}
+        >
+          <ShadcnResizablePanel defaultSize={30}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              Top
+            </div>
+          </ShadcnResizablePanel>
+          <ShadcnResizableHandle />
+          <ShadcnResizablePanel defaultSize={70}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              Bottom
+            </div>
+          </ShadcnResizablePanel>
+        </ShadcnResizablePanelGroup>
+      ),
+    },
+  },
 };
 
 export const ThreePanels: Story = {
@@ -142,4 +227,57 @@ export const ThreePanels: Story = {
       </ResizablePanel>
     </ResizablePanelGroup>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnResizablePanelGroup
+          orientation="horizontal"
+          style={{
+            height: "200px",
+            border: "1px solid var(--border)",
+            borderRadius: "var(--radius-lg)",
+          }}
+        >
+          <ShadcnResizablePanel defaultSize={25}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              Sidebar
+            </div>
+          </ShadcnResizablePanel>
+          <ShadcnResizableHandle />
+          <ShadcnResizablePanel defaultSize={50}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              Main
+            </div>
+          </ShadcnResizablePanel>
+          <ShadcnResizableHandle />
+          <ShadcnResizablePanel defaultSize={25}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+              }}
+            >
+              Details
+            </div>
+          </ShadcnResizablePanel>
+        </ShadcnResizablePanelGroup>
+      ),
+    },
+  },
 };

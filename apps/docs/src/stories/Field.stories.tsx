@@ -10,6 +10,8 @@ import {
   FieldSeparator,
   Input,
 } from "@webscit/registry";
+import { Label as ShadcnLabel } from "@/components/ui/label";
+import { Input as ShadcnInput } from "@/components/ui/input";
 
 const meta = {
   title: "Components/Field",
@@ -28,6 +30,17 @@ export const Default: Story = {
       <FieldDescription>We will never share your email.</FieldDescription>
     </Field>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <div style={{ width: "350px", display: "flex", flexDirection: "column", gap: "6px" }}>
+          <ShadcnLabel htmlFor="shadcn-email">Email</ShadcnLabel>
+          <ShadcnInput id="shadcn-email" type="email" placeholder="you@example.com" />
+          <p style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>We will never share your email.</p>
+        </div>
+      ),
+    },
+  },
 };
 
 export const WithError: Story = {
@@ -38,6 +51,22 @@ export const WithError: Story = {
       <FieldError>Username is required.</FieldError>
     </Field>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <div style={{ width: "350px", display: "flex", flexDirection: "column", gap: "6px" }}>
+          <ShadcnLabel htmlFor="shadcn-username">Username</ShadcnLabel>
+          <ShadcnInput
+            id="shadcn-username"
+            placeholder="Enter username"
+            aria-invalid="true"
+            style={{ borderColor: "var(--destructive)" }}
+          />
+          <p style={{ fontSize: "12px", color: "var(--destructive)" }}>Username is required.</p>
+        </div>
+      ),
+    },
+  },
 };
 
 export const FieldSetExample: Story = {
@@ -62,4 +91,27 @@ export const FieldSetExample: Story = {
       </FieldGroup>
     </FieldSet>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <fieldset style={{ width: "400px", border: "1px solid var(--border)", borderRadius: "var(--radius-md)", padding: "16px" }}>
+          <legend style={{ fontSize: "14px", fontWeight: 600, padding: "0 4px" }}>Contact Information</legend>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <ShadcnLabel htmlFor="shadcn-first-name">First Name</ShadcnLabel>
+              <ShadcnInput id="shadcn-first-name" placeholder="John" />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <ShadcnLabel htmlFor="shadcn-last-name">Last Name</ShadcnLabel>
+              <ShadcnInput id="shadcn-last-name" placeholder="Doe" />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <ShadcnLabel htmlFor="shadcn-contact-email">Email</ShadcnLabel>
+              <ShadcnInput id="shadcn-contact-email" type="email" placeholder="john@example.com" />
+            </div>
+          </div>
+        </fieldset>
+      ),
+    },
+  },
 };

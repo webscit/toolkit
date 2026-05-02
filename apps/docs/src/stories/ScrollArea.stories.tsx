@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ScrollArea } from "@webscit/registry";
+import { ScrollArea as ShadcnScrollArea } from "@/components/ui/scroll-area";
 
 const meta = {
   title: "Components/ScrollArea",
@@ -29,4 +30,17 @@ export const Default: Story = {
       </div>
     </ScrollArea>
   ),
+  parameters: {
+    shadcn: {
+      render: () => (
+        <ShadcnScrollArea style={{ height: "200px", width: "300px", border: "1px solid var(--border)", borderRadius: "var(--radius-md)" }}>
+          <div style={{ padding: "16px" }}>
+            {Array.from({ length: 30 }, (_, i) => (
+              <p key={i} style={{ margin: "8px 0" }}>Item {i + 1}</p>
+            ))}
+          </div>
+        </ShadcnScrollArea>
+      ),
+    },
+  },
 };
