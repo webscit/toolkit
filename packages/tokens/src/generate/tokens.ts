@@ -124,14 +124,6 @@ const SEMANTIC_ALIASES: readonly AliasMapEntry[] = [
   { alias: "info-foreground", ref: "{sct.color.info.50}" },
 ] as const;
 
-function semanticAliasesGroup(): DtcgGroup {
-  const out: DtcgGroup = {};
-  for (const { alias, ref } of SEMANTIC_ALIASES) {
-    out[alias] = { $type: "color", $value: ref };
-  }
-  return out;
-}
-
 function colorGroup(palettes: Palettes): DtcgGroup {
   // Aliases may share a key with a scale role (e.g. "primary" is both a
   // role with steps 50..950 AND a semantic alias pointing at the 600 step).
