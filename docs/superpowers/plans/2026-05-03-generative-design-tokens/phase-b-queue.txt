@@ -1,0 +1,43 @@
+Components with raw px (excluding border-width):
+  packages/registry/src/components/accordion/accordion.css
+  packages/registry/src/components/alert/alert.css
+  packages/registry/src/components/alert-dialog/alert-dialog.css
+  packages/registry/src/components/badge/badge.css
+  packages/registry/src/components/button/button.css
+  packages/registry/src/components/button-group/button-group.css
+  packages/registry/src/components/card/card.css
+  packages/registry/src/components/checkbox/checkbox.css
+  packages/registry/src/components/combobox/combobox.css
+  packages/registry/src/components/command/command.css
+  packages/registry/src/components/context-menu/context-menu.css
+  packages/registry/src/components/dialog/dialog.css
+  packages/registry/src/components/drawer/drawer.css
+  packages/registry/src/components/field/field.css
+  packages/registry/src/components/hover-card/hover-card.css
+  packages/registry/src/components/input-group/input-group.css
+  packages/registry/src/components/input/input.css
+  packages/registry/src/components/kbd/kbd.css
+  packages/registry/src/components/menubar/menubar.css
+  packages/registry/src/components/menu/menu.css
+  packages/registry/src/components/native-select/native-select.css
+  packages/registry/src/components/navigation-menu/navigation-menu.css
+  packages/registry/src/components/pagination/pagination.css
+  packages/registry/src/components/popover/popover.css
+  packages/registry/src/components/radio-group/radio-group.css
+  packages/registry/src/components/radio/radio.css
+  packages/registry/src/components/resizable/resizable.css
+  packages/registry/src/components/scroll-area/scroll-area.css
+  packages/registry/src/components/select/select.css
+  packages/registry/src/components/separator/separator.css
+  packages/registry/src/components/sheet/sheet.css
+  packages/registry/src/components/sidebar/sidebar.css
+  packages/registry/src/components/slider/slider.css
+  packages/registry/src/components/switch/switch.css
+  packages/registry/src/components/table/table.css
+  packages/registry/src/components/tabs/tabs.css
+  packages/registry/src/components/textarea/textarea.css
+  packages/registry/src/components/toast/toast.css
+  packages/registry/src/components/toggle-group/toggle-group.css
+  packages/registry/src/components/toggle/toggle.css
+
+Components referencing --sct-font-family-sans:
