@@ -41,6 +41,7 @@ export const SPACE_MULTIPLIERS: ReadonlyArray<readonly [number, number]> = [
   [5, 5],
   [6, 6],
   [8, 8],
+  [9, 9],
   [10, 10],
   [12, 12],
   [16, 16],

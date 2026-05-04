@@ -4,7 +4,7 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: var(--sct-space-2);
     border-radius: var(--sct-radius-md);
     font-size: var(--sct-font-size-sm);
     font-weight: var(--sct-font-weight-medium);
@@ -24,9 +24,9 @@
     color: var(--sct-color-primary-foreground);
 
     /* default size */
-    height: 2.25rem;
-    padding-inline: 1rem;
-    padding-block: 0.5rem;
+    height: var(--sct-space-9);
+    padding-inline: var(--sct-space-4);
+    padding-block: var(--sct-space-2);
   }
 
   :scope:focus-visible {

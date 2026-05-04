@@ -106,6 +106,7 @@ exports[`generateCss > snapshot of default-theme tokens.css 1`] = `
     --sct-space-5: calc(var(--sct-spacing) * 5);
     --sct-space-6: calc(var(--sct-spacing) * 6);
     --sct-space-8: calc(var(--sct-spacing) * 8);
+    --sct-space-9: calc(var(--sct-spacing) * 9);
     --sct-space-10: calc(var(--sct-spacing) * 10);
     --sct-space-12: calc(var(--sct-spacing) * 12);
     --sct-space-16: calc(var(--sct-spacing) * 16);

@@ -192,6 +192,11 @@ describe("generateTokenDocuments — compatibility shims", () => {
     expect(xs.$value).toContain("rgba(");
   });
 
+  it("emits --sct-space-9 (button height)", () => {
+    const space9 = get(docs.light, "sct.space.9") as { $value: string };
+    expect(space9.$value).toBe("calc(var(--sct-spacing) * 9)");
+  });
+
   it("emits component dimensions", () => {
     const sidebar = get(docs.light, "sct.sidebar.width") as { $value: string };
     expect(sidebar.$value).toBe("256px");
