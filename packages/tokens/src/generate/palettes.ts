@@ -3,6 +3,7 @@ import {
   BackgroundColor,
   Color,
   Theme,
+  type CssColor,
 } from "@adobe/leonardo-contrast-colors";
 import type { ThemeConfig } from "./config.js";
 import { NEUTRAL_KEY_COLORS } from "../defaults/neutrals.js";
@@ -107,7 +108,7 @@ function buildTheme(
 
   const background = new BackgroundColor({
     name: "background",
-    colorKeys: [neutralKey],
+    colorKeys: [neutralKey as CssColor],
     colorspace: "OKLCH",
     ratios,
   });
@@ -116,7 +117,7 @@ function buildTheme(
     ({ role, key }) =>
       new Color({
         name: role,
-        colorKeys: [key],
+        colorKeys: [key as CssColor],
         colorspace: "OKLCH",
         ratios,
       }),

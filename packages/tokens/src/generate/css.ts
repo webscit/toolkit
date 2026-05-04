@@ -1,5 +1,6 @@
 // packages/tokens/src/generate/css.ts
 import StyleDictionary from "style-dictionary";
+import type { DesignTokens } from "style-dictionary/types";
 import type { DtcgDocuments } from "./tokens.js";
 import { THEME_CSS } from "./theme-base.js";
 
@@ -114,7 +115,7 @@ interface BuildArgs {
 async function buildCss(args: BuildArgs): Promise<string> {
   ensureRegistered();
   const sd = new StyleDictionary({
-    tokens: splitHybridTokens(args.tokens) as Record<string, unknown>,
+    tokens: splitHybridTokens(args.tokens) as unknown as DesignTokens,
     log: {
       // The synthetic __self child key collides with no real sibling, but
       // SD's collision detector flags hybrid splits regardless. Silence.
