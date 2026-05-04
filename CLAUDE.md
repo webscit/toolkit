@@ -72,17 +72,22 @@ className={`sct-button${className ? ` ${className}` : ''}`}
 
 ## Design Token System
 
-Tokens are W3C DTCG JSON files in `packages/tokens/src/`:
+Tokens are **generated** at build time, not stored as static JSON. The pipeline lives in `packages/tokens/src/generate/`:
 
-- `base.tokens.json` — primitive palette (colors, spacing, radii, typography)
-- `semantic.tokens.json` — semantic aliases for light theme
-- `semantic-dark.tokens.json` — dark theme overrides only
+- `defaults/` — curated neutral, primary, and font defaults.
+- `generate/config.ts` — `ThemeConfig` shape + `defaultThemeConfig()` + `parseThemeConfig()`.
+- `generate/palettes.ts` — Leonardo-based 11-step color scale generation per role.
+- `generate/tokens.ts` — assembles W3C DTCG documents (light + dark) from a `ThemeConfig`.
+- `generate/css.ts` — feeds the DTCG documents through Style Dictionary, emits layered CSS.
+- `generate/index.ts` — `generateTheme(config)` composition that returns a `TokenBundle` (`tokensCss`, `tokensDarkCss`, `themeCss`).
+
+Default consumer flow: the CLI's `init` command persists a `theme` section in `components.json`, generates the bundle via `generateTheme(config)`, and copies the three CSS files into the project. `npx @webscit/toolkit theme` regenerates after edits or version bumps.
 
 Style Dictionary outputs:
 
 - `dist/tokens.css` — `@layer design-tokens { :root { --sct-* } }` (light theme) + `@layer design-tokens, theme;` ordering declaration
 - `dist/tokens-dark.css` — `@layer design-tokens { [data-theme="dark"] { --sct-* } }` (dark overrides)
-- `dist/base.css` — `@layer theme { html, :host { font-family: var(--sct-font-family-sans) } }` (base element styles)
+- `dist/theme.css` — `@layer theme { html, :host { font-family: var(--sct-font-family-text) } }` (base element styles)
 
 **CSS layer contract:** Tokens live in `@layer design-tokens` (lowest priority); the default element styles live in `@layer theme`. The layer order `design-tokens, theme` is declared at the top of `tokens.css`. Consuming apps that use their own `@layer` declarations **must** import `tokens.css` before any other layered stylesheet, or explicitly redeclare the layer order (`@layer design-tokens, theme, <app-layers...>;`) before their own layers. Unlayered consumer rules always win over both layers regardless of import order.
 
