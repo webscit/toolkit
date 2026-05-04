@@ -1,15 +1,15 @@
 @scope (.sct-input) {
   :scope {
-    height: 2.25rem;
+    height: var(--sct-space-9);
     width: 100%;
     min-width: 0;
     border-radius: var(--sct-radius-md);
-    border: 1px solid var(--sct-color-input);
+    border: var(--sct-border-width-1) solid var(--sct-color-input);
     background-color: transparent;
-    padding-inline: 0.75rem;
-    padding-block: 0.25rem;
+    padding-inline: var(--sct-space-3);
+    padding-block: var(--sct-space-1);
     font-size: var(--sct-font-size-base);
-    font-family: var(--sct-font-family-sans);
+    font-family: var(--sct-font-family-text);
     color: var(--sct-color-foreground);
     box-shadow: var(--sct-shadow-xs);
     transition:
@@ -43,6 +43,7 @@
 
   :scope::file-selector-button {
     display: inline-flex;
+    /* Off-grid file-button height tuned to fit inside the 2.25rem input. */
     height: 1.75rem;
     border: 0;
     background-color: transparent;
