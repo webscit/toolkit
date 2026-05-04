@@ -13,6 +13,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
+    "@inquirer/prompts": "^7.0.0",
     "@webscit/tokens": "^0.1.0"
   },
   "devDependencies": {
