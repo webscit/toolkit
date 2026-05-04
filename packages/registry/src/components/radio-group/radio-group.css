@@ -2,7 +2,7 @@
   :scope {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--sct-space-2);
   }
 
   :scope[data-orientation="horizontal"] {
@@ -19,7 +19,7 @@
     justify-content: center;
     aspect-ratio: 1;
     flex-shrink: 0;
-    border: 1px solid var(--sct-color-border);
+    border: var(--sct-border-width-1) solid var(--sct-color-border);
     border-radius: 50%;
     outline: none;
     cursor: pointer;
@@ -42,8 +42,8 @@
 
   .sct-radio-group-indicator-icon {
     display: block;
-    width: 0.5rem;
-    height: 0.5rem;
+    width: var(--sct-space-2);
+    height: var(--sct-space-2);
     border-radius: 50%;
     background-color: currentColor;
   }

@@ -1,5 +1,6 @@
 import { render } from "vitest-browser-react";
 import { describe, it, expect } from "vitest";
+import "@webscit/tokens/tokens.css";
 import { RadioGroup } from "./radio-group";
 
 describe("RadioGroup", () => {
