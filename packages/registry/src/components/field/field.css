@@ -2,7 +2,7 @@
   :scope {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--sct-space-1);
   }
 
   .sct-field-label {
@@ -29,15 +29,15 @@
 
 @scope (.sct-fieldset) {
   :scope {
-    border: 1px solid var(--sct-color-border);
+    border: var(--sct-border-width-1) solid var(--sct-color-border);
     border-radius: var(--sct-radius-lg);
-    padding: 1rem;
+    padding: var(--sct-space-4);
   }
 
   .sct-field-legend {
     font-size: var(--sct-font-size-sm);
     font-weight: var(--sct-font-weight-semibold);
-    padding-inline: 0.25rem;
+    padding-inline: var(--sct-space-1);
   }
 }
 
@@ -45,7 +45,7 @@
   :scope {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--sct-space-4);
   }
 }
 
@@ -53,6 +53,6 @@
   :scope {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--sct-space-1);
   }
 }
