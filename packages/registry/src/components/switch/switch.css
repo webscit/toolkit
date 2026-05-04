@@ -2,11 +2,11 @@
   :scope {
     display: inline-flex;
     align-items: center;
-    width: 2.5rem;
-    height: 1.25rem;
+    width: var(--sct-space-10);
+    height: var(--sct-space-5);
     flex-shrink: 0;
     border-radius: var(--sct-radius-full);
-    border: 2px solid transparent;
+    border: var(--sct-border-width-2) solid transparent;
     background-color: var(--sct-color-input);
     padding: 0;
     cursor: pointer;
@@ -33,12 +33,13 @@
 
   .sct-switch-thumb {
     display: block;
-    width: 0.75rem;
-    height: 0.75rem;
+    width: var(--sct-space-3);
+    height: var(--sct-space-3);
     border-radius: var(--sct-radius-full);
     background-color: var(--sct-color-background);
     box-shadow: var(--sct-shadow-sm);
     pointer-events: none;
+    /* Off-grid thumb positions tuned to the track geometry. */
     translate: 1px;
     transition: translate 150ms;
   }
