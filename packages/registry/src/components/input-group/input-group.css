@@ -19,14 +19,14 @@
   }
 
   :scope > :not(:first-child) {
-    margin-left: -1px;
+    margin-left: calc(var(--sct-border-width-1) * -1);
   }
 
   .sct-input-group-addon {
     display: flex;
     align-items: center;
-    padding-inline: 0.75rem;
-    border: 1px solid var(--sct-color-input);
+    padding-inline: var(--sct-space-3);
+    border: var(--sct-border-width-1) solid var(--sct-color-input);
     background-color: var(--sct-color-muted);
     font-size: var(--sct-font-size-sm);
     color: var(--sct-color-muted-foreground);
