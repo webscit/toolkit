@@ -3,9 +3,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.25rem;
+    gap: var(--sct-space-1);
     border-radius: var(--sct-radius-full);
-    border: 1px solid transparent;
+    border: var(--sct-border-width-1) solid transparent;
+    /* Off-grid pill padding kept as raw rem — no scale token fits and only
+       badge needs these values. */
     padding-inline: 0.625rem;
     padding-block: 0.125rem;
     font-size: var(--sct-font-size-xs);
