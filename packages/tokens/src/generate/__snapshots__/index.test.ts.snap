@@ -183,6 +183,7 @@ exports[`generateTheme > snapshot of default-theme bundle 1`] = `
     --sct-color-foreground: #101c2f;
     --sct-color-muted: #f3f4f6;
     --sct-color-muted-foreground: #68788e;
+    --sct-color-surface: #f7f8f9;
     --sct-color-border: #e8ebee;
     --sct-color-input: #e8ebee;
     --sct-color-ring: #5794f9;
@@ -209,12 +210,12 @@ exports[`generateTheme > snapshot of default-theme bundle 1`] = `
     --sct-space-16: calc(var(--sct-spacing) * 16);
     --sct-space-20: calc(var(--sct-spacing) * 20);
     --sct-space-24: calc(var(--sct-spacing) * 24);
+    --sct-radius-full: 9999px;
+    --sct-radius-sm: calc(var(--sct-radius) * 0.5);
+    --sct-radius-md: calc(var(--sct-radius) * 1);
+    --sct-radius-lg: calc(var(--sct-radius) * 1.5);
+    --sct-radius-xl: calc(var(--sct-radius) * 2);
     --sct-radius: 0.5rem;
-    --sct-radius-scale-full: 9999px;
-    --sct-radius-scale-sm: calc(var(--sct-radius) * 0.5);
-    --sct-radius-scale-md: calc(var(--sct-radius) * 1);
-    --sct-radius-scale-lg: calc(var(--sct-radius) * 1.5);
-    --sct-radius-scale-xl: calc(var(--sct-radius) * 2);
     --sct-font-family-text: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --sct-font-family-heading: var(--sct-font-family-text);
     --sct-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
@@ -226,8 +227,21 @@ exports[`generateTheme > snapshot of default-theme bundle 1`] = `
     --sct-font-size-xl: calc(var(--sct-font-size-base) * 1.25);
     --sct-font-size-2xl: calc(var(--sct-font-size-base) * 1.5);
     --sct-font-size-3xl: calc(var(--sct-font-size-base) * 1.875);
+    --sct-font-weight-normal: 400;
+    --sct-font-weight-medium: 500;
+    --sct-font-weight-semibold: 600;
     --sct-border-width-1: 1px;
     --sct-border-width-2: 2px;
+    --sct-line-height-tight: 1.2;
+    --sct-line-height-normal: 1.4;
+    --sct-line-height-relaxed: 1.6;
+    --sct-shadow-xs: 0 1px 2px 0 rgba(0,0,0,0.1);
+    --sct-shadow-sm: 0 2px 4px 0 rgba(0,0,0,0.15);
+    --sct-shadow-lg: 0 8px 24px 0 rgba(0,0,0,0.2);
+    --sct-progress-height: 0.5rem;
+    --sct-sidebar-width: 256px;
+    --sct-sidebar-width-collapsed: 48px;
+    --sct-drawer-width: 320px;
   }
 }
 ",
@@ -312,6 +326,7 @@ exports[`generateTheme > snapshot of default-theme bundle 1`] = `
     --sct-color-foreground: #f8f8fa;
     --sct-color-muted: #132033;
     --sct-color-muted-foreground: #728096;
+    --sct-color-surface: #101d30;
     --sct-color-border: #1b283c;
     --sct-color-input: #1b283c;
     --sct-color-ring: #145ece;

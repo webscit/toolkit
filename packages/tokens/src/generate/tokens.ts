@@ -104,6 +104,7 @@ const SEMANTIC_ALIASES: readonly AliasMapEntry[] = [
   { alias: "foreground", ref: "{sct.color.neutral.950}" },
   { alias: "muted", ref: "{sct.color.neutral.100}" },
   { alias: "muted-foreground", ref: "{sct.color.neutral.600}" },
+  { alias: "surface", ref: "{sct.color.neutral.50}" },
   { alias: "border", ref: "{sct.color.neutral.200}" },
   { alias: "input", ref: "{sct.color.neutral.200}" },
   { alias: "ring", ref: "{sct.color.primary.500}" },
@@ -136,13 +137,12 @@ function colorGroup(palettes: Palettes): DtcgGroup {
   // role with steps 50..950 AND a semantic alias pointing at the 600 step).
   // DTCG allows a node to be both a token (via $type/$value) and a parent
   // group; merge the alias's $type/$value into the scale group rather than
-  // overwriting it.
+  // overwriting it. Style Dictionary itself cannot consume hybrid nodes —
+  // the CSS layer (css.ts) splits them apart before handing tokens to SD.
   const out = colorScalesGroup(palettes);
   for (const { alias, ref } of SEMANTIC_ALIASES) {
     const existing = out[alias];
     if (existing && typeof existing === "object" && !("$value" in existing)) {
-      // The alias key collides with an existing scale group (e.g. "primary").
-      // Make the group also act as a token by adding $type/$value directly.
       Object.assign(existing, { $type: "color", $value: ref });
     } else {
       out[alias] = { $type: "color", $value: ref };
@@ -170,30 +170,75 @@ function spacingGroup(config: ThemeConfig): {
 }
 
 function radiusGroup(config: ThemeConfig): {
-  radius: DtcgToken;
-  "radius-scale": DtcgGroup;
+  radius: DtcgGroup & { $type: "dimension"; $value: string };
 } {
   if (config.radius === "full") {
-    const scale: DtcgGroup = { full: { $type: "dimension", $value: "9999px" } };
+    const hybrid = {
+      $type: "dimension",
+      $value: "9999px",
+      full: { $type: "dimension", $value: "9999px" },
+    } as unknown as DtcgGroup & { $type: "dimension"; $value: string };
     for (const [name] of RADIUS_MULTIPLIERS) {
-      scale[name] = { $type: "dimension", $value: "9999px" };
+      (hybrid as unknown as Record<string, DtcgToken>)[name] = {
+        $type: "dimension",
+        $value: "9999px",
+      };
     }
-    return {
-      radius: { $type: "dimension", $value: "9999px" },
-      "radius-scale": scale,
-    };
+    return { radius: hybrid };
   }
   const base = RADIUS_BASE[config.radius];
-  const scale: DtcgGroup = { full: { $type: "dimension", $value: "9999px" } };
+  const hybrid = {
+    $type: "dimension",
+    $value: base,
+    full: { $type: "dimension", $value: "9999px" },
+  } as unknown as DtcgGroup & { $type: "dimension"; $value: string };
   for (const [name, mul] of RADIUS_MULTIPLIERS) {
-    scale[name] = {
+    (hybrid as unknown as Record<string, DtcgToken>)[name] = {
       $type: "dimension",
       $value: `calc(var(--sct-radius) * ${mul})`,
     };
   }
+  return { radius: hybrid };
+}
+
+function fontWeightGroup(): DtcgGroup {
   return {
-    radius: { $type: "dimension", $value: base },
-    "radius-scale": scale,
+    weight: {
+      normal: { $type: "dimension", $value: "400" },
+      medium: { $type: "dimension", $value: "500" },
+      semibold: { $type: "dimension", $value: "600" },
+    },
+  };
+}
+
+function lineHeightGroup(): DtcgGroup {
+  return {
+    "line-height": {
+      tight: { $type: "dimension", $value: "1.2" },
+      normal: { $type: "dimension", $value: "1.4" },
+      relaxed: { $type: "dimension", $value: "1.6" },
+    },
+  };
+}
+
+function shadowGroup(): DtcgGroup {
+  return {
+    shadow: {
+      xs: { $type: "dimension", $value: "0 1px 2px 0 rgba(0,0,0,0.1)" },
+      sm: { $type: "dimension", $value: "0 2px 4px 0 rgba(0,0,0,0.15)" },
+      lg: { $type: "dimension", $value: "0 8px 24px 0 rgba(0,0,0,0.2)" },
+    },
+  };
+}
+
+function componentDimensionsGroup(): DtcgGroup {
+  return {
+    progress: { height: { $type: "dimension", $value: "0.5rem" } },
+    sidebar: {
+      width: { $type: "dimension", $value: "256px" },
+      "width-collapsed": { $type: "dimension", $value: "48px" },
+    },
+    drawer: { width: { $type: "dimension", $value: "320px" } },
   };
 }
 
@@ -222,7 +267,11 @@ function fontGroup(config: ThemeConfig): DtcgGroup {
     };
   }
 
-  return { family, size };
+  return {
+    family,
+    size,
+    ...fontWeightGroup(),
+  };
 }
 
 function borderGroup(): DtcgGroup {
@@ -248,9 +297,11 @@ export function generateTokenDocuments(
     spacing: sizing.spacing,
     space: sizing.space,
     radius: radius.radius,
-    "radius-scale": radius["radius-scale"],
     font,
     ...border,
+    ...lineHeightGroup(),
+    ...shadowGroup(),
+    ...componentDimensionsGroup(),
   };
 
   // Dark document only carries values that change in dark mode:

@@ -57,6 +57,11 @@ describe("generateCss", () => {
       .split("\n")
       .filter((l) => !/--sct-border-width/.test(l))
       .filter((l) => !/9999px/.test(l))
+      // Compatibility shims (Phase A): shadows, sidebar, and drawer keep
+      // their legacy px values until Phase B revisits them.
+      .filter((l) => !/--sct-shadow-/.test(l))
+      .filter((l) => !/--sct-sidebar-/.test(l))
+      .filter((l) => !/--sct-drawer-/.test(l))
       .join("\n");
     expect(filtered).not.toMatch(/\b\d+px\b/);
   });

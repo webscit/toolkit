@@ -74,9 +74,9 @@ describe("generateTokenDocuments — light", () => {
   it("emits radius base + calc()-derived scale (medium)", () => {
     const base = get(docs.light, "sct.radius") as { $value: string };
     expect(base.$value).toBe("0.5rem");
-    const md = get(docs.light, "sct.radius-scale.md") as { $value: string };
+    const md = get(docs.light, "sct.radius.md") as { $value: string };
     expect(md.$value).toBe("calc(var(--sct-radius) * 1)");
-    const full = get(docs.light, "sct.radius-scale.full") as {
+    const full = get(docs.light, "sct.radius.full") as {
       $value: string;
     };
     expect(full.$value).toBe("9999px");
@@ -127,9 +127,9 @@ describe("generateTokenDocuments — radius edge cases", () => {
     const docs2 = generateTokenDocuments(cfg2, palettes);
     const base = get(docs2.light, "sct.radius") as { $value: string };
     expect(base.$value).toBe("0");
-    const md = get(docs2.light, "sct.radius-scale.md") as { $value: string };
+    const md = get(docs2.light, "sct.radius.md") as { $value: string };
     expect(md.$value).toBe("calc(var(--sct-radius) * 1)");
-    const full = get(docs2.light, "sct.radius-scale.full") as {
+    const full = get(docs2.light, "sct.radius.full") as {
       $value: string;
     };
     expect(full.$value).toBe("9999px");
@@ -140,7 +140,7 @@ describe("generateTokenDocuments — radius edge cases", () => {
     cfg2.radius = "full";
     const docs2 = generateTokenDocuments(cfg2, palettes);
     for (const name of ["sm", "md", "lg", "xl", "full"]) {
-      const tok = get(docs2.light, `sct.radius-scale.${name}`) as {
+      const tok = get(docs2.light, `sct.radius.${name}`) as {
         $value: string;
       };
       expect(tok.$value).toBe("9999px");
@@ -171,6 +171,34 @@ describe("generateTokenDocuments — sizing", () => {
     expect(
       (get(docs2.light, "sct.font.size.base") as { $value: string }).$value,
     ).toBe("1.0625rem");
+  });
+});
+
+describe("generateTokenDocuments — compatibility shims", () => {
+  it("emits font weights", () => {
+    const w = get(docs.light, "sct.font.weight.medium") as { $value: string };
+    expect(w.$value).toBe("500");
+  });
+
+  it("emits line heights", () => {
+    const lh = get(docs.light, "sct.line-height.normal") as {
+      $value: string;
+    };
+    expect(lh.$value).toBe("1.4");
+  });
+
+  it("emits shadows", () => {
+    const xs = get(docs.light, "sct.shadow.xs") as { $value: string };
+    expect(xs.$value).toContain("rgba(");
+  });
+
+  it("emits component dimensions", () => {
+    const sidebar = get(docs.light, "sct.sidebar.width") as { $value: string };
+    expect(sidebar.$value).toBe("256px");
+    const progress = get(docs.light, "sct.progress.height") as {
+      $value: string;
+    };
+    expect(progress.$value).toBe("0.5rem");
   });
 });
 
