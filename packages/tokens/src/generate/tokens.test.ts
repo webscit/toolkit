@@ -91,7 +91,7 @@ describe("generateTokenDocuments — light", () => {
     expect(w1.$value).toBe("1px");
   });
 
-  it("emits font families: text, heading (inherit shim), mono, sans (compat)", () => {
+  it("emits font families: text, heading (inherit shim), mono — sans shim dropped", () => {
     const text = get(docs.light, "sct.font.family.text") as {
       $type: string;
       $value: string;
@@ -104,8 +104,10 @@ describe("generateTokenDocuments — light", () => {
     };
     expect(heading.$value).toBe("var(--sct-font-family-text)");
 
-    const sans = get(docs.light, "sct.font.family.sans") as { $value: string };
-    expect(sans.$value).toBe("var(--sct-font-family-text)");
+    const sans = get(docs.light, "sct.font.family.sans") as
+      | { $value: string }
+      | undefined;
+    expect(sans).toBeUndefined();
   });
 
   it("explicit heading font emits a real stack, not the inherit shim", () => {

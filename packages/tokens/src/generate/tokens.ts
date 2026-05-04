@@ -246,8 +246,7 @@ function fontGroup(config: ThemeConfig): DtcgGroup {
     text: { $type: "fontFamily", $value: textStack },
     heading: { $type: "fontFamily", $value: headingStack },
     mono: { $type: "fontFamily", $value: MONO_FAMILY_STACK },
-    // Compatibility shim — Phase B drops this.
-    sans: { $type: "fontFamily", $value: "var(--sct-font-family-text)" },
+    // sans: removed — Phase B complete.
   };
 
   const size: DtcgGroup = {

@@ -121,7 +121,6 @@ exports[`generateCss > snapshot of default-theme tokens.css 1`] = `
     --sct-font-family-text: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --sct-font-family-heading: var(--sct-font-family-text);
     --sct-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-    --sct-font-family-sans: var(--sct-font-family-text);
     --sct-font-size-base: 1rem;
     --sct-font-size-xs: calc(var(--sct-font-size-base) * 0.75);
     --sct-font-size-sm: calc(var(--sct-font-size-base) * 0.875);
