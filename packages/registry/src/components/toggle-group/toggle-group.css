@@ -2,17 +2,18 @@
   :scope {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
-    border: 1px solid var(--sct-color-border);
+    gap: var(--sct-space-1);
+    border: var(--sct-border-width-1) solid var(--sct-color-border);
     border-radius: var(--sct-radius-md);
-    padding: 0.25rem;
+    padding: var(--sct-space-1);
     background-color: var(--sct-color-muted);
   }
   .sct-toggle-group-item {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 2rem;
+    height: var(--sct-space-8);
+    /* Off-grid item padding (0.625rem) — no scale token fits. */
     padding-inline: 0.625rem;
     border-radius: var(--sct-radius-sm);
     font-size: var(--sct-font-size-sm);
@@ -47,7 +48,7 @@
   svg {
     pointer-events: none;
     flex-shrink: 0;
-    width: 1rem;
-    height: 1rem;
+    width: var(--sct-space-4);
+    height: var(--sct-space-4);
   }
 }
