@@ -1,5 +1,6 @@
 import { render } from "vitest-browser-react";
 import { describe, it, expect } from "vitest";
+import "@webscit/tokens/tokens.css";
 import { Button } from "./button";
 
 describe("Button", () => {
@@ -39,5 +40,22 @@ describe("Button", () => {
   it("passes disabled prop", async () => {
     const screen = await render(<Button disabled>Disabled</Button>);
     await expect.element(screen.getByRole("button")).toBeDisabled();
+  });
+
+  it("resolves the core --sct-* tokens used by Button", async () => {
+    const screen = await render(<Button>resolves</Button>);
+    const el = screen.container.querySelector(".sct-button") as HTMLElement;
+    const styles = window.getComputedStyle(el);
+    // Token names referenced in button.css; these must resolve to non-empty values.
+    for (const name of [
+      "--sct-color-primary",
+      "--sct-color-primary-foreground",
+      "--sct-color-ring",
+      "--sct-radius-md",
+      "--sct-font-size-sm",
+      "--sct-font-weight-medium",
+    ]) {
+      expect(styles.getPropertyValue(name).trim()).not.toBe("");
+    }
   });
 });
