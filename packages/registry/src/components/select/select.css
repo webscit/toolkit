@@ -3,15 +3,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.5rem;
-    height: 2.25rem;
+    gap: var(--sct-space-2);
+    height: var(--sct-space-9);
     width: 100%;
     border-radius: var(--sct-radius-md);
-    border: 1px solid var(--sct-color-input);
+    border: var(--sct-border-width-1) solid var(--sct-color-input);
     background-color: transparent;
-    padding-inline: 0.75rem;
+    padding-inline: var(--sct-space-3);
     font-size: var(--sct-font-size-base);
-    font-family: var(--sct-font-family-sans);
+    font-family: var(--sct-font-family-text);
     color: var(--sct-color-foreground);
     box-shadow: var(--sct-shadow-xs);
     cursor: pointer;
@@ -40,8 +40,8 @@
   }
 
   .sct-select-icon svg {
-    width: 1rem;
-    height: 1rem;
+    width: var(--sct-space-4);
+    height: var(--sct-space-4);
   }
 }
 
@@ -49,10 +49,10 @@
   :scope {
     min-width: var(--available-width, 8rem);
     background-color: var(--sct-color-surface);
-    border: 1px solid var(--sct-color-border);
+    border: var(--sct-border-width-1) solid var(--sct-color-border);
     border-radius: var(--sct-radius-md);
     box-shadow: var(--sct-shadow-lg);
-    padding-block: 0.25rem;
+    padding-block: var(--sct-space-1);
     outline: none;
     overflow: hidden;
   }
@@ -60,8 +60,9 @@
   .sct-select-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding-inline: 0.5rem 0.75rem;
+    gap: var(--sct-space-2);
+    padding-inline: var(--sct-space-2) var(--sct-space-3);
+    /* Off-grid item padding-block (0.375rem) — no scale token fits. */
     padding-block: 0.375rem;
     font-size: var(--sct-font-size-sm);
     color: var(--sct-color-foreground);
@@ -83,12 +84,13 @@
   .sct-select-item-indicator {
     display: flex;
     align-items: center;
-    width: 1rem;
+    width: var(--sct-space-4);
     flex-shrink: 0;
     color: var(--sct-color-primary);
   }
 
   .sct-select-item-indicator svg {
+    /* Off-grid icon size (0.875rem) — visual sizing inside indicator. */
     width: 0.875rem;
     height: 0.875rem;
   }
@@ -98,14 +100,15 @@
   }
 
   .sct-select-separator {
-    height: 1px;
+    height: var(--sct-border-width-1);
     background-color: var(--sct-color-border);
-    margin-block: 0.25rem;
-    margin-inline: -0.25rem;
+    margin-block: var(--sct-space-1);
+    margin-inline: calc(var(--sct-space-1) * -1);
   }
 
   .sct-select-label {
-    padding-inline: 0.5rem;
+    padding-inline: var(--sct-space-2);
+    /* Off-grid label padding-block (0.375rem) — no scale token fits. */
     padding-block: 0.375rem;
     font-size: var(--sct-font-size-xs);
     font-weight: var(--sct-font-weight-medium);
@@ -113,14 +116,14 @@
   }
 
   .sct-select-group {
-    padding: 0.25rem 0;
+    padding: var(--sct-space-1) 0;
   }
 
   .sct-select-scroll-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.25rem;
+    padding: var(--sct-space-1);
     cursor: pointer;
     color: var(--sct-color-muted-foreground);
   }
