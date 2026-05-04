@@ -8,7 +8,7 @@
   .sct-navigation-menu-list {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: var(--sct-space-1);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -21,9 +21,9 @@
   .sct-navigation-menu-trigger {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
-    height: 2.25rem;
-    padding-inline: 0.75rem;
+    gap: var(--sct-space-1);
+    height: var(--sct-space-9);
+    padding-inline: var(--sct-space-3);
     border-radius: var(--sct-radius-md);
     font-size: var(--sct-font-size-sm);
     font-weight: var(--sct-font-weight-medium);
@@ -48,7 +48,7 @@
 
   .sct-navigation-menu-link {
     display: block;
-    padding: 0.5rem 0.75rem;
+    padding: var(--sct-space-2) var(--sct-space-3);
     border-radius: var(--sct-radius-md);
     font-size: var(--sct-font-size-sm);
     color: var(--sct-color-foreground);
@@ -65,9 +65,9 @@
 /* portal-rendered: scoped outside so it applies when teleported to body */
 .sct-navigation-menu-content {
   min-width: 12rem;
-  padding: 0.5rem;
+  padding: var(--sct-space-2);
   background-color: var(--sct-color-background);
-  border: 1px solid var(--sct-color-border);
+  border: var(--sct-border-width-1) solid var(--sct-color-border);
   border-radius: var(--sct-radius-lg);
   box-shadow: var(--sct-shadow-lg);
 }
