@@ -1,29 +1,26 @@
-import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+// packages/tokens/src/index.ts
 
-export interface TokenBundle {
-  tokensCss: string;
-  tokensDarkCss: string;
-  themeCss: string;
-}
+// Public types
+export type {
+  ThemeConfig,
+  AdvancedThemeConfig,
+  RadiusChoice,
+  SizingChoice,
+} from "./generate/config.js";
+export type { NeutralName } from "./defaults/neutrals.js";
+export type { PrimaryName } from "./defaults/primaries.js";
+export type { FontName } from "./defaults/fonts.js";
 
-// Placeholder for future generative inputs (brand color, density, …).
-// Empty today — callers should pass {} or omit.
-export type TokenOptions = Record<string, never>;
+// Public values
+export {
+  defaultThemeConfig,
+  parseThemeConfig,
+  RADIUS_CHOICES,
+  SIZING_CHOICES,
+} from "./generate/config.js";
+export { NEUTRAL_CHOICES } from "./defaults/neutrals.js";
+export { PRIMARY_CHOICES } from "./defaults/primaries.js";
+export { FONT_CHOICES } from "./defaults/fonts.js";
 
-const here = dirname(fileURLToPath(import.meta.url));
-
-function read(file: string): string {
-  // After tsc compilation, this file lives at dist/index.js; the CSS files
-  // live alongside it at dist/*.css. Resolve relative to the compiled output.
-  return readFileSync(join(here, file), "utf8");
-}
-
-export function generateTokens(_options?: TokenOptions): TokenBundle {
-  return {
-    tokensCss: read("tokens.css"),
-    tokensDarkCss: read("tokens-dark.css"),
-    themeCss: read("theme.css"),
-  };
-}
+// Generator
+export { generateTheme, type TokenBundle } from "./generate/index.js";
