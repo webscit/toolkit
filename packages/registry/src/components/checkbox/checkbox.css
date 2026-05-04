@@ -3,11 +3,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1rem;
-    height: 1rem;
+    width: var(--sct-space-4);
+    height: var(--sct-space-4);
     flex-shrink: 0;
     border-radius: var(--sct-radius-sm);
-    border: 1px solid var(--sct-color-input);
+    border: var(--sct-border-width-1) solid var(--sct-color-input);
     background-color: transparent;
     box-shadow: var(--sct-shadow-xs);
     transition:
@@ -52,6 +52,7 @@
   }
 
   .sct-checkbox-indicator svg {
+    /* Off-grid icon dimensions chosen for visual balance inside a 1rem box. */
     width: 0.875rem;
     height: 0.875rem;
   }
