@@ -3,11 +3,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 1.25rem;
-    min-width: 1.25rem;
-    padding-inline: 0.25rem;
-    border: 1px solid var(--sct-color-border);
-    border-bottom-width: 2px;
+    height: var(--sct-space-5);
+    min-width: var(--sct-space-5);
+    padding-inline: var(--sct-space-1);
+    border: var(--sct-border-width-1) solid var(--sct-color-border);
+    border-bottom-width: var(--sct-border-width-2);
     border-radius: var(--sct-radius-md);
     background-color: var(--sct-color-muted);
     font-family: var(--sct-font-family-mono);

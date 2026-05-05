@@ -87,6 +87,18 @@ describe("runToolkitInit", () => {
     expect(secondResult.importsInjected).toEqual([]);
   });
 
+  it("overwrites existing files when overwrite=true", () => {
+    const { cwd } = makeFixture();
+    const existing = join(cwd, "src/app/tokens.css");
+    writeFileSync(existing, "/* user-customized */");
+
+    const result = runToolkitInit(cwd, tokenBundle, { overwrite: true });
+
+    expect(readFileSync(existing, "utf8")).toBe("/* light */");
+    expect(result.filesOverwritten).toContain(existing);
+    expect(result.filesSkipped).not.toContain(existing);
+  });
+
   it("creates the CSS entry file if it is missing", () => {
     const cwd = mkdtempSync(join(tmpdir(), "webscit-init-"));
     mkdirSync(join(cwd, "src", "app"), { recursive: true });

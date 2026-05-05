@@ -3,11 +3,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1rem;
-    height: 1rem;
+    width: var(--sct-space-4);
+    height: var(--sct-space-4);
     flex-shrink: 0;
     border-radius: var(--sct-radius-full);
-    border: 1px solid var(--sct-color-input);
+    border: var(--sct-border-width-1) solid var(--sct-color-input);
     background-color: transparent;
     box-shadow: var(--sct-shadow-xs);
     transition:
@@ -36,8 +36,8 @@
 
   .sct-radio-indicator {
     display: block;
-    width: 0.5rem;
-    height: 0.5rem;
+    width: var(--sct-space-2);
+    height: var(--sct-space-2);
     border-radius: var(--sct-radius-full);
     background-color: var(--sct-color-primary);
     opacity: 0;

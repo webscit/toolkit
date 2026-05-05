@@ -25,11 +25,13 @@
   }
 
   :scope[data-panel-group-direction="horizontal"] > .sct-resizable-handle {
+    /* Hairline handle thickness (3px) — intentional pixel-aligned divider. */
     width: 3px;
     cursor: col-resize;
   }
 
   :scope[data-panel-group-direction="vertical"] > .sct-resizable-handle {
+    /* Hairline handle thickness (3px) — intentional pixel-aligned divider. */
     height: 3px;
     cursor: row-resize;
   }

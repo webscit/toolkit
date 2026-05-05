@@ -3,9 +3,9 @@
     z-index: 50;
     width: 18rem;
     background-color: var(--sct-color-background);
-    border: 1px solid var(--sct-color-border);
+    border: var(--sct-border-width-1) solid var(--sct-color-border);
     border-radius: var(--sct-radius-lg);
-    padding: 1rem;
+    padding: var(--sct-space-4);
     box-shadow: var(--sct-shadow-lg);
     outline: none;
     transition:

@@ -19,20 +19,22 @@
     display: flex;
     touch-action: none;
     user-select: none;
-    padding: 1px;
+    padding: var(--sct-border-width-1);
     transition: colors;
   }
 
   .sct-scroll-bar[data-orientation="vertical"] {
     height: 100%;
+    /* Hairline scrollbar width (8px) — intentional pixel-aligned thumb track. */
     width: 8px;
-    border-left: 1px solid transparent;
+    border-left: var(--sct-border-width-1) solid transparent;
   }
 
   .sct-scroll-bar[data-orientation="horizontal"] {
+    /* Hairline scrollbar height (8px) — intentional pixel-aligned thumb track. */
     height: 8px;
     flex-direction: column;
-    border-top: 1px solid transparent;
+    border-top: var(--sct-border-width-1) solid transparent;
   }
 
   .sct-scroll-area-thumb {

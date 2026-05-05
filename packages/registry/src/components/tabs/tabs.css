@@ -2,7 +2,7 @@
   :scope {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--sct-space-2);
   }
 
   .sct-tabs-list {
@@ -10,7 +10,8 @@
     align-items: center;
     background-color: var(--sct-color-muted);
     border-radius: var(--sct-radius-md);
-    padding: 0.25rem;
+    padding: var(--sct-space-1);
+    /* Off-grid list gap (0.125rem) — no scale token fits. */
     gap: 0.125rem;
   }
 
@@ -18,7 +19,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding-inline: 0.75rem;
+    padding-inline: var(--sct-space-3);
+    /* Off-grid trigger padding-block (0.375rem) — no scale token fits. */
     padding-block: 0.375rem;
     font-size: var(--sct-font-size-sm);
     font-weight: var(--sct-font-weight-medium);

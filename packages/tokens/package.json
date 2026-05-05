@@ -5,8 +5,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "node build.mjs && tsc -p tsconfig.build.json",
-    "typecheck": "tsc --noEmit"
+    "build": "tsc -p tsconfig.build.json && node build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "exports": {
     ".": {
@@ -20,9 +21,13 @@
   "files": [
     "dist"
   ],
-  "devDependencies": {
-    "@tokens-studio/sd-transforms": "^2.0.3",
+  "dependencies": {
+    "@adobe/leonardo-contrast-colors": "^1.0.0",
     "style-dictionary": "^5.4.0",
-    "typescript": "^6.0.2"
+    "@tokens-studio/sd-transforms": "^2.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.2",
+    "vitest": "^3.0.0"
   }
 }

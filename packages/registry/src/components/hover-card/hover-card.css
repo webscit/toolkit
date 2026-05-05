@@ -2,9 +2,9 @@
 .sct-hover-card-content {
   min-width: 12rem;
   max-width: 20rem;
-  padding: 1rem;
+  padding: var(--sct-space-4);
   background-color: var(--sct-color-background);
-  border: 1px solid var(--sct-color-border);
+  border: var(--sct-border-width-1) solid var(--sct-color-border);
   border-radius: var(--sct-radius-lg);
   box-shadow: var(--sct-shadow-lg);
   font-size: var(--sct-font-size-sm);

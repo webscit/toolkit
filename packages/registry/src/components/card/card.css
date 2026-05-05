@@ -1,7 +1,7 @@
 @scope (.sct-card) {
   :scope {
     background-color: var(--sct-color-surface);
-    border: 1px solid var(--sct-color-border);
+    border: var(--sct-border-width-1) solid var(--sct-color-border);
     border-radius: var(--sct-radius-lg);
     box-shadow: var(--sct-shadow-xs);
     display: flex;
@@ -12,8 +12,8 @@
   .sct-card-header {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    padding: 1.5rem;
+    gap: var(--sct-space-1);
+    padding: var(--sct-space-6);
     padding-bottom: 0;
   }
 
@@ -33,17 +33,17 @@
     margin-left: auto;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--sct-space-2);
   }
 
   .sct-card-content {
-    padding: 1.5rem;
+    padding: var(--sct-space-6);
   }
 
   .sct-card-footer {
     display: flex;
     align-items: center;
-    padding: 1.5rem;
+    padding: var(--sct-space-6);
     padding-top: 0;
   }
 }

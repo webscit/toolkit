@@ -5,12 +5,12 @@
   }
 
   :scope[data-orientation="horizontal"] {
-    height: 1px;
+    height: var(--sct-border-width-1);
     width: 100%;
   }
 
   :scope[data-orientation="vertical"] {
-    width: 1px;
+    width: var(--sct-border-width-1);
     height: 100%;
   }
 }

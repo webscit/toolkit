@@ -1,6 +1,6 @@
 @scope (.sct-accordion) {
   .sct-accordion-item {
-    border-bottom: 1px solid var(--sct-color-border);
+    border-bottom: var(--sct-border-width-1) solid var(--sct-color-border);
   }
 
   .sct-accordion-header {
@@ -12,7 +12,7 @@
     flex: 1;
     align-items: center;
     justify-content: space-between;
-    padding-block: 1rem;
+    padding-block: var(--sct-space-4);
     font-size: var(--sct-font-size-sm);
     font-weight: var(--sct-font-weight-medium);
     background: none;
@@ -55,6 +55,6 @@
   }
 
   .sct-accordion-content > div {
-    padding-bottom: 1rem;
+    padding-bottom: var(--sct-space-4);
   }
 }
